@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/res/sweetalert2.min.css" />
+    <link rel="stylesheet" href="./asset/lamaran.css" />
+  </head>
+  <body>
+    <div class="form">
+      <div class="label">
+        <h3>Buat Surat Lamaranmu</h3>
+        <p>
+          Isi setiap bagian surat, lalu ekspor hasilnya untuk dikoreksi guru
+        </p>
+      </div>
+      <div class="form-field">
+        <span>Tempat & Tanggal</span> <input type="text" id="tanggal" />
+        <!---->
+        <span>Alamat Tujuan</span> <textarea name="" id="alamat"></textarea>
+        <!---->
+        <span>Perihal</span> <input type="text" id="perihal" />
+        <!---->
+        <span>Lampiran</span> <input type="text" id="lampiran" />
+        <!---->
+        <span>Salam Pembuka</span> <textarea name="" id="pembuka"></textarea>
+        <!---->
+        <span>Isi Surat</span> <button id="showBody">kelola</button>
+        <!---->
+        <span>Salam Penutup</span> <textarea name="" id="penutup"></textarea>
+        <!---->
+        <span>Nama Lengkap</span> <input type="text" id="nama" />
+        <!---->
+        <div class="btn-group">
+          <button onclick="togglePrev()">preview</button>
+          <button onclick="pdfSave()">simpan pdf</button>
+          <button onclick="imgSave()">simpan gambar</button>
+        </div>
+      </div>
+      <div class="container-prev">
+        <div class="cover">
+          <h3>preview</h3>
+        </div>
+        <div class="preview hidden" id="printPdf">
+          <p class="date text-break" id="date" style="text-align: right"></p>
+          <p class="address text-break" id="address"></p>
+
+          <table>
+            <tr>
+              <td>Perihal</td>
+              <td>:</td>
+              <td id="prevPerihal" class="text-break"></td>
+            </tr>
+            <tr>
+              <td>Lampiran</td>
+              <td>:</td>
+              <td id="prevLampiran" class="text-break"></td>
+            </tr>
+          </table>
+          <p id="prevPembuka" class="text-break"></p>
+          <p id="paraPembuka" class="text-break"></p>
+          <table style="margin-left: 20px" id="prevBio"></table>
+          <p id="paraPenutup" class="text-break"></p>
+          <p id="prevPenutup" class="text-break"></p>
+          <p id="prevNama" class="text-break"></p>
+        </div>
+      </div>
+    </div>
+    <script src="./asset/res/sweetalert2.all.min.js"></script>
+    <script src="./asset/res/html2canvas.min_2.js"></script>
+    <script src="./asset/res/html2pdf.bundle.min.js"></script>
+    <script src="./asset/form.js"></script>
+  </body>
+</html>

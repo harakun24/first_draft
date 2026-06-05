@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/video.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h3>Tonton & Pelajari Video</h3>
+        <p>Pelajari materi melalui video utuh atau per scene</p>
+      </div>
+      <div class="left">
+        <p>Daftar Video</p>
+        <div class="scenes">
+          <div class="scene" onclick="jumpTo(500)">
+            <h4>Scene 1</h4>
+            <p>Pertama</p>
+          </div>
+          <div class="scene" onclick="jumpTo(5000)">
+            <h4>Scene 2</h4>
+            <p>Pertama</p>
+          </div>
+          <div class="scene" onclick="jumpTo(15000)">
+            <h4>Scene 3</h4>
+            <p>Pertama</p>
+          </div>
+          <div class="scene" onclick="jumpTo(25000)">
+            <h4>Scene 4</h4>
+            <p>Pertama</p>
+          </div>
+          <div class="scene" onclick="jumpTo(50000)">
+            <h4>Scene 5</h4>
+            <p>Pertama</p>
+          </div>
+          <div class="scene" onclick="jumpTo(75000)">
+            <h4>Scene 6</h4>
+            <p>Pertama</p>
+          </div>
+          <div class="scene" onclick="jumpTo(85000)">
+            <h4>Scene 7</h4>
+            <p>Pertama</p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div id="player"></div>
+        <div class="btn-group">
+          <button onclick="player.playVideo()">play</button>
+          <button onclick="player.pauseVideo()">pause</button>
+        </div>
+        <div class="keterangan info">
+          <p>keterangan</p>
+        </div>
+        <div class="petunjuk info">
+          <p>petunjuk</p>
+        </div>
+      </div>
+    </div>
+    <script src="./asset/res/iframe_api.js"></script>
+    <script src="./asset/video.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/susun.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="drop-container">
+        <div class="slot" data-answer="1"><h3>1</h3></div>
+        <div class="slot" data-answer="2"><h3>2</h3></div>
+        <div class="slot" data-answer="3"><h3>3</h3></div>
+        <div class="slot" data-answer="4"><h3>4</h3></div>
+        <div class="slot" data-answer="5"><h3>5</h3></div>
+        <div class="slot" data-answer="6"><h3>6</h3></div>
+        <div class="slot" data-answer="7"><h3>7</h3></div>
+      </div>
+      <div class="drag-container">
+        <p>Komponen (Tarik & Lepas)</p>
+        <div class="pilihan">
+          <div class="item" draggable="true" data-id="1">tanggal surat</div>
+          <div class="item" draggable="true" data-id="2">alamat tujuan</div>
+          <div class="item" draggable="true" data-id="3">perihal/tujuan</div>
+          <div class="item" draggable="true" data-id="4">salam pembuka</div>
+          <div class="item" draggable="true" data-id="5">isi surat</div>
+          <div class="item" draggable="true" data-id="6">salam penutup</div>
+          <div class="item" draggable="true" data-id="7">tanda tangan</div>
+        </div>
+        <div class="btn-group">
+          <button id="check">Cek Jawaban</button>
+          <button onclick="randomize()">Ulangi</button>
+        </div>
+      </div>
+    </div>
+    <script src="./asset/susun.js"></script>
+  </body>
+</html>
