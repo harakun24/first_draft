@@ -181,45 +181,49 @@ function refreshIsi() {
 }
 
 async function pdfSave() {
-  // document.querySelector(".container-prev").classList.add("printing");
+
   const y = document.querySelector(".preview").innerHTML;
   var element = document.createElement("div");
   element.innerHTML = y
-  var opt = {
-    margin: 0.4,
-    filename: 'surat lamaran.pdf',
-    image: { type: 'jpeg', quality: 1 },
-    html2canvas: { scale: 4 },
-    jsPDF: { unit: 'in', format: "a4", orientation: 'portrait' },
+  element.style.cssText = "margin:1.4em;font-size:1.4rem"
 
-  };
+  const { jsPDF } = window.jspdf
 
-  // New Promise-based usage:
-  await html2pdf().set(opt).from(element).save();
-  // document.querySelector(".preview").classList.remove("printing");
-  // document.querySelector(".container-prev").classList.remove("printing");
+  const doc = new jsPDF({
+    orientation: "p",
+    unit: "mm",
+    format: "a4",
+  })
+
+  doc.html(element, {
+    callback: function (doc) {
+      doc.save("surat lamaran.pdf")
+    }, autoPaging: "text", width: 210, windowWidth: 800
+  })
+
 
 }
-function imgSave() {
+async function imgSave(condition = false) {
   const y = document.querySelector(".preview").innerHTML;
   var element = document.createElement("div");
   element.innerHTML = y
   element.style.cssText = "font-size:1.5em;width:794px; position:absolute;left:-999999px;top:0;z-index:-1"
   document.body.appendChild(element)
-  // document.querySelector(".container-prev").classList.add("printing");
-  html2canvas(element, { scale: 4 }).then(canvas => {
-    const link = document.createElement("a");
-    link.download = "surat lamaran.jpg"
-    link.href = canvas.toDataURL("images/jpeg", 1)
-    link.click()
-  }).then(() => {
-    element.remove()
-    // document.querySelector(".container-prev").classList.remove("printing");
-  })
+
+  const canvas = await html2canvas(element, { scale: 4 })
+  console.log(canvas)
+  if (condition) return canvas;
+
+  const link = document.createElement("a");
+  link.download = "surat lamaran.jpg"
+  link.href = canvas.toDataURL("images/jpeg", 1)
+  link.click()
+  element.remove()
 
 }
 
 function togglePrev() {
-  document.querySelector(".preview").classList.toggle("hidden")
-  document.querySelector(".cover").classList.toggle("hidden")
+  document.querySelector(".container-prev").classList.toggle("hidden")
+  document.querySelector(".form-field").classList.toggle("hidden")
+  document.querySelectorAll(".btn").forEach(btn => btn.classList.toggle("hidden"))
 }

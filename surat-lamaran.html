@@ -32,18 +32,13 @@
         <!---->
         <span>Nama Lengkap</span> <input type="text" id="nama" />
         <!---->
-        <div class="btn-group">
-          <button onclick="togglePrev()">preview</button>
-          <button onclick="pdfSave()">simpan pdf</button>
-          <button onclick="imgSave()">simpan gambar</button>
-        </div>
       </div>
-      <div class="container-prev">
-        <div class="cover">
+      <div class="container-prev hidden">
+        <!-- <div class="cover">
           <h3>preview</h3>
-        </div>
-        <div class="preview hidden" id="printPdf">
-          <p class="date text-break" id="date" style="text-align: right"></p>
+        </div> -->
+        <div class="preview" id="printPdf">
+          <p class="date" id="date" style="text-align: right"></p>
           <p class="address text-break" id="address"></p>
 
           <table>
@@ -66,10 +61,16 @@
           <p id="prevNama" class="text-break"></p>
         </div>
       </div>
+      <div class="btn-group">
+        <button class="btn" onclick="togglePrev()">preview</button>
+        <button class="hidden btn" onclick="togglePrev()">edit</button>
+        <button class="hidden btn" onclick="pdfSave()">simpan pdf</button>
+        <button class="hidden btn" onclick="imgSave()">simpan gambar</button>
+      </div>
     </div>
     <script src="./asset/res/sweetalert2.all.min.js"></script>
     <script src="./asset/res/html2canvas.min_2.js"></script>
-    <script src="./asset/res/html2pdf.bundle.min.js"></script>
+    <script src="./asset/res/jspdf.umd.min_2.js"></script>
     <script src="./asset/form.js"></script>
   </body>
 </html>
