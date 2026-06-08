@@ -1,21 +1,28 @@
 let dragged = null;
 let source = null;
 
+
 document.querySelectorAll(".item").forEach(item => {
+
   item.addEventListener("dragstart", () => {
     dragged = item;
     source = item.parentElement;
+    // dataTransfer.effectAllowed = "move"
+    // dataTransfer.setData("text", item.innerHTML)
     reset()
   })
 })
 
 document.querySelectorAll(".slot").forEach(slot => {
+
   slot.addEventListener("dragover", e => {
     e.preventDefault()
   })
-  slot.addEventListener("drop", () => {
+
+  slot.addEventListener("drop", (e) => {
     if (!dragged) return;
     const exist = slot.querySelector(".item");
+
     if (exist == dragged) return;
     if (exist) source.appendChild(exist)
     slot.appendChild(dragged)
@@ -25,9 +32,10 @@ document.querySelectorAll(".slot").forEach(slot => {
 
 document.querySelector(".pilihan").addEventListener("dragover", e => {
   e.preventDefault()
-})
+});
 
 document.querySelector(".pilihan").addEventListener("drop", () => {
+
   if (dragged) {
     document.querySelector(".pilihan").appendChild(dragged)
   }
