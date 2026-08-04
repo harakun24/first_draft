@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/fa/css/all.min.css" />
+    <script src="./asset/fa/js/all.min.js"></script>
+    <link rel="stylesheet" href="./video/etika.css" />
+    <script src="./video/swal2.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h3>BEI 2026 - Bahasa Indonesia XII</h3>
+      <b>Bab 1 Media 1</b>
+    </div>
+    <div class="title"><h2>Kerja dan Strategi Dokumen Lamaran</h2></div>
+    <div class="sidemenu">
+      <h4>Daftar Adegan</h4>
+      <div class="scene-group">
+        <div class="card" onclick="jumpTo(0, this)">
+          <span class="timer">00:00</span>
+          <div class="svg">
+            <i class="fas fa-circle"></i>
+          </div>
+          <b class="label">Kesan Pertama</b>
+        </div>
+        <div class="card" onclick="jumpTo(30, this)">
+          <span class="timer">00:30</span>
+          <div class="svg">
+            <i class="fas fa-circle"></i>
+          </div>
+          <b class="label">Format & Struktur</b>
+        </div>
+        <div class="card" onclick="jumpTo(72, this)">
+          <span class="timer">01:12</span>
+          <div class="svg">
+            <i class="fas fa-circle"></i>
+          </div>
+          <b class="label">Detail Bahasa</b>
+        </div>
+        <div class="card" onclick="jumpTo(108, this)">
+          <span class="timer">01:48</span>
+          <div class="svg">
+            <i class="fas fa-circle"></i>
+          </div>
+          <b class="label">Dokumen & ATS</b>
+        </div>
+        <div class="card" onclick="jumpTo(120, this)">
+          <span class="timer">02:24</span>
+          <div class="svg">
+            <i class="fas fa-circle"></i>
+          </div>
+          <b class="label">Koreksi Mandiri</b>
+        </div>
+      </div>
+      <div class="card all"><i class="fas fa-play"></i> Putar Semua</div>
+    </div>
+    <div class="middle">
+      <div id="player"></div>
+      <div class="controller card">
+        <button id="ctrl" onclick="togglePlay()">
+          <i class="ddf fas fa-play"></i>
+        </button>
+        <input type="range" name="" id="" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="card h">
+        <b>Fokus Adegan</b>
+        <h2>Kesan pertama dibentuk sebelum wawancara dimulai.</h2>
+        <div class="bar">
+          <b>pertanyaan reflektif</b>
+          <p>Apa kesan yang kamu ingin tunjukkan?</p>
+        </div>
+      </div>
+      <div class="card h">
+        <b>Keterangan</b>
+        <ul>
+          <li>Scene aktif disorot</li>
+          <li>Klik scene untuk melompat</li>
+          <li>Anotasi muncul otomatis</li>
+          <li>Kuis menjeda video</li>
+        </ul>
+      </div>
+    </div>
+    <script src="./asset/res/iframe_api.js"></script>
+
+    <script src="./video/main.js"></script>
+  </body>
+</html>

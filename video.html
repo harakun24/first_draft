@@ -4,65 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./asset/video.css" />
-    <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./asset/fa/css/all.min.css" />
+    <link rel="stylesheet" href="./video/main.css" />
+    <script src="./asset/fa/js/all.min.js"></script>
   </head>
   <body>
     <div class="container">
-      <div class="head">
-        <h3>Tonton & Pelajari Video</h3>
-        <p>Pelajari materi melalui video utuh atau per scene</p>
-      </div>
-      <div class="left">
-        <p>Daftar Video</p>
-        <div class="scenes">
-          <div class="scene" onclick="jumpTo(0)">
-            <h4>Scene 1</h4>
-            <p>Pertama</p>
-          </div>
-          <div class="scene" onclick="jumpTo(50)">
-            <h4>Scene 2</h4>
-            <p>Pertama</p>
-          </div>
-          <div class="scene" onclick="jumpTo(450)">
-            <h4>Scene 3</h4>
-            <p>Pertama</p>
-          </div>
-          <div class="scene" onclick="jumpTo(800)">
-            <h4>Scene 4</h4>
-            <p>Pertama</p>
-          </div>
-          <div class="scene" onclick="jumpTo(1100)">
-            <h4>Scene 5</h4>
-            <p>Pertama</p>
-          </div>
-          <div class="scene" onclick="jumpTo(1150)">
-            <h4>Scene 6</h4>
-            <p>Pertama</p>
-          </div>
-          <div class="scene" onclick="jumpTo(1200)">
-            <h4>Scene 7</h4>
-            <p>Pertama</p>
-          </div>
+      <span class="preview">pratinjau</span>
+      <h1>Bahasa Indonesia XII</h1>
+      <p>menu</p>
+      <div class="card-container">
+        <div class="card">
+          <i class="fas fa-user-check fa-5x"></i>
+          <h4>Etika Kerja dan Strategi Dokumen Lamaran</h4>
+          <!-- <button></button> -->
+          <a href="./etika.html">open</a>
         </div>
-      </div>
-      <div id="player"></div>
-      <div class="btn-group">
-        <button onclick="player.playVideo()">play</button>
-        <button onclick="player.pauseVideo()">pause</button>
-      </div>
-      <div class="info">
-        <div class="keterangan">
-          <p>keterangan</p>
+        <div class="card">
+          <i class="fas fa-user-edit fa-5x"></i>
+          <h4>Menulis Surat Lamaran Kerja Efektif</h4>
+          <!-- <button></button> -->
+          <a href="#">open</a>
         </div>
-        <div class="petunjuk">
-          <p>petunjuk</p>
+        <div class="card">
+          <i class="fas fa-user-friends fa-5x"></i>
+          <h4>Simulasi Wawancara Kerja</h4>
+          <!-- <button></button> -->
+          <a href="#">open</a>
         </div>
       </div>
     </div>
+    <script src="./video/swal2.js"></script>
+    <script src="./video/main.js"></script>
     <script src="./asset/res/iframe_api.js"></script>
-    <script src="./asset/video.js"></script>
   </body>
 </html>
