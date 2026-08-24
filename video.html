@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/styles/etika.css" />
+    <link rel="stylesheet" href="./public/fa/css/all.min.css" />
+    <script src="./public/fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h4>BEI 2026 | Bahasa Indonesia XII</h4>
+      <span>Media 1</span>
+    </div>
+    <h2 class="title">Etika Kerja dan Strategi Dokumen Lamaran</h2>
+    <div class="group-control">
+      <span>DAFTAR ADEGAN</span>
+      <div class="ctrl-timer" data-jump-to="0" onclick="jumpTo(0, this)">
+        <span>00:00</span>
+        <i class="fas fa-circle"></i>
+        <b>Kesan Pertama</b>
+      </div>
+      <div class="ctrl-timer" data-jump-to="30" onclick="jumpTo(30, this)">
+        <span>00:30</span>
+        <i class="fas fa-circle"></i>
+        <b>Format & Struktur</b>
+      </div>
+      <div class="ctrl-timer" data-jump-to="72" onclick="jumpTo(72, this)">
+        <span>01:12</span>
+        <i class="fas fa-circle"></i>
+        <b>Detail Bahasa</b>
+      </div>
+      <div class="ctrl-timer" data-jump-to="108" onclick="jumpTo(108, this)">
+        <span>01:48</span>
+        <i class="fas fa-circle"></i>
+        <b>Dokumen & ATS</b>
+      </div>
+      <div class="ctrl-timer" data-jump-to="144" onclick="jumpTo(144, this)">
+        <span>02:24</span>
+        <i class="fas fa-circle"></i>
+        <b>Koreksi Mandiri</b>
+      </div>
+      <div
+        class="ctrl-timer all"
+        onclick="jumpTo(0, document.querySelector('.ctrl-timer'))">
+        <!-- <span>00:30</span> -->
+        <i class="fas fa-play"></i>
+        <b>Putar Semua</b>
+      </div>
+    </div>
+    <div class="video-tap">
+      <div id="player"></div>
+      <div class="control">
+        <button id="ctrl" onclick="togglePlay()">
+          <i class="fas fa-play"></i>
+        </button>
+        <input type="range" name="seek" id="" />
+      </div>
+    </div>
+    <div class="focus">
+      <span>FOKUS ADEGAN</span>
+      <h3>Kesan pertama dibentuk sebelum wawancara dimulai.</h3>
+      <div class="pop-msg">
+        <b>Pertanyaan reflektif</b>
+        <p>Apa kesan pertama yang ingin kamu tunjukkan?</p>
+      </div>
+    </div>
+    <div class="detail">
+      <span>KETERANGAN</span>
+      <ul>
+        <li>Scene aktif disorot</li>
+        <li>Klik scene untuk melompat</li>
+        <li>Anotasi muncul otomatis</li>
+        <li>Kuis menjeda video</li>
+      </ul>
+    </div>
+    <script src="./public/scripts/iframe_api.js"></script>
+    <script src="./public/scripts/etika.js"></script>
+  </body>
+</html>

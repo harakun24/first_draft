@@ -1,0 +1,32 @@
+:root {
+  --main-color: #064076e1;
+  /* --main-color: #f0a910f8; */
+  --bg-color: #f5c730;
+  --bg-color: #15a3c7;
+  --m: 1rem;
+}
+
+@font-face {
+  font-family: "neue";
+  /* src: url("../fonts/poppins.otf"); */
+  src: url("../fonts/giltheads.otf");
+}
+
+body {
+  /* box-sizing: content-box; */
+  background-color: var(--bg-color);
+  display: grid;
+  /* min-height: 100vh; */
+  /* height: 100vh; */
+  margin: 0;
+  /* font-family: "neue"; */
+  /* letter-spacing: 0.175rem; */
+  font-family: Arial, Helvetica, sans-serif;
+  gap: var(--m);
+  user-select: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
