@@ -1,8 +1,36 @@
 let player;
-
 let animId;
 let isSeeking = false;
+let lastTime = 0;
+const triggerQuiz = new Set()
 const seeker = document.querySelector("input[type='range']");
+const popover = document.querySelector(".modal");
+// popover.showPopover()
+
+// const dataList = [30, 72, 108, 144].map(e => ({
+//   time: e,
+//   q: "ini placeholder pertanyaan"
+// }))
+
+const dataList = [{
+  time: 30,
+  title: "Kesan Pertama"
+}, {
+  time: 72,
+  title: "Format & Struktur"
+}, {
+  time: 108,
+  title: "Detail Bahasa"
+}, {
+  time: 144,
+  title: "Dokumen & ATS"
+}, {
+  time: 200,
+  title: "Koreksi Mandiri"
+}]
+
+
+
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
@@ -20,21 +48,17 @@ function onPlayerStateChange(event) {
   const timer = document.querySelectorAll(".ctrl-timer")
   timer.forEach(e => {
     const currentTime = player.getCurrentTime();
-    if (currentTime > e.dataset.jumpTo) { 
+    if (currentTime > e.dataset.jumpTo) {
       document.querySelector(".ctrl-timer.active")?.classList.remove("active")
       e.classList.add("active")
     }
   })
 
   if (event.data == YT.PlayerState.PLAYING) {
-    // btn.classList.remove("fa-play")
-    // btn.classList.add("fa-pause")
     btn.innerHTML = ` <i class="fas fa-pause"></i>`
     watchBar()
   }
   else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-    // btn.classList.add("fa-play")
-    // btn.classList.remove("fa-pause")
     btn.innerHTML = ` <i class="fas fa-play"></i>`
     cancelAnimationFrame(animId)
   }
@@ -45,11 +69,36 @@ function watchBar() {
   if (!isSeeking && player && player.getDuration) {
     const currentTime = player.getCurrentTime();
     const duration = player.getDuration()
+    if (currentTime < lastTime - 1)
+      updateQuizState(currentTime)
+    lastTime = currentTime;
     if (duration > 0)
       seeker.value = (currentTime / duration * 100)
+    for (const q of dataList) {
+      if (currentTime >= q.time && !triggerQuiz.has(q.time)) {
+        triggerQuiz.add(q.time)
+        player.pauseVideo()
+        showModal(q)
+        return;
+      }
+    }
   }
   if (player.getPlayerState() == YT.PlayerState.PLAYING)
     animId = requestAnimationFrame(watchBar)
+}
+
+function updateQuizState(timer) {
+  dataList.forEach(e => {
+    if (e.time > timer)
+      triggerQuiz.delete(e.time)
+    else
+      triggerQuiz.add(e.time)
+  })
+}
+
+function showModal(data) {
+  popover.querySelector("#timerAt").innerText = data.title
+  popover.showPopover()
 }
 
 function togglePlay() {
@@ -57,21 +106,17 @@ function togglePlay() {
     player.pauseVideo()
   else
     player.playVideo()
-} ``
+}
 
 function jumpTo(s, t) {
   if (!player || !player.seekTo) return;
 
-  // const data = document.querySelector(".active")
-  // if (data)
-  //   data.classList.remove("active")
-
   const currentTime = player.getCurrentTime();
   const duration = player.getDuration()
+  updateQuizState(parseFloat(t.dataset.jumpTo))
   if (duration > 0)
     seeker.value = (currentTime / duration * 100)
 
-  // t.classList.add("active")
   player.seekTo(s, true)
   player.playVideo()
 }
@@ -83,22 +128,15 @@ seeker.addEventListener("pointerup", () => {
 
   if (duration > 0) {
     const targetTime = (seeker.value / 100) * duration;
-    // console.log(targetTime)
+    updateQuizState(targetTime)
     player.seekTo(targetTime, true)
   }
   isSeeking = false;
 
 })
 
-// seeker.addEventListener("pointerup", () => {
-//   const duration = player.getDuration()
-
-//   if (duration > 0) {
-//     const try {
-      
-//     } catch (error) {
-      
-//     }
-//   }
-  
-// })
+popover.addEventListener("toggle", (e) => {
+  if (e.newState == "closed")
+    if (player)
+      player.playVideo()
+})

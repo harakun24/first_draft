@@ -185,3 +185,31 @@ body {
     }
   }
 }
+
+::backdrop {
+  background-color: #00000075;
+}
+
+.modal {
+  transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.35s;
+  &:popover-open {
+    display: grid;
+    gap: calc(var(--m) * 2);
+    padding: var(--m);
+    margin: var(--m);
+    border: none;
+    border-radius: calc(var(--m) / 2);
+    place-self: center;
+    /* box-shadow: 0 0 2px #00000075; */
+    .i {
+      justify-self: right;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+    }
+  }
+  @starting-style {
+    translate: -100% 0;
+    scale: 0;
+  }
+}
