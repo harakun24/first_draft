@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/styles/susun.css" />
+    <link rel="stylesheet" href="./public/fa/css/all.min.css" />
+    <script src="./public/fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h4>BEI 2026 | Bahasa Indonesia XII</h4>
+      <span>Media 1</span>
+    </div>
+    <h2 class="title">Etika Kerja dan Strategi Dokumen Lamaran</h2>
+    <div class="group-control">
+      <span>ALUR AKTIVITAS</span>
+      <div class="ctrl-timer">
+        <span>1</span>
+        <b>Video Tutorial</b>
+      </div>
+      <div class="ctrl-timer active" onclick="navigate(2)">
+        <span>2</span>
+        <b>Susun Surat</b>
+      </div>
+      <div class="ctrl-timer" onclick="navigate(3)">
+        <span>3</span>
+        <b>Validasi</b>
+      </div>
+      <div class="ctrl-timer" onclick="navigate(4)">
+        <span>4</span>
+        <b>Pilih CV</b>
+      </div>
+      <div class="ctrl-timer" onclick="navigate(5)">
+        <span>5</span>
+        <b>Finalisasi</b>
+      </div>
+      <div
+        class="ctrl-timer all"
+        onclick="jumpTo(0, document.querySelector('.ctrl-timer'))">
+        <!-- <span>00:30</span> -->
+        <b>Kembali</b>
+      </div>
+    </div>
+    <div class="content">
+      <div class="view">
+        <span>Seret setiap potonngan ke tempat yang tepat</span>
+        <div class="pool">
+          <span>POTONGAN SURAT</span>
+          <div
+            class="group-list"
+            data-pool
+            ondragover="event.preventDefault()"
+            ondrop="dropToPool(event)">
+            <div
+              class="item"
+              data-item="1"
+              draggable="true"
+              ondragstart="drag(event)">
+              satu
+            </div>
+            <div
+              class="item"
+              data-item="2"
+              draggable="true"
+              ondragstart="drag(event)">
+              dua
+            </div>
+            <div
+              class="item"
+              data-item="3"
+              draggable="true"
+              ondragstart="drag(event)">
+              tiga
+            </div>
+            <div
+              class="item"
+              data-item="4"
+              draggable="true"
+              ondragstart="drag(event)">
+              empat
+            </div>
+            <div
+              class="item"
+              data-item="5"
+              draggable="true"
+              ondragstart="drag(event)">
+              lima
+            </div>
+            <div
+              class="item"
+              data-item="6"
+              draggable="true"
+              ondragstart="drag(event)">
+              enam
+            </div>
+            <div
+              class="item"
+              data-item="7"
+              draggable="true"
+              ondragstart="drag(event)">
+              tujuh
+            </div>
+            <div
+              class="item"
+              data-item="8"
+              draggable="true"
+              ondragstart="drag(event)">
+              delapan
+            </div>
+            <div
+              class="item"
+              data-item="9"
+              draggable="true"
+              ondragstart="drag(event)">
+              sembilan
+            </div>
+          </div>
+        </div>
+        <div class="slots" data-slots>
+          <div class="header-slot">
+            <span>URUTAN SURAT</span>
+            <span><b id="counter">0/9</b></span>
+          </div>
+          <div
+            class="slot"
+            data-target="1"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>1</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="2"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>2</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="3"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>3</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="4"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>4</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="5"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>5</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="6"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>6</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="7"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>7</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="8"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>8</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="9"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>9</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <button onclick="validate()">Cek Jawaban</button>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="./public/scripts/iframe_api.js"></script> -->
+    <script src="./public/scripts/susun.js"></script>
+  </body>
+</html>
