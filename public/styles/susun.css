@@ -124,7 +124,7 @@ body {
         font-size: 0.8rem;
       }
       display: grid;
-      display: none;
+      /* display: none; */
       grid-template-columns: 0.3fr 0.7fr;
       grid-template-rows: auto 1fr;
       gap: var(--m);
@@ -308,6 +308,7 @@ body {
       /* padding: var(--m); */
       box-sizing: border-box;
       display: grid;
+      display: none;
       grid-template-rows: auto 1fr;
       .group-div {
         /* outline: 1px solid red; */
