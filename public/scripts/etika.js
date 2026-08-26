@@ -5,7 +5,7 @@ let lastTime = 0;
 const triggerQuiz = new Set()
 const seeker = document.querySelector("input[type='range']");
 const popover = document.querySelector(".modal");
-popover.showPopover()
+// popover.showPopover()
 
 // const dataList = [30, 72, 108, 144].map(e => ({
 //   time: e,
