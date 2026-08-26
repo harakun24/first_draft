@@ -442,6 +442,9 @@ body {
           .cover {
             background-color: rgba(128, 128, 128, 0.352);
           }
+          a {
+            text-align: center;
+          }
           button {
             padding: var(--m);
             border: none;
