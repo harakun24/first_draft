@@ -36,9 +36,7 @@
         <span>5</span>
         <b>Finalisasi</b>
       </div>
-      <div
-        class="ctrl-timer all"
-        onclick="jumpTo(0, document.querySelector('.ctrl-timer'))">
+      <div class="ctrl-timer all" onclick="backGo()">
         <!-- <span>00:30</span> -->
         <b>Kembali</b>
       </div>
@@ -251,21 +249,43 @@
           <div class="template">
             <div class="head"></div>
             <p>Minimalis</p>
-            <button onclick="navigate(5)">Pilih Template</button>
+            <button onclick="navigateOn(1)">Pilih Template</button>
           </div>
           <div class="template">
             <div class="head"></div>
             <p>Kreatif</p>
-            <button onclick="navigate(5)">Pilih Template</button>
+            <button onclick="navigateOn(2)">Pilih Template</button>
           </div>
           <div class="template">
             <div class="head"></div>
             <p>ATS-friendly</p>
-            <button onclick="navigate(5)">Pilih Template</button>
+            <button onclick="navigateOn(3)">Pilih Template</button>
           </div>
         </div>
       </div>
-      <div class="view"></div>
+      <div class="view">
+        <h1>Edit dan Eksport CV</h1>
+        <div class="board">
+          <div class="left" data-template="1">
+            <p>1. Template dipilih: <b id="tmp">Minimalis</b></p>
+            <div class="cover"></div>
+            <button onclick="navigate(4)">ganti template</button>
+          </div>
+          <div class="center">
+            <p>2. Edit di Canva</p>
+            <div class="cover"></div>
+            <a href="https://www.canva.com/id_id/" target="_blank"
+              >Buka dan edit di Canva &nbsp;
+              <i class="fas fa-arrow-right" style="rotate: -30deg"></i
+            ></a>
+          </div>
+          <div class="right">
+            <p>3. Ekspor</p>
+            <div class="cover"></div>
+            <button>Unduh pdf</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- <script src="./public/scripts/iframe_api.js"></script> -->
     <script src="./public/scripts/susun.js"></script>

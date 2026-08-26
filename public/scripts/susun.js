@@ -132,7 +132,12 @@
 //       player.playVideo()
 // })
 
-function navigate(num) {
+let template = 1;
+let history2 = [2];
+
+function navigate(num, state = true) {
+  if (state)
+    history2.push(num);
   if (num == 2)
     resetValue();
   // counting()
@@ -219,4 +224,20 @@ function counting() {
     }
   })
 
+}
+
+function navigateOn(num) {
+  template = num;
+  document.querySelector(".left").setAttribute("data-template", num)
+  document.getElementById("tmp").innerText = num == 1 ? "Minimalis" : num == 2 ? "Kreatif" : "ATS-friendly"
+  navigate(5)
+}
+
+function backGo() {
+  console.log(history2)
+  if (history2.length > 1)
+    history2.pop()
+  const delNum = history2[history2.length - 1];
+  console.log({ history2 })
+  navigate(delNum, false)
 }

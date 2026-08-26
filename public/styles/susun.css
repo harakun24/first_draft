@@ -124,7 +124,7 @@ body {
         font-size: 0.8rem;
       }
       display: grid;
-      /* display: none; */
+      display: none;
       grid-template-columns: 0.3fr 0.7fr;
       grid-template-rows: auto 1fr;
       gap: var(--m);
@@ -351,6 +351,106 @@ body {
           &:nth-child(3) {
             button {
               background-color: green;
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(4) {
+      display: grid;
+      /* outline: 1px solid black; */
+      align-content: start;
+      grid-template-rows: auto 1fr;
+      .board {
+        outline: 1px solid red;
+        padding: var(--m);
+        display: grid;
+        gap: var(--m);
+        grid-template-columns: 0.3fr 0.5fr 0.2fr;
+        & > div {
+          background-color: white;
+          border-radius: calc(var(--m) / 2);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.21);
+          padding: var(--m);
+          display: grid;
+          gap: var(--m);
+          p {
+            text-align: center;
+          }
+        }
+        .left {
+          align-content: start;
+          grid-template-rows: auto 60% 1fr;
+          border: 1px solid transparent;
+          &[data-template="1"] {
+            border: 1px solid blue;
+            button {
+              background-color: blue;
+            }
+          }
+          &[data-template="2"] {
+            border: 1px solid rgb(210, 177, 10);
+            button {
+              background-color: rgb(210, 177, 10);
+            }
+          }
+          &[data-template="3"] {
+            border: 1px solid rgb(16, 222, 37);
+            button {
+              background-color: rgb(16, 222, 37);
+            }
+          }
+          .cover {
+            background-color: rgba(128, 128, 128, 0.233);
+          }
+          button {
+            border: none;
+            border-radius: calc(var(--m) / 2);
+            padding: var(--m);
+            color: white;
+            margin-top: auto;
+            cursor: pointer;
+            transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+            &:hover {
+              filter: brightness(0.8);
+            }
+          }
+        }
+        .center {
+          align-content: start;
+          justify-content: center;
+          grid-template-rows: auto 50% auto;
+          .cover {
+            width: 100%;
+            background-color: rgba(128, 128, 128, 0.329);
+          }
+          a {
+            text-decoration: none;
+            color: white;
+            background-color: var(--main-color);
+            padding: var(--m);
+            border-radius: calc(var(--m) / 2);
+            cursor: pointer;
+            &:hover {
+              filter: brightness(1.2);
+            }
+          }
+        }
+        .right {
+          grid-template-rows: auto 50% auto;
+          align-content: start;
+          .cover {
+            background-color: rgba(128, 128, 128, 0.352);
+          }
+          button {
+            padding: var(--m);
+            border: none;
+            border-radius: calc(var(--m) / 2);
+            background-color: rgb(22, 188, 22);
+            color: rgba(255, 255, 255, 0.884);
+            cursor: pointer;
+            &:hover {
+              filter: brightness(1.2);
             }
           }
         }
