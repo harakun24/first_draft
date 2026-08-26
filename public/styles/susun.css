@@ -215,6 +215,7 @@ body {
       border-radius: calc(var(--m) / 2);
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.276);
       display: grid;
+      display: none;
       padding: var(--m);
       box-sizing: border-box;
       grid-template-rows: repeat(6, auto) 1fr;
@@ -298,6 +299,58 @@ body {
           transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
           &:hover {
             background-color: var(--bg-color);
+          }
+        }
+      }
+    }
+    &:nth-child(3) {
+      /* background-color: white; */
+      /* padding: var(--m); */
+      box-sizing: border-box;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      .group-div {
+        /* outline: 1px solid red; */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--m);
+        grid-template-rows: 1fr;
+        .template {
+          background-color: white;
+          display: grid;
+          align-content: start;
+          grid-template-rows: 70% auto 1fr;
+          padding: var(--m);
+          border-radius: calc(var(--m));
+          gap: var(--m);
+          text-align: center;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.131);
+          .head {
+            background-color: rgba(0, 0, 0, 0.221);
+          }
+          button {
+            padding: var(--m);
+            border: none;
+            align-self: end;
+            margin-top: auto;
+            cursor: pointer;
+            border-radius: calc(var(--m) / 2);
+            color: white;
+          }
+          &:nth-child(1) {
+            button {
+              background-color: blue;
+            }
+          }
+          &:nth-child(2) {
+            button {
+              background-color: rgb(202, 205, 26);
+            }
+          }
+          &:nth-child(3) {
+            button {
+              background-color: green;
+            }
           }
         }
       }
