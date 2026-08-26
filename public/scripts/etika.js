@@ -5,7 +5,7 @@ let lastTime = 0;
 const triggerQuiz = new Set()
 const seeker = document.querySelector("input[type='range']");
 const popover = document.querySelector(".modal");
-// popover.showPopover()
+popover.showPopover()
 
 // const dataList = [30, 72, 108, 144].map(e => ({
 //   time: e,
@@ -140,3 +140,19 @@ popover.addEventListener("toggle", (e) => {
     if (player)
       player.playVideo()
 })
+
+function answer(t) {
+  const ans = (t.dataset.answer) == "true";
+
+  document.querySelectorAll(".btn").forEach(e => {
+    e.classList.remove("benar", "salah")
+  })
+  if (ans)
+    t.classList.add("benar")
+  else {
+    t.classList.add("salah")
+    document.querySelector("[data-answer='true']").classList.add("benar")
+
+  }
+
+}

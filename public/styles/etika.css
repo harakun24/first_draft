@@ -214,3 +214,30 @@ body {
     scale: 0;
   }
 }
+
+.group-answer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--m);
+  button {
+    border: none;
+    padding: var(--m);
+    border-radius: calc(var(--m) / 2);
+    cursor: pointer;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    font-weight: bold;
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid #0d0753a4;
+      background-color: rgba(21, 163, 219, 0.551);
+    }
+    &.benar {
+      border: 1px solid #075312a4;
+      background-color: rgba(21, 219, 84, 0.551);
+    }
+    &.salah {
+      border: 1px solid #530707a4;
+      background-color: rgba(219, 21, 21, 0.551);
+    }
+  }
+}
