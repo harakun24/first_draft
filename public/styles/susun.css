@@ -362,7 +362,7 @@ body {
       align-content: start;
       grid-template-rows: auto 1fr;
       .board {
-        outline: 1px solid red;
+        /* outline: 1px solid red; */
         padding: var(--m);
         display: grid;
         gap: var(--m);
