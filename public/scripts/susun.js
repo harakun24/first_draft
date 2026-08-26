@@ -133,8 +133,15 @@
 // })
 
 function navigate(num) {
+  if (num == 2)
+    resetValue();
+  // counting()
   document.querySelector(".active")?.classList.remove("active");
   document.querySelectorAll(".ctrl-timer")[num - 1].classList.add("active");
+  document.querySelectorAll(".view").forEach(e => {
+    e.style.cssText = "display:none"
+  })
+  document.querySelector(`.view:nth-child(${num - 1})`).style.cssText = "display:grid"
 }
 
 let draggedItem = null;
@@ -164,21 +171,52 @@ function dropToPool(e) {
 
 function validate() {
   document.querySelectorAll('[data-target]').forEach(slot => {
-    const item = slot.children[0]
-    const isCorrect = item && item.dataset.item == slot.dataset.target;
-    slot.classList.toggle('correct', isCorrect)
-    slot.classList.toggle('wrong', !isCorrect)
+    const item = slot.children[0];
+    if (item) {
+      const isCorrect = item.dataset.item == slot.dataset.target;
+      slot.classList.toggle(isCorrect ? "correct" : "wrong")
+    }
   })
   counting()
+  navigate(3)
 }
 
 function resetValue() {
   document.querySelectorAll("[data-target]").forEach(e => {
-    e.classList.remove('correct', 'wrong')
+    e.classList.remove('correct')
+    e.classList.remove('wrong')
+  })
+  document.querySelectorAll(".label").forEach(e => {
+    e.classList.remove("wrong", "correct")
+    e.querySelector(".dfas").innerHTML = "";
   })
 }
 
 function counting() {
   const num = document.querySelectorAll(".correct:has(.item)").length
-  document.getElementById("counter").innerText = `${num}/9`
+  document.getElementById("counter").innerText = `${num}/9`;
+  document.getElementById("con").innerText = `${num}`;
+
+  const answ = document.querySelectorAll(".slot");
+  answ.forEach(e => {
+    if (e.classList.contains("correct")) {
+      console.log(e.dataset.target)
+      const t = document.querySelector(`.label:nth-child(${e.dataset.target})`)
+
+      t.classList.add("correct")
+      const icon = document.createElement("i")
+      icon.classList.add("fas", "fa-check")
+      t.querySelector(".dfas").appendChild(icon)
+    }
+    else if (e.classList.contains("wrong")) {
+      console.log(e.dataset.target)
+      const t = document.querySelector(`.label:nth-child(${e.dataset.target})`)
+
+      t.classList.add("wrong")
+      const icon = document.createElement("i")
+      icon.classList.add("fas", "fa-close")
+      t.querySelector(".dfas").appendChild(icon)
+    }
+  })
+
 }
