@@ -136,6 +136,8 @@ let template = 1;
 let history2 = [2];
 
 function navigate(num, state = true) {
+
+
   if (state)
     history2.push(num);
   if (num == 2)
@@ -163,6 +165,8 @@ function dropToSlot(e) {
   if (slot.children.length > 0)
     pool.appendChild(slot.children[0])
   slot.appendChild(draggedItem)
+  const num = 9 - document.querySelectorAll(".group-list .item").length;
+  document.getElementById("counter").innerText = `${num}/9`;
   resetValue()
   // counting()
 }
@@ -170,6 +174,9 @@ function dropToSlot(e) {
 function dropToPool(e) {
   e.preventDefault()
   document.querySelector("[data-pool]").appendChild(draggedItem)
+  const num = 9 - document.querySelectorAll(".group-list .item").length;
+  document.getElementById("counter").innerText = `${num}/9`;
+  // console.log(num)
   resetValue()
   // counting()
 }
@@ -187,6 +194,8 @@ function validate() {
 }
 
 function resetValue() {
+  const num = 9 - document.querySelectorAll(".group-list .item").length;
+  document.getElementById("counter").innerText = `${num}/9`;
   document.querySelectorAll("[data-target]").forEach(e => {
     e.classList.remove('correct')
     e.classList.remove('wrong')
@@ -205,7 +214,7 @@ function counting() {
   const answ = document.querySelectorAll(".slot");
   answ.forEach(e => {
     if (e.classList.contains("correct")) {
-      console.log(e.dataset.target)
+      // console.log(e.dataset.target)
       const t = document.querySelector(`.label:nth-child(${e.dataset.target})`)
 
       t.classList.add("correct")
@@ -214,7 +223,7 @@ function counting() {
       t.querySelector(".dfas").appendChild(icon)
     }
     else if (e.classList.contains("wrong")) {
-      console.log(e.dataset.target)
+      // console.log(e.dataset.target)
       const t = document.querySelector(`.label:nth-child(${e.dataset.target})`)
 
       t.classList.add("wrong")
@@ -234,10 +243,10 @@ function navigateOn(num) {
 }
 
 function backGo() {
-  console.log(history2)
+  // console.log(history2)
   if (history2.length > 1)
     history2.pop()
   const delNum = history2[history2.length - 1];
-  console.log({ history2 })
+  // console.log({ history2 })
   navigate(delNum, false)
 }
