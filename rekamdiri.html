@@ -74,20 +74,56 @@
             dignissimos cum temporibus.
           </p>
         </div>
-        <button class="btn-ex">Lanjut ke tantangan Praktek</button>
+        <button class="btn-ex" onclick="navigate(2)">
+          Lanjut ke tantangan Praktek
+        </button>
       </div>
       <div class="view">
-        <div class="record"></div>
+        <div class="record">
+          <b>Rekam Presentasi Dirimu</b>
+          <div class="timestamp">
+            <h1 class="timerText">00:00</h1>
+            <span>durasi latihan</span>
+          </div>
+          <button id="toggleRec">mulai rekam</button>
+          <p>
+            Gunakan Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Assumenda quaerat obcaecati nihil! Perspiciatis tempore veniam
+            laborum, libero atque dolor dolores ex reprehenderit, nisi cumque
+            tempora vel maiores voluptates, dicta ipsam?
+          </p>
+        </div>
         <div class="checklist">
           <h4>Evaluasi Mandiri</h4>
           <div class="check-group">
             <input type="checkbox" name="" id="satu" />
             <label for="satu">Kontak mata dan postur</label>
           </div>
+          <div class="check-group">
+            <input type="checkbox" name="" id="dua" />
+            <label for="dua">Pembukaan yang sopan</label>
+          </div>
+          <div class="check-group">
+            <input type="checkbox" name="" id="tiga" />
+            <label for="tiga">Kualifikasi relevan</label>
+          </div>
+          <div class="check-group">
+            <input type="checkbox" name="" id="empat" />
+            <label for="empat">Contoh solusi nyata</label>
+          </div>
+          <div class="check-group">
+            <input type="checkbox" name="" id="lima" />
+            <label for="lima">Suara jelas dan percaya diri</label>
+          </div>
+          <button class="download" onclick="savePdf()">
+            Unduh pdf <i class="fas fa-arrow-down"></i>
+          </button>
         </div>
       </div>
     </div>
     <!-- <script src="./public/scripts/iframe_api.js"></script> -->
+    <script src="./public/scripts/html2canvas.min_2.js"></script>
+    <script src="./public/scripts/jspdf.umd.min_2.js"></script>
     <script src="./public/scripts/rekam.js"></script>
   </body>
 </html>
