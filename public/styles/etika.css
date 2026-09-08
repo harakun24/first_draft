@@ -117,6 +117,8 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: calc(var(--m) / 2);
+    position: relative;
+
     #ctrl {
       padding: var(--m);
       aspect-ratio: 1;
@@ -187,14 +189,15 @@ body {
   }
 }
 
-::backdrop {
-  background-color: #00000075;
-}
-
 .modal {
+  &::backdrop {
+    background-color: #00000075;
+    pointer-events: auto !important;
+  }
   transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.35s;
   &:popover-open {
     display: grid;
+    max-width: 70vw;
     gap: calc(var(--m) * 2);
     padding: var(--m);
     margin: var(--m);
@@ -227,6 +230,12 @@ body {
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
     font-weight: bold;
     border: 1px solid transparent;
+    &:disabled {
+      color: black;
+      &:not(.benar, .salah) {
+        filter: brightness(0.6);
+      }
+    }
     &:hover {
       border: 1px solid #0d0753a4;
       background-color: rgba(21, 163, 219, 0.551);
@@ -240,4 +249,12 @@ body {
       background-color: rgba(219, 21, 21, 0.551);
     }
   }
+}
+
+.timerText {
+  position: absolute;
+  margin: calc(var(--m) / 2) var(--m);
+  right: 0;
+  font-weight: bold;
+  opacity: 0.4;
 }

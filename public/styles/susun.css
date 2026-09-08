@@ -124,7 +124,7 @@ body {
         font-size: 0.8rem;
       }
       display: grid;
-      display: none;
+      /* display: none; */
       grid-template-columns: 0.3fr 0.7fr;
       grid-template-rows: auto 1fr;
       gap: var(--m);
@@ -358,6 +358,7 @@ body {
     }
     &:nth-child(4) {
       display: grid;
+      display: none;
       /* outline: 1px solid black; */
       align-content: start;
       grid-template-rows: auto 1fr;

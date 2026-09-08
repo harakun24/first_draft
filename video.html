@@ -19,27 +19,32 @@
       <div class="ctrl-timer" data-jump-to="0" onclick="jumpTo(0, this)">
         <span>00:00</span>
         <i class="fas fa-circle"></i>
-        <b>Kesan Pertama</b>
+        <b>Pembukaan</b>
       </div>
-      <div class="ctrl-timer" data-jump-to="30" onclick="jumpTo(30, this)">
-        <span>00:30</span>
+      <div class="ctrl-timer" data-jump-to="20" onclick="jumpTo(20, this)">
+        <span>00:20</span>
         <i class="fas fa-circle"></i>
-        <b>Format & Struktur</b>
+        <b>Dokumen Lamaran</b>
       </div>
-      <div class="ctrl-timer" data-jump-to="72" onclick="jumpTo(72, this)">
-        <span>01:12</span>
+      <div class="ctrl-timer" data-jump-to="68" onclick="jumpTo(68, this)">
+        <span>01:08</span>
         <i class="fas fa-circle"></i>
         <b>Detail Bahasa</b>
       </div>
-      <div class="ctrl-timer" data-jump-to="108" onclick="jumpTo(108, this)">
-        <span>01:48</span>
+      <div class="ctrl-timer" data-jump-to="99" onclick="jumpTo(99, this)">
+        <span>01:39</span>
         <i class="fas fa-circle"></i>
-        <b>Dokumen & ATS</b>
+        <b>Kelengkapan Dokumen</b>
       </div>
-      <div class="ctrl-timer" data-jump-to="144" onclick="jumpTo(144, this)">
-        <span>02:24</span>
+      <div class="ctrl-timer" data-jump-to="129" onclick="jumpTo(129, this)">
+        <span>02:09</span>
         <i class="fas fa-circle"></i>
-        <b>Koreksi Mandiri</b>
+        <b>Design CV</b>
+      </div>
+      <div class="ctrl-timer" data-jump-to="146" onclick="jumpTo(146, this)">
+        <span>02:26</span>
+        <i class="fas fa-circle"></i>
+        <b>Penutup</b>
       </div>
       <div
         class="ctrl-timer all"
@@ -55,6 +60,7 @@
         <button id="ctrl" onclick="togglePlay()">
           <i class="fas fa-play"></i>
         </button>
+        <span class="timerText">00:00 / 00:00</span>
         <input type="range" name="seek" id="" value="0" />
       </div>
     </div>
@@ -75,13 +81,13 @@
         <li>Kuis menjeda video</li>
       </ul>
     </div>
-    <div class="modal" id="modalquest" popover>
+    <div class="modal" id="modalquest" popover="auto">
       <button class="i" popovertarget="modalquest" popovertargetaction="hide">
         <i class="fas fa-close"></i>
       </button>
-      <h2>Placeholder Untuk Pertanyaan</h2>
       <span>anda telah menyelesaikan part <b id="timerAt">?</b></span>
-      <b>Jawaban yang benar dari pertanyaan ini adalah?</b>
+      <h2>Placeholder Untuk Pertanyaan</h2>
+      <!-- <b>Jawaban yang benar dari pertanyaan ini adalah?</b> -->
       <div class="group-answer">
         <button class="btn" data-answer="true" onclick="answer(this)">
           A. ini
