@@ -40,3 +40,69 @@ function savePdf() {
 
 
 };
+
+let mediaRecorder;
+let recordedChunks = [];
+let recTimerInterval = null;
+let recSeconds = 0;
+
+const toggleRecBtn = document.getElementById("toggleRec");
+const recTimerText = document.querySelector(".record .timerText");
+
+function formatRecTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+}
+
+if (toggleRecBtn) {
+  toggleRecBtn.addEventListener("click", async () => {
+    if (!mediaRecorder || mediaRecorder.state === "inactive") {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        recordedChunks = [];
+
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data.size > 0) {
+            recordedChunks.push(e.data);
+          }
+        };
+
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(recordedChunks, { type: "video/webm" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.style.display = "none";
+          a.href = url;
+          a.download = "rekaman-presentasi.webm";
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+
+          stream.getTracks().forEach(track => track.stop());
+        };
+
+        mediaRecorder.start();
+
+        toggleRecBtn.innerHTML = `stop rekam <i class="fas fa-stop"></i>`;
+        recSeconds = 0;
+        if (recTimerText) recTimerText.textContent = "00:00";
+
+        recTimerInterval = setInterval(() => {
+          recSeconds++;
+          if (recTimerText) {
+            recTimerText.textContent = formatRecTime(recSeconds);
+          }
+        }, 1000);
+
+      } catch (err) {
+        alert("Gagal mengakses webcam atau mikrofon.");
+      }
+    } else if (mediaRecorder.state === "recording") {
+      mediaRecorder.stop();
+      clearInterval(recTimerInterval);
+      toggleRecBtn.innerHTML = `mulai rekam <i class="fas fa-camera"></i>`;
+    }
+  });
+}
