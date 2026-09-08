@@ -250,3 +250,110 @@ function backGo() {
   // console.log({ history2 })
   navigate(delNum, false)
 }
+
+const nameInput = document.getElementById('name');
+let previewName = "";
+
+nameInput.addEventListener('input', function () {
+  previewName = this.value || 'Nama Anda';
+});
+
+// async function saveCV() {
+//   const { jsPDF } = window.jspdf;
+//   const cvElement = document.createElement("div");
+//   cvElement.setAttribute("id", "cv-content");
+//   cvElement.innerHTML = `
+//   <div class="cv-header">
+//             <h1 id="preview-name">John Doe</h1>
+//             <p>Web Developer | Fresh Graduate</p>
+//         </div>
+//         <div class="cv-section">
+//             <h3>Tentang Saya</h3>
+//             <p>Seorang pengembang web yang antusias dengan pemahaman mendalam mengenai pengembangan antarmuka pengguna dan struktur data web modern.</p>
+//         </div>
+//         <div class="cv-section">
+//             <h3>Pendidikan</h3>
+//             <p>Universitas Contoh Indonesia — S1 Teknik Informatika (2020 - 2024)</p>
+//         </div>
+//   `
+//   cvElement.querySelector('#preview-name').textContent = previewName;
+
+//   try {
+//     // Render elemen HTML menjadi Canvas
+//     document.body.appendChild(cvElement)
+//     const canvas = await html2canvas(cvElement, {
+//       scale: 2, // Skala ditingkatkan agar hasil cetak tidak pecah (tajam)
+//       useCORS: true
+//     });
+
+//     const imgData = canvas.toDataURL('image/png');
+//     const pdf = new jsPDF('p', 'mm', 'a4');
+
+//     const pdfWidth = pdf.internal.pageSize.getWidth();
+//     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+//     // Masukkan gambar canvas ke dalam dokumen PDF
+//     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+//     pdf.save('cv-user.pdf');
+//   } catch (error) {
+//     console.error('Terjadi kesalahan saat mengunduh CV:', error);
+//   }
+//   cvElement.remove()
+// }
+
+async function saveCV() {
+  const { jsPDF } = window.jspdf;
+  const nameValue = document.getElementById('name').value || 'Nama Anda';
+
+  const cvElement = document.createElement("div");
+  cvElement.setAttribute("id", "cv-content");
+
+  // Berikan gaya inline agar elemen tersembunyi dari pandangan pengguna 
+  // namun tetap bisa dirender oleh html2canvas (tidak menggunakan display: none)
+  cvElement.style.position = "fixed";
+  cvElement.style.left = "-9999px";
+  cvElement.style.top = "0";
+  cvElement.style.width = "210mm";
+  cvElement.style.minHeight = "297mm";
+  cvElement.style.background = "white";
+  cvElement.style.padding = "20mm";
+  cvElement.style.boxSizing = "border-box";
+  cvElement.style.zIndex = "-1000";
+
+  cvElement.innerHTML = `
+        <div class="cv-header" style="border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px;">
+            <h1 id="preview-name" style="margin: 0; font-size: 28px; color: #333;">${nameValue}</h1>
+            <p style="margin: 5px 0 0; color: #666;">Web Developer | Fresh Graduate</p>
+        </div>
+        <div class="cv-section" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 8px; color: #007bff; border-bottom: 1px solid #ddd; padding-bottom: 4px;">Tentang Saya</h3>
+            <p style="margin: 0; color: #444; line-height: 1.5;">Seorang pengembang web yang antusias dengan pemahaman mendalam mengenai pengembangan antarmuka pengguna dan struktur data web modern.</p>
+        </div>
+        <div class="cv-section" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 8px; color: #007bff; border-bottom: 1px solid #ddd; padding-bottom: 4px;">Pendidikan</h3>
+            <p style="margin: 0; color: #444; line-height: 1.5;">Universitas Contoh Indonesia — S1 Teknik Informatika (2020 - 2024)</p>
+        </div>
+    `;
+
+  document.body.appendChild(cvElement);
+
+  try {
+    const canvas = await html2canvas(cvElement, {
+      scale: 2,
+      useCORS: true
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('cv-user.pdf');
+  } catch (error) {
+    console.error('Terjadi kesalahan saat mengunduh CV:', error);
+  } finally {
+    cvElement.remove();
+  }
+}

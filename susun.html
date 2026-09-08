@@ -272,24 +272,29 @@
             <button onclick="navigate(4)">ganti template</button>
           </div>
           <div class="center">
-            <p>2. Edit di Canva</p>
-            <div class="cover"></div>
-            <a href="https://www.canva.com/id_id/" target="_blank"
-              >Buka dan edit di Canva &nbsp;
-              <i class="fas fa-arrow-right" style="rotate: -30deg"></i
-            ></a>
+            <p>2. Isi data diri</p>
+            <div class="input-group">
+              <label for="name">nama lengkap</label>
+              <input type="text" id="name" placeholder="nama lengkap" />
+            </div>
+            <div class="input-group">
+              <label for="age">usia</label>
+              <input type="text" id="age" placeholder="19 tahun" />
+            </div>
           </div>
           <div class="right">
             <p>3. Ekspor</p>
             <div class="cover"></div>
-            <a href="./public/cv-pre.pdf" download="contoh-file.pdf">
-              <button>Unduh pdf</button>
+            <a href="#">
+              <button onclick="saveCV()">Unduh pdf</button>
             </a>
           </div>
         </div>
       </div>
     </div>
     <!-- <script src="./public/scripts/iframe_api.js"></script> -->
+    <script src="./public/scripts/html2canvas.min_2.js"></script>
+    <script src="./public/scripts/jspdf.umd.min_2.js"></script>
     <script src="./public/scripts/susun.js"></script>
   </body>
 </html>
