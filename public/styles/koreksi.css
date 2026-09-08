@@ -1,0 +1,62 @@
+@import url(./main.css);
+
+body {
+  background-color: rgba(191, 191, 187, 0.819);
+  align-content: start;
+  font-size: 0.85rem;
+  gap: 0;
+  height: 100vh;
+  /* place-content: center; */
+
+  /* gap: 0; */
+  .page {
+    background-color: white;
+    width: 40vw;
+    height: 80vh;
+    justify-self: center;
+    position: relative;
+    top: 10%;
+    padding: var(--m);
+    display: grid;
+    align-content: start;
+    gap: var(--m);
+    ol {
+      padding-left: var(--m);
+      .spoiler {
+        cursor: pointer;
+        span {
+          anchor-name: --span;
+        }
+        &:hover {
+          span {
+            background-color: red;
+          }
+          .pop {
+            display: flex;
+          }
+        }
+        .pop {
+          position-anchor: --span;
+          position: absolute;
+          position-area: right;
+          padding: var(--m);
+          /* display: flex; */
+          gap: var(--m);
+          background-color: rgba(128, 128, 128, 0.431);
+          display: none;
+          transition: ease-in 0.2s;
+          @starting-style {
+            scale: 0.5;
+          }
+          .input-group {
+            background-color: white;
+            border: 1px solid black;
+            padding: var(--m);
+            display: flex;
+            gap: var(--m);
+          }
+        }
+      }
+    }
+  }
+}
