@@ -180,11 +180,21 @@ body {
     font-size: 0.6rem;
     font-weight: bold;
   }
-  ul {
-    /* background-color: red; */
+  /* ul {
     justify-self: center;
     li {
       margin-top: calc(var(--m) / 2);
+    }
+  } */
+  button {
+    cursor: pointer;
+    padding: var(--m);
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: calc(var(--m) / 2);
+    &:hover {
+      filter: brightness(1.3);
     }
   }
 }
