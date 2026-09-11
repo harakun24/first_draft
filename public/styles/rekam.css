@@ -252,23 +252,41 @@ body {
   border: none;
   border-radius: calc(var(--m) / 2);
   place-self: center;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
+  .close {
+    position: absolute;
+    right: var(--m);
+    top: var(--m);
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  &:popover-open {
+    display: grid;
+  }
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.254);
+  }
+  @starting-style {
+    scale: 0.4;
+    opacity: 0;
+  }
+  video {
+    width: 40vw;
   }
   button {
     margin-top: var(--m);
     border: none;
     border-radius: calc(var(--m) / 2);
-    padding: calc(var(--m) / 2);
+    padding: calc(var(--m) * 2) calc(var(--m) / 2);
     border: none;
     cursor: pointer;
     &:hover {
       filter: brightness(0.8);
     }
-    &:nth-child(2) {
+    &:nth-child(3) {
       background-color: rgb(23, 215, 23);
     }
-    &:nth-child(3) {
+    &:nth-child(4) {
       background-color: rgb(215, 42, 23);
     }
   }

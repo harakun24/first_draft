@@ -8,8 +8,8 @@ function navigate(num, state = true) {
   if (num == 1)
     resetValue();
   // counting()
-  document.querySelector(".active")?.classList.remove("active");
-  document.querySelectorAll(".ctrl-timer")[num - 1].classList.add("active");
+  // document.querySelector(".active")?.classList.remove("active");
+  // document.querySelectorAll(".ctrl-timer")[num - 1].classList.add("active");
   document.querySelectorAll(".view").forEach(e => {
     e.style.cssText = "display:none"
   })

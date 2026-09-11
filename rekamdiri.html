@@ -117,13 +117,20 @@
             <input type="checkbox" name="" id="lima" />
             <label for="lima">Suara jelas dan percaya diri</label>
           </div>
-          <!-- <button class="download" onclick="savePdf()">
-            Unduh pdf <i class="fas fa-arrow-down"></i>
-          </button> -->
+          <button
+            class="download"
+            onclick="document.querySelector('.modal').showPopover()">
+            Buka Video <i class="fas fa-external-link"></i>
+          </button>
         </div>
       </div>
     </div>
     <div id="videoModal" class="modal" popover>
+      <div
+        class="close"
+        onclick="document.querySelector('.modal').hidePopover()">
+        <i class="fas fa-close"></i>
+      </div>
       <video id="previewVideo" controls width="100%"></video>
       <button id="downloadBtn">
         <i class="fas fa-arrow-down"></i> Unduh Video
