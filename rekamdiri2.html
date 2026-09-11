@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/styles/rekam2.css" />
+    <link rel="stylesheet" href="./public/fa/css/all.min.css" />
+    <script src="./public/fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h4>BEI 2026 | Bahasa Indonesia XII</h4>
+      <span>Media 1</span>
+    </div>
+    <h2 class="title">Refleksi Awal, Tangkap Pesan, Temukan Makna</h2>
+    <div class="group-control">
+      <span>ALUR AKTIVITAS</span>
+      <div class="ctrl-timer">
+        <span>1</span>
+        <b>Layar Kecil</b>
+      </div>
+      <div class="ctrl-timer">
+        <span>2</span>
+        <b>Evi dan Rani</b>
+      </div>
+      <div class="ctrl-timer">
+        <span>3</span>
+        <b>Pesan Moral</b>
+      </div>
+      <div class="ctrl-timer active" onclick="navigate(4)">
+        <span>4</span>
+        <b>Refleksi</b>
+      </div>
+      <div class="ctrl-timer" onclick="navigate(5)">
+        <span>5</span>
+        <b>Kesimpulan</b>
+      </div>
+      <div class="ctrl-timer all">
+        <!-- <span>00:30</span> -->
+        <b>Kembali</b>
+      </div>
+    </div>
+    <div class="content">
+      <div class="view"></div>
+      <div class="view"></div>
+      <div class="view"></div>
+      <div class="view">
+        <b>Lembar Pencatatan Refleksi</b>
+        <h2>Ingat Kembali Satu Film Pendek atau Tayangan Inspiratif</h2>
+        <p>
+          Tulis jawabanmu secara ringkas dan berdasarkan pengalaman menonton
+        </p>
+        <div class="input-form">
+          <div class="input-group">
+            <label for="">Judul Film/Tayangan</label>
+            <input type="text" name="title" placeholder="Contoh: Titanic" />
+          </div>
+          <div class="input-group">
+            <label for="">Pesan Moral atau Nilai Kehidupan</label>
+            <input type="text" name="message" placeholder="Contoh: Titanic" />
+          </div>
+          <div class="input-group">
+            <label for="">Mengapa Pesan Itu Penting</label>
+            <input type="text" name="reason" placeholder="Contoh: Titanic" />
+          </div>
+          <button><i class="fas fa-save"></i> Simpan Refleksi</button>
+        </div>
+      </div>
+      <div class="view"></div>
+      <div class="modal2" popover>
+        <h2>
+          Apa yang paling menarik perhatianmu saat pertama menonton film pendek?
+        </h2>
+        <div class="choice">
+          <h1>Visual</h1>
+        </div>
+        <div class="choice">
+          <h1>Cerita</h1>
+        </div>
+        <div class="choice">
+          <h1>Musik</h1>
+        </div>
+      </div>
+    </div>
+    <div id="videoModal" class="modal" popover>
+      <div
+        class="close"
+        onclick="document.querySelector('.modal').hidePopover()">
+        <i class="fas fa-close"></i>
+      </div>
+      <video id="previewVideo" controls width="100%"></video>
+      <button id="downloadBtn">
+        <i class="fas fa-arrow-down"></i> Unduh Video
+      </button>
+      <button id="deleteBtn"><i class="fas fa-trash"></i> Hapus Video</button>
+    </div>
+    <!-- <script src="./public/scripts/iframe_api.js"></script> -->
+    <script src="./public/scripts/html2canvas.min_2.js"></script>
+    <script src="./public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="./public/scripts/rekam2.js"></script>
+  </body>
+</html>

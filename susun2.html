@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/styles/susun.css" />
+    <link rel="stylesheet" href="./public/fa/css/all.min.css" />
+    <script src="./public/fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h4>BEI 2026 | Bahasa Indonesia XII</h4>
+      <span>Media 4</span>
+    </div>
+    <h2 class="title">Etika Kerja dan Strategi Dokumen Lamaran</h2>
+    <div class="group-control">
+      <span>ALUR AKTIVITAS</span>
+      <div class="ctrl-timer">
+        <span>1</span>
+        <b>Video Tutorial</b>
+      </div>
+      <div class="ctrl-timer active" onclick="navigate(2)">
+        <span>2</span>
+        <b>Susun Surat</b>
+      </div>
+      <div class="ctrl-timer" onclick="validate()">
+        <span>3</span>
+        <b>Validasi</b>
+      </div>
+      <div class="ctrl-timer" onclick="navigate(4)">
+        <span>4</span>
+        <b>Pilih CV</b>
+      </div>
+      <div class="ctrl-timer" onclick="navigate(5)">
+        <span>5</span>
+        <b>Finalisasi</b>
+      </div>
+      <div class="ctrl-timer all" onclick="backGo()">
+        <!-- <span>00:30</span> -->
+        <b>Kembali</b>
+      </div>
+    </div>
+    <div class="content">
+      <div class="view">
+        <span>Seret setiap potonngan ke tempat yang tepat</span>
+        <div class="pool">
+          <span>POTONGAN SURAT</span>
+          <div
+            class="group-list"
+            data-pool
+            ondragover="event.preventDefault()"
+            ondrop="dropToPool(event)">
+            <div
+              class="item"
+              data-item="1"
+              draggable="true"
+              ondragstart="drag(event)">
+              Salam Pembuka, Pengantar, dan Tujuan
+            </div>
+            <div
+              class="item"
+              data-item="2"
+              draggable="true"
+              ondragstart="drag(event)">
+              Alamat Penerima
+            </div>
+            <div
+              class="item"
+              data-item="3"
+              draggable="true"
+              ondragstart="drag(event)">
+              Perihal
+            </div>
+            <div
+              class="item"
+              data-item="4"
+              draggable="true"
+              ondragstart="drag(event)">
+              Isi Pelamar dan Kualifikasi
+            </div>
+            <div
+              class="item"
+              data-item="5"
+              draggable="true"
+              ondragstart="drag(event)">
+              Daftar Lampiran
+            </div>
+            <div
+              class="item"
+              data-item="6"
+              draggable="true"
+              ondragstart="drag(event)">
+              Tanggal Penulisan
+            </div>
+            <div
+              class="item"
+              data-item="7"
+              draggable="true"
+              ondragstart="drag(event)">
+              Penutup Surat
+            </div>
+            <div
+              class="item"
+              data-item="8"
+              draggable="true"
+              ondragstart="drag(event)">
+              Salam Penutup
+            </div>
+            <div
+              class="item"
+              data-item="9"
+              draggable="true"
+              ondragstart="drag(event)">
+              Tanda Tangan
+            </div>
+          </div>
+        </div>
+        <div class="slots" data-slots>
+          <div class="header-slot">
+            <span>URUTAN SURAT</span>
+            <span><b id="counter">0/9</b></span>
+          </div>
+          <div
+            class="slot"
+            data-target="1"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>1</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="2"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>2</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="3"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>3</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="4"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>4</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="5"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>5</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="6"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>6</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="7"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>7</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="8"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>8</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <div
+            class="slot"
+            data-target="9"
+            ondragover="event.preventDefault()"
+            ondrop="dropToSlot(event)">
+            <!-- <b>9</b>
+            <i>letakkan di sini</i> -->
+          </div>
+          <button onclick="validate()">Cek Jawaban</button>
+        </div>
+      </div>
+      <div class="view">
+        <h1><i class="fas fa-check"></i></h1>
+        <h2><span id="con">0</span> Bagian tersusun dengan benar</h2>
+        <p>keterangan di sini.</p>
+        <div class="group-info">
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 1</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 2</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 3</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 4</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 5</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 6</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 7</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 8</span>
+          </div>
+          <div class="label">
+            <div class="dfas"></div>
+            <span>Bagian surat 9</span>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="back" onclick="navigate(2)">Coba Lagi</button>
+          <button class="next" onclick="navigate(4)">Lanjutkan</button>
+        </div>
+      </div>
+      <div class="view">
+        <h1>Pilih Template CV</h1>
+        <div class="group-div">
+          <div class="template">
+            <div class="head"></div>
+            <p>Minimalis</p>
+            <button onclick="navigateOn(1)">Pilih Template</button>
+          </div>
+          <div class="template">
+            <div class="head"></div>
+            <p>Kreatif</p>
+            <button onclick="navigateOn(2)">Pilih Template</button>
+          </div>
+          <div class="template">
+            <div class="head"></div>
+            <p>ATS-friendly</p>
+            <button onclick="navigateOn(3)">Pilih Template</button>
+          </div>
+        </div>
+      </div>
+      <div class="view">
+        <h1>Edit dan Eksport CV</h1>
+        <div class="board">
+          <div class="left" data-template="1">
+            <p>1. Template dipilih: <b id="tmp">Minimalis</b></p>
+            <div class="cover"></div>
+            <button onclick="navigate(4)">ganti template</button>
+          </div>
+          <div class="center">
+            <p>2. Isi data diri</p>
+            <div class="input-group">
+              <label for="age">Foto</label>
+              <input type="file" id="imgPut" placeholder="" accept="image/*" />
+            </div>
+            <div class="input-group">
+              <label for="name">nama lengkap</label>
+              <input type="text" id="namePut" placeholder="nama lengkap" />
+            </div>
+            <div class="input-group">
+              <label for="name">Tempat lahir</label>
+              <input type="text" id="placePut" placeholder="Tempat lahir" />
+            </div>
+            <div class="input-group">
+              <label for="age">Tanggal lahir</label>
+              <input type="date" id="datePut" placeholder="19 tahun" />
+            </div>
+            <div class="input-group">
+              <label for="age">Agama</label>
+              <input type="text" id="religionPut" placeholder="agama" />
+            </div>
+            <div class="input-group">
+              <label for="age">Pendidikan terakhir</label>
+              <input type="text" id="eduPut" placeholder="pendidikan" />
+            </div>
+            <div class="input-group">
+              <label for="age">No. telp / WA</label>
+              <input type="text" id="noPut" placeholder="nomor" />
+            </div>
+            <div class="input-group">
+              <label for="age">Alamat</label>
+              <input type="text" id="locPut" placeholder="alamat" />
+            </div>
+          </div>
+          <div class="right">
+            <p>3. Ekspor</p>
+            <div class="cover"></div>
+            <a href="#">
+              <button onclick="saveCV()">Unduh pdf</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cv-content">
+      <div class="one">
+        <div class="side">
+          <img src="" alt="your image" id="pic" />
+          <h4>PROFIL SINGKAT</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+            accusantium saepe consequuntur blanditiis amet quasi aspernatur ex
+            quis voluptatem et debitis impedit maiores dignissimos nobis tenetur
+            tempore, officia ipsum nisi!
+          </p>
+          <h4>PENDIDIKAN</h4>
+          <ul>
+            <li>SMK</li>
+          </ul>
+          <h4>KEAHLIAN</h4>
+          <ul>
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+          </ul>
+          <h4>PENGALAMAN ORGANISASI</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio
+            possimus unde eligendi omnis animi quae commodi optio tenetur
+            ratione enim quas, doloremque iure sapiente quasi! Nam
+            necessitatibus unde perferendis totam!
+          </p>
+        </div>
+        <div class="info">
+          <h2 class="name">NAME</h2>
+          <h4>Helper Produksi</h4>
+
+          <h4>DATA PRIBADI</h4>
+          <table>
+            <tr>
+              <td>Nama</td>
+              <td>:</td>
+              <td class="name">name</td>
+            </tr>
+            <tr>
+              <td>Tempat, Tanggal Lahir</td>
+              <td>:</td>
+              <td class="date">name</td>
+            </tr>
+            <tr>
+              <td>Agama</td>
+              <td>:</td>
+              <td class="religion">name</td>
+            </tr>
+            <tr>
+              <td>Pendidikan Terakhir</td>
+              <td>:</td>
+              <td class="edu">name</td>
+            </tr>
+            <tr>
+              <td>No. Telepon / WA</td>
+              <td>:</td>
+              <td class="no">name</td>
+            </tr>
+            <tr>
+              <td>Alamat</td>
+              <td>:</td>
+              <td class="loc">name</td>
+            </tr>
+          </table>
+          <h4>LAMPIRAN PENDUKUNG</h4>
+          <ol>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+          </ol>
+          <h4>PERNYATAAN</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Necessitatibus dignissimos cumque esse fugit non numquam vel aperiam
+            distinctio! Voluptas tenetur ducimus nesciunt impedit, debitis
+            facere hic! Vitae officiis laboriosam nihil?
+          </p>
+          <div class="footer">
+            <div class="wa">
+              <i class="fas fa-phone"></i>
+              <span>0000000000</span>
+            </div>
+            <div class="adde">
+              <i class="fas fa-map-pin"></i>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="./public/scripts/iframe_api.js"></script> -->
+    <script src="./public/scripts/html2canvas.min_2.js"></script>
+    <script src="./public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="./public/scripts/susun.js"></script>
+  </body>
+</html>
