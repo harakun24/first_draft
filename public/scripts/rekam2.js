@@ -8,6 +8,9 @@ function navigate(num, state = true) {
     history2.push(num);
   if (num == 1)
     resetValue();
+  if (num == 4)
+    document.querySelector(".modal2").showPopover()
+
   // counting()
   document.querySelector(".active")?.classList.remove("active");
   document.querySelectorAll(".ctrl-timer")[num - 1].classList.add("active");
@@ -148,3 +151,51 @@ deleteBtn.addEventListener("click", () => {
   // Tutup popover
   modal.hidePopover();
 });
+let choice = 0;
+const textField = {
+  title: "",
+  message: "",
+  reason: ""
+}
+function choose(num) {
+  choice = num;
+  document.querySelector(".modal2").hidePopover()
+}
+async function saveProgress() {
+  textField.title = document.querySelector("input[name='title']").value
+  textField.message = document.querySelector("input[name='message']").value
+  textField.reason = document.querySelector("input[name='reason']").value
+
+  let respon = `<div style="padding:2rem">
+  <h3>Rekapan interaksi</h3>
+  <p>Yang paling menarik perhatian saat pertama menonton film pendek, adalah ${choice == 1 ? "Visual yang terdiri dari komposisi, warna dan gerak" : choice == 2 ? "Cerita yang terdiri dari tokoh, konflik dan alur" : choice == 3 ? "Musik yang terdiri dari irama, suasana dan emosi" : "belum memilih"}</p>
+  <br>
+  <h3>Rekapan refleksi awal</h3>
+ <p>Salah satu film pendek atau tayangan inspiratif yang diinga berjudul "${textField.title}". Pesan moral atau nilai kehidupannya adalah: ${textField.message} dan mengapa itu penting karena ${textField.reason}</p>
+  </div>
+  `
+
+  const { jsPDF } = window.jspdf;
+
+  const el = document.createElement("div");
+  el.style.cssText = "position:fixed;left:-9999px;padding:2rem;";
+  el.innerHTML = respon;
+  document.body.appendChild(el)
+
+  const canvas = await html2canvas(el, {
+    scale: 2,
+    useCORS: true
+  });
+
+  const imgData = canvas.toDataURL('image/png');
+  const pdf = new jsPDF('p', 'mm', 'a4');
+
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  pdf.save('refleksi.pdf');
+  el.remove()
+
+  navigate(5)
+}

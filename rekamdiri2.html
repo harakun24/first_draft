@@ -64,21 +64,26 @@
             <label for="">Mengapa Pesan Itu Penting</label>
             <input type="text" name="reason" placeholder="Contoh: Titanic" />
           </div>
-          <button><i class="fas fa-save"></i> Simpan Refleksi</button>
+          <button onclick="saveProgress()">
+            <i class="fas fa-save"></i> Simpan Refleksi
+          </button>
         </div>
       </div>
-      <div class="view"></div>
+      <div class="view">
+        <h1><i class="fas fa-3l fa-check"></i></h1>
+        <h2>Refleksimu sudah tersimpan.</h2>
+      </div>
       <div class="modal2" popover>
         <h2>
           Apa yang paling menarik perhatianmu saat pertama menonton film pendek?
         </h2>
-        <div class="choice">
+        <div class="choice" onclick="choose(1)">
           <h1>Visual</h1>
         </div>
-        <div class="choice">
+        <div class="choice" onclick="choose(2)">
           <h1>Cerita</h1>
         </div>
-        <div class="choice">
+        <div class="choice" onclick="choose(3)">
           <h1>Musik</h1>
         </div>
       </div>

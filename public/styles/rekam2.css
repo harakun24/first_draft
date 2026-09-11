@@ -157,72 +157,30 @@ body {
         }
       }
     }
-    &:nth-child(2) {
+    &:nth-child(5) {
+      background-color: white;
+      border-radius: calc(var(--m) / 2);
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.276);
       display: grid;
-      display: none;
-      grid-template-columns: 1fr auto;
-      gap: var(--m);
-      .record,
-      .checklist {
-        border-radius: calc(var(--m) / 2);
-        padding: var(--m);
-      }
-      .record {
-        background-color: white;
-        display: grid;
-        align-content: start;
-        gap: calc(var(--m) * 2);
-        .timestamp {
+      /* display: none; */
+      padding: var(--m);
+      box-sizing: border-box;
+      gap: calc(var(--m) / 2);
+      align-content: center;
+      h1 {
+        text-align: center;
+        font-size: 400%;
+        svg {
           aspect-ratio: 1;
-          width: 25%;
+          height: 1lh;
+          background-color: greenyellow;
+          padding: var(--m);
           border-radius: 50%;
-          place-content: center;
-          text-align: center;
-          font-size: 150%;
-          justify-self: center;
-          background-color: oklch(from var(--bg-color) l c h / 0.2);
-          border: 3px solid var(--main-color);
-        }
-        #toggleRec {
-          width: fit-content;
-          justify-self: center;
-          padding: var(--m) calc(var(--m) * 2);
-          border: none;
-          background-color: oklch(from var(--main-color) calc(l * 1.4) c h);
-          border-radius: calc(var(--m) / 2);
-          cursor: pointer;
-          &:hover {
-            filter: brightness(1.4);
-          }
-        }
-        p {
-          width: 40%;
-          text-align: center;
-          justify-self: center;
+          border: 3px solid green;
         }
       }
-      .checklist {
-        background-color: white;
-        display: grid;
-        align-content: start;
-        gap: var(--m);
-        .check-group {
-          display: flex;
-          gap: var(--m);
-          padding: var(--m);
-          background-color: oklch(from var(--bg-color) l c h / 0.1);
-          border-radius: calc(var(--m) / 2);
-          &:hover {
-            filter: brightness(0.6);
-          }
-        }
-        .download {
-          padding: var(--m);
-          border: none;
-          border-radius: calc(var(--m) / 2);
-          background-color: rgb(56, 225, 56);
-          cursor: pointer;
-        }
+      h2 {
+        text-align: center;
       }
     }
   }
