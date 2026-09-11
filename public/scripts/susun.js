@@ -2,6 +2,16 @@
 
 let template = 1;
 let history2 = [2];
+const datas = document.querySelector(".group-list");
+const randoM = Array.from(datas.querySelectorAll(".item"));
+for (let i = randoM.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [randoM[i], randoM[j]] = [randoM[j], randoM[i]];
+
+  randoM.forEach(e => {
+    datas.appendChild(e)
+  })
+}
 
 function navigate(num, state = true) {
 
