@@ -18,25 +18,25 @@
       <span>ALUR AKTIVITAS</span>
       <div class="ctrl-timer">
         <span>1</span>
-        <b>Video Tutorial</b>
+        <b>Pembuka</b>
       </div>
-      <div class="ctrl-timer active" onclick="navigate(2)">
+      <div class="ctrl-timer">
         <span>2</span>
-        <b>Susun Surat</b>
+        <b>Salam Awal</b>
       </div>
-      <div class="ctrl-timer" onclick="validate()">
+      <div class="ctrl-timer">
         <span>3</span>
-        <b>Validasi</b>
+        <b>Kualifikasi</b>
       </div>
-      <div class="ctrl-timer" onclick="navigate(4)">
+      <div class="ctrl-timer">
         <span>4</span>
-        <b>Pilih CV</b>
+        <b>Kelemahan</b>
       </div>
-      <div class="ctrl-timer" onclick="navigate(5)">
+      <div class="ctrl-timer active">
         <span>5</span>
-        <b>Finalisasi</b>
+        <b>Refleksi</b>
       </div>
-      <div class="ctrl-timer all" onclick="backGo()">
+      <div class="ctrl-timer all">
         <!-- <span>00:30</span> -->
         <b>Kembali</b>
       </div>
@@ -117,11 +117,18 @@
             <input type="checkbox" name="" id="lima" />
             <label for="lima">Suara jelas dan percaya diri</label>
           </div>
-          <button class="download" onclick="savePdf()">
+          <!-- <button class="download" onclick="savePdf()">
             Unduh pdf <i class="fas fa-arrow-down"></i>
-          </button>
+          </button> -->
         </div>
       </div>
+    </div>
+    <div id="videoModal" class="modal" popover>
+      <video id="previewVideo" controls width="100%"></video>
+      <button id="downloadBtn">
+        <i class="fas fa-arrow-down"></i> Unduh Video
+      </button>
+      <button id="deleteBtn"><i class="fas fa-trash"></i> Hapus Video</button>
     </div>
     <!-- <script src="./public/scripts/iframe_api.js"></script> -->
     <script src="./public/scripts/html2canvas.min_2.js"></script>
