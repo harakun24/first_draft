@@ -208,6 +208,22 @@ async function saveCV() {
 
 
   try {
+    const name = document.getElementById("namePut").value;
+    const place = document.getElementById("placePut").value;
+    const date = document.getElementById("datePut").value;
+    const religion = document.getElementById("religionPut").value;
+    const edu = document.getElementById("eduPut").value;
+    const no = document.getElementById("noPut").value;
+    const loc = document.getElementById("locPut").value;
+
+    document.querySelector(".name").innerText = name
+    document.querySelector("h2.name").innerText = name
+    document.querySelector(".religion").textContent = religion
+    document.querySelector(".edu").textContent = edu
+    document.querySelector(".no").textContent = no
+    document.querySelector(".loc").textContent = loc
+    document.querySelector(".date").textContent = `${place}, ${date}`
+
     const canvas = await html2canvas(document.querySelector(".one"), {
       scale: 2,
       useCORS: true
@@ -226,21 +242,7 @@ async function saveCV() {
   } finally {
   }
 
-  const name = document.getElementById("namePut").value;
-  const place = document.getElementById("placePut").value;
-  const date = document.getElementById("datePut").value;
-  const religion = document.getElementById("religionPut").value;
-  const edu = document.getElementById("eduPut").value;
-  const no = document.getElementById("noPut").value;
-  const loc = document.getElementById("locPut").value;
 
-  document.querySelector(".name").innerText = name
-  document.querySelector("h2.name").innerText = name
-  document.querySelector(".religion").textContent = religion
-  document.querySelector(".edu").textContent = edu
-  document.querySelector(".no").textContent = no
-  document.querySelector(".loc").textContent = loc
-  document.querySelector(".date").textContent = `${place}, ${date}`
 }
 
 document.querySelector("#imgPut").addEventListener("change", (event) => {

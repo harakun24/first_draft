@@ -55,6 +55,16 @@ function formatRecTime(seconds) {
   return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
 }
 
+const modal = document.querySelector(".modal");
+const previewVideo = document.getElementById("previewVideo");
+const downloadBtn = document.getElementById("downloadBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+
+// modal.showPopover()
+
+let currentVideoUrl = null;
+
+
 if (toggleRecBtn) {
   toggleRecBtn.addEventListener("click", async () => {
     if (!mediaRecorder || mediaRecorder.state === "inactive") {
@@ -69,17 +79,18 @@ if (toggleRecBtn) {
           }
         };
 
+        // Modifikasi bagian ini
         mediaRecorder.onstop = () => {
           const blob = new Blob(recordedChunks, { type: "video/webm" });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.style.display = "none";
-          a.href = url;
-          a.download = "rekaman-presentasi.webm";
-          document.body.appendChild(a);
-          a.click();
-          window.URL.revokeObjectURL(url);
+          currentVideoUrl = URL.createObjectURL(blob);
 
+          // Muat URL ke dalam player video
+          previewVideo.src = currentVideoUrl;
+
+          // Tampilkan modal popover
+          modal.showPopover();
+
+          // Matikan akses webcam/mikrofon
           stream.getTracks().forEach(track => track.stop());
         };
 
@@ -106,3 +117,33 @@ if (toggleRecBtn) {
     }
   });
 }
+
+// Aksi tombol Unduh
+downloadBtn.addEventListener("click", () => {
+  if (currentVideoUrl) {
+    const a = document.createElement("a");
+    a.style.display = "none";
+    a.href = currentVideoUrl;
+    a.download = "rekaman-presentasi.webm";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a); // Bersihkan elemen a dari DOM
+  }
+});
+
+// Aksi tombol Hapus
+deleteBtn.addEventListener("click", () => {
+  // Hentikan dan kosongkan pemutar video
+  previewVideo.pause();
+  previewVideo.removeAttribute("src");
+  previewVideo.load();
+
+  // Hapus referensi memori dari blob URL
+  if (currentVideoUrl) {
+    window.URL.revokeObjectURL(currentVideoUrl);
+    currentVideoUrl = null;
+  }
+
+  // Tutup popover
+  modal.hidePopover();
+});

@@ -207,7 +207,7 @@ body {
   transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.35s;
   &:popover-open {
     display: grid;
-    max-width: 70vw;
+    max-width: 60vw;
     gap: calc(var(--m) * 2);
     padding: var(--m);
     margin: var(--m);

@@ -118,7 +118,7 @@ body {
       border-radius: calc(var(--m) / 2);
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.276);
       display: grid;
-      display: none;
+      /* display: none; */
       padding: var(--m);
       box-sizing: border-box;
       gap: calc(var(--m) / 2);
@@ -166,7 +166,7 @@ body {
     }
     &:nth-child(2) {
       display: grid;
-      /* display: none; */
+      display: none;
       grid-template-columns: 1fr auto;
       gap: var(--m);
       .record,
@@ -244,5 +244,32 @@ body {
   &:hover {
     background-color: rgba(92, 128, 246, 0.194);
     transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+  }
+}
+
+.modal {
+  padding: var(--m);
+  border: none;
+  border-radius: calc(var(--m) / 2);
+  place-self: center;
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.254);
+  }
+  button {
+    margin-top: var(--m);
+    border: none;
+    border-radius: calc(var(--m) / 2);
+    padding: calc(var(--m) / 2);
+    border: none;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(0.8);
+    }
+    &:nth-child(2) {
+      background-color: rgb(23, 215, 23);
+    }
+    &:nth-child(3) {
+      background-color: rgb(215, 42, 23);
+    }
   }
 }

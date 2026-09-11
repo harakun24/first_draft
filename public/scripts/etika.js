@@ -463,7 +463,7 @@ function answer(element) {
     element.classList.add("benar");
   } else {
     element.classList.add("salah");
-    const correctBtn = popover.querySelector(".group-answer .btn[data-answer='true']");
-    if (correctBtn) correctBtn.classList.add("benar");
+    // const correctBtn = popover.querySelector(".group-answer .btn[data-answer='true']");
+    // if (correctBtn) correctBtn.classList.add("benar");
   }
 }
