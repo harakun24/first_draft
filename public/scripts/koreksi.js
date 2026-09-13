@@ -117,6 +117,9 @@ document.querySelectorAll(".spoiler").forEach(e => {
 
   e.innerHTML += `
    <div class="pop" popover="auto">
+   <div class="fs-close">
+   <i class="fas fa-close"></i>
+   </div>
             <div class="input-group">
               <input type="radio" name="choice" value="1" /><label
                 >${data.options[0]}</label
@@ -138,12 +141,17 @@ document.querySelectorAll(".spoiler").forEach(e => {
 
 
   const pop = e.querySelector(".pop");
+  const closeBtn = e.querySelector(".fs-close");
   pop.addEventListener("toggle", (event) => {
     if (event.newState == "closed") {
       e.querySelector("span").classList.add("filled")
       e.querySelector("span").classList.remove("active")
     }
 
+  })
+  closeBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    pop.hidePopover()
   })
   e.addEventListener("click", () => {
     e.querySelector("span").classList.remove("filled")
@@ -159,7 +167,7 @@ document.querySelectorAll(".spoiler").forEach(e => {
   })
   e.querySelector(".btn-save").addEventListener("click", (event) => {
     event.stopPropagation()
-    const val = e.querySelector('input[name="choice"]:checked')?.value || 0;
+    const val = e.querySelector('input[name="choice"]:checked')?.value || 1;
     e.querySelector(".target-pop").textContent = data.options[val - 1];
     dataAnswer["q" + e.dataset.q] = {
       answer: val,
@@ -191,9 +199,9 @@ function check() {
     table.innerHTML += `
     <tr>
     <td>${k + 1}</td>
-    <td>(${e.kriteria}) ${e.question}</td>
+    <td>(${e.kriteria}) <br> ${e.question}</td>
     <td>${(e.options[dataAnswer["q" + (k + 1)]?.answer - 1]) || "(kosong)"}</td>
-    <td>${e.options[e.key - 1]} ${status ? " (jawaban benar)" : " (Jawaban salah)"}</td>
+    <td>${e.options[e.key - 1]} ${status ? " <br> (jawaban benar)" : "<br> (Jawaban salah)"}</td>
     <td>${e.detail}</td>
     </tr>
     `

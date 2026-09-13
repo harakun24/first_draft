@@ -8,6 +8,7 @@ body {
   grid-template-columns: 1fr auto;
   padding: var(--m);
   box-sizing: border-box;
+  /* width: 100vw; */
 
   .page {
     background-color: white;
@@ -79,7 +80,6 @@ body {
       }
     }
     button {
-      grid-column: 1fr;
       border: none;
       padding: var(--m);
       border-radius: calc(var(--m) / 2);
@@ -107,8 +107,9 @@ body {
 .spoiler {
   cursor: pointer;
   span {
-    anchor-name: --span;
     &.active {
+      anchor-name: --span;
+
       padding: calc(var(--m) / 4);
       outline: 1px solid rgb(0, 8, 255);
       border-radius: calc(var(--m) / 2);
@@ -131,30 +132,49 @@ body {
     }
   }
   .pop {
+    opacity: 0;
+    transition: ease-in 0.2s;
+    &:hover {
+      filter: brightness(1.041);
+    }
     &:popover-open {
+      opacity: 1;
       position: absolute;
       padding: var(--m);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: var(--m);
       border: none;
       border-radius: calc(var(--m) / 2);
-      background-color: rgb(222, 221, 221);
-      /* display: none; */
-      transition: ease-in 0.2s;
-      top: 50%;
-      left: 50%;
+      background-color: rgba(178, 231, 237, 0.396);
+      backdrop-filter: blur(2px);
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.33);
+      position-anchor: --span;
+      position-area: center right;
+      .fs-close {
+        /* position: absolute; */
+        /* grid-column: span 3; */
+        text-align: right;
+        color: black;
+        top: var(--m);
+        right: var(--m);
+        z-index: 2;
+      }
     }
     @starting-style {
       scale: 0.5;
+      opacity: 0;
     }
     .input-group {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.709);
       padding: var(--m);
       border-radius: calc(var(--m) / 2);
       display: flex;
       gap: var(--m);
       cursor: pointer;
+      backdrop-filter: blur(4px);
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.33);
+      text-wrap: nowrap;
+
       &:hover {
         filter: brightness(0.8);
       }
@@ -167,27 +187,82 @@ body {
       padding: var(--m);
       border: none;
       border-radius: calc(var(--m) / 2);
-      grid-column: span 3;
+      justify-self: center;
       cursor: pointer;
-      background-color: var(--bg-color);
+      background-color: oklch(from var(--bg-color) l c h / 0.86);
+      backdrop-filter: blur(4px);
+      width: 100%;
+      &:hover {
+        filter: brightness(1.2);
+      }
     }
   }
 }
-
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: var(--m);
+table {
+  border-top: var(--border);
+  border-left: var(--border);
+  border-collapse: separate;
+  border-spacing: 0;
+  /* padding: var(--m); */
+  text-align: center;
+  th,
+  td {
+    padding: calc(var(--m) / 2);
+    border-right: var(--border);
+    border-bottom: var(--border);
+  }
 }
 .table {
   background-color: white;
-  position: fixed;
-  left: 9999px;
-  padding: var(--m);
+  display: grid;
+  gap: calc(var(--m) / 4);
+  /* position: fixed;
+  left: 9999px; */
+  h1,
+  h3 {
+    color: rgb(5, 5, 71);
+  }
+  h1,
+  .rui,
+  p {
+    text-align: center;
+    border: none;
+    &:is(p) {
+      opacity: 0.8;
+    }
+  }
+  padding: calc(var(--m) * 4);
   th:not(:nth-child(1)) {
     min-width: 140px;
     text-align: center;
   }
+  th {
+    background-color: rgba(189, 222, 249, 0.95);
+    width: fit-content;
+  }
+  h3 {
+    padding: calc(var(--m) / 4) var(--m);
+    border-left: 5px solid rgb(7, 7, 131);
+  }
+  .last,
+  .datespan {
+    text-align: center;
+    display: grid;
+    width: 30%;
+    justify-self: end;
+    padding: calc(var(--m) / 4);
+    span:nth-child(1) {
+      padding-bottom: calc(var(--m) * 4);
+    }
+    span {
+      opacity: 0.8;
+    }
+    &:is(.datespan) {
+      display: flex;
+    }
+  }
+}
+@position-try --lefty {
+  left: auto;
+  right: anchor(left);
 }

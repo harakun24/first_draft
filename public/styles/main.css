@@ -4,6 +4,7 @@
   --bg-color: #f5c730;
   --bg-color: #15a3c7;
   --m: 1rem;
+  --border: 0.15px solid rgba(5, 61, 121, 0.519);
 }
 
 @font-face {
