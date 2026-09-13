@@ -216,8 +216,8 @@ table {
   background-color: white;
   display: grid;
   gap: calc(var(--m) / 4);
-  /* position: fixed;
-  left: 9999px; */
+  position: fixed;
+  left: 9999px;
   h1,
   h3 {
     color: rgb(5, 5, 71);
