@@ -1,0 +1,16 @@
+.header {
+  height: 10vh;
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    opacity: 0.76;
+    font-size: 0.68rem;
+    width: 100%;
+  }
+}
+
+.main {
+  grid-template-columns: 1fr;
+  margin-top: 0;
+}

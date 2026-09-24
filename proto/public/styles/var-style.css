@@ -1,0 +1,19 @@
+:root {
+  --purple: #150d25;
+  --orchid: #8552fd;
+  --red: #ab0e23;
+  --yellow: #cba81d;
+  --bg-root: #f3f3f3;
+  --fg-root: #fefefe;
+  --txt-light: #c0bac8;
+  --txt-dark: #2d2e2f;
+  --gray-shader: #e0dde4;
+  --m: 1rem;
+  --m-2: 0.5rem;
+  --m-4: 0.25rem;
+  --m-8: 0.125rem;
+  --2m: 2rem;
+  --b-shadow: 0 0 3px rgba(56, 55, 55, 0.254);
+  --transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+  scrollbar-width: none;
+}

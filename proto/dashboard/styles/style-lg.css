@@ -1,0 +1,117 @@
+.header {
+  background-color: var(--purple);
+  color: var(--txt-light);
+  height: 50vh;
+  align-content: center;
+  /* text-align: center; */
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  /* z-index: 3; */
+  h1 {
+    transition: var(--transition);
+    font-size: 5rem;
+    position: relative;
+    span {
+      text-decoration: underline;
+      color: var(--orchid);
+      margin-left: var(--m-8);
+    }
+    i.fas {
+      color: var(--yellow);
+      /* rotate: -45deg;
+      scale: 0.6;
+      position: absolute;
+      margin-left: -15%;
+      top: -20%; */
+      transition: var(--transition);
+      @starting-style {
+        rotate: 30deg;
+      }
+    }
+    @starting-style {
+      translate: 0 80px;
+      opacity: 0;
+      scale: 0;
+    }
+  }
+  p {
+    transition: var(--transition);
+    /* width: 30ch; */
+    text-align: right;
+    margin-left: auto;
+    padding-top: 3px;
+    font-size: 0.8rem;
+    @starting-style {
+      translate: 0 150px;
+      opacity: 0;
+      scale: 1.5;
+    }
+  }
+}
+
+.main {
+  z-index: 2;
+  width: 90vw;
+  justify-self: center;
+  margin-top: -5rem;
+  background-color: var(--fg-root);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--m);
+  &:has(.card-wrapper:hover) .card-wrapper:not(:hover) {
+    filter: brightness(0.85);
+    /* opacity: 0.7; */
+    transition-delay: 0ms;
+    /* scale: 1.1; */
+  }
+  .card-wrapper {
+    display: grid;
+    .chapter {
+      padding-left: var(--m-4);
+      margin-top: var(--m-2);
+      font-size: 0.7rem;
+    }
+    .card {
+      aspect-ratio: 16/9;
+      padding: 0;
+      background-color: var(--gray-shader);
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+        object-fit: contain;
+        position: absolute;
+        height: 100%;
+        z-index: 1;
+      }
+      .info-card {
+        z-index: 2;
+        background-color: oklch(from var(--txt-dark) l c h / 0.8);
+        color: var(--txt-light);
+        position: absolute;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        width: 100%;
+        font-size: 0.7rem;
+      }
+    }
+    transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    transition-delay: var(--card-delay, 0s);
+    @starting-style {
+      opacity: 0;
+      scale: 0.4;
+    }
+  }
+}
+
+.footer {
+  margin-top: auto;
+  padding: var(--m);
+  color: var(--txt-light);
+  /* opacity: 0.7; */
+  text-align: center;
+  font-size: 0.7rem;
+  background-color: var(--purple);
+}

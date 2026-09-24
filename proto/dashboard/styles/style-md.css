@@ -1,0 +1,10 @@
+.header {
+  height: 30vh;
+  h1 {
+    font-size: 4rem;
+  }
+}
+.main {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 0;
+}

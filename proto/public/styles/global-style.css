@@ -1,0 +1,194 @@
+@import url(../fa/css/all.min.css);
+
+@import url(./var-style.css);
+
+@import url(./fonts-style.css);
+
+/* @import url(./media-style.css); */
+
+/* @layer base; */
+
+@layer base {
+  .wrapper {
+    display: grid;
+    padding: var(--m);
+    &.box {
+      box-shadow: var(--b-shadow);
+      border-radius: var(--m-2);
+      background-color: var(--fg-root);
+    }
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    /* outline: 0.125rem solid rgba(255, 0, 0, 0.331); */
+  }
+
+  body {
+    background-color: var(--bg-root);
+    display: grid;
+    font-family: "inter";
+    gap: var(--m);
+    user-select: none;
+    color: var(--txt-dark);
+    min-height: 100vh;
+    box-sizing: border-box;
+    container-type: inline-size;
+    scroll-behavior: smooth;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  .pointer {
+    cursor: pointer;
+    transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  .header:not(.dashboard) {
+    background-color: var(--purple);
+    color: var(--txt-light);
+    height: fit-content;
+    align-content: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    display: flex;
+    padding: var(--2m);
+    z-index: 4;
+    i.pointer {
+      border: 1px solid var(--fg-root);
+      height: 1lh;
+      padding: var(--m-4);
+      border-radius: var(--m-2);
+      font-size: 1.3rem;
+      margin-left: var(--m);
+    }
+    h1 {
+      transition: var(--transition);
+      /* font-size: 5rem; */
+      position: relative;
+      span {
+        text-decoration: underline;
+        color: var(--orchid);
+        margin-left: var(--m-8);
+      }
+      i.fas {
+        color: var(--yellow);
+        /* rotate: -45deg;
+        scale: 0.7;
+        position: absolute;
+        margin-left: -15%;
+        top: -20%; */
+        transition: var(--transition);
+      }
+    }
+    p {
+      transition: var(--transition);
+      /* width: 30ch; */
+      text-align: right;
+      margin-left: auto;
+      padding-top: 3px;
+      font-size: 0.7rem;
+    }
+    @media (width<40rem) {
+      /* display: grid; */
+      padding: var(--m);
+      h1 {
+        font-size: 1rem;
+      }
+      p {
+        /* text-align: center; */
+        /* margin-left: 0; */
+        span,
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    position: absolute;
+    height: 100vh;
+    background-color: var(--gray-shader);
+    z-index: 5;
+    display: grid;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    transition: cubic-bezier(0.23, 1, 0.32, 1) 0.73s;
+    .header {
+      position: sticky;
+      bottom: 0;
+      padding: var(--2m);
+    }
+    &.hide {
+      translate: -100%;
+      opacity: 0;
+    }
+    span {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      padding-top: var(--m);
+      padding-bottom: var(--m);
+      b {
+        text-align: center;
+      }
+      i.fas {
+        font-size: 1.5rem;
+        margin-right: var(--m);
+      }
+    }
+    align-content: start;
+    .item {
+      padding: var(--2m);
+      background-color: oklch(from var(--gray-shader) calc(l * 0.8) c h / 0.3);
+      border-bottom: 1.2px solid rgba(111, 111, 111, 0.289);
+
+      h4 {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: var(--m-4);
+        align-items: center;
+        span {
+          width: 30ch;
+        }
+      }
+    }
+    .item-detail {
+      transition: cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
+      height: fit-content;
+      &.hide {
+        display: none;
+      }
+      .detail {
+        background-color: oklch(
+          from var(--gray-shader) calc(l * 1.1) c h / 0.5
+        );
+        border-bottom: 1.2px solid rgba(111, 111, 111, 0.289);
+        b,
+        p {
+          width: 30ch;
+          &:is(p) {
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+    @starting-style {
+      translate: -100%;
+    }
+  }
+
+  .footer {
+    margin-top: auto;
+    padding: var(--m);
+    color: var(--txt-light);
+    /* opacity: 0.7; */
+    text-align: center;
+    font-size: 0.7rem;
+    background-color: var(--purple);
+  }
+}

@@ -1,0 +1,12 @@
+body {
+  align-content: start;
+}
+.main {
+  background-color: red;
+  grid-template-columns: auto 1fr;
+  gap: var(--m);
+  .sidemenu {
+    /* min-height: 150vh; */
+    font-size: 0.8rem;
+  }
+}

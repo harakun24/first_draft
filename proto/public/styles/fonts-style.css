@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "base";
+  src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "base-2";
+  src: url("../fonts/GoogleSans-VariableFont_GRAD\,opsz\,wght.ttf");
+}
+@font-face {
+  font-family: "base-3";
+  src: url("../fonts/JetBrainsMono-Regular.ttf");
+}
+@font-face {
+  font-family: "romance";
+  src: url("../fonts/Modern\ Romance.otf");
+}
+@font-face {
+  font-family: "inter";
+  src: url("../fonts/Inter_28pt-Regular.ttf");
+}
