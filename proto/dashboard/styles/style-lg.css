@@ -1,7 +1,7 @@
 .header {
   background-color: var(--purple);
   color: var(--txt-light);
-  height: 50vh;
+  height: 40vh;
   align-content: center;
   /* text-align: center; */
   justify-content: center;
@@ -54,7 +54,7 @@
   z-index: 2;
   width: 90vw;
   justify-self: center;
-  margin-top: -5rem;
+  margin-top: -2.5rem;
   background-color: var(--fg-root);
   grid-template-columns: repeat(3, 1fr);
   gap: var(--m);

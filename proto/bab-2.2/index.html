@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab 2 Media 2 | Menyimak Kritis Film Pendek</title>
+    <link
+      rel="shortcut icon"
+      href="../public/images/favicon.png"
+      type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body data-refer="3">
+    <div class="main">
+      <div class="heading-group">
+        <div class="item pointer">
+          <b>1. Tonton Video</b>
+        </div>
+        <div class="item pointer active">
+          <b>2. Klasifikasi</b>
+        </div>
+        <div class="item pointer">
+          <b>3. Ulasan Film</b>
+        </div>
+        <div class="item pointer">
+          <b>4. Diagram Alur</b>
+        </div>
+      </div>
+      <div class="views">
+        <div class="view" data-module="2">
+          <b>Klasifikasi cacatan hasil menyimak</b>
+          <h2>Pindahkan setiap kartu ke aspek yang sesuai!</h2>
+          <div class="play-area">
+            <div
+              class="options"
+              ondragover="event.preventDefault()"
+              ondrop="dropToPool(event)">
+              <div
+                class="item pointer"
+                draggable="true"
+                ondragstart="drag(event)">
+                <b>Close-up buku tua</b>
+              </div>
+              <div
+                class="item pointer"
+                draggable="true"
+                ondragstart="drag(event)">
+                <b>Konflik buku basah</b>
+              </div>
+              <div
+                class="item pointer"
+                draggable="true"
+                ondragstart="drag(event)">
+                <b>Rasa syukur</b>
+              </div>
+              <div
+                class="item pointer"
+                draggable="true"
+                ondragstart="drag(event)">
+                <b>Dialog klimaks</b>
+              </div>
+              <div
+                class="item pointer"
+                draggable="true"
+                ondragstart="drag(event)">
+                <b>Latar tepi rel</b>
+              </div>
+              <div
+                class="item pointer"
+                draggable="true"
+                ondragstart="drag(event)">
+                <b>Empati sosial</b>
+              </div>
+            </div>
+            <div class="card wrapper box">
+              <i class="fas fa-eye"></i>
+              <h2>Visual</h2>
+              <p>Close-up, cahaya, latar</p>
+              <div
+                class="slot wrapper box"
+                ondragover="event.preventDefault()"
+                ondrop="dropToSlot(event)"></div>
+              <div
+                class="slot wrapper box"
+                ondragover="event.preventDefault()"
+                ondrop="dropToSlot(event)"></div>
+            </div>
+            <div class="card wrapper box">
+              <i class="fas fa-bars"></i>
+              <h2>Cerita</h2>
+              <p>Close-up, cahaya, latar</p>
+              <div
+                class="slot wrapper box"
+                ondragover="event.preventDefault()"
+                ondrop="dropToSlot(event)"></div>
+              <div
+                class="slot wrapper box"
+                ondragover="event.preventDefault()"
+                ondrop="dropToSlot(event)"></div>
+            </div>
+            <div class="card wrapper box">
+              <i class="fas fa-heart"></i>
+              <h2>Pesan dan nilai</h2>
+              <p>Close-up, cahaya, latar</p>
+              <div
+                class="slot wrapper box"
+                ondragover="event.preventDefault()"
+                ondrop="dropToSlot(event)"></div>
+              <div
+                class="slot wrapper box"
+                ondragover="event.preventDefault()"
+                ondrop="dropToSlot(event)"></div>
+            </div>
+            <button class="savebtn pointer">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../public/fa/js/regular.min.js"></script>
+    <script src="../public/scripts/global-script.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

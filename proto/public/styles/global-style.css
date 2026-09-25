@@ -9,6 +9,13 @@
 /* @layer base; */
 
 @layer base {
+  body:has(:popover-open) {
+    iframe,
+    .main {
+      pointer-events: none;
+    }
+  }
+
   .wrapper {
     display: grid;
     padding: var(--m);
@@ -43,7 +50,7 @@
     cursor: pointer;
     transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
     &:hover {
-      filter: brightness(1.2);
+      filter: brightness(0.8);
     }
   }
 
@@ -119,6 +126,8 @@
     overflow-y: scroll;
     scrollbar-width: none;
     transition: cubic-bezier(0.23, 1, 0.32, 1) 0.73s;
+    border-right: 1.2px solid rgba(111, 111, 111, 0.289);
+
     .header {
       position: sticky;
       bottom: 0;
@@ -143,7 +152,7 @@
     }
     align-content: start;
     .item {
-      padding: var(--2m);
+      padding: var(--m);
       background-color: oklch(from var(--gray-shader) calc(l * 0.8) c h / 0.3);
       border-bottom: 1.2px solid rgba(111, 111, 111, 0.289);
 
@@ -179,6 +188,9 @@
     }
     @starting-style {
       translate: -100%;
+    }
+    &::backdrop {
+      background-color: black;
     }
   }
 

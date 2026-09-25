@@ -14,14 +14,70 @@
     <!-- <link rel="stylesheet" href="../public/fa/css/all.min.css" /> -->
   </head>
   <body data-refer="1">
-    <div class="wrapper main">
-      <div class="wrapper box sidemenu">
-        <b class="header-text">Adegan</b>
+    <div class="wrapper main"></div>
+
+    <div class="modal" popover>
+      <i class="close fas fa-close pointer" onclick="toggleModal()"></i>
+      <h3 class="question">
+        Bagian surat lamaran pekerjaan yang berisi nama, alamat, nomor telepon,
+        dan email pelamar disebut ...
+      </h3>
+      <div class="opsi"></div>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>REKAPAN TANYA JAWAB ADEGAN VIDEO (5 SOAL)</h3>
+
+      <table class="top">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Adegan</th>
+            <th>Pertanyaan</th>
+            <th>Jawaban</th>
+            <th>Kunci Jawaban</th>
+            <th>Hasil</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h3>REKAPAN HASIL LATIHAN KOREKSI SURAT LAMARAN (10 SOAL)</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Soal Latihan</th>
+            <th>Jawaban</th>
+            <th>Kunci Jawaban</th>
+            <th>Penjelasan</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
       </div>
-      <div class="wrapper box video"></div>
     </div>
 
     <script src="../public/fa/js/regular.min.js"></script>
+    <script src="../public/scripts/iframe_api.js"></script>
+    <!-- <script src="../public/scripts/html2pdf.bundle.min.js"></script> -->
+    <script src="../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../public/scripts/html2canvas.min_2.js"></script>
     <script src="../public/scripts/global-script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

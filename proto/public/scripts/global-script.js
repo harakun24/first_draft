@@ -1,7 +1,23 @@
 const route = [
   "",
   "bab-1.1-etika-kerja-dan-strategi-dokumen-lamaran-mengesankan",
-]
+  "bab-1.4-Menulis-Surat-Lamaran-Kerja-Efektif-dan-Mendesain-CV-Digital",
+  "bab-2.2"
+
+];
+
+let player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    videoId: "9TwsvY_iGys",
+    width: "100%",
+    height: "100%",
+    events: {
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
 
 const main = document.querySelector(".main");
 if (document.body.dataset.refer != 0)
