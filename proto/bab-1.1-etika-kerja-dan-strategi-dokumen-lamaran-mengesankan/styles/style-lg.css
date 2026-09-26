@@ -2,7 +2,7 @@ body {
   align-content: start;
 }
 .main {
-  grid-template-columns: auto 1fr;
+  /* grid-template-columns: auto 1fr;
   gap: var(--m);
   .sidemenu {
     font-size: 0.8rem;
@@ -16,8 +16,7 @@ body {
       text-align: center;
     }
     .group-list {
-      /* max-height: 60vh; */
-      /* overflow-y: scroll; */
+    
       display: grid;
       padding: var(--m-2);
       scrollbar-width: none;
@@ -45,12 +44,11 @@ body {
           translate: 15px;
           .icon {
             opacity: 1;
-            /* color: var(--yellow); */
           }
         }
       }
     }
-  }
+  } */
   .video {
     display: grid;
     grid-template-columns: 1fr auto;

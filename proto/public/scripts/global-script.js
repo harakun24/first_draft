@@ -7,16 +7,6 @@ const route = [
 ];
 
 let player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player("player", {
-    videoId: "9TwsvY_iGys",
-    width: "100%",
-    height: "100%",
-    events: {
-      onStateChange: onPlayerStateChange
-    }
-  });
-}
 
 
 const main = document.querySelector(".main");
@@ -42,9 +32,22 @@ if (document.body.dataset.refer != 0)
           <b><i class="fas fa-angle-right"> </i> Media 1 </b>
           <p>Etika Kerja dan Strategi Dokumen Lamaran Mengesankan</p>
         </div>
-        <div class="detail wrapper pointer hide" data-link="1">
-          <b><i class="fas fa-angle-right"> </i> Media 1 </b>
-          <p>Etika Kerja dan Strategi Dokumen Lamaran Mengesankan</p>
+      </div>
+      <!-- start end -->
+       <!-- start -->
+      <div class="item wrapper pointer">
+        <h4 data-dropdown="2" data-state="0">
+          <span
+            >Bab 2: Layar Kecil, Pikiran Besar: Literasi dari Film Pendek</span
+          >
+          <div class="icon"><i class="fas fa-angle-down"></i></div>
+        </h4>
+      </div>
+      <div class="item-detail hide" data-detail="2">
+      
+        <div class="detail wrapper pointer hide" data-link="3">
+          <b><i class="fas fa-angle-right"> </i> Media 2 </b>
+          <p>Menyimak Kritis Film Pendek</p>
         </div>
       </div>
       <!-- start end -->
@@ -58,9 +61,9 @@ if (document.body.dataset.refer != 0)
       </h1>
 
       <p>
-        <span>Etika Kerja dan Strategi Dokumen Lamaran Mengesankan</span>
+        <span>${document.title.split(" | ")[1]}</span>
         <br /><br />
-        <i>Bab 1 Media 1</i>
+        <i>${document.title.split(" | ")[0]}</i>
       </p>
     </div>`)
 main.insertAdjacentHTML("afterend", ` <div class="footer">
@@ -74,7 +77,6 @@ document.querySelectorAll("[data-link]").forEach(e => {
 
 
 document.querySelectorAll("[data-dropdown]").forEach(dd => {
-  console.log({ dd })
   dd.addEventListener("click", event => {
     const title = dd.parentElement;
     const icon = title.dataset.state - 0 > 0 ? "down" : "up";
@@ -90,4 +92,29 @@ document.querySelectorAll("[data-dropdown]").forEach(dd => {
 
 function menuToggle() {
   document.querySelector(".navbar").classList.toggle("hide");
+}
+const store = {
+  set: (key, val) => {
+    sessionStorage.setItem(key, JSON.stringify(val))
+  },
+  get: (key) => {
+    return JSON.parse(sessionStorage.getItem(key)) || null
+  },
+  add: (key, val) => {
+    const old = store.get(key);
+
+    if (!old) return store.set(key, val);
+
+    if (typeof old === 'object') {
+      store.set(key, Array.isArray(old) ? [...old, ...val] : { ...old, ...val })
+    }
+    else
+      store.set(key, val)
+  },
+  delete: (key) => {
+    sessionStorage.removeItem(key);
+  },
+  clean: () => sessionStorage.clear()
+
+
 }

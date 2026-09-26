@@ -2,246 +2,20 @@ let currentActiveQuestion = null;
 let lastTime = 0;
 const answeredList = [];
 let animId;
-let pages = [
-  ` <div class="sidemenu">
-        <b class="header-text">Daftar Adegan</b>
-        <div class="group-list"></div>
-      </div>
-      <div class="video">
-        <div id="player"></div>
-        <div class="fokus">
-          <b>Fokus Adegan</b>
-          <h2>Kesan pertama dibentuk sebelum wawancara dimulai.</h2>
-          <div class="wrapper box">
-            <b>Pertanyaan reflektif</b>
-            <p>Apa kesan pertama yang ingin kamu tunjukkan?</p>
-          </div>
-        </div>
-        <!-- <div class="keterangan">
-          <b>keterangan</b>
-          <ul class="wrapper">
-            <li>satu</li>
-            <li>dua</li>
-            <li>tiga</li>
-            <li>empat</li>
-          </ul>
-        </div> -->
-        <button class="quiz pointer" onclick="saveDoc()">
-          <span>Latihan Koreksi</span>
-          <i class="fas fa-external-link-square"></i>
-        </button>
-      </div>`,
-  `<div class="page">
-        <p>
-          Hal: Lamaran Pekerjaan — IT & Data Analyst Lampiran: 5 (lima) lembar
-        </p>
-        <p>Jakarta, 7 September 2026</p>
-        <div>
-          <div class="spoiler" data-q="1">
-            <span class="target-pop">Kepada Yth. Manajer HRD</span>
-          </div>
-          <div>PT Inovasi Digital Nusantara</div>
-          <div>Gedung Sentra Digital, Lantai 14</div>
-          <div class="spoiler" data-q="2">
-            <span class="target-pop">Di Jakarta Selatan</span>
-          </div>
-        </div>
-        <div class="spoiler" data-q="3">
-          <span class="target-pop">Dengan hormat;</span>
-        </div>
-        <p>
-          Sehubungan dengan
-          <span class="spoiler" data-q="4">
-            <span class="target-pop">info </span>
-          </span>
-          lowongan pekerjaan yang dipublikasikan melalui portal resmi PT Inovasi
-          Digital Nusantara pada tanggal 2 September 2026, saya yang bertanda
-          tangan di bawah ini bermaksud untuk mengajukan diri menempati posisi
-          IT & Data Analyst di perusahaan
-          <span class="spoiler" data-q="5"
-            ><span class="target-pop">yang mana Bapak/Ibu pimpin.</span></span
-          >
-        </p>
-        <p>
-          Adapun data diri saya adalah sebagai berikut:
-          <!-- <li>fotokopi <div class="spoiler"><span>Ijasah</span><div class="pop">
-      <div class="input-group">
-      <input type="radio" name="choice" id="rue" value="1"><label for="rue">ijazah</label>
-      </div>
-      <div class="input-group">
-      <input type="radio" name="choice" id="ee" value="2"><label for="ee">ijasah</label>
-      </div>
-      <div class="input-group">
-      <input type="radio" name="choice" id="ww" value="3"><label for="ww">isajah</label>
-      </div>
-      </div></div></li> -->
-        </p>
-
-        <ul>
-          <li>Nama Lengkap: Ahmad Fauzi, S.Kom.</li>
-          <li>Tempat, Tanggal Lahir: Jakarta, 14 Mei 1999</li>
-          <li>
-            Pendidikan Terakhir: S-1 Sistem Informasi, Universitas Bina
-            Nusantara
-          </li>
-          <li>Nomor Telepon / WA: 0812-3456-7890</li>
-          <li>
-            Alamat Domisili: Jalan Sudirman Nomor 45, Kebayoran Baru, Jakarta
-            Selatan
-          </li>
-        </ul>
-        <p>
-          Saya memiliki pengalaman kerja selama dua tahun pada bidang
-          <span class="spoiler" data-q="6"
-            ><span class="target-pop"> analisa </span></span
-          >data operasional dan pemeliharaan sistem informasi. Selama bekerja,
-          saya terbiasa memanfaatkan instrumen pengolahan data terpadu guna
-          <span class="spoiler" data-q="7"
-            ><span class="target-pop">merubah</span></span
-          >
-          data kompleks menjadi wawasan strategis yang mampu mengoptimalkan
-          <span class="spoiler" data-q="8"
-            ><span class="target-pop">efektifitas</span></span
-          >
-          prosedur kerja harian.
-        </p>
-        <p>
-          Sebagai bahan pertimbangan Bapak/Ibu, berikut turut saya lampirkan
-          kelengkapan berkas pendukung:
-        </p>
-        <ol>
-          <li>Daftar Riwayat Hidup (Curriculum Vitae) terbaru</li>
-          <li>Salinan Ijazah Sarjana Terlegalisir dan Transkrip Nilai</li>
-          <li>Salinan Sertifikat Keahlian dan Pasfoto 4x6</li>
-        </ol>
-        <p>
-          Besar harapan saya untuk diberikan kesempatan menghadiri sesi
-          wawancara agar dapat menguraikan lebih mendalam perihal kompetensi dan
-          dedikasi saya.
-          <span class="spoiler" data-q="9"
-            ><span class="target-pop"
-              >Atas perhatiannya, saya sampaikan terima kasih.</span
-            ></span
-          >
-        </p>
-
-        <p>Hormat saya</p>
-
-        <p>
-          <span class="spoiler" data-q="10"
-            ><span class="target-pop">(Ahmad Fauzi, S.Kom.)</span></span
-          >
-        </p>
-      </div>
-      <div class="side">
-        <div class="info">
-          <b>Petunjuk</b>
-          <ul>
-            <li>Klik kata atau kalimat yang salah.</li>
-            <li>Pilih bentuk perbaikannya.</li>
-          </ul>
-        </div>
-        <div class="detail">
-          <b>Jenis Kesalahan</b>
-          <div class="group-pill">
-            <div class="pill">
-              <div class="ball"></div>
-              Kata tidak baku
-            </div>
-            <div class="pill">
-              <div class="ball"></div>
-              Tanda baca
-            </div>
-            <div class="pill">
-              <div class="ball"></div>
-              Bahasa formal
-            </div>
-            <div class="pill">
-              <div class="ball"></div>
-              Sistematika
-            </div>
-          </div>
-        </div>
-        <button class="cek" onclick="check()">periksa jawaban</button>
-        <button class="down" onclick="saveResult()">unduh hasil</button>
-      </div>`
-
-]
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    videoId: "9TwsvY_iGys",
+    width: "100%",
+    height: "100%",
+    events: {
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
 
 const modal = document.querySelector(".modal")
 
 
-function switchPage(index) {
-  document.querySelector(".main").innerHTML = pages[index];
-
-  document.querySelectorAll(".spoiler").forEach(e => {
-    const data = dataList2[e.dataset.q - 1];
-
-    e.innerHTML += `
-   <div class="pop" popover="auto">
-   <div class="fs-close">
-   <i class="fas fa-close"></i>
-   </div>
-            <div class="input-group">
-              <input type="radio" name="choice" value="1" /><label
-                >${data.options[0]}</label
-              >
-            </div>
-            <div class="input-group">
-              <input type="radio" name="choice" value="2" /><label
-                >${data.options[1]}</label
-              >
-            </div>
-            <div class="input-group">
-              <input type="radio" name="choice" value="3" /><label
-                >${data.options[2]}</label
-              >
-            </div>
-            <button class="btn-save">simpan</button>
-          </div>
-  `;
-
-
-    const pop = e.querySelector(".pop");
-    const closeBtn = e.querySelector(".fs-close");
-    pop.addEventListener("toggle", (event) => {
-      if (event.newState == "closed") {
-        e.querySelector("span").classList.add("filled")
-        e.querySelector("span").classList.remove("active")
-      }
-
-    })
-    closeBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      pop.hidePopover()
-    })
-    e.addEventListener("click", () => {
-      e.querySelector("span").classList.remove("filled")
-      e.querySelector("span").classList.remove("wrong")
-      e.querySelector("span").classList.add("active")
-      pop.showPopover()
-    })
-    e.querySelectorAll(".input-group").forEach(ee => {
-      ee.addEventListener("click", (event) => {
-        event.stopPropagation()
-        ee.querySelector("input").click()
-      })
-    })
-    e.querySelector(".btn-save").addEventListener("click", (event) => {
-      event.stopPropagation()
-      const val = e.querySelector('input[name="choice"]:checked')?.value || 1;
-      e.querySelector(".target-pop").textContent = data.options[val - 1];
-      dataAnswer["q" + e.dataset.q] = {
-        answer: val,
-        data
-      }
-      // console.log({ dataAnswer })
-      pop.hidePopover()
-    })
-  })
-
-}
-switchPage(0);
 
 const sections = [
   {
@@ -476,7 +250,6 @@ sections.forEach((e, k) => {
     correct: "-"
   })
 })
-
 
 
 const groupList = document.querySelector(".group-list") || document.createElement("div");

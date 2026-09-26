@@ -14,7 +14,28 @@
     <!-- <link rel="stylesheet" href="../public/fa/css/all.min.css" /> -->
   </head>
   <body data-refer="1">
-    <div class="wrapper main"></div>
+    <div class="wrapper main">
+      <div class="sidemenu">
+        <b class="header-text">Daftar Adegan</b>
+        <div class="group-list"></div>
+      </div>
+      <div class="video">
+        <div id="player"></div>
+        <div class="fokus">
+          <b>Fokus Adegan</b>
+          <h2>Kesan pertama dibentuk sebelum wawancara dimulai.</h2>
+          <div class="wrapper box">
+            <b>Pertanyaan reflektif</b>
+            <p>Apa kesan pertama yang ingin kamu tunjukkan?</p>
+          </div>
+        </div>
+
+        <button class="quiz pointer" onclick="saveDoc()">
+          <span>Latihan Koreksi</span>
+          <i class="fas fa-external-link-square"></i>
+        </button>
+      </div>
+    </div>
 
     <div class="modal" popover>
       <i class="close fas fa-close pointer" onclick="toggleModal()"></i>
