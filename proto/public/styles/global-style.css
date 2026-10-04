@@ -256,3 +256,32 @@
     }
   }
 }
+
+@media (width<40rem) {
+  body {
+    padding: 0;
+    gap: 0;
+  }
+  .main {
+    .sidemenu {
+      position: sticky;
+      top: 0;
+      background-color: #bbd9f8;
+      padding-bottom: var(--m-2);
+      z-index: 4;
+      > b {
+        font-size: 1.25rem;
+      }
+      .group-list {
+        display: none;
+        &.show {
+          display: grid;
+          .item.active {
+            translate: 0;
+          }
+        }
+      }
+    }
+    grid-template-columns: 1fr;
+  }
+}

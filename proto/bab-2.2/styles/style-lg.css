@@ -150,7 +150,6 @@
       display: grid;
       .drag-group {
         padding: var(--m);
-        outline: 1px solid red;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: var(--m);

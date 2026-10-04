@@ -2,6 +2,7 @@
   --purple: #150d25;
   --orchid: #8552fd;
   --blue: #7bbdfe76;
+  --blue-dark: #155fa9;
   --red: #ab0e23;
   --yellow: #cba81d;
   --yellow: #e8a81f;
@@ -17,5 +18,6 @@
   --2m: 2rem;
   --b-shadow: 0 0 3px rgba(56, 55, 55, 0.254);
   --transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+  --outline: 0.125rem solid rgba(255, 0, 0, 0.331);
   scrollbar-width: none;
 }

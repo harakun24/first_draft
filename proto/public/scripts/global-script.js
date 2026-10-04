@@ -2,7 +2,8 @@ const route = [
   "",
   "bab-1.1-etika-kerja-dan-strategi-dokumen-lamaran-mengesankan",
   "bab-1.4-Menulis-Surat-Lamaran-Kerja-Efektif-dan-Mendesain-CV-Digital",
-  "bab-2.2"
+  "bab-2.2",
+  "bab-2.3",
 
 ];
 
@@ -48,6 +49,10 @@ if (document.body.dataset.refer != 0)
         <div class="detail wrapper pointer hide" data-link="3">
           <b><i class="fas fa-angle-right"> </i> Media 2 </b>
           <p>Menyimak Kritis Film Pendek</p>
+        </div>
+          <div class="detail wrapper pointer hide" data-link="4">
+          <b><i class="fas fa-angle-right"> </i> Media 3 </b>
+          <p>Ekranisasi & Simulator Storyboard Sederhana</p>
         </div>
       </div>
       <!-- start end -->
@@ -118,3 +123,7 @@ const store = {
 
 
 }
+
+document.querySelector(".sidemenu b").addEventListener("click", e => {
+  e.currentTarget.parentElement.querySelector(".group-list").classList.toggle("show");
+})

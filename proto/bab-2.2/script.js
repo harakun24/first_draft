@@ -167,7 +167,7 @@ function navigate(key) {
         </div>`,
     ` <div class="view" data-module="3">
           <b>Hasil ulasan film pendek</b>
-          <h2>Isi data berikut berdasarkan tontonan yang anda simak</h2>
+          <h2>Isi formulir berdasarkan apa yang telah anda simak</h2>
           <div class="form-group">
             <div class="input-group">
               <label for="judul">Judul Film</label>

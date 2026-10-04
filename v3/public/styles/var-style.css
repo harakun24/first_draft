@@ -1,0 +1,37 @@
+:root {
+  /* main color */
+  --merah-koma: #e4305c;
+  --magenta-bab: #e30b59;
+  --kuning-judul: #fbdd00;
+  --biru-penanda: #2e8bc1;
+  --navy-garis: #244470;
+
+  /* latar dan isian */
+  --merah-muda-peta: #fbebed;
+  --krem-diagram: #f5f0de;
+  --kuning-node: #fce775;
+  --kuning-pucat: #fef4c0;
+  --biru-kartu: #d9e9f9;
+  --biru-pola: #cae3f1;
+  --biru-sampul: #6aafdb;
+  --kertas: #fcfaf3;
+
+  /* aksen */
+  --tinta: #231f20;
+  --arang: #393e42;
+  --pink-garis: #ee759f;
+  --navy-ilustrasi: #1a567d;
+  --label-merah-muda: #ef9d9e;
+  --label-hijau: #d1e8d0;
+
+  /* size */
+  --m: 1rem;
+  --2m: 2rem;
+  --m-2: 0.5rem;
+  --m-3: calc(1rem/3);
+  --m-4: 0.25rem;
+  --m-5: calc(1rem/5);
+  --m-6: calc(1rem/6);
+
+  --ol: 1.5px solid rgba(230, 209, 20, 0.88);
+}

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: judul;
+  src: url(../font/Fira_Sans_Condensed/FiraSansCondensed-Black.ttf);
+}
+
+@font-face {
+  font-family: peta;
+  src: url(../font/Fira_Sans/FiraSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: letter;
+  src: url(../font/Noto_Serif/static/NotoSerif-Regular.ttf);
+}
