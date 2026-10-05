@@ -57,6 +57,7 @@ body {
     h4 {
       font-family: var(--judul);
       color: var(--kuning-judul);
+      text-align: right;
 
       text-shadow:
         2px 0 var(--navy-garis),
@@ -104,9 +105,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--biru-pola);
+    background-color: var(--kertas);
     color: var(--navy-garis);
-    min-width: 25vw;
     transition: ease-in 0.3s;
     transition-behavior: allow-discrete;
     height: 100vh;
@@ -139,22 +139,60 @@ body {
         display: grid;
         .title {
           border-top: 1px solid var(--navy-ilustrasi);
+          padding-top: var(--m);
+          padding-bottom: var(--m);
         }
         > * {
-          padding: var(--m);
+          padding: var(--m-2);
           border-bottom: 1px solid var(--navy-ilustrasi);
           display: grid;
           grid-template-columns: auto 1fr;
           transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
           background-color: var(--biru-penanda);
-          color: var(--kertas);
+          width: 40ch;
+
           [data-icon] {
             margin-left: auto;
           }
+          background-color: var(--label-merah-muda);
           &:hover {
             background-color: var(--merah-koma);
-            color: var(--kertas);
           }
+          &.active {
+            background-color: var(--merah-koma);
+            filter: brightness(1.2);
+          }
+        }
+        .link {
+          align-items: center;
+
+          p {
+            span {
+              display: inline-block;
+              padding-top: var(--m-2);
+              padding-left: var(--m-2);
+              font-size: 0.8rem;
+              opacity: 0.8;
+            }
+          }
+          [data-icon] {
+            &.hide {
+              display: none;
+            }
+          }
+          &[data-label] {
+            display: none;
+            background-color: var(--merah-muda-peta);
+            &.open {
+              display: grid;
+            }
+            @starting-style {
+              /* translate: 0 -100%; */
+              opacity: 0;
+            }
+          }
+          /* [data-icon] {
+          } */
         }
       }
     }
