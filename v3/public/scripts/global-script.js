@@ -44,8 +44,15 @@ function toggleLink(e) {
   const state = e.currentTarget.dataset.state;
   console.log({ state })
   if (state == "close") {
+    const prevLink = document.querySelector(".links .link.active");
+    if (prevLink) {
 
-    document.querySelector(".links .link.active")?.classList.remove("active");
+      prevLink.classList.remove("active");
+      prevLink.setAttribute("data-state", "close");
+      prevLink.querySelectorAll("[data-icon]").forEach(el => {
+        el.classList.toggle("hide");
+      })
+    }
     e.currentTarget.classList.add("active");
     document.querySelectorAll(`.links [data-label]`)?.forEach(el => {
       el.classList.remove("open");

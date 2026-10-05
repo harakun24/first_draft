@@ -33,14 +33,14 @@ body {
   .icon {
     height: 1.25lh;
     aspect-ratio: 1;
-    /* border: 2px solid var(--navy-garis); */
-    background-color: var(--navy-garis);
+    border: 2px solid var(--navy-garis);
+    /* background-color: var(--navy-garis); */
     padding: var(--m-2);
     display: grid;
     place-content: center;
     border-radius: var(--m-2);
-    /* background-color: var(--kertas); */
-    color: var(--biru-sampul);
+    background-color: var(--kuning-pucat);
+    color: var(--navy-garis);
     [data-icon] {
       svg {
         width: 100%;
@@ -68,6 +68,7 @@ body {
     }
     p {
       text-align: right;
+      color: var(--kuning-pucat);
     }
   }
 }
@@ -110,6 +111,7 @@ body {
     transition: ease-in 0.3s;
     transition-behavior: allow-discrete;
     height: 100vh;
+    scrollbar-width: none;
     svg {
       stroke-width: 3;
     }
@@ -121,6 +123,7 @@ body {
       padding: var(--m);
       padding-top: var(--2m);
       justify-content: space-between;
+
       /* width: 100%; */
       span {
         width: 100%;
@@ -148,18 +151,16 @@ body {
           display: grid;
           grid-template-columns: auto 1fr;
           transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
-          background-color: var(--biru-penanda);
+          /* background-color: var(--biru-penanda); */
+          background-color: var(--kuning-node);
+          /* color: var(--biru-pola); */
           width: 40ch;
-
           [data-icon] {
             margin-left: auto;
           }
-          background-color: var(--label-merah-muda);
-          &:hover {
-            background-color: var(--merah-koma);
-          }
+          &:hover,
           &.active {
-            background-color: var(--merah-koma);
+            /* background-color: var(--merah-koma); */
             filter: brightness(1.2);
           }
         }
@@ -182,7 +183,7 @@ body {
           }
           &[data-label] {
             display: none;
-            background-color: var(--merah-muda-peta);
+            background-color: var(--kuning-pucat);
             &.open {
               display: grid;
             }
