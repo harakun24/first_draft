@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bahasa Indonesia Lanjut | Halaman Utama</title>
+    <title>Halaman Utama | Bahasa Indonesia Lanjut</title>
     <link rel="stylesheet" href="./styles/style.css" />
     <link
       rel="shortcut icon"
@@ -11,121 +11,6 @@
       type="image/x-icon" />
   </head>
   <body data-refer="0">
-    <div class="daftar-menu" popover>
-      <h4>
-        <span>DAFTAR MENU</span>
-        <div
-          class="pointer"
-          data-icon="../../public/feather/x.svg"
-          onclick="toggleMenu()"></div>
-      </h4>
-      <div class="link-group">
-        <div class="links">
-          <div class="title pointer" data-link="0">
-            <p>Beranda</p>
-            <div data-icon="../../public/feather/home.svg"></div>
-          </div>
-          <div
-            class="link pointer"
-            data-target="bab1"
-            data-state="close"
-            onclick="toggleLink(event)">
-            <p>
-              Bab I <br />
-              <span>
-                Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang
-                Mengesankan
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-down.svg"></div>
-            <div
-              class="hide"
-              data-icon="../../public/feather/chevron-up.svg"></div>
-          </div>
-          <!-- media group start -->
-          <div class="link pointer" data-label="bab1" data-link="1">
-            <p>
-              Media 1 <br />
-              <span>
-                Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang
-                Mengesankan
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab1">
-            <p>
-              Media 4 <br />
-              <span>
-                Menulis Surat Lamaran Kerja Efektif dan Mendesain CV Digital
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab1">
-            <p>
-              Media 5 <br />
-              <span> Simulasi Wawancara Kerja </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <!-- media group end -->
-          <div
-            class="link pointer"
-            data-target="bab2"
-            data-state="close"
-            onclick="toggleLink(event)">
-            <p>
-              Bab II <br />
-              <span>
-                Layar Kecil, Pikiran Besar: Literasi dari Film Pendek
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-down.svg"></div>
-            <div
-              class="hide"
-              data-icon="../../public/feather/chevron-up.svg"></div>
-          </div>
-          <!-- media group start -->
-          <div class="link pointer" data-label="bab2" data-link="1">
-            <p>
-              Media 1 <br />
-              <span> Apersepsi Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2">
-            <p>
-              Media 2 <br />
-              <span> Menyimak Kritis Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2">
-            <p>
-              Media 3 <br />
-              <span> Ekranisasi & Simulator Storyboard Sederhana </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2">
-            <p>
-              Media 4 <br />
-              <span> Manajemen dan Alur Produksi Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2">
-            <p>
-              Media 5 <br />
-              <span> Publikasi Karya Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <!-- media group end -->
-        </div>
-      </div>
-    </div>
     <div class="header">
       <div class="icon pointer" onclick="toggleMenu()">
         <div data-icon="../../public/feather/menu.svg"></div>
@@ -135,7 +20,15 @@
         <p>Beranda</p>
       </div>
     </div>
-    <div class="main"></div>
+    <div class="main">
+      <div class="card pointer" data-link="1">
+        <div data-icon="../../public/feather/play-circle.svg"></div>
+        <h4 class="title">Bab I media 1</h4>
+        <p>
+          Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang Mengesankan
+        </p>
+      </div>
+    </div>
     <div class="footer">
       <p>&copy; BEI 2026</p>
     </div>

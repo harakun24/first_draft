@@ -4,6 +4,8 @@
   --magenta-bab: #e30b59;
   --kuning-judul: #fbdd00;
   --biru-penanda: #2e8bc1;
+  --hijau-penanda: #50c12e;
+  --hijau-penanda-2: #0d6213;
   --navy-garis: #244470;
 
   /* latar dan isian */
@@ -33,5 +35,7 @@
   --m-5: calc(1rem/5);
   --m-6: calc(1rem/6);
 
-  --ol: 1.5px solid rgba(230, 209, 20, 0.88);
+  --ol: 1.5px solid rgba(230, 20, 20, 0.601);
+  --box: 0px 0px 3px rgba(0, 0, 0, 0.359);
+  --border: 0.15px solid rgba(5, 61, 121, 0.519);
 }

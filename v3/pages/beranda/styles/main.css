@@ -1,0 +1,45 @@
+.main {
+  gap: var(--m);
+  grid-template-columns: repeat(6, 1fr);
+  align-content: start;
+  .card {
+    aspect-ratio: 16/9;
+    background-color: var(--kertas);
+    position: relative;
+    padding: var(--m);
+    border-radius: var(--2m);
+    display: grid;
+    align-content: start;
+    border: 4px solid var(--merah-koma);
+    font-size: 0.8rem;
+    gap: var(--m);
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    /* font-size: 0.8rem; */
+    .title {
+      /* position: absolute;
+      right: -10%;
+      top: -10%; */
+      padding: var(--m-2) var(--m);
+      background-color: var(--merah-koma);
+      color: var(--kertas);
+      border-radius: var(--m);
+      width: fit-content;
+      justify-self: end;
+    }
+    p {
+      text-align: justify;
+      opacity: 0.8;
+      grid-column: span 2;
+    }
+    [data-icon] {
+      scale: 4;
+      translate: -20% -20%;
+      svg {
+        background-color: var(--merah-koma);
+        width: fit-content;
+        border-radius: 50%;
+      }
+    }
+  }
+}

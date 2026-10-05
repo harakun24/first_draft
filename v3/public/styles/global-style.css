@@ -39,7 +39,7 @@ body {
     display: grid;
     place-content: center;
     border-radius: var(--m-2);
-    background-color: var(--kuning-pucat);
+    background-color: var(--kuning-judul);
     color: var(--navy-garis);
     [data-icon] {
       svg {
@@ -58,17 +58,20 @@ body {
       font-family: var(--judul);
       color: var(--kuning-judul);
       text-align: right;
-
-      text-shadow:
-        2px 0 var(--navy-garis),
-        -2px 0 var(--navy-garis),
-        0px 2px var(--navy-garis),
-        0px -2px var(--navy-garis);
+      paint-order: stroke fill;
+      -webkit-text-stroke: var(--m-2) var(--navy-garis);
       font-size: 2rem;
     }
     p {
       text-align: right;
-      color: var(--kuning-pucat);
+      font-size: 0.8rem;
+      padding-top: var(--m-2);
+
+      @media (width<40rem) {
+        outline: var(--ol);
+        width: 40ch;
+      }
+      /* color: var(--kuning-node); */
     }
   }
 }
@@ -78,6 +81,7 @@ body {
   padding: var(--m-2);
   color: var(--kertas);
   text-align: center;
+  font-size: 0.8rem;
 }
 
 .pointer {
@@ -99,6 +103,8 @@ body {
 }
 
 .daftar-menu {
+  transition: ease-in 0.3s;
+
   &:popover-open {
     display: grid;
     align-content: start;
@@ -108,8 +114,6 @@ body {
     top: 0;
     background-color: var(--kertas);
     color: var(--navy-garis);
-    transition: ease-in 0.3s;
-    transition-behavior: allow-discrete;
     height: 100vh;
     scrollbar-width: none;
     svg {
@@ -208,8 +212,12 @@ body {
 }
 
 body:has(:popover-open) {
-  iframe,
-  .main {
+  iframe {
     pointer-events: none;
   }
+}
+
+.main {
+  display: grid;
+  padding: var(--m);
 }

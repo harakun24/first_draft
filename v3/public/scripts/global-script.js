@@ -5,6 +5,151 @@ function fillIcon(el) {
     .then(res => el.innerHTML = res)
 }
 
+let player;
+const store = {
+  set: (key, val) => {
+    localStorage.setItem(key, JSON.stringify(val))
+  },
+  get: (key) => {
+    return JSON.parse(localStorage.getItem(key)) || null
+  },
+  add: (key, val) => {
+    const old = store.get(key);
+
+    if (!old) return store.set(key, val);
+
+    if (typeof old === 'object') {
+      store.set(key, Array.isArray(old) ? [...old, ...val] : { ...old, ...val })
+    }
+    else
+      store.set(key, val)
+  },
+  delete: (key) => {
+    localStorage.removeItem(key);
+  },
+  clean: () => localStorage.clear()
+
+
+}
+
+document.querySelector(".header").insertAdjacentHTML("beforebegin", `
+ <div class="daftar-menu" popover>
+      <h4>
+        <span>DAFTAR MENU</span>
+        <div
+          class="pointer"
+          data-icon="../../public/feather/x.svg"
+          onclick="toggleMenu()"></div>
+      </h4>
+      <div class="link-group">
+        <div class="links">
+          <div class="title pointer" data-link="0">
+            <p>Beranda</p>
+            <div data-icon="../../public/feather/home.svg"></div>
+          </div>
+          <div
+            class="link pointer"
+            data-target="bab1"
+            data-state="close"
+            onclick="toggleLink(event)">
+            <p>
+              Bab I <br />
+              <span>
+                Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang
+                Mengesankan
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-down.svg"></div>
+            <div
+              class="hide"
+              data-icon="../../public/feather/chevron-up.svg"></div>
+          </div>
+          <!-- media group start -->
+          <div class="link pointer" data-label="bab1" data-link="1">
+            <p>
+              Media 1 <br />
+              <span>
+                Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang
+                Mengesankan
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab1">
+            <p>
+              Media 4 <br />
+              <span>
+                Menulis Surat Lamaran Kerja Efektif dan Mendesain CV Digital
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab1">
+            <p>
+              Media 5 <br />
+              <span> Simulasi Wawancara Kerja </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <!-- media group end -->
+          <div
+            class="link pointer"
+            data-target="bab2"
+            data-state="close"
+            onclick="toggleLink(event)">
+            <p>
+              Bab II <br />
+              <span>
+                Layar Kecil, Pikiran Besar: Literasi dari Film Pendek
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-down.svg"></div>
+            <div
+              class="hide"
+              data-icon="../../public/feather/chevron-up.svg"></div>
+          </div>
+          <!-- media group start -->
+          <div class="link pointer" data-label="bab2" data-link="1">
+            <p>
+              Media 1 <br />
+              <span> Apersepsi Film Pendek </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab2">
+            <p>
+              Media 2 <br />
+              <span> Menyimak Kritis Film Pendek </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab2">
+            <p>
+              Media 3 <br />
+              <span> Ekranisasi & Simulator Storyboard Sederhana </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab2">
+            <p>
+              Media 4 <br />
+              <span> Manajemen dan Alur Produksi Film Pendek </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab2">
+            <p>
+              Media 5 <br />
+              <span> Publikasi Karya Film Pendek </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <!-- media group end -->
+        </div>
+      </div>
+    </div>
+`)
+
 document.querySelectorAll("[data-icon]").forEach(el => {
   fillIcon(el);
 });
@@ -37,7 +182,7 @@ const menu = document.querySelector(".daftar-menu");
 function toggleMenu() {
   menu.togglePopover();
 }
-toggleMenu();
+// toggleMenu();
 
 function toggleLink(e) {
   const target = e.currentTarget.dataset.target;
@@ -77,6 +222,6 @@ function toggleLink(e) {
 const route = ["beranda", "bab-1-media-1"];
 
 function navigate(el) {
-  el.addEventListener("click", () => window.location.replace("../" + route[el.dataset.link]))
+  el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))
 }
-document.querySelectorAll("[data-link]").forEach(el => navigate(el))
+document.querySelectorAll("[data-link]").forEach(el => navigate(el));

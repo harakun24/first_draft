@@ -368,7 +368,6 @@ function answer(data) {
   console.log(currentActiveQuestion)
 
   for (const a of answeredList) {
-    console.log(a)
     if (a.key == data.dataset.key) {
       a.question = currentActiveQuestion.question;
       a.status = data.dataset.answer;
@@ -376,6 +375,9 @@ function answer(data) {
       a.correct = currentActiveQuestion.answers[currentActiveQuestion.answers.key];
     }
   }
+  store.add("video-quiz", answeredList);
+  console.log(store.get("video-quiz"));
+
   modal.hidePopover();
   const strTable = answeredList.map((a, index) => `
   <tr>
@@ -561,3 +563,5 @@ function check() {
     `
   })
 }
+
+// page-2
