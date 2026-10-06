@@ -21,7 +21,7 @@ function jumpSegmen(e) {
 }
 
 
-document.querySelector("[data-jump='refleksi']").click();
+document.querySelector("[data-jump='video']").click();
 
 
 function choose(num) {
