@@ -84,7 +84,7 @@ document.querySelector(".header").insertAdjacentHTML("beforebegin", `
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab1">
+          <div class="link pointer" data-label="bab1" data-link="3">
             <p>
               Media 5 <br />
               <span> Simulasi Wawancara Kerja </span>
@@ -219,7 +219,7 @@ function toggleLink(e) {
   })
 }
 
-const route = ["beranda", "bab-1-media-1", "bab-1-media-4"];
+const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5"];
 
 function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))

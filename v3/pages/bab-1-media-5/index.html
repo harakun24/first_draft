@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab I media 5 | Simulasi Wawancara Kerja</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <b>Tonton Video</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="prinsip"
+            onclick="jumpSegmen(event)">
+            <b>Prinsip Wawancara</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="mandiri"
+            onclick="jumpSegmen(event)">
+            <b>Praktek Mandiri</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <button
+            class="next pointer"
+            onclick="document.querySelector('.modal').showPopover()">
+            <div data-icon="../../public/feather/external-link.svg"></div>
+            <b>Buka video</b>
+          </button>
+        </div>
+        <div class="play-area">
+          <div class="area video">
+            <div id="player"></div>
+          </div>
+          <div class="area prinsip">
+            <h1>Tiga Kunci Komunikasi Profesional</h1>
+            <div class="wrapper">
+              <b>1</b>
+              <div class="text">
+                <h3>Kontak mata dan postur</h3>
+                <p>
+                  Masuk dengan sopan, badan tegap dan perhatikan lawan bicara
+                  ketika sedang berbicara.
+                </p>
+              </div>
+            </div>
+            <div class="wrapper">
+              <b>2</b>
+              <div class="text">
+                <h3>Kalimat jelas dan solutif</h3>
+                <p>
+                  Gunakan bahasa yang formal, jangan berhenti pada kekurangan
+                  diri sendiri. Berikan solusi jika diperlukan.
+                </p>
+              </div>
+            </div>
+            <div class="wrapper">
+              <b>3</b>
+              <div class="text">
+                <h3>Selaraskan dan perkuat surat dan CV</h3>
+                <p>
+                  Jangan hanya menyampaikan apa yang sudah ada di dokumen anda.
+                  Sajikan juga data yang dapat mendukung kualifikasi anda.
+                </p>
+              </div>
+            </div>
+            <button
+              class="pointer"
+              data-jump="mandiri"
+              onclick="document.querySelector(`[data-jump='mandiri']`).click()">
+              Lanjut ke tantangan praktek
+            </button>
+          </div>
+          <div class="area mandiri">
+            <div class="record">
+              <b>Rekam Presentasi Dirimu</b>
+              <div class="timestamp">
+                <h1 class="timerText">00:00</h1>
+                <span>durasi latihan</span>
+              </div>
+              <button id="toggleRec">
+                mulai rekam <i class="fas fa-camera"></i>
+              </button>
+              <p></p>
+            </div>
+            <div class="checklist">
+              <h4>Evaluasi Mandiri</h4>
+              <div class="check-group">
+                <input type="checkbox" name="" id="satu" />
+                <label for="satu">Kontak mata dan postur</label>
+              </div>
+              <div class="check-group">
+                <input type="checkbox" name="" id="dua" />
+                <label for="dua">Pembukaan yang sopan</label>
+              </div>
+              <div class="check-group">
+                <input type="checkbox" name="" id="tiga" />
+                <label for="tiga">Kualifikasi relevan</label>
+              </div>
+              <div class="check-group">
+                <input type="checkbox" name="" id="empat" />
+                <label for="empat">Contoh solusi nyata</label>
+              </div>
+              <div class="check-group">
+                <input type="checkbox" name="" id="lima" />
+                <label for="lima">Suara jelas dan percaya diri</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+
+    <div id="videoModal" class="modal" popover>
+      <div
+        class="close"
+        onclick="document.querySelector('.modal').hidePopover()">
+        <i class="fas fa-close"></i>
+      </div>
+      <video id="previewVideo" controls width="100%"></video>
+      <button id="downloadBtn">
+        <i class="fas fa-arrow-down"></i> Unduh Video
+      </button>
+      <button id="deleteBtn"><i class="fas fa-trash"></i> Hapus Video</button>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+.main {
+  .view {
+    display: none;
+    transition: cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+    &.active {
+      display: grid;
+    }
+    &[data-view="1"] {
+      grid-template-columns: auto 1fr;
+      gap: var(--m);
+      .segmen-tab {
+        font-size: 0.8rem;
+        padding: var(--m);
+        display: grid;
+        background-color: var(--kertas);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-content: start;
+        gap: var(--m);
+        border-radius: var(--m);
+        box-shadow: var(--box);
+        height: fit-content;
+        > b {
+          text-align: center;
+        }
+        > * {
+          grid-column: span 2;
+        }
+        .segmen {
+          display: grid;
+          grid-template-columns: subgrid;
+          padding: var(--m);
+          border: 2px solid var(--navy-garis);
+          border-radius: var(--m-2);
+          background-color: var(--biru-kartu);
+          [data-icon] {
+            /* color: var(--navy-garis); */
+            opacity: 0;
+          }
+          &.active {
+            border: 2px solid var(--magenta-bab);
+            background-color: var(--merah-muda-peta);
+            [data-icon] {
+              opacity: 1;
+              color: var(--magenta-bab);
+            }
+          }
+        }
+        .next {
+          border: 2px solid var(--hijau-penanda-2);
+          color: var(--hijau-penanda-2);
+          border-radius: var(--m-2);
+          padding: var(--m);
+          background-color: var(--hijau-penanda);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          filter: brightness(1.2);
+          [data-icon] {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .play-area {
+        display: grid;
+        height: 100%;
+        .area {
+          display: none;
+          &.active {
+            display: grid;
+          }
+          &.prinsip {
+            padding: var(--m);
+            background-color: var(--kertas);
+            border-radius: var(--m-2);
+            gap: var(--m);
+            h1 {
+              text-align: center;
+            }
+            .wrapper {
+              display: grid;
+              grid-template-columns: auto 1fr;
+              gap: var(--m);
+              background-color: var(--biru-kartu);
+              padding: var(--m-2);
+              border-radius: var(--m-2);
+              align-items: center;
+              b {
+                aspect-ratio: 1;
+                height: 1lh;
+                background-color: var(--navy-garis);
+                font-size: 1.4rem;
+                padding: var(--m);
+                text-align: center;
+                border-radius: 50%;
+                color: var(--kertas);
+              }
+              p {
+                opacity: 0.8;
+                padding-top: 5px;
+              }
+            }
+            button {
+              border: none;
+              padding: var(--m);
+              border-radius: var(--m-2);
+              background-color: var(--hijau-penanda);
+              width: fit-content;
+              justify-self: center;
+            }
+          }
+          &.mandiri {
+            grid-template-columns: 1fr auto;
+            gap: var(--m);
+            .record,
+            .checklist {
+              border-radius: calc(var(--m) / 2);
+              padding: var(--m);
+            }
+            .record {
+              background-color: var(--kertas);
+              display: grid;
+              align-content: start;
+              gap: calc(var(--m) * 2);
+              .timestamp {
+                aspect-ratio: 1;
+                width: 25%;
+                border-radius: 50%;
+                place-content: center;
+                text-align: center;
+                font-size: 150%;
+                justify-self: center;
+                background-color: oklch(from var(--biru-penanda) l c h / 0.2);
+                border: 3px solid var(--navy-garis);
+              }
+              #toggleRec {
+                width: fit-content;
+                justify-self: center;
+                padding: var(--m) calc(var(--m) * 2);
+                border: none;
+                background-color: oklch(
+                  from var(--navy-garis) calc(l * 1.4) c h
+                );
+                border-radius: calc(var(--m) / 2);
+                cursor: pointer;
+                &:hover {
+                  filter: brightness(1.4);
+                }
+              }
+              p {
+                width: 40%;
+                text-align: center;
+                justify-self: center;
+              }
+            }
+            .checklist {
+              background-color: var(--kertas);
+              display: grid;
+              align-content: start;
+              gap: var(--m);
+              .check-group {
+                display: flex;
+                gap: var(--m);
+                padding: var(--m);
+                background-color: oklch(from var(--biru-penanda) l c h / 0.1);
+                border-radius: calc(var(--m) / 2);
+                &:hover {
+                  filter: brightness(0.6);
+                }
+              }
+              .download {
+                padding: var(--m);
+                border: none;
+                border-radius: calc(var(--m) / 2);
+                background-color: var(--hijau-penanda);
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      #player {
+        background-color: var(--arang);
+      }
+    }
+    @starting-style {
+      opacity: 0;
+      transition: -100%;
+    }
+  }
+}
+
+.modal {
+  padding: var(--m);
+  border: none;
+  border-radius: calc(var(--m) / 2);
+  place-self: center;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
+  .close {
+    position: absolute;
+    right: var(--m);
+    top: var(--m);
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  &:popover-open {
+    display: grid;
+  }
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.254);
+  }
+  @starting-style {
+    scale: 0.4;
+    opacity: 0;
+  }
+  video {
+    width: 40vw;
+  }
+  button {
+    margin-top: var(--m);
+    border: none;
+    border-radius: calc(var(--m) / 2);
+    padding: calc(var(--m) * 2) calc(var(--m) / 2);
+    border: none;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(0.8);
+    }
+    &:nth-child(3) {
+      background-color: rgb(23, 215, 23);
+    }
+    &:nth-child(4) {
+      background-color: rgb(215, 42, 23);
+    }
+  }
+}
