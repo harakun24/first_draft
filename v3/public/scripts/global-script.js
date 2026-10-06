@@ -130,7 +130,7 @@ document.querySelector(".header").insertAdjacentHTML("beforebegin", `
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab2">
+          <div class="link pointer" data-label="bab2" data-link="5">
             <p>
               Media 4 <br />
               <span> Manajemen dan Alur Produksi Film Pendek </span>
@@ -219,7 +219,7 @@ function toggleLink(e) {
   })
 }
 
-const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1"];
+const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-4"];
 
 function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))

@@ -21,6 +21,12 @@
       padding-top: var(--m-2);
       padding-bottom: var(--m);
     }
+    &[data-module="1"] {
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+    }
     &[data-module="2"] {
       background-color: var(--gray-shader);
       padding: var(--m);

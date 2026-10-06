@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab II media 4 | Manajemen dan Alur Produksi Film Pendek</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <b>Video Pengantar</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="tim"
+            onclick="jumpSegmen(event)">
+            <b>Pembagian Tugas Kelompok</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="linimasa"
+            onclick="jumpSegmen(event)">
+            <b>Linimasa</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area video">
+            <div id="player"></div>
+          </div>
+          <div class="area tim">
+            <b>Pembagian Peran</b>
+            <div class="form">
+              <div class="input-group">
+                <label for="produser">Produser & Bendahara</label>
+                <input type="text" id="produser" />
+              </div>
+              <div class="input-group">
+                <label for="sutradara">Sutradara & Penulis</label>
+                <input type="text" id="sutradara" />
+              </div>
+              <div class="input-group">
+                <label for="dop">DOP & Pencahayaan</label>
+                <input type="text" id="dop" />
+              </div>
+              <div class="input-group">
+                <label for="suara">Suara & Artistik</label>
+                <input type="text" id="suara" />
+              </div>
+              <button class="pointer" onclick="simpanTim()">simpan</button>
+            </div>
+          </div>
+          <div class="area linimasa">
+            <b>Tetapkan rencana dan hasilnya</b>
+            <div class="card">
+              <h3>Pengembangan</h3>
+              <div class="input-group">
+                <label for="tanggal-mulai-kembang">Tanggal mulai</label>
+                <input type="date" id="tanggal-mulai-kembang" />
+              </div>
+              <div class="input-group">
+                <label for="tanggal-selesai-kembang">Tanggal selesai</label>
+                <input type="date" id="tanggal-selesai-kembang" />
+              </div>
+              <div class="input-group">
+                <label for="">Hasil wajib</label>
+                <div class="inner">
+                  <b>Skenario & tim inti</b>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Praproduksi</h3>
+              <div class="input-group">
+                <label for="tanggal-mulai-pra">Tanggal mulai</label>
+                <input type="date" id="tanggal-mulai-pra" />
+              </div>
+              <div class="input-group">
+                <label for="tanggal-selesai-pra">Tanggal selesai</label>
+                <input type="date" id="tanggal-selesai-pra" />
+              </div>
+              <div class="input-group">
+                <label for="">Hasil wajib</label>
+                <div class="inner">
+                  <b>Storyboard & call sheet</b>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Produksi</h3>
+              <div class="input-group">
+                <label for="tanggal-mulai-pro">Tanggal mulai</label>
+                <input type="date" id="tanggal-mulai-pro" />
+              </div>
+              <div class="input-group">
+                <label for="tanggal-selesai-pro">Tanggal selesai</label>
+                <input type="date" id="tanggal-selesai-pro" />
+              </div>
+              <div class="input-group">
+                <label for="">Hasil wajib</label>
+                <div class="inner">
+                  <b>Perekaman gambar dan suara</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>PILIHAN PREFERENSI</h3>
+      <h4 class="preferensi">
+        Yang paling menarik perhatian saat pertama menonton film pendek, adalah
+      </h4>
+
+      <h3>REKAP HASIL REFLEKSI</h3>
+      <h4 class="refleksi">
+        Salah satu film pendek atau tayangan inspiratif yang diingat berjudul
+        "". Pesan moral atau nilai kehidupannya adalah: dan mengapa itu penting,
+        karena
+      </h4>
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
+      </div>
+    </div>
+    <div class="modal2" popover>
+      <h2>
+        Apa yang paling menarik perhatianmu saat pertama menonton film pendek?
+      </h2>
+      <div class="choice" onclick="choose(1)">
+        <div data-icon="../../public/feather/image.svg"></div>
+        <h1>Visual</h1>
+      </div>
+      <div class="choice" onclick="choose(2)">
+        <div data-icon="../../public/feather/align-justify.svg"></div>
+
+        <h1>Cerita</h1>
+      </div>
+      <div class="choice" onclick="choose(3)">
+        <div data-icon="../../public/feather/music.svg"></div>
+        <h1>Musik</h1>
+      </div>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

@@ -12,7 +12,7 @@ function simpanForm() {
 
 function navigate(key) {
   const views = [
-    ``,
+    `<div class="view" data-module="1"><div id="player"/></div>`,
     ` <div class="view" data-module="2">
           <b>Formulir Fondasi cerita</b>
           <h2>Gunakan unsur cerpen untuk film berdurasi 5-10 menit</h2>
@@ -100,7 +100,144 @@ function navigate(key) {
               </div>
             </div>
           </div>
-        </div>`
+        </div>`, "", `
+         <div class="view" data-module="3">
+          <button class="add pointer" onclick="addShot()">
+            tambah shot <i class="fas fa-plus"></i>
+          </button>
+          <div class="group-shot wrapper box">
+            <div
+              class="shot pointer active"
+              data-shot="1"
+              onclick="setShot(event)">
+              <h4>Shot 1</h4>
+            </div>
+          </div>
+          <div class="fill-area wrapper box">
+            <h3>Referensi Shot</h3>
+            <div class="upload-field">
+              <i class="fas fa-arrow-up"></i>
+              <h2>Unggah Gambar</h2>
+              <p>Maksimal 5 MB</p>
+              <input
+                type="file"
+                onchange="setImg(event)"
+                id="picture-pick"
+                accept="image/*" />
+              <button class="upload pointer" onclick="uploadImg()">
+                Pilih gambar dari perangkat
+              </button>
+              <img src="hide" alt="preview" class="preview" />
+            </div>
+            <div class="side-info">
+              <b>Parameter Shot</b>
+              <div class="group">
+                <div class="box-group" data-param="sudut">
+                  <b>Sudut Kamera</b>
+                  <button
+                    class="pointer active"
+                    data-option="1"
+                    onclick="changeOption(event)">
+                    High
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="2"
+                    onclick="changeOption(event)">
+                    Eye Level
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="3"
+                    onclick="changeOption(event)">
+                    Low
+                  </button>
+                </div>
+                <div class="box-group" data-param="ukuran">
+                  <b>Ukuran Shot</b>
+                  <button
+                    class="pointer active"
+                    data-option="1"
+                    onclick="changeOption(event)">
+                    ELS
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="2"
+                    onclick="changeOption(event)">
+                    LS
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="3"
+                    onclick="changeOption(event)">
+                    MS
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="4"
+                    onclick="changeOption(event)">
+                    CU
+                  </button>
+                </div>
+                <div class="box-group" data-param="pergerakan">
+                  <b>Pergerakan</b>
+                  <button
+                    class="pointer active"
+                    data-option="1"
+                    onclick="changeOption(event)">
+                    Static
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="2"
+                    onclick="changeOption(event)">
+                    Panning
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="3"
+                    onclick="changeOption(event)">
+                    Tilting
+                  </button>
+                  <button
+                    class="pointer"
+                    data-option="4"
+                    onclick="changeOption(event)">
+                    Tracking
+                  </button>
+                </div>
+                <div class="box-group" data-param="durasi">
+                  <b>durasi</b>
+                  <input
+                    type="text"
+                    id="durasi"
+                    placeholder="Contoh: 12 detik" />
+                </div>
+              </div>
+              <div class="group">
+                <div class="input-field">
+                  <b>Deskripsi Visual</b>
+                  <textarea
+                    name=""
+                    class="wrapper box"
+                    id="description"
+                    placeholder="Tuliskan aksi, posisi tokoh dan latar bila tanpa gambar"></textarea>
+                </div>
+                <div class="input-field">
+                  <b>Dialog</b>
+                  <textarea
+                    name=""
+                    class="wrapper box"
+                    id="dialog"
+                    placeholder="Tuliskan percakapan yang terjadi di sini."></textarea>
+                </div>
+              </div>
+              <button class="save pointer">Simpan</button>
+            </div>
+          </div>
+        </div>
+        `
 
   ];
 
@@ -168,11 +305,11 @@ function navigate(key) {
 }
 
 store.clean()
-// navigate(2);
+navigate(0);
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
-    videoId: "9TwsvY_iGys",
+    videoId: "t3pjBPl0T9k",
     width: "100%",
     height: "100%",
     // events: {

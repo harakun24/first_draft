@@ -1,0 +1,249 @@
+.main {
+  .view {
+    display: none;
+    transition: cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+    &.active {
+      display: grid;
+    }
+    &[data-view="1"] {
+      grid-template-columns: auto 1fr;
+      gap: var(--m);
+      .segmen-tab {
+        font-size: 0.8rem;
+        padding: var(--m);
+        display: grid;
+        background-color: var(--kertas);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-content: start;
+        gap: var(--m);
+        border-radius: var(--m);
+        box-shadow: var(--box);
+        height: fit-content;
+        > b {
+          text-align: center;
+        }
+        > * {
+          grid-column: span 2;
+        }
+        .segmen {
+          display: grid;
+          grid-template-columns: subgrid;
+          padding: var(--m);
+          border: 2px solid var(--navy-garis);
+          border-radius: var(--m-2);
+          background-color: var(--biru-kartu);
+          [data-icon] {
+            /* color: var(--navy-garis); */
+            opacity: 0;
+          }
+          &.active {
+            border: 2px solid var(--magenta-bab);
+            background-color: var(--merah-muda-peta);
+            [data-icon] {
+              opacity: 1;
+              color: var(--magenta-bab);
+            }
+          }
+        }
+        .next {
+          border: 2px solid var(--hijau-penanda-2);
+          color: var(--hijau-penanda-2);
+          border-radius: var(--m-2);
+          padding: var(--m);
+          background-color: var(--hijau-penanda);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          filter: brightness(1.2);
+          [data-icon] {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .play-area {
+        display: grid;
+        height: 100%;
+        .area {
+          display: none;
+          &.active {
+            display: grid;
+          }
+          &.tim {
+            padding: var(--m);
+            background-color: var(--kertas);
+            border-radius: var(--m-2);
+            align-content: start;
+            > b {
+              text-align: center;
+              padding-top: var(--m);
+            }
+            .form {
+              padding: var(--m);
+              display: grid;
+              gap: var(--m);
+              .input-group {
+                display: grid;
+                gap: var(--m-2);
+                input {
+                  padding: var(--m);
+                  border: none;
+                  border-radius: var(--m-2);
+                  box-shadow: var(--box);
+                }
+              }
+              button {
+                border: none;
+                border-radius: var(--m-2);
+                background-color: var(--hijau-penanda);
+                padding: var(--m);
+                width: fit-content;
+                justify-self: right;
+              }
+            }
+          }
+          &.linimasa {
+            background-color: var(--kertas);
+            padding: var(--m);
+            border-radius: var(--m-2);
+            grid-template-columns: repeat(4, 1fr);
+            align-content: start;
+            gap: var(--m);
+            > b {
+              grid-column: span 4;
+            }
+            .card {
+              box-shadow: var(--box);
+              display: grid;
+              padding: var(--m);
+              border-radius: var(--m-2);
+              gap: var(--m);
+              background-color: white;
+              h3 {
+                padding-bottom: var(--m);
+                text-align: center;
+              }
+              .input-group {
+                display: grid;
+                gap: var(--m-2);
+                label {
+                  font-size: 0.7rem;
+                }
+                input {
+                  border: none;
+                  box-shadow: var(--box);
+                  padding: var(--m);
+                  border-radius: var(--m-2);
+                }
+              }
+              .inner {
+                font-size: 0.7rem;
+                padding: var(--m);
+                border: 1px solid var(--biru-penanda);
+                border-radius: var(--m-2);
+                background-color: var(--biru-kartu);
+              }
+            }
+          }
+        }
+      }
+      #player {
+        background-color: var(--arang);
+      }
+    }
+    @starting-style {
+      opacity: 0;
+      transition: -100%;
+    }
+  }
+}
+
+.table {
+  font-size: 0.8rem;
+  background-color: white;
+  display: grid;
+  gap: calc(var(--m) / 4);
+  position: fixed;
+  left: 9999px;
+  margin: 0;
+  width: 60vw;
+
+  h1,
+  h3 {
+    color: rgb(5, 5, 71);
+  }
+  h1,
+  .rui,
+  p {
+    text-align: center;
+    border: none;
+    &:is(p) {
+      opacity: 0.8;
+    }
+  }
+  padding: calc(var(--m) * 4);
+  h4 {
+    padding: var(--m);
+    background-color: var(--biru-kartu);
+    margin-bottom: var(--2m);
+  }
+  h3 {
+    padding: calc(var(--m) / 4) var(--m);
+    border-left: 5px solid rgb(7, 7, 131);
+  }
+  .last,
+  .datespan {
+    text-align: center;
+    display: grid;
+    width: 30%;
+    justify-self: end;
+    padding: calc(var(--m) / 4);
+    span:nth-child(1) {
+      padding-bottom: calc(var(--m) * 4);
+    }
+    span {
+      opacity: 0.8;
+    }
+    &:is(.datespan) {
+      display: flex;
+    }
+  }
+}
+
+.modal2 {
+  &:popover-open {
+    display: grid;
+    padding: var(--m);
+    border: none;
+    border-radius: calc(var(--m) / 2);
+    position: absolute;
+    place-self: center;
+    grid-template-columns: repeat(3, 1fr);
+    width: 60vw;
+    gap: var(--m);
+    grid-template-rows: auto 1fr;
+    .choice {
+      margin-top: var(--m);
+      background-color: var(--biru-kartu);
+      text-align: center;
+      /* padding: calc(var(--m) * 4) var(--m); */
+      padding: var(--m);
+      border-radius: var(--m);
+      color: var(--navy-garis);
+      display: grid;
+      [data-icon] {
+        font-size: 3.5rem;
+      }
+      &:hover {
+        filter: brightness(0.6);
+        cursor: pointer;
+      }
+    }
+    h2 {
+      grid-column: span 3;
+    }
+  }
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}

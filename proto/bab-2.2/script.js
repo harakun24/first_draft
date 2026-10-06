@@ -213,14 +213,14 @@ function navigate(key) {
         </div>`, ` <div class="view" data-module="4">
           <b>Diagram Alur Cerita</b>
           <h2>
-            Urutkan pilihan secara kronologis dan isi pesan berdasarkan film
+            Lengkapi isi pesan berdasarkan film
             yang anda simak
           </h2>
           <div class="drag-group">
             <div
               class="item wrapper box pointer"
               data-diagram="1"
-              draggable="true"
+             
               ondragstart="drag(event)"
               ondrop="dropToSort(event)"
               ondragover="event.preventDefault()">
@@ -234,7 +234,7 @@ function navigate(key) {
             <div
               class="item wrapper box pointer"
               data-diagram="2"
-              draggable="true"
+          
               ondragstart="drag(event)"
               ondrop="dropToSort(event)"
               ondragover="event.preventDefault()">
@@ -248,7 +248,7 @@ function navigate(key) {
             <div
               class="item wrapper box pointer"
               data-diagram="3"
-              draggable="true"
+              
               ondragstart="drag(event)"
               ondrop="dropToSort(event)"
               ondragover="event.preventDefault()">
@@ -262,7 +262,7 @@ function navigate(key) {
             <div
               class="item wrapper box pointer"
               data-diagram="4"
-              draggable="true"
+            
               ondragstart="drag(event)"
               ondrop="dropToSort(event)"
               ondragover="event.preventDefault()">
@@ -307,7 +307,7 @@ function navigate(key) {
   }
   else if (key == 0) {
     player = new YT.Player("player", {
-      videoId: "9TwsvY_iGys",
+      videoId: "t3pjBPl0T9k",
       width: "100%",
       height: "100%",
       // events: {
@@ -346,7 +346,7 @@ navigate(0);
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
-    videoId: "9TwsvY_iGys",
+    videoId: "t3pjBPl0T9k",
     width: "100%",
     height: "100%",
     // events: {
