@@ -36,14 +36,21 @@
             class="segmen pointer"
             data-jump="tim"
             onclick="jumpSegmen(event)">
-            <b>Pembagian Tugas Kelompok</b>
+            <b>Pembagian Peran</b>
             <div data-icon="../../public/feather/circle.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="linimasa"
             onclick="jumpSegmen(event)">
-            <b>Linimasa</b>
+            <b>Perencanaan</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="ekspor"
+            onclick="jumpSegmen(event)">
+            <b>Tinjau</b>
             <div data-icon="../../public/feather/circle.svg"></div>
           </div>
         </div>
@@ -56,68 +63,118 @@
             <div class="form">
               <div class="input-group">
                 <label for="produser">Produser & Bendahara</label>
-                <input type="text" id="produser" />
+                <input
+                  type="text"
+                  id="produser"
+                  placeholder="tulis nama anggota yang bertugas sebagai produser dan bendahara"
+                  autocomplete="off" />
               </div>
               <div class="input-group">
                 <label for="sutradara">Sutradara & Penulis</label>
-                <input type="text" id="sutradara" />
+                <input
+                  type="text"
+                  id="sutradara"
+                  value=""
+                  autocomplete="off"
+                  placeholder="tulis nama anggota yang bertugas sebagai sutradara dan penulis" />
               </div>
               <div class="input-group">
                 <label for="dop">DOP & Pencahayaan</label>
-                <input type="text" id="dop" />
+                <input
+                  type="text"
+                  id="dop"
+                  value=""
+                  autocomplete="off"
+                  placeholder="tulis nama anggota yang bertugas sebagai DOP & Pencahayaan" />
               </div>
               <div class="input-group">
                 <label for="suara">Suara & Artistik</label>
-                <input type="text" id="suara" />
+                <input
+                  type="text"
+                  id="suara"
+                  value=""
+                  autocomplete="off"
+                  placeholder="tulis nama anggota yang bertugas sebagai kru audio dan artistik" />
               </div>
-              <button class="pointer" onclick="simpanTim()">simpan</button>
+              <button class="pointer" onclick="simpanTim()">
+                Simpan
+                <div data-icon="../../public/feather/save.svg"></div>
+              </button>
             </div>
           </div>
           <div class="area linimasa">
-            <b>Tetapkan rencana dan hasilnya</b>
-            <div class="card">
-              <h3>Pengembangan</h3>
+            <b>Tetapkan Rancangan Kerja</b>
+            <div class="card pengembangan">
+              <h3>Perencanaan</h3>
               <div class="input-group">
                 <label for="tanggal-mulai-kembang">Tanggal mulai</label>
-                <input type="date" id="tanggal-mulai-kembang" />
+                <input
+                  type="date"
+                  id="tanggal-mulai-kembang"
+                  onchange="setDate('perencanaan', 'start', event)" />
               </div>
               <div class="input-group">
                 <label for="tanggal-selesai-kembang">Tanggal selesai</label>
-                <input type="date" id="tanggal-selesai-kembang" />
+                <input
+                  type="date"
+                  id="tanggal-selesai-kembang"
+                  onchange="setDate('perencanaan', 'end', event)" />
               </div>
               <div class="input-group">
                 <label for="">Hasil wajib</label>
                 <div class="inner">
-                  <b>Skenario & tim inti</b>
+                  <b>Pembentukan tim inti dan skenario</b>
                 </div>
               </div>
+              <div class="input-group">
+                <button class="pointer" onclick="detailShow('perencanaan')">
+                  Sesuaikan detail
+                </button>
+              </div>
             </div>
-            <div class="card">
+            <div class="card praproduksi">
               <h3>Praproduksi</h3>
               <div class="input-group">
                 <label for="tanggal-mulai-pra">Tanggal mulai</label>
-                <input type="date" id="tanggal-mulai-pra" />
+                <input
+                  type="date"
+                  id="tanggal-mulai-pra"
+                  onchange="setDate('praproduksi', 'start', event)" />
               </div>
               <div class="input-group">
                 <label for="tanggal-selesai-pra">Tanggal selesai</label>
-                <input type="date" id="tanggal-selesai-pra" />
+                <input
+                  type="date"
+                  id="tanggal-selesai-pra"
+                  onchange="setDate('praproduksi', 'end', event)" />
               </div>
               <div class="input-group">
                 <label for="">Hasil wajib</label>
                 <div class="inner">
-                  <b>Storyboard & call sheet</b>
+                  <b>Finalisasi Storyboard</b>
                 </div>
               </div>
+              <div class="input-group">
+                <button class="pointer" onclick="detailShow('praproduksi')">
+                  Sesuaikan detail
+                </button>
+              </div>
             </div>
-            <div class="card">
+            <div class="card produksi">
               <h3>Produksi</h3>
               <div class="input-group">
                 <label for="tanggal-mulai-pro">Tanggal mulai</label>
-                <input type="date" id="tanggal-mulai-pro" />
+                <input
+                  type="date"
+                  id="tanggal-mulai-pro"
+                  onchange="setDate('produksi', 'start', event)" />
               </div>
               <div class="input-group">
                 <label for="tanggal-selesai-pro">Tanggal selesai</label>
-                <input type="date" id="tanggal-selesai-pro" />
+                <input
+                  type="date"
+                  id="tanggal-selesai-pro"
+                  onchange="setDate('produksi', 'end', event)" />
               </div>
               <div class="input-group">
                 <label for="">Hasil wajib</label>
@@ -125,7 +182,80 @@
                   <b>Perekaman gambar dan suara</b>
                 </div>
               </div>
+              <div class="input-group" onclick="detailShow('produksi')">
+                <button class="pointer">Sesuaikan detail</button>
+              </div>
             </div>
+            <div class="card pascaproduksi">
+              <h3>Pascaproduksi</h3>
+              <div class="input-group">
+                <label for="tanggal-mulai-pro">Tanggal mulai</label>
+                <input
+                  type="date"
+                  id="tanggal-mulai-pro"
+                  onchange="setDate('pascaproduksi', 'start', event)" />
+              </div>
+              <div class="input-group">
+                <label for="tanggal-selesai-pro">Tanggal selesai</label>
+                <input
+                  type="date"
+                  id="tanggal-selesai-pro"
+                  onchange="setDate('pascaproduksi', 'end', event)" />
+              </div>
+              <div class="input-group">
+                <label for="">Hasil wajib</label>
+                <div class="inner">
+                  <b>Finalisasi Film</b>
+                </div>
+              </div>
+              <div class="input-group">
+                <button class="pointer" onclick="detailShow('pascaproduksi')">
+                  Sesuaikan detail
+                </button>
+              </div>
+            </div>
+            <button class="pointer" onclick="goto('ekspor')">
+              Simpan
+              <div data-icon="../../public/feather/save.svg"></div>
+            </button>
+          </div>
+          <div class="area ekspor">
+            <div class="status-group" data-info="tim">
+              <b>Tim Produksi</b>
+              <p>8 posisi telah terisi</p>
+              <button class="pointer warning" onclick="goto('tim')">
+                periksa
+              </button>
+            </div>
+            <div class="status-group" data-info="perencanaan">
+              <b>Perencanaan</b>
+              <p>tanggal mulai belum ditentukan</p>
+              <button class="pointer ok" onclick="goto('linimasa')">
+                sudah lengkap
+              </button>
+            </div>
+            <div class="status-group" data-info="praproduksi">
+              <b>Praproduksi</b>
+              <p>tanggal mulai belum ditentukan</p>
+              <button class="pointer ok" onclick="goto('linimasa')">
+                sudah lengkap
+              </button>
+            </div>
+            <div class="status-group" data-info="produksi">
+              <b>Produksi</b>
+              <p>tanggal mulai belum ditentukan</p>
+              <button class="pointer ok" onclick="goto('linimasa')">
+                sudah lengkap
+              </button>
+            </div>
+            <div class="status-group" data-info="pascaproduksi">
+              <b>Pascaproduksi</b>
+              <p>tanggal mulai belum ditentukan</p>
+              <button class="pointer ok" onclick="goto('linimasa')">
+                sudah lengkap
+              </button>
+            </div>
+            <button class="pointer" onclick="savePdf()">simpan hasil</button>
           </div>
         </div>
       </div>
@@ -145,40 +275,64 @@
       <p class="datespan">
         Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
       </p>
-      <h3>PILIHAN PREFERENSI</h3>
-      <h4 class="preferensi">
-        Yang paling menarik perhatian saat pertama menonton film pendek, adalah
-      </h4>
+      <h3>STRUKTUR TIM PRODUKSI</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Peran</th>
+            <th>Nama Anggota</th>
+          </tr>
+        </thead>
+        <tbody data-table="tim"></tbody>
+      </table>
+      <h3>LINIMASA PRODUKSI</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Fase Tahapan</th>
+            <th>Tanggal Mulai</th>
+            <th>Tanggal Selesai</th>
+            <th>Durasi</th>
+            <th>Hasil Wajib</th>
+          </tr>
+        </thead>
+        <tbody data-table="linimasa"></tbody>
+      </table>
+      <h3>DETAIL TUGAS LINIMASA</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Fase Tahapan</th>
+            <th>Tugas</th>
+          </tr>
+        </thead>
+        <tbody data-table="detail"></tbody>
+      </table>
 
-      <h3>REKAP HASIL REFLEKSI</h3>
-      <h4 class="refleksi">
-        Salah satu film pendek atau tayangan inspiratif yang diingat berjudul
-        "". Pesan moral atau nilai kehidupannya adalah: dan mengapa itu penting,
-        karena
-      </h4>
       <div class="last">
         <span> [Kota, dd/mm/yyyy] </span>
         <b><u>BEI 2026</u></b>
         <span>Fasilitator</span>
       </div>
     </div>
-    <div class="modal2" popover>
-      <h2>
-        Apa yang paling menarik perhatianmu saat pertama menonton film pendek?
-      </h2>
-      <div class="choice" onclick="choose(1)">
-        <div data-icon="../../public/feather/image.svg"></div>
-        <h1>Visual</h1>
+    <div class="modal" popover>
+      <div class="modal-head">
+        <b>detail daftar</b>
+        <div
+          class="pointer"
+          data-icon="../../public/feather/x.svg"
+          onclick="modal.hidePopover()"></div>
       </div>
-      <div class="choice" onclick="choose(2)">
-        <div data-icon="../../public/feather/align-justify.svg"></div>
-
-        <h1>Cerita</h1>
+      <div class="form">
+        <div class="input-group pointer" onclick="check(event)">
+          <input type="checkbox" id="in-1" />
+          <label for="in-1">ini label</label>
+        </div>
       </div>
-      <div class="choice" onclick="choose(3)">
-        <div data-icon="../../public/feather/music.svg"></div>
-        <h1>Musik</h1>
-      </div>
+      <button class="pointer" onclick="saveCheck()">
+        simpan
+        <div data-icon="../../public/feather/save.svg"></div>
+      </button>
     </div>
     <script src="../../public/scripts/iframe_api.js"></script>
     <script src="../../public/scripts/html2canvas.min_2.js"></script>
