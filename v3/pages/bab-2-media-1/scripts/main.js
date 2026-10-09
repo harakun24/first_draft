@@ -28,9 +28,21 @@ function choose(num) {
   store.add("film-choice", num == 1 ? "Visual yang terdiri dari komposisi, warna dan gerak." : num == 2 ? "Cerita yang terdiri dari tokoh, konflik dan alur. " : "Musik yang terdiri dari irama, suasana dan emosi. ");
   document.querySelector(".modal2").hidePopover();
 }
-
+function waitPopover() {
+  return new Promise(resove => {
+    const handle = event => {
+      if (event.newState == "closed") {
+        document.querySelector(".modal2").removeEventListener("toggle", handle);
+        resove();
+      }
+    };
+    document.querySelector(".modal2").addEventListener("toggle", handle);
+    document.querySelector(".modal2").showPopover()
+  })
+}
 async function saveProgress() {
-  document.querySelector(".modal2").showPopover();
+  await waitPopover();
+  console.log("resume")
 
   const textField = {};
 

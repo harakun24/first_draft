@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab II media 2 | Menyimak Kritis Film Pendek</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <b>Video Pengantar</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="klasifikasi"
+            onclick="jumpSegmen(event)">
+            <b>Klasifikasi </b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="ulasan"
+            onclick="jumpSegmen(event)">
+            <b>Ulasan FIlm</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="diagram"
+            onclick="jumpSegmen(event)">
+            <b>Diagram Alur</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area video">
+            <div id="player"></div>
+          </div>
+          <div class="area klasifikasi">
+            <b>Klasifikasikan Hasil Menyimak</b>
+            <h3>
+              Dari video pengantar yang anda simak, tulis apa saja yang menurut
+              anda sesuai dengan klasifikasi berikut
+            </h3>
+            <div class="card-group">
+              <div class="card" data-card="visual">
+                <div data-icon="../../public/feather/video.svg"></div>
+                <h1>Visual</h1>
+                <textarea
+                  placeholder="Tulis apa saja tampilan yang menarik bagi anda dari video yang telah anda simak"></textarea>
+              </div>
+              <div class="card" data-card="cerita">
+                <div data-icon="../../public/feather/align-justify.svg"></div>
+                <h1>Cerita</h1>
+                <textarea
+                  placeholder="Tulis ulang cerita dalam video berdasarkan apa yang anda ingat"></textarea>
+              </div>
+              <div class="card" data-card="pesan">
+                <div data-icon="../../public/feather/heart.svg"></div>
+                <h1>Nilai dan Pesan</h1>
+                <textarea
+                  placeholder="Apa pesan atau nilai yang dapat anda ambil dari video yang telah anda simak."></textarea>
+              </div>
+            </div>
+            <div class="save">
+              <button class="pointer" onclick="saveKlasifikasi()">
+                Simpan
+                <div data-icon="../../public/feather/save.svg"></div>
+              </button>
+            </div>
+          </div>
+          <div class="area ulasan">
+            <h2>
+              Isi formulir berikut dengan salah satu film yang pernah anda
+              tonton
+            </h2>
+            <div class="form">
+              <div class="input-group" data-film="judul">
+                <label for="">Judul Film</label>
+                <input type="text" placeholder="Contoh: Madagaskar" />
+              </div>
+              <div class="input-group" data-film="tokoh">
+                <label for="">Tokoh Utama</label>
+                <input
+                  type="text"
+                  placeholder="Tulis nama tokoh utama di sini" />
+              </div>
+              <div class="input-group" data-film="pesan">
+                <label for="">Pesan Moral</label>
+                <textarea
+                  placeholder="Tulis apa saja pesan yang dapat anda ambil dari menonton film ini."></textarea>
+              </div>
+            </div>
+            <div class="save">
+              <button class="pointer" onclick="saveUlasan()">
+                Simpan
+                <div data-icon="../../public/feather/save.svg"></div>
+              </button>
+            </div>
+          </div>
+          <div class="area diagram">
+            <h2>
+              Lengkapi elemen cerita berikut berdasarkan film yang telah anda
+              pilih
+            </h2>
+            <div class="input-card" data-diagram="eksposisi">
+              <h1>Eksposisi</h1>
+              <p>Pengenalan Latar belakang dan tokoh utama</p>
+              <textarea
+                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+            </div>
+            <div class="input-card" data-diagram="konflik">
+              <h1>Konflik</h1>
+              <p>Pertentangan atau hambatan yang dialami tokoh dalam cerita</p>
+              <textarea
+                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+            </div>
+            <div class="input-card" data-diagram="klimaks">
+              <h1>Klimaks</h1>
+              <p>Puncak ketegangan atau titik balik krusial dalam cerita</p>
+              <textarea
+                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+            </div>
+            <div class="input-card" data-diagram="resolusi">
+              <h1>Resolusi</h1>
+              <p>Penyelesaian masalah dalam tahapan akhir cerita</p>
+              <textarea
+                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+            </div>
+            <div class="save">
+              <button class="pointer" onclick="saveDiagram()">
+                Simpan
+                <div data-icon="../../public/feather/save.svg"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>Klasifikasi Video</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Klasifikasi</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="klasifikasi"></tbody>
+      </table>
+      <h3>Ulasan film pilihan Siswa</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ulasan</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="ulasan"></tbody>
+      </table>
+      <h3>Elemen Cerita</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Elemen</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="diagram"></tbody>
+      </table>
+
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
+      </div>
+    </div>
+    <div class="modal" popover>
+      <div class="modal-head">
+        <b>detail daftar</b>
+        <div
+          class="pointer"
+          data-icon="../../public/feather/x.svg"
+          onclick="modal.hidePopover()"></div>
+      </div>
+      <div class="form">
+        <div class="input-group pointer" onclick="check(event)">
+          <input type="checkbox" id="in-1" />
+          <label for="in-1">ini label</label>
+        </div>
+      </div>
+      <button class="pointer" onclick="saveCheck()">
+        simpan
+        <div data-icon="../../public/feather/save.svg"></div>
+      </button>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

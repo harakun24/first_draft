@@ -1,0 +1,405 @@
+.main {
+  .view {
+    display: none;
+    transition: cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+    &.active {
+      display: grid;
+    }
+    &[data-view="1"] {
+      grid-template-columns: auto 1fr;
+      gap: var(--m);
+      .segmen-tab {
+        font-size: 0.8rem;
+        padding: var(--m);
+        display: grid;
+        background-color: var(--kertas);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-content: start;
+        gap: var(--m);
+        border-radius: var(--m);
+        box-shadow: var(--box);
+        height: fit-content;
+        > b {
+          text-align: center;
+        }
+        > * {
+          grid-column: span 2;
+        }
+        .segmen {
+          display: grid;
+          grid-template-columns: subgrid;
+          padding: var(--m);
+          border: 2px solid var(--navy-garis);
+          border-radius: var(--m-2);
+          background-color: var(--biru-kartu);
+          [data-icon] {
+            /* color: var(--navy-garis); */
+            opacity: 0;
+          }
+          &.active {
+            border: 2px solid var(--magenta-bab);
+            background-color: var(--merah-muda-peta);
+            [data-icon] {
+              opacity: 1;
+              color: var(--magenta-bab);
+            }
+          }
+        }
+        .next {
+          border: 2px solid var(--hijau-penanda-2);
+          color: var(--hijau-penanda-2);
+          border-radius: var(--m-2);
+          padding: var(--m);
+          background-color: var(--hijau-penanda);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          filter: brightness(1.2);
+          [data-icon] {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .play-area {
+        display: grid;
+        height: 100%;
+        .area {
+          display: none;
+          transition: ease-in 0.3s;
+          &.active {
+            display: grid;
+          }
+          &.klasifikasi {
+            background-color: var(--kertas);
+            border-radius: var(--m-2);
+            padding: var(--m);
+            align-content: start;
+            > b {
+              font-size: 0.7rem;
+              opacity: 0.7;
+              padding-bottom: var(--m-2);
+            }
+            h3 {
+              text-align: center;
+            }
+            .card-group {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              padding: var(--m);
+              gap: var(--m);
+              grid-template-rows: 1fr auto auto;
+              .card {
+                grid-row: span 3;
+                border-radius: var(--m-2);
+                padding: var(--m);
+                display: grid;
+                grid-template-rows: subgrid;
+                border: 2px solid var(--biru-kartu);
+                text-align: center;
+                [data-icon] {
+                  font-size: 5rem;
+                  color: var(--biru-penanda);
+                  svg {
+                    scale: 3;
+                  }
+                  /* font-size: 13rem; */
+                }
+                textarea {
+                  border: none;
+                  border-radius: var(--m);
+                  box-shadow: var(--box);
+                  padding: var(--m);
+                  height: 5lh;
+                  resize: none;
+                }
+              }
+            }
+            .save {
+              padding: var(--m);
+              display: grid;
+              button {
+                padding: var(--m);
+                display: flex;
+                justify-content: space-between;
+                border: none;
+                background-color: var(--hijau-penanda);
+                border-radius: var(--m-2);
+                width: fit-content;
+                justify-self: end;
+              }
+            }
+          }
+          &.ulasan {
+            border-radius: var(--m-2);
+            background-color: var(--kertas);
+            padding: var(--m);
+            align-content: start;
+            .form {
+              display: grid;
+              gap: var(--m);
+              padding: var(--m);
+              padding-top: var(--2m);
+              grid-template-columns: auto 1fr;
+              .input-group {
+                grid-column: span 2;
+                display: grid;
+                gap: var(--2m);
+                grid-template-columns: subgrid;
+                align-items: center;
+                input,
+                textarea {
+                  padding: var(--m);
+                  border: none;
+                  border-radius: var(--m-2);
+                  box-shadow: var(--box);
+                  resize: none;
+                  &:is(textarea) {
+                    height: 3lh;
+                  }
+                }
+              }
+            }
+            .save {
+              /* grid-column: span 2; */
+              display: grid;
+              padding: var(--m);
+              button {
+                padding: var(--m);
+                display: flex;
+                justify-content: space-between;
+                border: none;
+                background-color: var(--hijau-penanda);
+                border-radius: var(--m-2);
+                width: fit-content;
+                justify-self: end;
+              }
+            }
+          }
+          &.diagram {
+            padding: var(--m);
+            background-color: var(--kertas);
+            border-radius: var(--m-2);
+            grid-template-columns: repeat(4, 1fr);
+            align-content: start;
+            gap: var(--m);
+            row-gap: var(--2m);
+            h2 {
+              grid-column: span 4;
+              text-align: center;
+              padding-top: var(--2m);
+            }
+            .input-card {
+              display: grid;
+              box-shadow: var(--box);
+              gap: var(--m);
+              padding: var(--m);
+              border-radius: var(--m-2);
+              text-align: center;
+              p {
+                opacity: 0.7;
+                font-size: 0.7rem;
+                padding-top: var(--2m);
+              }
+              textarea {
+                border: none;
+                border-radius: var(--m-2);
+                padding: var(--m);
+                border: 2px solid var(--biru-penanda);
+                resize: none;
+              }
+            }
+            .save {
+              grid-column: span 4;
+              padding: var(--m);
+              display: grid;
+              grid-template-columns: auto auto;
+              width: fit-content;
+              justify-self: end;
+              button {
+                padding: var(--m);
+                display: flex;
+                justify-content: space-between;
+                border: none;
+                background-color: var(--hijau-penanda);
+                border-radius: var(--m-2);
+                width: fit-content;
+                /* justify-self: end; */
+              }
+            }
+          }
+          @starting-style {
+            translate: 300px;
+            opacity: 0;
+          }
+        }
+      }
+      #player {
+        background-color: var(--arang);
+      }
+    }
+    @starting-style {
+      opacity: 0;
+      transition: -100%;
+    }
+  }
+}
+
+.table {
+  font-size: 0.8rem;
+  background-color: white;
+  display: grid;
+  gap: calc(var(--m) / 4);
+  position: fixed;
+  left: 9999px;
+  margin: 0;
+  width: 60vw;
+  table {
+    border-top: var(--border);
+    border-left: var(--border);
+    border-collapse: separate;
+    border-spacing: 0;
+    /* padding: var(--m); */
+    text-align: center;
+    margin-bottom: var(--m);
+    th,
+    td {
+      padding: calc(var(--m) / 2);
+      border-right: var(--border);
+      border-bottom: var(--border);
+    }
+  }
+  h1,
+  h3 {
+    color: rgb(5, 5, 71);
+  }
+  h1,
+  .rui,
+  p {
+    text-align: center;
+    border: none;
+    &:is(p) {
+      opacity: 0.8;
+    }
+  }
+  padding: calc(var(--m) * 4);
+  h4 {
+    padding: var(--m);
+    background-color: var(--biru-kartu);
+    margin-bottom: var(--2m);
+  }
+  th:not(:nth-child(1)) {
+    min-width: 140px;
+    text-align: center;
+  }
+  th {
+    background-color: rgba(189, 222, 249, 0.95);
+    width: fit-content;
+  }
+  h3 {
+    padding: calc(var(--m) / 4) var(--m);
+    border-left: 5px solid rgb(7, 7, 131);
+  }
+  .last,
+  .datespan {
+    text-align: center;
+    display: grid;
+    width: 30%;
+    justify-self: end;
+    padding: calc(var(--m) / 4);
+    span:nth-child(1) {
+      padding-bottom: calc(var(--m) * 4);
+    }
+    span {
+      opacity: 0.8;
+    }
+    &:is(.datespan) {
+      display: flex;
+    }
+  }
+}
+
+.modal {
+  &:popover-open {
+    display: grid;
+    padding: var(--m);
+    border: none;
+    border-radius: calc(var(--m) / 2);
+    position: absolute;
+    place-self: center;
+    width: 60vw;
+    gap: var(--m);
+    grid-template-rows: auto 1fr;
+    > b {
+      color: var(--navy-ilustrasi);
+      font-size: 0.8rem;
+    }
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--m-4);
+      [data-icon] {
+        font-size: 2rem;
+      }
+    }
+    .form {
+      padding: var(--m);
+      display: grid;
+      gap: var(--m);
+      font-size: 0.8rem;
+      overflow-y: scroll;
+      max-height: 60vh;
+      .input-group {
+        display: flex;
+        gap: var(--m);
+        background-color: oklch(from var(--biru-kartu) l c h / 0.42);
+        padding: var(--m);
+        border-radius: var(--m-2);
+        /* font-weight: bold; */
+        box-shadow: var(--box);
+        label {
+          cursor: pointer;
+        }
+      }
+    }
+    button {
+      border: none;
+      padding: var(--m);
+      border-radius: var(--m-2);
+      background-color: var(--hijau-penanda);
+      width: fit-content;
+      justify-self: end;
+      color: var(--kertas);
+      display: flex;
+      gap: var(--m-8);
+    }
+  }
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  input[type="checkbox"] {
+    display: grid;
+    place-content: center;
+    width: var(--m);
+    height: var(--m);
+    appearance: none;
+    border: 2px solid var(--arang);
+    border-radius: 0.35rem;
+    padding: var(--m-2);
+    grid-template-columns: 1fr;
+    &::before {
+      content: "";
+      width: calc(var(--m) - 4px);
+      height: calc(var(--m) - 4px);
+      background-color: var(--hijau-penanda);
+      scale: 0;
+      transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+    }
+    &:checked {
+      border: 2px solid var(--hijau-penanda-2);
+      &::before {
+        scale: 1;
+      }
+    }
+  }
+}
