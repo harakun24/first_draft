@@ -123,21 +123,21 @@ document.querySelector(".header").insertAdjacentHTML("beforebegin", `
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab2">
+          <div class="link pointer" data-label="bab2" data-link="6">
             <p>
               Media 3 <br />
               <span> Ekranisasi & Simulator Storyboard Sederhana </span>
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab2" data-link="6">
+          <div class="link pointer" data-label="bab2" data-link="7">
             <p>
               Media 4 <br />
               <span> Manajemen dan Alur Produksi Film Pendek </span>
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab2" data-link="7">
+          <div class="link pointer" data-label="bab2" data-link="8">
             <p>
               Media 5 <br />
               <span> Publikasi Karya Film Pendek </span>
@@ -219,7 +219,7 @@ function toggleLink(e) {
   })
 }
 
-const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-4", "bab-2-media-5"];
+const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5"];
 
 function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))

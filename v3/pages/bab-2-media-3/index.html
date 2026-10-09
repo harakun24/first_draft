@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab II media 3 | Ekranisasi & Simulator Storyboard Sederhana</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <b>Video Pengantar</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="klasifikasi"
+            onclick="jumpSegmen(event)">
+            <b>Fondasi Cerita </b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="ulasan"
+            onclick="jumpSegmen(event)">
+            <b>Storyboard</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="diagram"
+            onclick="jumpSegmen(event)">
+            <b>Pratinjau</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area video">
+            <div id="player"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>Klasifikasi Video</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Klasifikasi</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="klasifikasi"></tbody>
+      </table>
+      <h3>Ulasan film pilihan Siswa</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ulasan</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="ulasan"></tbody>
+      </table>
+      <h3>Elemen Cerita</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Elemen</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="diagram"></tbody>
+      </table>
+
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
+      </div>
+    </div>
+    <div class="modal" popover>
+      <div class="modal-head">
+        <b>detail daftar</b>
+        <div
+          class="pointer"
+          data-icon="../../public/feather/x.svg"
+          onclick="modal.hidePopover()"></div>
+      </div>
+      <div class="form">
+        <div class="input-group pointer" onclick="check(event)">
+          <input type="checkbox" id="in-1" />
+          <label for="in-1">ini label</label>
+        </div>
+      </div>
+      <button class="pointer" onclick="saveCheck()">
+        simpan
+        <div data-icon="../../public/feather/save.svg"></div>
+      </button>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
