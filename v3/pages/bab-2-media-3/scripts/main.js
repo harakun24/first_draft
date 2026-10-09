@@ -30,7 +30,27 @@ function jumpSegmen(e) {
 function goto(tag) {
   document.querySelector(`[data-jump='${tag}']`).click();
 }
-goto("video");
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+goto("fondasi");
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+// here
+// here
 const modal = document.querySelector(".modal");
 // modal.showPopover();
 
