@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab II media 5 | Publikasi Karya Film Pendek</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+          <div class="segmen pointer" data-time="0" onclick="jumpSegmen(event)">
+            <b>Pengantar Publikasi</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-time="32"
+            onclick="jumpSegmen(event)">
+            <b>Metadata dan Platform</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-time="74"
+            onclick="jumpSegmen(event)">
+            <b>Membaca Analitik</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-time="89"
+            onclick="jumpSegmen(event)">
+            <b>Ulasan Sejawat</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+
+          <!-- <button class="next pointer" onclick="nextView()">
+            <div data-icon="../../public/feather/external-link.svg"></div>
+            <b>Mulai Koreksi</b>
+          </button> -->
+        </div>
+        <div id="player"></div>
+      </div>
+      <div class="view" data-view="2">
+        <div class="letter">
+          <div class="top-wrapper">
+            <table class="hal">
+              <tr>
+                <td>Hal</td>
+                <td>:</td>
+                <td>Lamaran Pekerjaan</td>
+              </tr>
+              <tr>
+                <td>Lampiran</td>
+                <td>:</td>
+                <td>5 (lima) lembar</td>
+              </tr>
+            </table>
+            <p>Jakarta, 7 September 2026</p>
+          </div>
+          <div>
+            <div class="spoiler" data-q="1">
+              <span class="target-pop">Kepada Yth. Manajer HRD</span>
+            </div>
+            <div>PT Inovasi Digital Nusantara</div>
+            <div>Gedung Sentra Digital, Lantai 14</div>
+            <div class="spoiler" data-q="2">
+              <span class="target-pop">Di Jakarta Selatan</span>
+            </div>
+          </div>
+          <div class="spoiler" data-q="3">
+            <span class="target-pop">Dengan hormat;</span>
+          </div>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; Sehubungan dengan
+            <span class="spoiler" data-q="4">
+              <span class="target-pop">info </span>
+            </span>
+            lowongan pekerjaan yang dipublikasikan melalui portal resmi PT
+            Inovasi Digital Nusantara pada tanggal 2 September 2026, saya yang
+            bertanda tangan di bawah ini bermaksud untuk mengajukan diri
+            menempati posisi IT & Data Analyst di perusahaan
+            <span class="spoiler" data-q="5"
+              ><span class="target-pop">yang mana Bapak/Ibu pimpin.</span></span
+            >
+          </p>
+          <p>Adapun data diri saya adalah sebagai berikut:</p>
+          <table>
+            <tr>
+              <td>Nama Lengkap</td>
+              <td>:</td>
+              <td>Ahmad Fauzi, S.Kom.</td>
+            </tr>
+            <tr>
+              <td>Tempat, Tanggal Lahir</td>
+              <td>:</td>
+              <td>Jakarta, 14 Mei 1999</td>
+            </tr>
+            <tr>
+              <td>Pendidikan Terakhir</td>
+              <td>:</td>
+              <td>S-1 Sistem Informasi, Universitas Bina Nusantara</td>
+            </tr>
+            <tr>
+              <td>Nomor Telepon</td>
+              <td>:</td>
+              <td>0812-3456-7890</td>
+            </tr>
+            <tr>
+              <td>Alamat Domisili</td>
+              <td>:</td>
+              <td>Jalan Sudirman Nomor 45, Kebayoran Baru, Jakarta Selatan</td>
+            </tr>
+          </table>
+
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; Saya memiliki pengalaman kerja selama dua
+            tahun pada bidang
+            <span class="spoiler" data-q="6"
+              ><span class="target-pop"> analisa </span></span
+            >data operasional dan pemeliharaan sistem informasi. Selama bekerja,
+            saya terbiasa memanfaatkan instrumen pengolahan data terpadu guna
+            <span class="spoiler" data-q="7"
+              ><span class="target-pop">merubah</span></span
+            >
+            data kompleks menjadi wawasan strategis yang mampu mengoptimalkan
+            <span class="spoiler" data-q="8"
+              ><span class="target-pop">efektifitas</span></span
+            >
+            prosedur kerja harian.
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; Sebagai bahan pertimbangan Bapak/Ibu,
+            berikut turut saya lampirkan kelengkapan berkas pendukung:
+          </p>
+          <ol>
+            <li>Daftar Riwayat Hidup (Curriculum Vitae) terbaru</li>
+            <li>Salinan Ijazah Sarjana Terlegalisir dan Transkrip Nilai</li>
+            <li>Salinan Sertifikat Keahlian dan foto ukuran 4x6</li>
+          </ol>
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; Besar harapan saya untuk diberikan
+            kesempatan menghadiri sesi wawancara agar dapat menguraikan lebih
+            mendalam perihal kompetensi dan dedikasi saya.
+            <span class="spoiler" data-q="9"
+              ><span class="target-pop"
+                >Atas perhatiannya, saya sampaikan terima kasih.</span
+              ></span
+            >
+          </p>
+          <div class="right-text">
+            <p>Hormat saya</p>
+
+            <p>
+              <span class="spoiler" data-q="10"
+                ><span class="target-pop">(Ahmad Fauzi, S.Kom.)</span></span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="side">
+          <div class="info">
+            <b>Petunjuk</b>
+            <ul>
+              <li>Klik kata atau kalimat yang salah.</li>
+              <li>Pilih bentuk perbaikannya.</li>
+            </ul>
+          </div>
+          <div class="detail">
+            <b>Jenis Kesalahan</b>
+            <div class="group-pill">
+              <div class="pill">
+                <div class="ball"></div>
+                Kata tidak baku
+              </div>
+              <div class="pill">
+                <div class="ball"></div>
+                Tanda baca
+              </div>
+              <div class="pill">
+                <div class="ball"></div>
+                Bahasa formal
+              </div>
+              <div class="pill">
+                <div class="ball"></div>
+                Sistematika
+              </div>
+            </div>
+          </div>
+          <button class="back" onclick="prevView()">
+            <div data-icon="../../public/feather/youtube.svg"></div>
+            Tonton Ulang Video
+          </button>
+          <button class="cek" onclick="check()">
+            <div data-icon="../../public/feather/search.svg"></div>
+            Periksa Jawaban
+          </button>
+          <button class="down" onclick="saveResult()">
+            <div data-icon="../../public/feather/arrow-down.svg"></div>
+            Unduh Hasil
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="modal" popover="">
+      <div
+        class="close pointer"
+        data-icon="../../public/feather/x.svg"
+        onclick="toggleModal()"></div>
+      <h3 class="question">
+        Bagian surat lamaran pekerjaan yang berisi nama, alamat, nomor telepon,
+        dan email pelamar disebut ...
+      </h3>
+      <div class="opsi">
+        <button
+          class="pointer"
+          data-value="a"
+          data-key="0"
+          data-answer="true"
+          onclick="answer(this)">
+          A. Identitas pelamar</button
+        ><button
+          class="pointer"
+          data-value="b"
+          data-key="0"
+          data-answer="false"
+          onclick="answer(this)">
+          B. Isi surat</button
+        ><button
+          class="pointer"
+          data-value="c"
+          data-key="0"
+          data-answer="false"
+          onclick="answer(this)">
+          C. Salam penutup
+        </button>
+      </div>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>REKAP ADEGAN VIDEO (5 SOAL)</h3>
+
+      <table class="top">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Adegan</th>
+            <th>Pertanyaan</th>
+            <th>Jawaban</th>
+            <th>Kunci Jawaban</th>
+            <th>Hasil</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h3>REKAP HASIL LATIHAN KOREKSI SURAT LAMARAN (10 SOAL)</h3>
+
+      <table class="bottom">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Soal Latihan</th>
+            <th>Jawaban</th>
+            <th>Kunci Jawaban</th>
+            <th>Penjelasan</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
+      </div>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/koreksi.js"></script>
+  </body>
+</html>
