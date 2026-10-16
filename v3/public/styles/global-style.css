@@ -76,6 +76,9 @@ body {
     }
   }
 }
+.segmen b {
+  text-wrap: nowrap;
+}
 
 .footer {
   background-color: var(--biru-sampul);

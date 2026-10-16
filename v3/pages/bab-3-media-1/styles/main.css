@@ -33,6 +33,9 @@
           border: 2px solid var(--navy-garis);
           border-radius: var(--m-2);
           background-color: var(--biru-kartu);
+          /* b {
+            text-wrap: nowrap;
+          } */
           [data-icon] {
             /* color: var(--navy-garis); */
             opacity: 0;

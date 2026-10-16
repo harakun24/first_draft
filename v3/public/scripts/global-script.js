@@ -205,22 +205,16 @@ Drama Indonesia dan Dunia
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab3" data-link="2">
+          <div class="link pointer" data-label="bab3" data-link="10">
             <p>
-              Media 4 <br />
+              Media 2 <br />
               <span>
-                Menulis Surat Lamaran Kerja Efektif dan Mendesain CV Digital
+                H5P Menyimak Kritis Video Drama
               </span>
             </p>
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
-          <div class="link pointer" data-label="bab3" data-link="3">
-            <p>
-              Media 5 <br />
-              <span> Simulasi Wawancara Kerja </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
+         
           <!-- media group end -->
         </div>
       </div>
@@ -301,7 +295,7 @@ function toggleLink(e) {
   })
 }
 
-const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5", "bab-3-media-1"];
+const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5", "bab-3-media-1", "bab-3-media-2"];
 
 function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))
