@@ -325,21 +325,74 @@
 
 .cv-doc {
   background-color: var(--kertas);
-  padding: var(--m);
+  padding: var(--2m);
   display: grid;
   gap: var(--m-2);
-  /* position: absolute; */
   border: var(--ol);
   aspect-ratio: 1/1.414;
   width: 50vw;
   align-content: start;
+  color: var(--arang);
   position: fixed;
   left: -9999px;
   h2 {
-    text-decoration: underline;
+    color: var(--biru-penanda);
   }
   .jabatan {
     padding: 0;
     margin: 0;
+  }
+  .about-title {
+    margin-top: var(--m);
+    color: var(--biru-penanda);
+    border-top: 1px solid var(--biru-penanda);
+    border-bottom: 1px solid var(--biru-penanda);
+  }
+  .email {
+    color: var(--biru-penanda);
+  }
+  .p.for-keahlian {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: var(--m);
+    h4 {
+      color: var(--biru-penanda);
+      border-top: 1px solid var(--biru-penanda);
+      border-bottom: 1px solid var(--biru-penanda);
+      width: 100%;
+    }
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-left: var(--m);
+    }
+  }
+  .p.for-pengalaman {
+    margin-top: var(--m);
+    h4 {
+      color: var(--biru-penanda);
+      border-top: 1px solid var(--biru-penanda);
+      border-bottom: 1px solid var(--biru-penanda);
+    }
+    .desc {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--m-2);
+      padding-top: var(--m-2);
+    }
+  }
+  .p.for-pendidikan {
+    margin-top: var(--m);
+    h4 {
+      color: var(--biru-penanda);
+      border-top: 1px solid var(--biru-penanda);
+      border-bottom: 1px solid var(--biru-penanda);
+    }
+    .desc {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--m-2);
+      padding-top: var(--m-2);
+    }
   }
 }

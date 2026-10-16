@@ -292,7 +292,6 @@
                   <thead>
                     <tr>
                       <th>Pendidikan</th>
-                      <th>Tahun Mulai</th>
                       <th>Tahun Selesai</th>
                       <th>Aksi</th>
                     </tr>
@@ -336,10 +335,7 @@
           id="pendidikan"
           placeholder="isi riwayar pendidikan anda" />
       </div>
-      <div class="input-group">
-        <label for="start2">Tanggal mulai</label>
-        <input type="date" id="start2" />
-      </div>
+
       <div class="input-group">
         <label for="end2">Tanggal selesai</label>
         <input type="date" id="end2" />
@@ -359,15 +355,17 @@
     </div>
     <div class="cv-doc">
       <h2>Nama Pelamar</h2>
-      <h4 class="jabatan">Jabatan</h4>
-      <p class="no">08xxx</p>
-      <p class="email">text@id.com</p>
-      <p class="alamat">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eos illum
-        odio commodi. Ut ad sequi totam itaque aspernatur fugit officia
-        perspiciatis, hic quis!
+      <h3 class="jabatan">Jabatan</h3>
+      <p>
+        <span class="alamat">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eos illum
+          odio commodi. Ut ad sequi totam itaque aspernatur fugit officia
+          perspiciatis, hic quis!</span
+        >
+        | <span class="email"> text@id.com</span> |
+        <span class="no">08xxx</span>
       </p>
-      <h4>Tentang Saya</h4>
+      <h4 class="about-title">TENTANG SAYA</h4>
       <p class="about">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus iure
         ullam quas hic cupiditate minima a aliquam consectetur accusamus
@@ -375,22 +373,28 @@
         reiciendis placeat deserunt, obcaecati aliquid exercitationem facilis
         cum magnam repellendus corporis?
       </p>
+      <div class="p for-keahlian">
+        <h4>BAKAT DAN KEAHLIAN</h4>
+        <ul>
+          <li>nag</li>
+          <li>nag</li>
+          <li>nag</li>
+          <li>nag</li>
+          <li>nag</li>
+        </ul>
+      </div>
       <div class="p for-pengalaman">
-        <h4>Pengalaman Kerja</h4>
+        <h4>PENGALAMAN KERJA</h4>
         <div class="group-list"></div>
       </div>
       <div class="p for-pendidikan">
-        <h4>Pendidikan</h4>
+        <h4>PENDIDIKAN</h4>
         <div class="group-list">
           <div class="desc">
             <b>Januari 2019 - Januari 2019</b>
             <p></p>
           </div>
         </div>
-      </div>
-      <div class="p for-keahlian">
-        <b>Keahlian</b>
-        <ul></ul>
       </div>
     </div>
     <script src="../../public/scripts/iframe_api.js"></script>

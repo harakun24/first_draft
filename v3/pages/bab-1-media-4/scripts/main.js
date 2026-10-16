@@ -115,7 +115,7 @@ function counting() {
 
 }
 
-document.querySelector("[data-jump='video']").click();
+document.querySelector("[data-jump='cv']").click();
 
 
 function savePengalaman() {
@@ -152,11 +152,11 @@ function savePengalaman() {
 }
 function savePendidikan() {
   const pengalaman = document.querySelector("#pendidikan").value;
-  const start = new Date(document.querySelector("#start2").value).toLocaleDateString("id-ID", {
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC"
-  });
+  // const start = new Date(document.querySelector("#start2").value).toLocaleDateString("id-ID", {
+  //   month: "long",
+  //   year: "numeric",
+  //   timeZone: "UTC"
+  // });
   const end = new Date(document.querySelector("#end2").value).toLocaleDateString("id-ID", {
     month: "long",
     year: "numeric",
@@ -167,9 +167,7 @@ function savePendidikan() {
   <td>
   ${pengalaman}
   </td>
-  <td>
-  ${start == "Invalid Date" ? "Belum ada tanggal" : start}
-  </td>
+ 
   <td>
   ${end == "Invalid Date" ? "Sekarang" : end}
   </td>
@@ -178,7 +176,6 @@ function savePendidikan() {
   `;
   document.querySelector(".tabel-pendidikan").insertAdjacentHTML("beforeend", strResult);
   document.querySelector("#pendidikan").value = "";
-  document.querySelector("#start2").value = "";
   document.querySelector("#end2").value = "";
   document.querySelector(".modal3").hidePopover();
 }
@@ -224,16 +221,24 @@ async function unduh() {
   if (store.get("cv-state") != "cv")
     return document.querySelector("[data-jump='cv']").click();
 
-  const nama = document.querySelector("#nama").value || "[Kosong]";
-  const posisi = document.querySelector("#posisi").value || "[Kosong]";
-  const nomor = document.querySelector("#nomor").value || "[Kosong]";
-  const email = document.querySelector("#email").value || "[Kosong]";
-  const alamat = document.querySelector("#alamat").value || "[Kosong]";
-  const bio = document.querySelector("#bio").value || "[Kosong]";
+  const nama = document.querySelector("#nama").value.toUpperCase();
+  const posisi = document.querySelector("#posisi").value;
+  const nomor = document.querySelector("#nomor").value;
+  const email = document.querySelector("#email").value;
+  const alamat = document.querySelector("#alamat").value;
+  const bio = document.querySelector("#bio").value;
+
+  function snull(v) {
+    return v == null || v == "" || v == "null" || v == undefined
+  }
+
 
   const pengalaman = document.querySelector(".tabel-pengalaman");
   const pendidikan = document.querySelector(".tabel-pendidikan");
   const keahlian = document.querySelector(".pengalaman .group-list");
+
+  if (snull(posisi) || snull(nomor) || snull(email) || snull(alamat) || snull(bio) || !pengalaman.children.length || !pendidikan.children.length || !keahlian.children.length) return alert("mohon lengkapi biodata terlebih dulu");
+
 
   const doc = document.querySelector(".cv-doc");
   doc.querySelector("h2").textContent = nama;
@@ -254,19 +259,19 @@ async function unduh() {
     const end = el.querySelectorAll("td")[2].textContent;
     document.querySelector(".p.for-pengalaman .group-list").innerHTML += `
     <div class="desc">
-            <b>${start} - ${end}</b>
             <p>${p}</p>
+            <b>${start} - ${end}</b>
           </div>
     `
   })
   pendidikan.querySelectorAll("tr")?.forEach(el => {
     const p = el.querySelectorAll("td")[0].textContent;
     const start = el.querySelectorAll("td")[1].textContent;
-    const end = el.querySelectorAll("td")[2].textContent;
+    const end = el.querySelectorAll("td")[1].textContent;
     document.querySelector(".p.for-pendidikan .group-list").innerHTML += `
     <div class="desc">
-            <b>${start} - ${end}</b>
             <p>${p}</p>
+            <b> ${end}</b>
           </div>
     `
   })
