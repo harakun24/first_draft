@@ -115,7 +115,7 @@ function counting() {
 
 }
 
-document.querySelector("[data-jump='cv']").click();
+document.querySelector("[data-jump='video']").click();
 
 
 function savePengalaman() {
