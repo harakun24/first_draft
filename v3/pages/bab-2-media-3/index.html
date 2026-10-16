@@ -41,14 +41,14 @@
           </div>
           <div
             class="segmen pointer"
-            data-jump="ulasan"
+            data-jump="storyboard"
             onclick="jumpSegmen(event)">
             <b>Storyboard</b>
             <div data-icon="../../public/feather/circle.svg"></div>
           </div>
           <div
             class="segmen pointer"
-            data-jump="diagram"
+            data-jump="pratinjau"
             onclick="jumpSegmen(event)">
             <b>Pratinjau</b>
             <div data-icon="../../public/feather/circle.svg"></div>
@@ -59,7 +59,218 @@
             <div id="player"></div>
           </div>
           <div class="area fondasi">
-            <h2>Buat rancangan film pendek menggunakan unsur cerpen</h2>
+            <h3>
+              Gunakan unsur dalam cerpen untuk diterapkan dalam merancang sebuah
+              film
+            </h3>
+            <div class="form">
+              <div class="input-group" data-fondasi="judul">
+                <label>Judul Film</label>
+                <input
+                  type="text"
+                  placeholder="Tuliskan judul film anda di sini" />
+              </div>
+              <div class="input-group" data-fondasi="tema">
+                <label>Tema Utama</label>
+                <input
+                  type="text"
+                  placeholder="Tuliskan tema utama film anda di sini" />
+              </div>
+              <div class="input-group" data-fondasi="latar">
+                <label>Latar Tempat dan Waktu</label>
+                <input
+                  type="text"
+                  placeholder="Tuliskan latar dalam film anda di sini" />
+              </div>
+              <div class="input-group" data-fondasi="tokoh">
+                <label>Tokoh Utana</label>
+                <input
+                  type="text"
+                  placeholder="Tuliskan tokoh utama dan karakterisasinya dalam film anda di sini" />
+              </div>
+              <div class="input-group" data-fondasi="sinopsis">
+                <label>Sinopsis</label>
+                <textarea
+                  placeholder="Tuliskan sinopsis film anda di sini"></textarea>
+              </div>
+            </div>
+            <button class="pointer" onclick="saveFondasi()">
+              simpan
+              <div data-icon="../../public/feather/save.svg"></div>
+            </button>
+          </div>
+          <div class="area storyboard">
+            <div class="shots">
+              <b>Daftar Adegan</b>
+              <div class="list"></div>
+              <button class="pointer" onclick="addShot()">
+                tambah adegan
+                <div data-icon="../../public/feather/plus.svg"></div>
+              </button>
+            </div>
+            <div class="upload">
+              <div
+                class="up"
+                data-icon="../../public/feather/arrow-up.svg"></div>
+              <h3>Unggah gambar sketsa anda di sini</h3>
+              <p class="pointer" onclick="uploadImg(event)">
+                Pilih gambar dari perangkat anda
+              </p>
+              <input
+                type="file"
+                name="hide"
+                id=""
+                oninput="saveImg(event)"
+                accept="image/*" />
+              <div class="status" data-img="">
+                <button class="pointer" onclick="removeImg(event)">
+                  <div data-icon="../../public/feather/trash-2.svg"></div>
+                </button>
+              </div>
+            </div>
+            <div class="parameter">
+              <b>Parameter Adegan</b>
+              <div class="group-param" data-label="kamera" data-state="2">
+                <b>Sudut Kamera</b>
+                <button
+                  class="pointer"
+                  data-value="1"
+                  onclick="chooseItem(event)">
+                  High
+                </button>
+                <button
+                  class="pointer"
+                  data-value="2"
+                  onclick="chooseItem(event)">
+                  Eye Level
+                </button>
+                <button
+                  class="pointer"
+                  data-value="3"
+                  onclick="chooseItem(event)">
+                  Low
+                </button>
+              </div>
+              <div class="group-param" data-label="ukuran" data-state="2">
+                <b>Ukuran Shot</b>
+                <button
+                  class="pointer"
+                  data-value="1"
+                  onclick="chooseItem(event)">
+                  ELS
+                </button>
+                <button
+                  class="pointer"
+                  data-value="2"
+                  onclick="chooseItem(event)">
+                  LS
+                </button>
+                <button
+                  class="pointer"
+                  data-value="3"
+                  onclick="chooseItem(event)">
+                  MS
+                </button>
+                <button
+                  class="pointer"
+                  data-value="4"
+                  onclick="chooseItem(event)">
+                  CU
+                </button>
+              </div>
+              <div class="group-param" data-label="pergerakan" data-state="2">
+                <b>Pergerakan </b>
+                <button
+                  class="pointer"
+                  data-value="1"
+                  onclick="chooseItem(event)">
+                  Static
+                </button>
+                <button
+                  class="pointer"
+                  data-value="2"
+                  onclick="chooseItem(event)">
+                  Panning
+                </button>
+                <button
+                  class="pointer"
+                  data-value="3"
+                  onclick="chooseItem(event)">
+                  Tilting
+                </button>
+                <button
+                  class="pointer"
+                  data-value="4"
+                  onclick="chooseItem(event)">
+                  Tracking
+                </button>
+              </div>
+              <div class="group-param left" data-label="durasi">
+                <b>Durasi (detik)</b>
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="Satuan dalam detik"
+                  oninput="validateNum(event)" />
+              </div>
+              <div class="group-param right" data-label="dialog">
+                <b>Deskripsi Dialog </b>
+                <textarea
+                  placeholder="Jika tanpa gambar, sertakan deskripsi posisi tokoh, aksi, dan latar"></textarea>
+              </div>
+              <div class="save">
+                <button class="pointer" onclick="saveShot()">
+                  simpan
+                  <div data-icon="../../public/feather/save.svg"></div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="area pratinjau">
+            <div class="urutan-adegan">
+              <b>Daftar Adegan </b>
+              <div class="group-wrapper">
+                <!-- <div class="group-data" data-key="1">
+                  <div class="img"></div>
+                  <h4>Adegan 1 (MS)</h4>
+                  <p>30 detik</p>
+                  <div class="ctrl">
+                    <button class="pointer">
+                      <div data-icon="../../public/feather/arrow-up.svg"></div>
+                    </button>
+                    <button class="pointer">
+                      <div
+                        data-icon="../../public/feather/arrow-down.svg"></div>
+                    </button>
+                    <button class="pointer">
+                      <div data-icon="../../public/feather/trash.svg"></div>
+                    </button>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <div class="info">
+              <b>Ringkasan</b>
+              <div class="info-group">
+                <b>Judul Film</b>
+                <h3 data-text="judul">lorem</h3>
+              </div>
+              <div class="info-group">
+                <b>Jumlah Adegan</b>
+                <h3 data-text="jumlah">0</h3>
+              </div>
+              <div class="info-group">
+                <b>Total Durasi</b>
+                <h3 data-text="durasi">0 detik</h3>
+              </div>
+              <div class="save">
+                <button class="pointer" onclick="save()">
+                  Simpan
+                  <div data-icon="../../public/feather/save.svg"></div>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -79,35 +290,29 @@
       <p class="datespan">
         Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
       </p>
-      <h3>Klasifikasi Video</h3>
+      <h3>Data Film</h3>
       <table>
-        <thead>
+        <!-- <thead>
           <tr>
-            <th>Klasifikasi</th>
+            <th>Judul</th>
             <th>Jawaban</th>
           </tr>
-        </thead>
-        <tbody data-table="klasifikasi"></tbody>
+        </thead> -->
+
+        <tbody data-table="fondasi"></tbody>
       </table>
-      <h3>Ulasan film pilihan Siswa</h3>
+      <h3>Storyboard</h3>
       <table>
         <thead>
           <tr>
-            <th>Ulasan</th>
-            <th>Jawaban</th>
+            <th>Nomor</th>
+            <th>Gambar</th>
+            <th>Parameter</th>
+            <th>Durasi</th>
+            <th>Deskripsi</th>
           </tr>
         </thead>
-        <tbody data-table="ulasan"></tbody>
-      </table>
-      <h3>Elemen Cerita</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Elemen</th>
-            <th>Jawaban</th>
-          </tr>
-        </thead>
-        <tbody data-table="diagram"></tbody>
+        <tbody data-table="storyboard"></tbody>
       </table>
 
       <div class="last">

@@ -298,7 +298,7 @@ async function savePdf() {
 
     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
-    pdf.save('laporan bab 2 media 5.pdf');
+    pdf.save('laporan bab 2 media 4.pdf');
 
   } catch (error) {
     console.error('Terjadi kesalahan saat mengunduh:', error);

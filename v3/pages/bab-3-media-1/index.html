@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab III media 1 | Siap-Siap Belajar & Ayo Mengingat Kembali</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+
+          <div
+            class="segmen pointer"
+            data-jump="amati"
+            onclick="jumpSegmen(event)">
+            <b>Amati</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+
+          <div
+            class="segmen pointer"
+            data-jump="refleksi"
+            onclick="jumpSegmen(event)">
+            <b>Refleksi</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="ingat"
+            onclick="jumpSegmen(event)">
+            <b>Ingat Kembali</b>
+            <div data-icon="../../public/feather/circle.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area amati">
+            <b
+              >Geser pembatas untuk mengamati perbedaan drama dalam bentuk
+              naskah dan pertunjukan</b
+            >
+            <div class="box-wrapper">
+              <div class="box red"></div>
+              <div class="box blue"></div>
+              <button class="pointer slider" id="slide">
+                <div data-icon="../../public/feather/crosshair.svg"></div>
+              </button>
+            </div>
+            <button class="pointer" onclick="goto('refleksi')">
+              lanjut ke refleksi
+            </button>
+          </div>
+          <div class="area refleksi">
+            <div class="form-group" data-refleksi="naskah">
+              <b>Membaca Drama Naskah</b>
+              <div class="input-group">
+                <h3>Ceritakan pengalamanmu membaca drama naskah</h3>
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="Tulis pengalaman anda setidaknya 20 kata."></textarea>
+                <p>0 kata</p>
+              </div>
+            </div>
+            <div class="form-group" data-refleksi="pentas">
+              <b>Menonton Drama Pentas</b>
+              <div class="input-group">
+                <h3>Ceritakan pengalamanmu menonton drama pentas</h3>
+
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="Tulis pengalaman anda setidaknya 20 kata."></textarea>
+                <p>0 kata</p>
+              </div>
+            </div>
+            <div class="save">
+              <button class="pointer" onclick="saveRefleksi()">
+                simpan
+                <div data-icon="../../public/feather/save.svg"></div>
+              </button>
+            </div>
+          </div>
+          <div class="area ingat">
+            <h1>Mari Mengingat Kembali</h1>
+            <div class="form-group" data-ingat="pentas">
+              <div class="input-group">
+                <b>Pengalaman Menyimak Pentas</b>
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="Hal yang paling saya ingat adalah..."></textarea>
+              </div>
+            </div>
+            <div class="form-group" data-ingat="baca">
+              <div class="input-group">
+                <b>Pengalaman Membaca Naskah</b>
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="Bagian yang paling menarik adalah..."></textarea>
+              </div>
+            </div>
+            <div class="form-group" data-ingat="analisis">
+              <div class="input-group">
+                <b>Analisis Adaptasi Cerita</b>
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="Konflik dalam cerita yang paling saya suka adalah..."></textarea>
+              </div>
+            </div>
+            <div class="form-group" data-ingat="karakteristik">
+              <div class="input-group">
+                <b>Karakteristik Tokoh</b>
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="Ekspresi aktor yang berkesan salah satunya adalah..."></textarea>
+              </div>
+            </div>
+            <div class="save">
+              <button class="pointer" onclick="saveIngat()">
+                simpan
+                <div data-icon="../../public/feather/save.svg"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>Pengalaman Mengenal Drama</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Pengalaman</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+
+        <tbody data-table="refleksi"></tbody>
+      </table>
+      <h3>Hasil Mengingat Kembali Pengalaman</h3>
+      <table>
+        <thead>
+          <tr>
+            <!-- <th>Menyimak Pentas</th>
+            <th>Membaca Naskah</th>
+            <th>Analisis Adaptasi</th>
+            <th>Karakteristik Tokoh</th> -->
+            <th>Kolom</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="ingat"></tbody>
+      </table>
+
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
+      </div>
+    </div>
+    <div class="modal" popover>
+      <div class="modal-head">
+        <b>detail daftar</b>
+        <div
+          class="pointer"
+          data-icon="../../public/feather/x.svg"
+          onclick="modal.hidePopover()"></div>
+      </div>
+      <div class="form">
+        <div class="input-group pointer" onclick="check(event)">
+          <input type="checkbox" id="in-1" />
+          <label for="in-1">ini label</label>
+        </div>
+      </div>
+      <button class="pointer" onclick="saveCheck()">
+        simpan
+        <div data-icon="../../public/feather/save.svg"></div>
+      </button>
+    </div>
+    <!-- <script src="../../public/scripts/iframe_api.js"></script> -->
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

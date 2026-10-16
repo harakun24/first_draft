@@ -2,7 +2,8 @@
 @import "./font-style.css";
 
 body {
-  font-family: "peta";
+  /* font-family: "peta"; */
+  font-family: "inter";
   background-image: url(../images/bg-spot4.png);
   background-size: 200px;
   display: grid;
@@ -95,10 +96,9 @@ body {
   svg {
     stroke-linecap: round;
     stroke-linejoin: round;
-    /* width: 100%;
-    height: 100%; */
+    object-fit: contain;
     height: 1lh;
-    /* stroke-width: 3; */
+    stroke-width: 2;
   }
 }
 

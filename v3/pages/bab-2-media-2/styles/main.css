@@ -100,9 +100,9 @@
                 [data-icon] {
                   font-size: 5rem;
                   color: var(--biru-penanda);
-                  svg {
-                    scale: 3;
-                  }
+                  display: flex;
+                  justify-content: center;
+
                   /* font-size: 13rem; */
                 }
                 textarea {

@@ -12,3 +12,13 @@
   font-family: letter;
   src: url(../font/Noto_Serif/static/NotoSerif-Regular.ttf);
 }
+
+@font-face {
+  font-family: inter;
+  src: url(../font/Inter_28pt-Regular.ttf);
+}
+
+@font-face {
+  font-family: playfair;
+  src: url(../font/PlayfairDisplay-VariableFont_wght.ttf);
+}

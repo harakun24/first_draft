@@ -1,8 +1,41 @@
+const pendingRequests = {};
+
 function fillIcon(el) {
   const path = el.dataset.icon;
-  fetch(path)
-    .then(res => res.text())
-    .then(res => el.innerHTML = res)
+  if (!path) return;
+
+  const cachedSvg = sessionStorage.getItem(path);
+  if (cachedSvg) {
+    el.innerHTML = cachedSvg;
+    clean();
+    return;
+  }
+
+  if (!pendingRequests[path]) {
+    pendingRequests[path] = fetch(path)
+      .then(res => res.text())
+      .then(res => {
+        // console.log({ status: "not cached", path });
+        if (path == "../../public/feather/monitor.svg") {
+
+          console.log({ res })
+        }
+        // const cleaned = res.replace(/\s*(width|height)="[^"]*"/gi, '');
+        sessionStorage.setItem(path, res);
+        delete pendingRequests[path];
+        return res;
+      });
+  }
+
+  pendingRequests[path].then(cleaned => {
+    el.innerHTML = cleaned;
+    clean();
+  });
+  function clean() {
+
+    el.querySelector("svg").removeAttribute("width");
+    el.querySelector("svg").removeAttribute("height");
+  }
 }
 
 let player;
@@ -145,12 +178,57 @@ document.querySelector(".header").insertAdjacentHTML("beforebegin", `
             <div data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <!-- media group end -->
+          <div
+            class="link pointer"
+            data-target="bab3"
+            data-state="close"
+            onclick="toggleLink(event)">
+            <p>
+              Bab III <br />
+              <span>
+               Menelusuri Realitas Sosial melalui
+Drama Indonesia dan Dunia
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-down.svg"></div>
+            <div
+              class="hide"
+              data-icon="../../public/feather/chevron-up.svg"></div>
+          </div>
+          <!-- media group start -->
+          <div class="link pointer" data-label="bab3" data-link="9">
+            <p>
+              Media 1 <br />
+              <span>
+                Siap-Siap Belajar & Ayo Mengingat Kembali
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab3" data-link="2">
+            <p>
+              Media 4 <br />
+              <span>
+                Menulis Surat Lamaran Kerja Efektif dan Mendesain CV Digital
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab3" data-link="3">
+            <p>
+              Media 5 <br />
+              <span> Simulasi Wawancara Kerja </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <!-- media group end -->
         </div>
       </div>
     </div>
 `)
 
 document.querySelectorAll("[data-icon]").forEach(el => {
+
   fillIcon(el);
 });
 
@@ -164,7 +242,11 @@ const observer = new MutationObserver(m => {
       if (n.matches("[data-link]")) {
         navigate(n);
       }
-      n.querySelectorAll("[data-icon]").forEach(fillIcon)
+      n.querySelectorAll("[data-icon]").forEach(el => {
+
+        fillIcon(el);
+      }
+      )
       n.querySelectorAll("[data-link]").forEach(navigate)
     }
   }
@@ -219,7 +301,7 @@ function toggleLink(e) {
   })
 }
 
-const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5"];
+const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5", "bab-3-media-1"];
 
 function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))

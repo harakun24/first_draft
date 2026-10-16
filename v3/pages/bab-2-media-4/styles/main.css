@@ -275,7 +275,7 @@
   position: fixed;
   left: 9999px;
   margin: 0;
-  /* width: 60vw; */
+  width: 60vw;
   table {
     border-top: var(--border);
     border-left: var(--border);
