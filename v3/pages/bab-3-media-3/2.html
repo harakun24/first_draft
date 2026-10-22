@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab III media 4 | Simulator Mengubah Cerpen menjadi Drama</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <b>Daftar Segmen</b>
+
+          <div
+            class="segmen pointer"
+            data-jump="pilih"
+            onclick="jumpSegmen(event)">
+            <b>Mulai</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="eksplor"
+            onclick="jumpSegmen(event)">
+            <b>Eksplorasi</b>
+            <div data-icon="../../public/feather/play.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area mulai"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table">
+      <h1>BEI 2026 | Bahasa Indonesia</h1>
+      <p>
+        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
+        55281 <br />
+        Telp: (0274) 884201 | Email: bei@2026.ac.id
+      </p>
+      <hr />
+      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
+      <p class="datespan">
+        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
+      </p>
+      <h3>
+        Nama Kelompok : <span class="kelompok"></span> <br />
+        Kelas : <span class="kelas"></span>
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nomor</th>
+            <th>Nama Anggota</th>
+          </tr>
+        </thead>
+
+        <tbody data-table="persiapan"></tbody>
+      </table>
+      <h3>Hasil Analisis <span class="pililan-title"></span></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Pertanyaan</th>
+            <th>Jawaban</th>
+          </tr>
+        </thead>
+        <tbody data-table="analisis"></tbody>
+      </table>
+
+      <div class="last">
+        <span> [Kota, dd/mm/yyyy] </span>
+        <b><u>BEI 2026</u></b>
+        <span>Fasilitator</span>
+      </div>
+    </div>
+    <div class="modal latar" popover>
+      <div class="title">Latar</div>
+      <div class="group-text">
+        <b>Fungsi dalam pementasan</b>
+        <div class="field">
+          <p>
+            Latar berfungsi memberikan gambaran mengenai konteks tempat, waktu,
+            dan suasana terjadinya peristiwa dalam drama.
+          </p>
+        </div>
+      </div>
+      <div class="group-text">
+        <b>Kutipan</b>
+        <div class="field">
+          <p>
+            Sebuah meunasah tua dengan dindingnya yang menguning serta dedaunan
+            kering di atap.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="modal kramagung" popover>
+      <div class="title">Kramagung</div>
+      <div class="group-text">
+        <b>Fungsi dalam pementasan</b>
+        <div class="field">
+          <p>
+            Kramagung berfungsi memberikan petunjuk teknis terkait gerakan,
+            ekspresi, serta tindakan fisik yang harus dilakukan pemeran di
+            panggung.
+          </p>
+        </div>
+      </div>
+      <div class="group-text">
+        <b>Kutipan</b>
+        <div class="field">
+          <p>(Tersenyum)</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal tokoh" popover>
+      <div class="title">Tokoh</div>
+      <div class="group-text">
+        <b>Fungsi dalam pementasan</b>
+        <div class="field">
+          <p>
+            Tokoh berfungsi sebagai penggerak jalan cerita yang membawakan
+            konflik, aksi, dan karakter dalam pertunjukan.
+          </p>
+        </div>
+      </div>
+      <div class="group-text">
+        <b>Kutipan</b>
+        <div class="field">
+          <p>POLEM IBRAHIM</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal dialog" popover>
+      <div class="title">Tokoh</div>
+      <div class="group-text">
+        <b>Fungsi dalam pementasan</b>
+        <div class="field">
+          <p>
+            Dialog berfungsi mengomunikasikan alur cerita, emosi, serta
+            interaksi antarperan melalui percakapan lisan.
+          </p>
+        </div>
+      </div>
+      <div class="group-text">
+        <b>Kutipan</b>
+        <div class="field">
+          <p>Ini bangunan tua yang tahan digempur Belanda itu ya?</p>
+        </div>
+      </div>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
