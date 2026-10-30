@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bab IV Media 4 | Menyiapkan Presentasi</title>
+
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="shortcut icon"
+        href="../../public/images/favicon.png"
+        type="image/x-icon">
+</head>
+
+<body data-refer="0">
+  <header class="header">
+    <div class="icon pointer" onclick="toggleMenu()" aria-label="Buka menu">
+      <div data-icon="../../public/feather/menu.svg"></div>
+    </div>
+    <div class="title-page">
+      <h4>Menyiapkan Presentasi</h4>
+      <p>Bab IV · Media 4</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="view active m4-layout" data-view="1">
+
+      <aside class="segmen-tab">
+        <b>DAFTAR SEGMEN</b>
+
+        <button class="segmen pointer active" data-step="tutorial" type="button">
+          <span>01 · Video Tutorial</span>
+          <span data-icon="../../public/feather/play-circle.svg"></span>
+        </button>
+
+        <button class="segmen pointer" data-step="layout" type="button">
+          <span>02 · Pilih Layout</span>
+          <span data-icon="../../public/feather/layout.svg"></span>
+        </button>
+
+        <button class="segmen pointer" data-step="cards" type="button">
+          <span>03 · Isi Tiga Kartu</span>
+          <span data-icon="../../public/feather/layers.svg"></span>
+        </button>
+
+        <button class="segmen pointer" data-step="transitions" type="button">
+          <span>04 · Pilih Transisi</span>
+          <span data-icon="../../public/feather/move.svg"></span>
+        </button>
+
+        <button class="segmen pointer" data-step="preview" type="button">
+          <span>05 · Pratinjau</span>
+          <span data-icon="../../public/feather/monitor.svg"></span>
+        </button>
+
+        <button class="segmen pointer" data-step="practice" type="button">
+          <span>06 · Latihan Tampil</span>
+          <span data-icon="../../public/feather/check-circle.svg"></span>
+        </button>
+
+        <div class="m4-progress">
+          <div class="m4-progress-track">
+            <div id="progress-bar" class="m4-progress-bar"></div>
+          </div>
+          <span id="progress-label">Langkah 1 dari 6</span>
+        </div>
+
+        <div class="sidebar-note">
+          <strong>Tujuan media</strong>
+          <p>Susun tiga kartu, pilih transisi, lalu berlatih tampil dengan percaya diri.</p>
+        </div>
+      </aside>
+
+      <section class="content-column">
+
+        <!-- TAHAP 1: VIDEO TUTORIAL -->
+        <section class="panel view content-panel active"
+                 data-view="tutorial" id="tutorial">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TAHAP 01 · PELAJARI</span>
+              <h2>Video Tutorial</h2>
+            </div>
+            <span class="status-pill" id="video-status">Panduan belajar</span>
+          </div>
+
+          <p class="intro">
+            Pelajari cara menjadi pemandu budaya digital, menyusun layout
+            yang mudah dibaca, dan menggunakan media saat presentasi.
+          </p>
+
+          <div class="m4-video-layout">
+            <div class="video-placeholder">
+              <div class="video-illustration">
+                <span class="video-play">▶</span>
+                <span class="video-label">VIDEO TUTORIAL</span>
+              </div>
+              <div class="video-placeholder-copy">
+                <strong>Video tutorial belum dipasang</strong>
+                <p>
+                  Video final dapat ditambahkan setelah tersedia.
+                  Sementara itu, kamu dapat mempelajari panduan dan
+                  melanjutkan simulasi.
+                </p>
+              </div>
+            </div>
+
+            <aside class="chapter-card">
+              <h3>Daftar chapter</h3>
+
+              <button type="button" class="chapter active" data-chapter="0">
+                <span>00:00</span>
+                <span>
+                  <b>Menjadi pemandu budaya</b>
+                  <small>Pembuka dan tujuan presentasi</small>
+                </span>
+              </button>
+
+              <button type="button" class="chapter" data-chapter="90">
+                <span>01:30</span>
+                <span>
+                  <b>Menjelajahi tradisi</b>
+                  <small>Visual dan konteks budaya</small>
+                </span>
+              </button>
+
+              <button type="button" class="chapter" data-chapter="91">
+                <span>01:31</span>
+                <span>
+                  <b>Layout yang baik</b>
+                  <small>Struktur, kontras, dan ruang kosong</small>
+                </span>
+              </button>
+
+              <button type="button" class="chapter" data-chapter="210">
+                <span>03:30</span>
+                <span>
+                  <b>Rubrik penampilan lisan</b>
+                  <small>Tempo, intonasi, kontak mata</small>
+                </span>
+              </button>
+            </aside>
+          </div>
+
+          <div class="info-banner">
+            <span data-icon="../../public/feather/info.svg"></span>
+            <p>
+              Setelah memahami prinsip layout, lanjutkan ke kuis
+              untuk membandingkan dua contoh tampilan.
+            </p>
+          </div>
+
+          <div class="action-row">
+            <span class="helper-text">
+              Video final dapat ditambahkan tanpa mengubah alur tahap lainnya.
+            </span>
+            <button type="button" class="btn primary" data-next="layout">
+              Lanjut ke Kuis Layout →
+            </button>
+          </div>
+        </section>
+
+        <!-- TAHAP 2: KUIS LAYOUT -->
+        <section class="panel view content-panel"
+                 data-view="layout" id="layout">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TAHAP 02 · PAHAMI</span>
+              <h2>Kuis Pilih Layout</h2>
+            </div>
+            <span class="status-pill">Latihan visual</span>
+          </div>
+
+          <p class="intro">
+            Pilih layout yang menurutmu paling mudah dibaca.
+            Perhatikan susunan informasi, kontras warna, dan ruang kosong.
+          </p>
+
+          <div class="layout-choices">
+            <button class="layout-choice" type="button" data-layout-choice="busy">
+              <div class="mini-slide busy-slide">
+                <div class="mini-title">TRADISI BUDAYA</div>
+                <div class="mini-lines">
+                  <i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="mini-shape"></div>
+                <div class="mini-photo"></div>
+                <div class="mini-caption">Banyak elemen</div>
+              </div>
+              <span class="choice-heading">
+                <b>A · Layout padat</b>
+                <small>Banyak elemen bersaing menarik perhatian.</small>
+              </span>
+            </button>
+
+            <button class="layout-choice" type="button" data-layout-choice="clear">
+              <div class="mini-slide clear-slide">
+                <div class="mini-title">Rumah Gadang</div>
+                <div class="mini-photo"></div>
+                <div class="mini-lines"><i></i><i></i><i></i></div>
+                <div class="mini-caption">Ruang dan kontras jelas</div>
+              </div>
+              <span class="choice-heading">
+                <b>B · Layout terstruktur</b>
+                <small>Judul, visual utama, dan fakta tersusun jelas.</small>
+              </span>
+            </button>
+          </div>
+
+          <div class="feedback-panel" id="layout-feedback" aria-live="polite">
+            <strong>Pilih salah satu contoh</strong>
+            <p>Umpan balik akan menjelaskan alasan layout lebih mudah dibaca.</p>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-prev="tutorial">← Kembali</button>
+            <button type="button" class="btn primary" id="layout-next"
+                    data-next="cards" disabled>
+              Lanjut ke Tiga Kartu →
+            </button>
+          </div>
+        </section>
+
+        <!-- TAHAP 3: TIGA KARTU -->
+        <section class="panel view content-panel"
+                 data-view="cards" id="cards">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TAHAP 03 · SUSUN</span>
+              <h2>Isi Tiga Kartu Presentasi</h2>
+            </div>
+            <span class="status-pill" id="cards-status">0 dari 3 kartu siap</span>
+          </div>
+
+          <p class="intro">
+            Gunakan teks ringkas dan satu visual utama. Isi setiap kartu,
+            lalu simpan agar dapat ditampilkan di pratinjau.
+          </p>
+
+          <div class="card-builder">
+            <div class="card-tabs" role="tablist" aria-label="Pilih kartu">
+              <button class="card-tab active" type="button" data-card="0">
+                <span class="tab-number">01</span>
+                <span><b>Pembuka</b><small>Kenalkan topik</small></span>
+                <span class="saved-mark"></span>
+              </button>
+
+              <button class="card-tab" type="button" data-card="1">
+                <span class="tab-number">02</span>
+                <span><b>Detail</b><small>Fakta utama</small></span>
+                <span class="saved-mark"></span>
+              </button>
+
+              <button class="card-tab" type="button" data-card="2">
+                <span class="tab-number">03</span>
+                <span><b>Kutipan / Punch</b><small>Penutup berkesan</small></span>
+                <span class="saved-mark"></span>
+              </button>
+            </div>
+
+            <form class="m4-form" id="card-form">
+              <div class="form-heading">
+                <span class="eyebrow" id="card-eyebrow">KARTU 1 · PEMBUKA</span>
+                <h3 id="card-form-title">Mulai dari topik utama</h3>
+              </div>
+
+              <label for="card-title">
+                Judul kartu
+                <input id="card-title" maxlength="70" required
+                       placeholder="Contoh: Rumah Gadang, Warisan Minangkabau">
+              </label>
+
+              <label for="card-fact">
+                Fakta singkat
+                <textarea id="card-fact" rows="4" maxlength="260" required
+                          placeholder="Tuliskan fakta utama secara ringkas dan mudah dipahami..."></textarea>
+                <small class="field-help"><span id="fact-count">0</span>/260 karakter</small>
+              </label>
+
+              <label for="photo-input">
+                Gambar pendukung
+                <input id="photo-input" type="file" accept="image/*">
+                <small class="field-help">
+                  Gambar hanya diproses di browser dan tidak dikirim ke server.
+                </small>
+              </label>
+
+              <div class="form-actions">
+                <button class="btn secondary" type="button" id="use-sample">
+                  Gunakan contoh bawaan
+                </button>
+                <button class="btn secondary" type="button" id="clear-photo">
+                  Hapus gambar
+                </button>
+                <button class="btn primary" type="submit">Simpan Kartu</button>
+              </div>
+
+              <p class="form-message" id="card-message" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-prev="layout">← Kembali</button>
+            <button type="button" class="btn primary" id="cards-next"
+                    data-next="transitions" disabled>
+              Pilih Transisi →
+            </button>
+          </div>
+        </section>
+
+        <!-- TAHAP 4: TRANSISI -->
+        <section class="panel view content-panel"
+                 data-view="transitions" id="transitions">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TAHAP 04 · ATUR</span>
+              <h2>Pilih Transisi</h2>
+            </div>
+            <span class="status-pill">2 perpindahan</span>
+          </div>
+
+          <p class="intro">
+            Pilih efek untuk perpindahan dari kartu 1 ke 2 dan dari kartu 2 ke 3.
+            Gunakan efek secara konsisten agar audiens tetap fokus.
+          </p>
+
+          <div class="transition-grid">
+            <label class="transition-card zoom-card">
+              <input type="radio" name="transition-1" value="zoom" checked>
+              <span class="transition-icon">↗</span>
+              <b>Zoom In</b>
+              <small>Mendekat untuk menekankan detail.</small>
+            </label>
+
+            <label class="transition-card rotate-card">
+              <input type="radio" name="transition-1" value="rotate">
+              <span class="transition-icon">⟳</span>
+              <b>Rotate</b>
+              <small>Putaran ringan untuk pergantian topik.</small>
+            </label>
+
+            <label class="transition-card fade-card">
+              <input type="radio" name="transition-1" value="fade">
+              <span class="transition-icon">◐</span>
+              <b>Fade</b>
+              <small>Peralihan halus dan nyaman.</small>
+            </label>
+          </div>
+
+          <div class="transition-settings">
+            <div>
+              <label for="transition-second">Transisi Kartu 2 → 3</label>
+              <select id="transition-second">
+                <option value="fade">Fade</option>
+                <option value="zoom">Zoom In</option>
+                <option value="rotate">Rotate</option>
+              </select>
+            </div>
+            <div class="motion-note">
+              <span data-icon="../../public/feather/heart.svg"></span>
+              <p>
+                Jika perangkat memilih <b>kurangi gerak</b>,
+                transisi otomatis menjadi Fade.
+              </p>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-prev="cards">← Kembali</button>
+            <button type="button" class="btn primary" data-next="preview">
+              Buka Pratinjau →
+            </button>
+          </div>
+        </section>
+
+        <!-- TAHAP 5: PRATINJAU -->
+        <section class="panel view content-panel"
+                 data-view="preview" id="preview">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TAHAP 05 · PERIKSA</span>
+              <h2>Pratinjau Presentasi</h2>
+            </div>
+            <span class="status-pill" id="preview-count">Kartu 1 dari 3</span>
+          </div>
+
+          <p class="intro">
+            Periksa urutan, keterbacaan, dan perpindahan antarkartu sebelum tampil di depan kelas.
+          </p>
+
+          <div class="presentation-layout">
+            <div class="presentation-stage" id="presentation-stage">
+              <article class="presentation-card" id="presentation-card">
+                <div class="presentation-photo" id="presentation-photo">
+                  <span>VISUAL PENDUKUNG</span>
+                </div>
+                <div class="presentation-copy">
+                  <span class="presentation-kicker" id="presentation-kicker">PEMBUKA</span>
+                  <h2 id="presentation-title">Judul presentasi kamu</h2>
+                  <p id="presentation-fact">
+                    Isi fakta singkat pada tahap Isi Tiga Kartu agar tampil di sini.
+                  </p>
+                </div>
+                <div class="presentation-footer">
+                  <span>STUDIO PRESENTASI BUDAYA</span>
+                  <span id="presentation-number">01 / 03</span>
+                </div>
+              </article>
+
+              <div class="presentation-controls">
+                <button type="button" class="btn secondary" id="preview-prev">← Sebelumnya</button>
+                <span id="preview-dots" class="preview-dots">● ○ ○</span>
+                <button type="button" class="btn primary" id="preview-next">Berikutnya →</button>
+              </div>
+            </div>
+
+            <aside class="preview-sidebar">
+              <h3>Urutan kartu</h3>
+              <div id="preview-list" class="preview-list"></div>
+              <button type="button" class="btn secondary full-width" id="fullscreen-btn">
+                ⛶ Layar Penuh
+              </button>
+              <button type="button" class="btn primary full-width" data-next="practice">
+                Mulai Latihan →
+              </button>
+            </aside>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-prev="transitions">← Kembali ke Transisi</button>
+            <button type="button" class="btn primary" data-next="practice">Lanjut ke Latihan Tampil →</button>
+          </div>
+        </section>
+
+        <!-- TAHAP 6: LATIHAN TAMPIL -->
+        <section class="panel view content-panel"
+                 data-view="practice" id="practice">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TAHAP 06 · BERLATIH</span>
+              <h2>Latihan Tampil</h2>
+            </div>
+            <span class="status-pill" id="practice-status">Siap berlatih</span>
+          </div>
+
+          <p class="intro">
+            Gunakan presentasi yang sudah kamu susun. Latih tempo,
+            intonasi, kontak mata, dan penggunaan media.
+          </p>
+
+          <div class="practice-layout">
+            <div class="practice-main">
+              <div class="practice-visual">
+                <div class="practice-illustration">
+                  <span data-icon="../../public/feather/users.svg"></span>
+                  <b>Latihan presentasi di depan kelas</b>
+                  <small>Fokus pada audiens, bukan hanya layar.</small>
+                </div>
+              </div>
+
+              <div class="timer-card">
+                <div>
+                  <span class="eyebrow">WAKTU LATIHAN</span>
+                  <strong id="timer-display">00:30</strong>
+                  <small id="timer-message">Siapkan pembukaanmu.</small>
+                </div>
+                <div class="timer-actions">
+                  <button type="button" class="btn primary" id="timer-start">Mulai</button>
+                  <button type="button" class="btn secondary" id="timer-pause" disabled>Jeda</button>
+                  <button type="button" class="btn secondary" id="timer-reset">Ulangi</button>
+                </div>
+              </div>
+            </div>
+
+            <aside class="checklist-card">
+              <h3>Checklist lisan</h3>
+              <p>Tandai indikator yang sudah kamu latih.</p>
+
+              <label class="check-item">
+                <input type="checkbox" data-check="tempo">
+                <span><b>Kelancaran dan tempo</b><small>Bicara jelas dengan kecepatan teratur.</small></span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" data-check="intonasi">
+                <span><b>Intonasi suara</b><small>Tekankan bagian penting secara wajar.</small></span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" data-check="kontak">
+                <span><b>Kontak mata</b><small>Arahkan pandangan kepada audiens.</small></span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" data-check="media">
+                <span><b>Operasional media</b><small>Berpindah kartu tanpa kehilangan alur.</small></span>
+              </label>
+
+              <div class="check-progress">
+                <div><span id="check-count">0 dari 4 indikator</span><span id="check-percent">0%</span></div>
+                <div class="check-track"><span id="check-bar"></span></div>
+              </div>
+
+              <button type="button" class="btn secondary full-width" id="practice-repeat">Ulangi Latihan</button>
+              <button type="button" class="btn primary full-width" id="practice-finish">Selesai</button>
+            </aside>
+          </div>
+
+          <div class="finish-message" id="finish-message" hidden>
+            <strong>Latihan selesai!</strong>
+            <p>Lanjutkan aktivitas pada Buku Teks Bahasa Indonesia Tingkat Lanjut halaman 203–206.</p>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-prev="preview">← Kembali ke Pratinjau</button>
+            <button type="button" class="btn primary" id="finish-final">Selesaikan Media →</button>
+          </div>
+        </section>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    BEI 2026 · Bahasa Indonesia Tingkat Lanjut · Bab IV Media 4
+  </footer>
+
+  <script src="../../public/scripts/global-script.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+</html>
+ 

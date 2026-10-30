@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bab IV Media 2 | Menyimak Kritis Teks Feature</title>
+
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="shortcut icon" href="../../public/images/favicon.png" type="image/x-icon">
+</head>
+
+<body data-refer="0">
+  <div class="header">
+    <div class="icon pointer" onclick="toggleMenu()">
+      <div data-icon="../../public/feather/menu.svg"></div>
+    </div>
+
+    <div class="title-page">
+      <h4>Menyimak Kritis Teks Feature</h4>
+      <p>Bab IV · Media 2</p>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="view active m2-layout" data-view="1">
+      <div class="segmen-tab">
+        <b>Daftar Segmen</b>
+
+        <div class="segmen pointer active" data-step="video" onclick="go('video')">
+          <b>01 · Video Pengantar</b>
+          <div data-icon="../../public/feather/play.svg"></div>
+        </div>
+
+        <div class="segmen pointer" data-step="adik" onclick="go('adik')">
+          <b>02 · Kartu ADIKSIMBA</b>
+          <div data-icon="../../public/feather/layers.svg"></div>
+        </div>
+
+        <div class="segmen pointer" data-step="analisis1" onclick="go('analisis1')">
+          <b>03 · Analisis 03:15</b>
+          <div data-icon="../../public/feather/edit-3.svg"></div>
+        </div>
+
+        <div class="segmen pointer" data-step="analisis2" onclick="go('analisis2')">
+          <b>04 · Analisis 06:45</b>
+          <div data-icon="../../public/feather/edit-3.svg"></div>
+        </div>
+
+        <div class="segmen pointer" data-step="review" onclick="go('review')">
+          <b>05 · Review Timestamp</b>
+          <div data-icon="../../public/feather/clock.svg"></div>
+        </div>
+
+        <div class="segmen pointer" data-step="export" onclick="go('export')">
+          <b>06 · Tinjau & Ekspor</b>
+          <div data-icon="../../public/feather/file-text.svg"></div>
+        </div>
+
+        <div class="m2-progress">
+          <div class="m2-progress-track">
+            <div id="progress-bar" class="m2-progress-bar"></div>
+          </div>
+          <span id="progress-label">Langkah 1 dari 6</span>
+        </div>
+      </div>
+
+      <!-- KONTEN UTAMA -->
+      <section class="content-column">
+
+        <!-- PANEL 1: VIDEO -->
+        <section class="panel view active content-panel" data-view="video" id="video-panel">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">MULAI MENYIMAK</span>
+              <h2>Video Pengantar</h2>
+            </div>
+            <span class="status-pill" id="video-status">Menyiapkan video</span>
+          </div>
+
+          <p class="intro">
+            Simak teks feature dengan kritis. Perhatikan perbedaan fakta,
+            sudut pandang penulis, pilihan kata, serta bukti yang muncul
+            dalam tayangan.
+          </p>
+
+          <div class="m2-video-layout">
+            <div class="video-frame">
+              <div id="player" aria-label="Pemutar video pembelajaran"></div>
+            </div>
+
+            <aside class="m2-side-card">
+              <span class="eyebrow">PANDUAN MENYIMAK</span>
+              <h3>Amati dengan kritis</h3>
+              <p>
+                Jangan langsung menerima semua pernyataan sebagai fakta.
+                Perhatikan bukti visual, narasi, dan cara penulis
+                membingkai peristiwa.
+              </p>
+
+              <div class="m2-marker-info">
+                <div>
+                  <strong>03:15</strong>
+                  <span>Fakta atau sudut pandang</span>
+                </div>
+                <div>
+                  <strong>06:45</strong>
+                  <span>Gagasan dan bias emosional</span>
+                </div>
+              </div>
+
+              <p class="m2-small" id="video-notice" aria-live="polite">
+                Video akan berhenti otomatis pada jeda analisis pertama.
+              </p>
+            </aside>
+          </div>
+
+          <div class="timeline-actions">
+            <button type="button" class="timestamp-chip" data-seek="195" id="marker1">
+              <strong>03:15</strong>
+              <span>Fakta atau sudut</span>
+            </button>
+
+            <button type="button" class="timestamp-chip" data-seek="405" id="marker2">
+              <strong>06:45</strong>
+              <span>Gagasan dan bias</span>
+            </button>
+          </div>
+
+          <div class="m2-callout">
+            <strong>Petunjuk:</strong>
+            Catat bukti dari tayangan. Hindari membuat kesimpulan
+            yang tidak didukung oleh informasi yang kamu simak.
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn primary" data-go="adik">
+              Pelajari ADIKSIMBA →
+            </button>
+          </div>
+        </section>
+
+        <!-- PANEL 2: ADIKSIMBA -->
+        <section class="panel view content-panel" data-view="adik" id="adik-panel">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">ALAT BANTU MENYIMAK</span>
+              <h2>Kartu ADIKSIMBA</h2>
+            </div>
+            <span class="status-pill">6 unsur</span>
+          </div>
+
+          <p class="intro">
+            Pilih kartu untuk melihat pertanyaan panduan yang membantu
+            kamu memahami isi teks feature.
+          </p>
+
+          <div class="m2-adik-grid">
+            <button type="button" class="m2-adik-card" data-adik="Apa">
+              <span class="m2-adik-icon">A</span>
+              <strong>Apa</strong>
+              <span>Peristiwa atau persoalan</span>
+            </button>
+
+            <button type="button" class="m2-adik-card" data-adik="Di mana">
+              <span class="m2-adik-icon">D</span>
+              <strong>Di mana</strong>
+              <span>Lokasi peristiwa</span>
+            </button>
+
+            <button type="button" class="m2-adik-card" data-adik="Kapan">
+              <span class="m2-adik-icon">K</span>
+              <strong>Kapan</strong>
+              <span>Waktu kejadian</span>
+            </button>
+
+            <button type="button" class="m2-adik-card" data-adik="Siapa">
+              <span class="m2-adik-icon">S</span>
+              <strong>Siapa</strong>
+              <span>Tokoh dan pihak terkait</span>
+            </button>
+
+            <button type="button" class="m2-adik-card" data-adik="Mengapa">
+              <span class="m2-adik-icon">M</span>
+              <strong>Mengapa</strong>
+              <span>Sebab dan latar belakang</span>
+            </button>
+
+            <button type="button" class="m2-adik-card" data-adik="Bagaimana">
+              <span class="m2-adik-icon">B</span>
+              <strong>Bagaimana</strong>
+              <span>Proses dan dampak</span>
+            </button>
+          </div>
+
+          <div class="m2-adik-detail" id="adik-detail" aria-live="polite">
+            <strong>Pilih salah satu kartu</strong>
+            <p>Penjelasan unsur ADIKSIMBA akan tampil di sini.</p>
+          </div>
+
+          <div class="m2-callout">
+            Gunakan ADIKSIMBA untuk menemukan informasi penting,
+            bukan untuk menggantikan pemeriksaan bukti.
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-go="video">
+              ← Kembali ke Video
+            </button>
+            <button type="button" class="btn primary" data-go="analisis1">
+              Menuju Analisis 03:15 →
+            </button>
+          </div>
+        </section>
+
+        <!-- PANEL 3: ANALISIS 03:15 -->
+        <section class="panel view content-panel" data-view="analisis1" id="analisis1">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">JEDA ANALISIS PERTAMA</span>
+              <h2>Fakta atau Sudut Pandang?</h2>
+            </div>
+            <span class="status-pill">03:15</span>
+          </div>
+
+          <div class="m2-timestamp-banner">
+            <span class="m2-time-badge">03:15</span>
+            <div>
+              <strong>Prosesi lamaran di Lamongan</strong>
+              <p>
+                Perhatikan penggunaan diksi “tidak lazim”.
+                Apakah ungkapan itu merupakan fakta objektif atau
+                sudut pandang penulis?
+              </p>
+            </div>
+          </div>
+
+          <div class="m2-form-card">
+            <fieldset class="m2-fieldset">
+              <legend>1. Pilih kategori analisis</legend>
+
+              <label class="m2-radio-card">
+                <input type="radio" name="kategori1" value="Fakta objektif">
+                <span>
+                  <strong>Fakta objektif</strong>
+                  <small>Pernyataan dapat diperiksa berdasarkan bukti.</small>
+                </span>
+              </label>
+
+              <label class="m2-radio-card">
+                <input type="radio" name="kategori1" value="Sudut pandang penulis">
+                <span>
+                  <strong>Sudut pandang penulis</strong>
+                  <small>Pernyataan menunjukkan penilaian atau tafsiran.</small>
+                </span>
+              </label>
+            </fieldset>
+
+            <label class="m2-label" for="alasan1">
+              2. Jelaskan alasanmu
+              <textarea id="alasan1" rows="4"
+                placeholder="Jelaskan mengapa kamu memilih kategori tersebut..."></textarea>
+            </label>
+
+            <label class="m2-label" for="bukti1">
+              3. Bukti dari tayangan
+              <textarea id="bukti1" rows="3"
+                placeholder="Tuliskan kata, narasi, atau detail visual yang mendukung analisismu..."></textarea>
+            </label>
+
+            <p class="m2-error" id="error1" aria-live="polite"></p>
+
+            <div class="action-row">
+              <button type="button" class="btn secondary" data-go="video">
+                ← Kembali ke Video
+              </button>
+              <button type="button" class="btn primary" id="save1">
+                Simpan & Lanjut →
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PANEL 4: ANALISIS 06:45 -->
+        <section class="panel view content-panel" data-view="analisis2" id="analisis2">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">JEDA ANALISIS KEDUA</span>
+              <h2>Gagasan Sosial-Ekonomi dan Bias</h2>
+            </div>
+            <span class="status-pill">06:45</span>
+          </div>
+
+          <div class="m2-timestamp-banner">
+            <span class="m2-time-badge">06:45</span>
+            <div>
+              <strong>Kisah penyadap kemenyan</strong>
+              <p>
+                Analisis kondisi kerja, persoalan sosial-ekonomi,
+                serta efek pilihan kata “terlupakan” dan “ironis”.
+              </p>
+            </div>
+          </div>
+
+          <div class="m2-form-card">
+            <label class="m2-label" for="mengapa">
+              <span class="m2-question-number">01</span>
+              Mengapa kondisi atau persoalan tersebut penting?
+              <textarea id="mengapa" rows="3"
+                placeholder="Jelaskan sebab, latar belakang, atau persoalan yang terlihat..."></textarea>
+            </label>
+
+            <label class="m2-label" for="bagaimana">
+              <span class="m2-question-number">02</span>
+              Bagaimana tayangan menjelaskan kondisi tersebut?
+              <textarea id="bagaimana" rows="3"
+                placeholder="Jelaskan proses, kondisi kerja, atau dampak yang tampak..."></textarea>
+            </label>
+
+            <label class="m2-label" for="bias">
+              <span class="m2-question-number">03</span>
+              Bagaimana diksi “terlupakan” dan “ironis” memengaruhi pembaca?
+              <textarea id="bias" rows="3"
+                placeholder="Analisis kesan emosional dan kemungkinan bias dalam pilihan kata..."></textarea>
+            </label>
+
+            <label class="m2-label" for="bukti2">
+              Bukti dari tayangan
+              <textarea id="bukti2" rows="3"
+                placeholder="Catat bukti visual, narasi, atau informasi yang kamu dengar..."></textarea>
+            </label>
+
+            <p class="m2-error" id="error2" aria-live="polite"></p>
+
+            <div class="action-row">
+              <button type="button" class="btn secondary" data-go="analisis1">
+                ← Analisis Pertama
+              </button>
+              <button type="button" class="btn primary" id="save2">
+                Simpan & Review →
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PANEL 5: REVIEW -->
+        <section class="panel view content-panel" data-view="review" id="review-panel">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">TINJAU ULANG</span>
+              <h2>Review Indeks Timestamp</h2>
+            </div>
+            <span class="status-pill" id="review-status">
+              0 dari 2 selesai
+            </span>
+          </div>
+
+          <p class="intro">
+            Pilih kartu untuk kembali ke timestamp video dan meninjau
+            jawaban. Kamu dapat memperbaiki analisis sebelum mengekspor PDF.
+          </p>
+
+          <div class="m2-review-list">
+            <article class="m2-review-card">
+              <div class="m2-review-top">
+                <span class="m2-time-badge">03:15</span>
+                <strong>Fakta vs sudut pandang</strong>
+              </div>
+              <p id="review1">Belum ada jawaban tersimpan.</p>
+              <button type="button" class="btn secondary" data-review="1">
+                Tinjau cuplikan & edit →
+              </button>
+            </article>
+
+            <article class="m2-review-card">
+              <div class="m2-review-top">
+                <span class="m2-time-badge">06:45</span>
+                <strong>Gagasan dan bias</strong>
+              </div>
+              <p id="review2">Belum ada jawaban tersimpan.</p>
+              <button type="button" class="btn secondary" data-review="2">
+                Tinjau cuplikan & edit →
+              </button>
+            </article>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn secondary" data-go="analisis1">
+              Edit Analisis 03:15
+            </button>
+            <button type="button" class="btn primary" data-go="export">
+              Tinjau & Ekspor PDF →
+            </button>
+          </div>
+        </section>
+
+        <!-- PANEL 6: EKSPOR -->
+        <section class="panel view content-panel" data-view="export" id="export-panel">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">PORTOFOLIO SISWA</span>
+              <h2>Tinjau dan Ekspor PDF</h2>
+            </div>
+            <span class="status-pill">Tahap akhir</span>
+          </div>
+
+          <p class="intro">
+            Lengkapi identitas, tinjau ringkasan jawaban, lalu simpan
+            portofolio untuk dikumpulkan melalui kanal kelas.
+          </p>
+
+          <div class="m2-export-layout">
+            <form id="identity-form" class="m2-form-card">
+              <h3>Identitas siswa</h3>
+
+              <label class="m2-label" for="nama">
+                Nama lengkap
+                <input type="text" id="nama" required placeholder="Masukkan nama lengkap">
+              </label>
+
+              <label class="m2-label" for="kelas">
+                Kelas
+                <input type="text" id="kelas" required placeholder="Contoh: XII-1">
+              </label>
+
+              <label class="m2-label" for="absen">
+                Nomor absen
+                <input type="number" id="absen" required min="1" placeholder="Nomor absen">
+              </label>
+
+              <label class="m2-label" for="tanggal">
+                Tanggal pengerjaan
+                <input type="date" id="tanggal" required>
+              </label>
+
+              <p class="m2-small">
+                Jawaban tersimpan sementara di browser yang digunakan.
+              </p>
+            </form>
+
+            <div class="m2-portfolio-card">
+              <span class="eyebrow">PRATINJAU PORTOFOLIO</span>
+              <h3>Portofolio Menyimak Kritis Teks Feature</h3>
+
+              <div class="m2-preview-block">
+                <div class="m2-preview-heading">
+                  <span class="m2-time-badge">03:15</span>
+                  <strong id="preview-kategori">Belum diisi</strong>
+                </div>
+                <p id="preview-alasan1">
+                  Jawaban analisis pertama akan tampil di sini.
+                </p>
+              </div>
+
+              <div class="m2-preview-block">
+                <div class="m2-preview-heading">
+                  <span class="m2-time-badge">06:45</span>
+                  <strong>Gagasan dan bias</strong>
+                </div>
+                <p id="preview-alasan2">
+                  Jawaban analisis kedua akan tampil di sini.
+                </p>
+              </div>
+
+              <p class="m2-completion" id="completion" aria-live="polite">
+                Status kelengkapan: lengkapi dua analisis dan identitas siswa.
+              </p>
+
+              <p class="m2-error" id="error-export" aria-live="polite"></p>
+
+              <div class="action-row">
+                <button type="button" class="btn secondary" data-go="review">
+                  ← Kembali
+                </button>
+                <button type="button" class="btn primary" id="download-pdf">
+                  Unduh PDF
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+    </div>
+  </div>
+
+  <!-- DOKUMEN CETAK -->
+  <div id="portfolio-print" class="portfolio-print"></div>
+
+  <div class="footer">
+    <p>&copy; BEI 2026</p>
+  </div>
+
+  <script src="../../public/scripts/iframe_api.js"></script>
+  <script src="../../public/scripts/global-script.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+
+</html>

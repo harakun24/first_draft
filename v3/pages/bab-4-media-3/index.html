@@ -1,0 +1,816 @@
+<!-- FILE: pages/bab-4-media-3/index.html -->
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bab IV Media 3 | Menyusun Draf Teks Feature</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <style>
+    .feature-form {
+      display: grid;
+      gap: var(--m);
+      background: var(--kertas);
+      padding: var(--m);
+      border-radius: var(--m);
+      box-shadow: var(--box)
+    }
+
+    .feature-form label {
+      display: grid;
+      gap: calc(var(--m)/3);
+      font-size: .85rem
+    }
+
+    .feature-form input,
+    .feature-form textarea {
+      width: 100%;
+      padding: var(--m);
+      border: 1px solid var(--navy-garis);
+      border-radius: var(--m-2);
+      font: inherit;
+      background: #fff;
+      color: inherit
+    }
+
+    .feature-form textarea {
+      min-height: 100px;
+      resize: vertical
+    }
+
+    .feature-form button,
+    .feature-action {
+      padding: var(--m);
+      border: 1px solid var(--navy-garis);
+      border-radius: var(--m-2);
+      cursor: pointer;
+      background: var(--biru-kartu);
+      color: inherit
+    }
+
+    .feature-action.primary {
+      background: var(--hijau-penanda);
+      border-color: var(--hijau-penanda-2)
+    }
+
+    .feature-photo {
+      max-width: 100%;
+      max-height: 260px;
+      object-fit: contain;
+      border-radius: var(--m-2);
+      display: block;
+      margin-top: var(--m)
+    }
+
+    .feature-status {
+      font-size: .8rem;
+      opacity: .8
+    }
+
+    .feature-anatomy {
+      display: grid;
+      gap: var(--m)
+    }
+
+    .feature-anatomy button.active {
+      outline: 2px solid var(--magenta-bab)
+    }
+
+    .feature-result {
+      background: #fff;
+      border-radius: var(--m-2);
+      padding: var(--m);
+      margin-top: var(--m)
+    }
+
+    .feature-result .ok {
+      color: green
+    }
+
+    .feature-result .warn {
+      color: #a65b00
+    }
+
+    .feature-prompt {
+      font-size: .85rem;
+      padding: var(--m);
+      background: #fff;
+      border-radius: var(--m-2)
+    }
+
+    .feature-print {
+      display: none
+    }
+
+    @media print {
+      body * {
+        visibility: hidden !important
+      }
+
+      .feature-print,
+      .feature-print * {
+        visibility: visible !important
+      }
+
+      .feature-print {
+        display: block !important;
+        position: absolute;
+        inset: 0;
+        padding: 20mm;
+        background: white;
+        color: #111
+      }
+
+      .feature-print img {
+        max-width: 100%;
+        max-height: 180px
+      }
+
+      .feature-print section {
+        break-inside: avoid;
+        margin-bottom: 1rem
+      }
+    }
+
+    /* Merapikan checkbox konfirmasi tutorial */
+    .feature-form label:has(#tutorialDone) {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .feature-form label:has(#tutorialDone) input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      flex-shrink: 0;
+      order: -1;
+    }
+
+    /* Memperbaiki input upload agar tetap di dalam kotak */
+    #photoInput {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      padding: 10px;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--navy-garis);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    /* Memastikan elemen di dalam form tidak melebar */
+    .feature-form,
+    .feature-form label {
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .feature-form label {
+      width: 100%;
+    }
+
+    .feature-form input[type="file"] {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Mencegah kolom pengisian keluar dari kotak putih */
+    .feature-form {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+    }
+
+    .feature-form label {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .feature-form input:not([type="checkbox"]),
+    .feature-form textarea {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* Mencegah elemen grid atau flex meluap */
+    .area,
+    .play-area,
+    .view,
+    .feature-form>* {
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    /* ==========================================
+   PDF FEATURE - IDENTITAS VISUAL BEI 2026
+========================================== */
+
+    .feature-print {
+      display: none;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm 16mm;
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body * {
+        visibility: hidden !important;
+      }
+
+      .feature-print,
+      .feature-print * {
+        visibility: visible !important;
+      }
+
+      .feature-print {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        color: #283747;
+        background: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        line-height: 1.6;
+      }
+
+      /* HEADER UTAMA */
+      .feature-print .pdf-header {
+        text-align: center;
+        padding-bottom: 17px;
+        border-bottom: 3px solid #203f67;
+        margin-bottom: 17px;
+      }
+
+      .feature-print .pdf-header-brand {
+        margin: 0;
+        color: #203f67;
+        font-size: 16pt;
+        line-height: 1.4;
+        font-weight: 800;
+        letter-spacing: .4px;
+      }
+
+      .feature-print .pdf-header-subtitle {
+        margin: 4px auto 0;
+        max-width: 95%;
+        color: #424e5e;
+        font-size: 9pt;
+        line-height: 1.6;
+      }
+
+      .feature-print .pdf-document-title {
+        margin: 17px 0 5px;
+        color: #203f67;
+        text-align: center;
+        font-size: 15pt;
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-transform: uppercase;
+        line-height: 1.45;
+      }
+
+      .feature-print .pdf-document-desc {
+        color: #64748b;
+        font-size: 9pt;
+        text-align: center;
+        margin: 7px 0 0;
+      }
+
+      /* BAR BAGIAN SEPERTI PDF REFERENSI */
+      .feature-print .pdf-bar {
+        display: block;
+        margin: 21px 0 11px;
+        padding: 5px 11px;
+        background: #edf1f6;
+        border-left: 5px solid #203f67;
+        color: #203f67;
+        font-size: 10pt;
+        font-weight: 800;
+        letter-spacing: .3px;
+        break-after: avoid;
+      }
+
+      /* IDENTITAS SISWA */
+      .feature-print .pdf-identity-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px 22px;
+        margin: 12px 0 19px;
+      }
+
+      .feature-print .pdf-identity-item {
+        padding: 9px 11px;
+        border: 1px solid #d9e1eb;
+        background: #f8fafc;
+        border-radius: 3px;
+        overflow-wrap: anywhere;
+      }
+
+      .feature-print .pdf-identity-label {
+        display: block;
+        color: #64748b;
+        font-size: 8pt;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .feature-print .pdf-identity-value {
+        color: #243d5c;
+        font-weight: 700;
+        font-size: 10pt;
+      }
+
+      /* FOTO OBSERVASI */
+      .feature-print .pdf-photo-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        margin: 12px 0 18px;
+        padding: 11px;
+        border: 1px solid #d7e0eb;
+        background: #f8fafc;
+        border-radius: 4px;
+        break-inside: avoid;
+      }
+
+      .feature-print .pdf-photo-card img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        max-height: 280px;
+        margin: auto;
+        object-fit: contain;
+      }
+
+      .feature-print .pdf-photo-caption {
+        text-align: center;
+        color: #64748b;
+        font-size: 8pt;
+        font-style: italic;
+      }
+
+      /* BAGIAN TULISAN */
+      .feature-print .pdf-section {
+        margin: 12px 0 17px;
+        break-inside: avoid;
+      }
+
+      .feature-print .pdf-section-title {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 7px;
+        color: #243d5c;
+        font-size: 10.5pt;
+        font-weight: 800;
+        line-height: 1.5;
+        break-after: avoid;
+      }
+
+      .feature-print .pdf-section-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 27px;
+        width: 27px;
+        height: 27px;
+        background: #203f67;
+        color: #fff;
+        border-radius: 3px;
+        font-size: 8pt;
+      }
+
+      .feature-print .pdf-answer {
+        padding: 11px 13px;
+        border: 1px solid #d5dce5;
+        background: #f8fafc;
+        color: #344256;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10.5pt;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      .feature-print .pdf-section.lead .pdf-answer {
+        background: #f0f5fb;
+        border-left: 4px solid #426d9c;
+      }
+
+      .feature-print .pdf-section.body .pdf-answer {
+        background: #fff;
+        border-left: 4px solid #9aabc0;
+      }
+
+      .feature-print .pdf-section.punch .pdf-answer {
+        background: #edf3fa;
+        border-left: 4px solid #203f67;
+      }
+
+      /* CATATAN PENDUKUNG */
+      .feature-print .pdf-support-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .feature-print .pdf-support-card {
+        border: 1px solid #d9e1eb;
+        border-radius: 3px;
+        overflow-wrap: anywhere;
+        break-inside: avoid;
+      }
+
+      .feature-print .pdf-support-title {
+        margin: 0;
+        padding: 7px 9px;
+        background: #edf1f6;
+        border-bottom: 1px solid #d9e1eb;
+        color: #203f67;
+        font-size: 9pt;
+        font-weight: 800;
+      }
+
+      .feature-print .pdf-support-content {
+        padding: 9px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 9.5pt;
+        line-height: 1.7;
+        white-space: pre-wrap;
+      }
+
+      /* WAWANCARA */
+      .feature-print .pdf-quote {
+        padding: 13px 15px;
+        margin: 10px 0 17px;
+        border-left: 5px solid #426d9c;
+        background: #f0f5fb;
+        break-inside: avoid;
+      }
+
+      .feature-print .pdf-quote-label {
+        color: #203f67;
+        font-size: 8pt;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .feature-print .pdf-quote-text {
+        margin-top: 7px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 11pt;
+        font-style: italic;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      /* STATUS KELENGKAPAN */
+      .feature-print .pdf-status-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        margin-top: 10px;
+      }
+
+      .feature-print .pdf-status-item {
+        padding: 8px 10px;
+        border: 1px solid #d9e1eb;
+        background: #f8fafc;
+        font-size: 9pt;
+        border-radius: 3px;
+      }
+
+      .feature-print .pdf-status-item.complete {
+        border-left: 3px solid #426d9c;
+      }
+
+      /* FOOTER */
+      .feature-print .pdf-footer {
+        margin-top: 25px;
+        padding-top: 10px;
+        border-top: 1px solid #b8c6d7;
+        color: #64748b;
+        font-size: 8pt;
+        font-style: italic;
+        text-align: center;
+      }
+
+      .feature-print .pdf-muted {
+        color: #64748b;
+        font-size: 9pt;
+      }
+    }
+  </style>
+</head>
+
+<body data-refer="0">
+  <div class="header">
+    <div class="icon pointer" onclick="toggleMenu()">
+      <div data-icon="../../public/feather/menu.svg"></div>
+    </div>
+    <div class="title-page">
+      <h4>Menyusun Draf Teks Feature</h4>
+      <p>Bab IV · Media 3</p>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="view active" data-view="1">
+      <div class="segmen-tab">
+        <b>Daftar Segmen</b>
+
+        <div class="segmen pointer active" data-jump="video" onclick="jumpSegmen(event)">
+          <b>01 · Tutorial & Foto</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+        <div class="segmen pointer" data-jump="kerangka" onclick="jumpSegmen(event)">
+          <b>02 · Kerangka</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+        <div class="segmen pointer" data-jump="observasi" onclick="jumpSegmen(event)">
+          <b>03 · Observasi</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+        <div class="segmen pointer" data-jump="wawancara" onclick="jumpSegmen(event)">
+          <b>04 · Wawancara</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+        <div class="segmen pointer" data-jump="anatomi" onclick="jumpSegmen(event)">
+          <b>05 · Anatomi Feature</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+        <div class="segmen pointer" data-jump="cek" onclick="jumpSegmen(event)">
+          <b>06 · Cek Format</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+        <div class="segmen pointer" data-jump="ekspor" onclick="jumpSegmen(event)">
+          <b>07 · Tinjau & PDF</b>
+          <div data-icon="../../public/feather/circle.svg"></div>
+        </div>
+
+        <div class="feature-status" id="featureProgress">Tahap 1 dari 7</div>
+      </div>
+
+      <div class="play-area">
+
+        <!-- TAHAP 1 -->
+        <div class="area video active">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Tutorial & Foto Observasi</h3>
+            <p>Mulailah dari detail yang benar-benar terlihat dalam foto atau hasil pengamatanmu.</p>
+
+            <video id="tutorialVideo" controls style="width:100%;max-height:320px" hidden>
+              <source src="./assets/tutorial-feature.mp4" type="video/mp4">
+            </video>
+
+            <p id="videoFallback">
+              Video tutorial belum dipasang. Kamu tetap bisa melanjutkan dengan membaca panduan.
+            </p>
+
+            <label>
+              <span>Konfirmasi tutorial</span>
+              <input type="checkbox" id="tutorialDone" style="width:auto">
+              Saya sudah membaca atau memahami panduan.
+            </label>
+
+            <label>
+              Pilih foto observasi
+              <input type="file" id="photoInput" accept="image/*">
+            </label>
+
+            <button type="button" id="samplePhoto">Gunakan foto contoh ilustrasi</button>
+            <button type="button" id="removePhoto">Hapus foto</button>
+
+            <div id="photoPreview">Belum ada foto yang dipilih.</div>
+
+            <p>Foto diproses di browser dan tidak dikirim ke server.</p>
+
+            <button type="button" class="feature-action primary" onclick="featureNext()">
+              Simpan & Lanjut →
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 2 -->
+        <div class="area kerangka">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Kerangka Bantuan AI · Input Manual</h3>
+            <p>AI tidak tersedia di dalam website. Jika menggunakan alat eksternal, periksa hasilnya sebelum menyalin.
+            </p>
+
+            <div class="feature-prompt" id="promptText">
+              Berdasarkan foto budaya yang saya amati, bantu saya menyusun kata kunci observasi, beberapa ide Lead, dan
+              kerangka awal feature. Jangan menambahkan fakta yang belum terverifikasi.
+            </div>
+
+            <button type="button" id="copyPrompt">Salin prompt contoh</button>
+
+            <label>
+              Kata kunci
+              <input id="keywords" placeholder="Contoh: tradisi, penari, kain, alat musik">
+            </label>
+
+            <label>
+              Ide Lead
+              <textarea id="leadIdea" placeholder="Tuliskan ide pembuka..."></textarea>
+            </label>
+
+            <label>
+              Kerangka awal
+              <textarea id="outline" placeholder="Tuliskan urutan cerita atau poin utama..."></textarea>
+            </label>
+
+            <button type="button" class="feature-action primary" onclick="featureNext()">
+              Simpan & Lanjut →
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 3 -->
+        <div class="area observasi">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Hasil Observasi Fisik dan Suasana</h3>
+            <p>Tuliskan fakta yang benar-benar kamu amati. Verifikasi setiap detail melalui foto, catatan, atau
+              observasi langsung.</p>
+
+            <label>
+              Catatan observasi
+              <textarea id="observation" placeholder="Apa yang terlihat, terdengar, atau terjadi?"></textarea>
+            </label>
+
+            <span id="observationCount">0 kata</span>
+
+            <label>
+              Refleksi suasana
+              <textarea id="mood" placeholder="Jelaskan suasana berdasarkan bukti pengamatan..."></textarea>
+            </label>
+
+            <button type="button" class="feature-action primary" onclick="featureNext()">
+              Simpan & Lanjut →
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 4 -->
+        <div class="area wawancara">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Draf Wawancara Humanis</h3>
+            <p>Catat kutipan secara akurat. Nama lengkap narasumber hanya dicantumkan jika izin publikasi sudah
+              diperoleh.</p>
+
+            <p>
+              <b>Panduan pertanyaan</b><br>
+              Apa makna tradisi ini bagi Anda?<br>
+              Bagaimana tradisi ini dijaga?<br>
+              Apa harapan Anda untuk generasi berikutnya?
+            </p>
+
+            <label>
+              Peran narasumber
+              <input id="sourceRole" placeholder="Contoh: pengrajin, penari, warga setempat">
+            </label>
+
+            <label>
+              Kutipan langsung
+              <textarea id="quote" placeholder='Tuliskan ucapan narasumber dengan tanda petik dua...'></textarea>
+            </label>
+
+            <label>
+              Konteks kutipan
+              <textarea id="quoteContext" placeholder="Kapan atau dalam situasi apa pernyataan disampaikan?"></textarea>
+            </label>
+
+            <button type="button" class="feature-action primary" onclick="featureNext()">
+              Simpan & Lanjut →
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 5 -->
+        <div class="area anatomi">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Konstruksi Anatomi Feature</h3>
+            <p>Pilih bagian draf, baca panduan, lalu tulis. Sistem menyimpan draf di browser secara otomatis.</p>
+
+            <div class="feature-anatomy" id="anatomyButtons">
+              <button type="button" data-part="headline" class="active">Headline · Judul</button>
+              <button type="button" data-part="lead">Lead · Pembuka</button>
+              <button type="button" data-part="bridge">Bridge · Penghubung</button>
+              <button type="button" data-part="body">Body · Isi utama</button>
+              <button type="button" data-part="punch">Punch · Penutup</button>
+            </div>
+
+            <h4 id="partTitle">Headline</h4>
+            <p id="partGuide">Buat judul yang spesifik, menarik, dan sesuai fakta.</p>
+
+            <label>
+              Tulis bagian ini
+              <textarea id="partText" placeholder="Mulai menulis..."></textarea>
+            </label>
+
+            <span id="partCount">0 kata</span>
+
+            <button type="button" id="savePart">Simpan bagian</button>
+            <button type="button" id="nextPart">Bagian berikutnya →</button>
+
+            <button type="button" class="feature-action primary" onclick="featureNext()">
+              Simpan & Lanjut ke Cek Format →
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 6 -->
+        <div class="area cek">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Cek Format Dasar</h3>
+            <p>Pemeriksaan ini tidak menilai koherensi, humanisme, estetika, atau ketepatan fakta.</p>
+
+            <button type="button" id="runCheck">Jalankan pemeriksaan</button>
+
+            <div class="feature-result" id="checkResults">
+              Klik tombol untuk memeriksa jumlah kata Headline, panjang Body, dan tanda petik.
+            </div>
+
+            <button type="button" class="feature-action primary" onclick="featureNext()">
+              Lanjut ke Tinjau & PDF →
+            </button>
+          </div>
+        </div>
+
+        <!-- TAHAP 7 -->
+        <div class="area ekspor">
+          <div class="feature-form">
+            <h3 class="feature-step-title">Tinjau dan Ekspor Draf PDF</h3>
+
+            <label>Nama siswa
+              <input id="studentName" placeholder="Nama lengkap">
+            </label>
+
+            <label>Kelas
+              <input id="studentClass" placeholder="Contoh: XII-1">
+            </label>
+
+            <label>Nomor absen
+              <input id="studentNumber" placeholder="Nomor absen">
+            </label>
+
+            <div id="finalPreview" class="feature-result">
+              Pratinjau draf akan tampil di sini.
+            </div>
+
+            <button type="button" id="refreshPreview">Perbarui pratinjau</button>
+
+            <button type="button" id="printPdf" class="feature-action primary">
+              Unduh / Cetak PDF
+            </button>
+
+            <p>Pada dialog cetak browser, pilih “Save as PDF”.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; BEI 2026</p>
+  </div>
+  <div class="feature-print" id="printDocument"></div>
+
+  <script src="../../public/scripts/global-script.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+
+</html>

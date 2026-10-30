@@ -1,0 +1,869 @@
+.m5-layout {
+    display: grid !important;
+    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--m);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.m5-layout>.segmen-tab {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    padding: 18px;
+    border-radius: 16px;
+    background: var(--kertas);
+    box-shadow: var(--box);
+    min-width: 0;
+}
+
+.m5-layout>.segmen-tab>b {
+    padding: 4px 0 8px;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    color: #527ba5;
+}
+
+.m5-layout .segmen {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #d6e2ef;
+    border-radius: 10px;
+    background: #f3f7fc;
+    color: #28496f;
+    font: inherit;
+    font-size: .83rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.m5-layout .segmen.active {
+    background: #e5eefb;
+    border-color: #315b8b;
+    color: #203f67;
+    box-shadow: inset 3px 0 #315b8b;
+    font-weight: 700;
+}
+
+.m5-layout .segmen [data-icon] {
+    width: 18px;
+    height: 18px;
+}
+
+.m5-progress {
+    display: grid;
+    gap: 8px;
+    padding: 8px 2px;
+    color: #64748b;
+    font-size: .76rem;
+}
+
+.m5-progress-track {
+    height: 7px;
+    background: #e4ebf3;
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.m5-progress-track div {
+    width: 16.66%;
+    height: 100%;
+    background: #315b8b;
+    transition: width .2s;
+}
+
+.m5-layout .content-column {
+    display: grid;
+    gap: var(--m);
+    min-width: 0;
+}
+
+.m5-layout .content-panel {
+    display: none;
+    min-width: 0;
+}
+
+.m5-layout .content-panel.active {
+    display: block;
+}
+
+.m5-layout .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.m5-layout .section-heading h2 {
+    margin: 4px 0;
+}
+
+.m5-layout .eyebrow {
+    color: #527ba5;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.m5-layout .intro {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.m5-layout .status-pill {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 99px;
+    background: #e5eefb;
+    color: #315b8b;
+    font-size: .75rem;
+    white-space: nowrap;
+}
+
+.m5-welcome {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.m5-illustration {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 14px;
+    color: #28496f;
+    background: linear-gradient(145deg, #e7f0fb, #f6f9fd);
+    text-align: center;
+}
+
+.m5-illustration span {
+    display: grid;
+    place-items: center;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: #315b8b;
+    color: white;
+    font-size: 40px;
+}
+
+.m5-illustration b {
+    font-size: 1.2rem;
+}
+
+.m5-illustration small {
+    letter-spacing: .1em;
+    color: #64748b;
+}
+
+.m5-form {
+    display: grid;
+    gap: 9px;
+}
+
+.m5-form label {
+    font-weight: 700;
+    font-size: .86rem;
+    color: #28496f;
+}
+
+.m5-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #d6e2ef;
+    border-radius: 9px;
+    background: #fbfdff;
+    font: inherit;
+}
+
+.m5-form input:focus {
+    outline: 2px solid #b9d0ec;
+    border-color: #315b8b;
+}
+
+.small-note {
+    color: #64748b;
+    font-size: .78rem;
+}
+
+.m5-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border: 1px solid #d6e2ef;
+    border-radius: 9px;
+    font: inherit;
+    font-size: .84rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.m5-button.primary {
+    background: #315b8b;
+    color: white;
+    border-color: #315b8b;
+}
+
+.m5-button.primary:hover {
+    background: #25496f;
+}
+
+.m5-button.secondary {
+    background: #f3f7fc;
+    color: #28496f;
+}
+
+.m5-button.danger {
+    background: #fff5f5;
+    color: #a33c3c;
+    border-color: #f0d4d4;
+}
+
+.m5-button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.m5-map {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.m5-node {
+    padding: 18px;
+    border: 1px solid #d6e2ef;
+    border-radius: 12px;
+    background: #f8fbff;
+}
+
+.m5-node.active {
+    border-color: #315b8b;
+    box-shadow: inset 3px 0 #315b8b;
+}
+
+.m5-node.done {
+    background: #f0f8f3;
+    border-color: #c4e4d0;
+}
+
+.m5-node .node-number {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #e5eefb;
+    color: #315b8b;
+    font-weight: 800;
+}
+
+.m5-node h3 {
+    margin: 4px 0;
+    font-size: 1rem;
+    color: #28496f;
+}
+
+.m5-node p {
+    color: #64748b;
+    font-size: .83rem;
+}
+
+.m5-notice {
+    margin: 18px 0;
+    padding: 13px 15px;
+    border-left: 3px solid #527ba5;
+    border-radius: 7px;
+    background: #f0f5fb;
+    color: #52677f;
+    font-size: .85rem;
+}
+
+.m5-scale {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #d6e2ef;
+    border-radius: 12px;
+    background: #f8fbff;
+}
+
+.m5-scale label {
+    font-weight: 700;
+    color: #28496f;
+}
+
+.m5-scale input[type=range] {
+    width: 100%;
+    margin: 24px 0;
+    accent-color: #315b8b;
+}
+
+.m5-scale-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.m5-scale-buttons button {
+    padding: 12px;
+    border: 1px solid #d6e2ef;
+    border-radius: 9px;
+    background: white;
+    color: #28496f;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.m5-scale-buttons button.selected {
+    background: #315b8b;
+    color: white;
+    border-color: #315b8b;
+}
+
+.m5-scale-caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 12px;
+    color: #64748b;
+    font-size: .76rem;
+}
+
+.m5-scale-caption strong {
+    color: #315b8b;
+}
+
+.m5-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.m5-feedback-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 20px 0;
+    border-radius: 18px;
+    background: #e5eefb;
+    color: #315b8b;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.m5-badge {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 9px 13px;
+    border-radius: 9px;
+    background: #e5eefb;
+    color: #315b8b;
+    font-weight: 700;
+    font-size: .85rem;
+}
+
+.m5-layout #remedialList {
+    padding-left: 24px;
+    color: #52677f;
+}
+
+.m5-layout #remedialList li {
+    margin: 12px 0;
+    padding-left: 4px;
+}
+
+.m5-tie-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.m5-tie-options button {
+    padding: 16px;
+    text-align: left;
+    border: 1px solid #d6e2ef;
+    border-radius: 10px;
+    background: #f8fbff;
+    cursor: pointer;
+    color: #28496f;
+}
+
+.m5-tie-options button.selected {
+    border-color: #315b8b;
+    background: #e5eefb;
+}
+
+.m5-profile-card {
+    padding: 22px;
+    margin-bottom: 22px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #e5eefb, #f8fbff);
+}
+
+.m5-profile-icon {
+    font-size: 38px;
+    color: #315b8b;
+}
+
+.m5-profile-card h2 {
+    color: #28496f;
+    margin: 5px 0;
+}
+
+.m5-profile-card h3 {
+    font-size: .95rem;
+    color: #527ba5;
+}
+
+.m5-bar-row {
+    margin: 16px 0;
+}
+
+.m5-bar-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: .84rem;
+    color: #28496f;
+}
+
+.m5-bar-track {
+    height: 8px;
+    margin-top: 7px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #e4ebf3;
+}
+
+.m5-bar-fill {
+    height: 100%;
+    background: #315b8b;
+    border-radius: inherit;
+}
+
+.m5-certificate {
+    padding: clamp(20px, 4vw, 42px);
+    margin: 20px 0;
+    border: 2px solid #c9a85f;
+    outline: 1px solid #e8d9b4;
+    outline-offset: 4px;
+    text-align: center;
+    background: white;
+}
+
+.m5-certificate .eyebrow {
+    color: #94722f;
+}
+
+.m5-certificate-star {
+    font-size: 38px;
+    color: #b48b37;
+    margin: 15px;
+}
+
+.m5-certificate h1 {
+    color: #28496f;
+    font-size: clamp(24px, 4vw, 36px);
+    letter-spacing: .07em;
+}
+
+.m5-certificate h2 {
+    color: #315b8b;
+    overflow-wrap: anywhere;
+}
+
+.m5-certificate h3 {
+    color: #94722f;
+}
+
+.m5-certificate hr {
+    border: 0;
+    border-top: 1px solid #e5d7b4;
+    margin: 20px 0;
+}
+
+.m5-certificate footer {
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #e5d7b4;
+    color: #64748b;
+    font-size: .8rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 850px) {
+    .m5-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .m5-welcome {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .m5-map,
+    .m5-tie-options {
+        grid-template-columns: 1fr;
+    }
+
+    .m5-layout .section-heading {
+        flex-direction: column;
+    }
+
+    .m5-scale-buttons {
+        gap: 5px;
+    }
+
+    .m5-scale-buttons button {
+        padding: 9px 4px;
+    }
+
+    .m5-actions {
+        flex-direction: column;
+    }
+
+    .m5-actions .m5-button {
+        width: 100%;
+    }
+}
+
+
+/* ===== EXPORT / PRINT SERTIFIKAT MEDIA 5 ===== */
+
+@page {
+  size: A4 landscape;
+  margin: 12mm;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #26364b !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Sembunyikan seluruh halaman selain sertifikat */
+  body * {
+    visibility: hidden !important;
+  }
+
+  #certificate,
+  #certificate * {
+    visibility: visible !important;
+  }
+
+  #certificate {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #26364b !important;
+  }
+
+  #certificate .no-print {
+    display: none !important;
+  }
+
+  /* Kertas sertifikat: putih bersih seperti PDF PUSBUK */
+  #certificatePaper {
+    width: 100% !important;
+    min-height: 165mm;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 12mm 15mm !important;
+    border: 0 !important;
+    outline: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #26364b !important;
+    text-align: center;
+    break-inside: avoid;
+  }
+
+  /* Header biru navy */
+  #certificatePaper > .eyebrow {
+    color: #23446c !important;
+    font-size: 11pt !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.2px !important;
+  }
+
+  #certificatePaper h1 {
+    margin: 8mm 0 3mm !important;
+    color: #23446c !important;
+    font-size: 25pt !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+  }
+
+  #certificatePaper h2 {
+    margin: 4mm 0 !important;
+    color: #234f80 !important;
+    font-size: 23pt !important;
+    font-weight: 800 !important;
+    overflow-wrap: anywhere;
+  }
+
+  #certificatePaper h3 {
+    margin: 3mm 0 !important;
+    color: #23446c !important;
+    font-size: 15pt !important;
+    font-weight: 700 !important;
+  }
+
+  #certificatePaper p {
+    color: #475569 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Garis pemisah biru */
+  #certificatePaper hr {
+    display: block !important;
+    height: 0 !important;
+    margin: 6mm 0 !important;
+    border: 0 !important;
+    border-top: 2px solid #23446c !important;
+  }
+
+  /* Simbol dekoratif */
+  #certificatePaper .m5-certificate-star {
+    display: inline-block;
+    margin: 3mm 0 !important;
+    color: #23446c !important;
+    font-size: 28pt !important;
+  }
+
+  /* Nilai kompetensi dengan label dan garis biru */
+  #certificateScores {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3mm 8mm;
+    margin: 7mm 0 !important;
+    text-align: left;
+  }
+
+  #certificateScores .m5-bar-row {
+    margin: 0 !important;
+    padding: 3mm 0 !important;
+    border-bottom: 1px solid #d9e2ef !important;
+    break-inside: avoid;
+  }
+
+  #certificateScores .m5-bar-heading {
+    color: #23446c !important;
+    font-size: 9pt !important;
+  }
+
+  #certificateScores .m5-bar-track {
+    height: 5px !important;
+    margin-top: 2mm !important;
+    background: #e8eef5 !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+  }
+
+  #certificateScores .m5-bar-fill {
+    height: 100% !important;
+    background: #315b8b !important;
+    border-radius: 0 !important;
+  }
+
+  /* Footer */
+  #certificatePaper footer {
+    margin-top: 8mm !important;
+    padding-top: 4mm !important;
+    border-top: 1px solid #cbd5e1 !important;
+    color: #64748b !important;
+    font-size: 9pt !important;
+    letter-spacing: .5px !important;
+  }
+}
+
+/* Tombol cetak sertifikat */
+.m5-layout #printCertificate {
+  background: #315b8b;
+  border-color: #315b8b;
+  color: #ffffff;
+}
+
+.m5-layout #printCertificate:hover {
+  background: #23446c;
+}
+
+/* ===== PERBAIKAN PANEL PUTIH UMPAN BALIK MEDIA 5 ===== */
+
+.m5-layout .content-column > .content-panel#feedback {
+  display: none;
+  width: 100%;
+  min-width: 0;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e0e7ef;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(32, 66, 102, 0.08);
+  box-sizing: border-box;
+}
+
+/* Panel putih muncul saat segmen Umpan Balik aktif */
+.m5-layout .content-column > .content-panel#feedback.active {
+  display: block;
+}
+
+/* Jarak dan keterbacaan konten di dalam panel */
+.m5-layout #feedback .section-heading {
+  margin-bottom: 22px;
+}
+
+.m5-layout #feedback > p {
+  color: #334155;
+  line-height: 1.7;
+}
+
+.m5-layout #feedback #remedialBox {
+  margin-top: 22px;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.m5-layout #feedback #remedialBox h3 {
+  margin-top: 0;
+  color: #28496f;
+}
+
+.m5-layout #feedback #remedialList {
+  padding-left: 24px;
+}
+
+.m5-layout #feedback #remedialList li {
+  margin: 10px 0;
+  color: #52677f;
+  line-height: 1.7;
+}
+
+.m5-layout #feedback .m5-feedback-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 18px 0;
+  border-radius: 16px;
+  background: #e5eefb;
+  color: #315b8b;
+  font-size: 30px;
+}
+
+.m5-layout #feedback .m5-badge {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 9px 14px;
+  border-radius: 9px;
+  background: #e5eefb;
+  color: #315b8b;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .m5-layout .content-column > .content-panel#feedback {
+    padding: 18px;
+  }
+
+  .m5-layout #feedback #remedialBox {
+    padding: 14px;
+  }
+}
+
+
+/* ===== PANEL PUTIH BATANG KOMPETENSI ===== */
+
+.m5-layout #profileResult > h3,
+.m5-layout #profileResult > p,
+.m5-layout #competencyBars {
+  position: relative;
+}
+
+/* Panel putih untuk area kompetensi */
+.m5-layout #competencyBars {
+  padding: 22px 24px;
+  margin-top: 16px;
+  background: #ffffff;
+  border: 1px solid #e0e7ef;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(32, 66, 102, 0.08);
+  box-sizing: border-box;
+}
+
+/* Jarak antarbatang kompetensi */
+.m5-layout #competencyBars .m5-bar-row {
+  margin: 0;
+  padding: 14px 0;
+}
+
+.m5-layout #competencyBars .m5-bar-row + .m5-bar-row {
+  border-top: 1px solid #edf1f6;
+}
+
+.m5-layout #competencyBars .m5-bar-heading {
+  color: #28496f;
+  margin-bottom: 8px;
+}
+
+.m5-layout #competencyBars .m5-bar-track {
+  background: #e8eef5;
+  height: 9px;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.m5-layout #competencyBars .m5-bar-fill {
+  background: #315b8b;
+  height: 100%;
+  border-radius: 99px;
+}
+
+.m5-layout #competencyBars .m5-bar-row small {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+}
+
+/* Tampilan responsif */
+@media (max-width: 560px) {
+  .m5-layout #competencyBars {
+    padding: 14px;
+  }
+}

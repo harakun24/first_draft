@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bab IV Media 5 | Game Refleksi Penutup</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="../../public/images/favicon.png" type="image/x-icon">
+</head>
+
+<body data-refer="0">
+    <header class="header">
+        <div class="icon pointer" onclick="toggleMenu()" aria-label="Buka menu">
+            <div data-icon="../../public/feather/menu.svg"></div>
+        </div>
+        <div class="title-page">
+            <h4>Game Refleksi Penutup</h4>
+            <p>Bab IV · Media 5</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="view active m5-layout" data-view="1">
+            <aside class="segmen-tab">
+                <b>DAFTAR SEGMEN</b>
+                <button class="segmen active" data-step="identity" type="button"><span>01 · Identitas Siswa</span><span
+                        data-icon="../../public/feather/user.svg"></span></button>
+                <button class="segmen" data-step="map" type="button"><span>02 · Peta Refleksi</span><span
+                        data-icon="../../public/feather/map.svg"></span></button>
+                <button class="segmen" data-step="reflect" type="button"><span>03 · Refleksi Bab</span><span
+                        data-icon="../../public/feather/sliders.svg"></span></button>
+                <button class="segmen" data-step="feedback" type="button"><span>04 · Umpan Balik</span><span
+                        data-icon="../../public/feather/message-circle.svg"></span></button>
+                <button class="segmen" data-step="profile" type="button"><span>05 · Profil Kepenulisan</span><span
+                        data-icon="../../public/feather/bar-chart-2.svg"></span></button>
+                <button class="segmen" data-step="certificate" type="button"><span>06 · Sertifikat PDF</span><span
+                        data-icon="../../public/feather/award.svg"></span></button>
+                <div class="m5-progress">
+                    <div class="m5-progress-track">
+                        <div id="progressBar"></div>
+                    </div>
+                    <span id="progressLabel">Langkah 1 dari 6</span>
+                </div>
+                <div class="sidebar-note">
+                    <strong>Tujuan media</strong>
+                    <p>Kenali kekuatan kepenulisanmu melalui empat refleksi pembelajaran.</p>
+                </div>
+            </aside>
+
+            <section class="content-column">
+
+                <section class="panel view content-panel active" data-view="identity" id="identity">
+                    <div class="section-heading">
+                        <div><span class="eyebrow">TAHAP 01 · MULAI</span>
+                            <h2>Selamat Datang di Perjalanan Refleksi</h2>
+                        </div><span class="status-pill">Mulai</span>
+                    </div>
+                    <p class="intro">Setelah mempelajari Bab I sampai Bab IV, saatnya mengenali kemampuan yang paling
+                        kamu yakini. Isi identitas untuk memulai.</p>
+                    <div class="m5-welcome">
+                        <div class="m5-illustration"><span>✦</span><b>Perjalanan Refleksi</b><small>4 BAB · 4 REFLEKSI ·
+                                1 PROFIL</small></div>
+                        <form id="identityForm" class="m5-form">
+                            <label for="studentName">Nama lengkap</label><input id="studentName" required
+                                maxlength="100" placeholder="Masukkan nama lengkap">
+                            <label for="studentClass">Kelas</label><input id="studentClass" required maxlength="50"
+                                placeholder="Contoh: XII A">
+                            <label for="studentNumber">Nomor absen</label><input id="studentNumber" required
+                                type="number" min="1" placeholder="Masukkan nomor absen">
+                            <p class="small-note">Identitas dan jawaban disimpan di browser perangkat ini, tidak
+                                diunggah ke server.</p>
+                            <button class="m5-button primary" type="submit">Mulai Perjalanan →</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="panel view content-panel" data-view="map" id="map">
+                    <div class="section-heading">
+                        <div><span class="eyebrow">TAHAP 02 · JELAJAHI</span>
+                            <h2>Peta Empat Pos Refleksi</h2>
+                        </div><span class="status-pill" id="mapStatus">0 dari 4 pos</span>
+                    </div>
+                    <p class="intro">Selesaikan setiap pos secara berurutan. Pilih pos aktif untuk menilai keyakinanmu
+                        terhadap kompetensi yang telah dipelajari.</p>
+                    <div class="m5-map" id="mapNodes"></div>
+                    <div class="m5-notice">Pos akan terbuka secara berurutan setelah jawaban pos sebelumnya disimpan.
+                    </div>
+                    <button class="m5-button primary" id="continueMap">Buka Pos Pertama →</button>
+                </section>
+
+                <section class="panel view content-panel" data-view="reflect" id="reflect">
+                    <div class="section-heading">
+                        <div><span class="eyebrow" id="chapterEyebrow">TAHAP 03 · REFLEKSI</span>
+                            <h2 id="chapterTitle">Refleksi Bab I</h2>
+                        </div><span class="status-pill" id="chapterNumber">Bab I</span>
+                    </div>
+                    <p class="intro" id="chapterQuestion"></p>
+                    <div class="m5-scale">
+                        <label for="confidenceSlider">Seberapa yakin kamu terhadap kemampuan tersebut?</label>
+                        <input id="confidenceSlider" type="range" min="1" max="5" value="3">
+                        <div class="m5-scale-buttons" id="scaleButtons">
+                            <button type="button" data-score="1">1</button><button type="button"
+                                data-score="2">2</button><button type="button" data-score="3">3</button><button
+                                type="button" data-score="4">4</button><button type="button" data-score="5">5</button>
+                        </div>
+                        <div class="m5-scale-caption"><span>Sangat Ragu</span><strong id="scoreLabel">3 · Cukup
+                                Yakin</strong><span>Sangat Yakin</span></div>
+                    </div>
+                    <div class="m5-notice" id="scoreHint">Pilih skor yang menggambarkan keyakinanmu saat ini.</div>
+                    <div class="m5-actions"><button class="m5-button secondary" id="backMap">← Kembali ke
+                            Peta</button><button class="m5-button primary" id="saveScore">Simpan Jawaban →</button>
+                    </div>
+                </section>
+
+                <section class="panel view content-panel" data-view="feedback" id="feedback">
+                    <div class="section-heading">
+                        <div><span class="eyebrow">TAHAP 04 · UMPAN BALIK</span>
+                            <h2 id="feedbackTitle">Refleksi Tersimpan</h2>
+                        </div><span class="status-pill">Umpan balik</span>
+                    </div>
+                    <div class="m5-feedback-icon" id="feedbackIcon">✓</div>
+                    <p id="feedbackText"></p>
+                    <div id="badgeResult" class="m5-badge"></div>
+                    <div id="remedialBox" class="hidden">
+                        <h3>Pengingat untuk Belajar Kembali</h3>
+                        <p>Gunakan tiga pengingat berikut untuk memperkuat pemahamanmu.</p>
+                        <ol id="remedialList"></ol>
+                        <button class="m5-button primary" id="readRemedial">Sudah Membaca →</button>
+                    </div>
+                    <button class="m5-button primary" id="feedbackContinue">Kembali ke Peta →</button>
+                </section>
+
+                <section class="panel view content-panel" data-view="profile" id="profile">
+                    <div class="section-heading">
+                        <div><span class="eyebrow">TAHAP 05 · HASIL REFLEKSI</span>
+                            <h2>Profil Kepenulisanmu</h2>
+                        </div><span class="status-pill" id="profileStatus">4 pos</span>
+                    </div>
+                    <div id="tieBox" class="hidden">
+                        <h3>Pilih Profil Utamamu</h3>
+                        <p>Skor tertinggimu sama. Pilih bidang yang paling merepresentasikan minatmu.</p>
+                        <div id="tieOptions" class="m5-tie-options"></div><button id="confirmTie"
+                            class="m5-button primary" disabled>Buat Profil →</button>
+                    </div>
+                    <div id="profileResult" class="hidden">
+                        <div class="m5-profile-card"><span class="eyebrow">PROFIL UTAMA</span>
+                            <div class="m5-profile-icon">✦</div>
+                            <h2 id="profileName"></h2>
+                            <h3 id="profileBadge"></h3>
+                            <p id="profileDescription"></p>
+                        </div>
+                        <h3>Empat Batang Kompetensi</h3>
+                        <p>Skor menunjukkan keyakinan dirimu pada setiap bab.</p>
+                        <div id="competencyBars"></div>
+                        <div class="m5-actions"><button class="m5-button secondary" id="backToMapFromProfile">Kembali ke
+                                Peta</button><button class="m5-button primary" id="goCertificate">Lihat Sertifikat
+                                →</button></div>
+                    </div>
+                </section>
+
+                <section class="panel view content-panel" data-view="certificate" id="certificate">
+                    <div class="section-heading no-print">
+                        <div><span class="eyebrow">TAHAP 06 · APRESIASI</span>
+                            <h2>Sertifikat Refleksi</h2>
+                        </div><span class="status-pill">Selesai</span>
+                    </div>
+                    <div class="m5-certificate" id="certificatePaper">
+                        <p class="eyebrow">PUSBUK · PERJALANAN REFLEKSI</p>
+                        <div class="m5-certificate-star">✦</div>
+                        <h1>SERTIFIKAT REFLEKSI</h1>
+                        <p>Apresiasi atas perjalanan mengenali kekuatan kepenulisan</p>
+                        <hr>
+                        <p>Diberikan kepada</p>
+                        <h2 id="certificateName"></h2>
+                        <p id="certificateIdentity"></p>
+                        <p>Profil kepenulisan utama</p>
+                        <h3 id="certificateProfile"></h3>
+                        <div id="certificateScores"></div>
+                        <p id="certificateDate"></p>
+                        <footer>PUSBUK · Refleksi · Apresiasi · Bertumbuh</footer>
+                    </div>
+                    <div class="m5-actions no-print"><button class="m5-button secondary" id="backProfile">← Kembali ke
+                            Profil</button><button class="m5-button primary" id="printCertificate">Cetak /
+                            PDF</button><button class="m5-button danger" id="clearData">Hapus Data Sesi</button></div>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>

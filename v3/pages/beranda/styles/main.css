@@ -23,6 +23,10 @@
       --accent: var(--kuning-judul);
       /* border: 4px solid var(--arang); */
     }
+    &:nth-child(n + 14):nth-child(-n + 18) {
+      --accent: var(--hijau-penanda);
+      /* border: 4px solid var(--arang); */
+    }
     .title {
       padding: var(--m-2) var(--m);
       background-color: var(--accent);

@@ -234,6 +234,69 @@ Drama Indonesia dan Dunia
           </div>
          
           <!-- media group end -->
+            <div
+            class="link pointer"
+            data-target="bab4"
+            data-state="close"
+            onclick="toggleLink(event)">
+            <p>
+              Bab IV <br />
+              <span>
+Mengeksplorasi Khazanah Budaya Nusantara
+melalui Feature Berbasis Digital
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-down.svg"></div>
+            <div
+              class="hide"
+              data-icon="../../public/feather/chevron-up.svg"></div>
+          </div>
+          <!-- media group start -->
+          <div class="link pointer" data-label="bab4" data-links="14">
+            <p>
+              Media 1 <br />
+              <span>
+                [empty]
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab4" data-link="15">
+            <p>
+              Media 2 <br />
+              <span>
+                Menyusun Draf Teks Feature
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab4" data-link="16">
+            <p>
+              Media 3 <br />
+              <span>
+                 Menyusun Draf Teks Feature
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab4" data-link="17">
+            <p>
+              Media 4 <br />
+              <span>
+                 Menyiapkan Presentasi
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div class="link pointer" data-label="bab4" data-link="18">
+            <p>
+              Media 5 <br />
+              <span>
+                  Game Refleksi Penutup
+              </span>
+            </p>
+            <div data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -313,7 +376,7 @@ function toggleLink(e) {
   })
 }
 
-const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5", "bab-3-media-1", "bab-3-media-2", "bab-3-media-3", "bab-3-media-4"];
+const route = ["beranda", "bab-1-media-1", "bab-1-media-4", "bab-1-media-5", "bab-2-media-1", "bab-2-media-2", "bab-2-media-3", "bab-2-media-4", "bab-2-media-5", "bab-3-media-1", "bab-3-media-2", "bab-3-media-3", "bab-3-media-4", "bab-3-media-5", "bab-4-media-1", "bab-4-media-2", "bab-4-media-3", "bab-4-media-4", "bab-4-media-5",];
 
 function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))
