@@ -178,6 +178,6 @@ function saveIngat() {
     `);
 
   })
-
-  savePdf();
+  document.querySelector(".date-txt").textContent = getDate()
+  printPage();
 }
