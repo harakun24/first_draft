@@ -35,7 +35,7 @@ const modal = document.querySelector(".modal");
 // modal.showPopover();
 
 function saveKlasifikasi() {
-  const card = Array.from(document.querySelectorAll(".card")).map(el => {
+  const card = Array.from(document.querySelectorAll(".classification-card")).map(el => {
     const result = {
 
     };
@@ -49,6 +49,7 @@ function saveKlasifikasi() {
       data[c.key] = c.val;
     })
   }
+  console.log({ data })
   store.set("klasifikasi", data);
   goto("ulasan")
 }
@@ -97,9 +98,10 @@ function saveDiagram() {
   infoDiagram.innerHTML = "";
   const dataKlasifikasi = store.get("klasifikasi");
   const dataUlasan = store.get("ulasan");
-  console.log({ dataKlasifikasi, dataUlasan })
 
+  console.log({ dataKlasifikasi })
   Object.entries(dataKlasifikasi).forEach(el => {
+    console.log({ el })
     infoKlasifikasi.innerHTML += `
     <tr>
     <td>${el[0]}</td>
@@ -123,7 +125,7 @@ function saveDiagram() {
     </tr>
     `;
   })
-  savePdf().then(() => alert("terunduh"))
+  // savePdf().then(() => alert("terunduh"))
 }
 // store.clean();
 if (!store.get("klasifikasi"))
@@ -161,26 +163,34 @@ else {
 
 async function savePdf() {
 
-  const { jsPDF } = window.jspdf;
-  const el = document.querySelector(".table");
-  try {
+  // const { jsPDF } = window.jspdf;
+  // const el = document.querySelector(".table");
+  // try {
 
-    const canvas = await html2canvas(el, {
-      scale: 2,
-      useCORS: true
-    });
-    const imgData = canvas.toDataURL('image/png');
+  //   const canvas = await html2canvas(el, {
+  //     scale: 2,
+  //     useCORS: true
+  //   });
+  //   const imgData = canvas.toDataURL('image/png');
 
-    let pdfWidth = 210;
-    let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: [pdfWidth, pdfHeight] });
+  //   let pdfWidth = 210;
+  //   let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  //   const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: [pdfWidth, pdfHeight] });
 
 
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  //   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
-    pdf.save('laporan bab 2 media 2.pdf');
+  //   pdf.save('laporan bab 2 media 2.pdf');
 
-  } catch (error) {
-    console.error('Terjadi kesalahan saat mengunduh:', error);
-  }
+  // } catch (error) {
+  //   console.error('Terjadi kesalahan saat mengunduh:', error);
+  // }
+  saveDiagram();
+  const name = document.querySelector("#studentName").value || "-";
+  const kelas = document.querySelector("#studentClass").value || "-";
+
+  document.querySelector(".value.nama").textContent = name;
+  document.querySelector(".value.kelas").textContent = kelas;
+  document.querySelector(".date-txt").textContent = getDate();
+  printPage();
 }
