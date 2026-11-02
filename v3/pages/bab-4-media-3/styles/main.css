@@ -8,59 +8,7 @@
     &[data-view="1"] {
       grid-template-columns: auto 1fr;
       gap: var(--m);
-      .segmen-tab {
-        font-size: 0.8rem;
-        padding: var(--m);
-        display: grid;
-        background-color: var(--kertas);
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-content: start;
-        gap: var(--m);
-        border-radius: var(--m);
-        box-shadow: var(--box);
-        height: fit-content;
-        > b {
-          text-align: center;
-        }
-        > * {
-          grid-column: span 2;
-        }
-        .segmen {
-          display: grid;
-          grid-template-columns: subgrid;
-          padding: var(--m);
-          border: 2px solid var(--navy-garis);
-          border-radius: var(--m-2);
-          background-color: var(--biru-kartu);
-          [data-icon] {
-            /* color: var(--navy-garis); */
-            opacity: 0;
-          }
-          &.active {
-            border: 2px solid var(--magenta-bab);
-            background-color: var(--merah-muda-peta);
-            [data-icon] {
-              opacity: 1;
-              color: var(--magenta-bab);
-            }
-          }
-        }
-        .next {
-          border: 2px solid var(--hijau-penanda-2);
-          color: var(--hijau-penanda-2);
-          border-radius: var(--m-2);
-          padding: var(--m);
-          background-color: var(--hijau-penanda);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          filter: brightness(1.2);
-          [data-icon] {
-            font-size: 1.2rem;
-          }
-        }
-      }
+
       .play-area {
         display: grid;
         height: 100%;
@@ -68,6 +16,1342 @@
           display: none;
           &.active {
             display: grid;
+          }
+          &.video.feature-observasi {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+
+            .observasi-container {
+              max-width: 1000px;
+              width: 100%;
+              margin: 0 auto;
+            }
+
+            /* Kartu Utama */
+            .feature-form.fill-card {
+              background-color: #ffffff;
+              border-radius: 12px;
+              padding: 24px;
+              border: 1px solid #e2e8f0;
+              box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.03),
+                0 2px 4px -1px rgba(0, 0, 0, 0.02);
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            /* Header */
+            .card-heading {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              .card-title {
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 12px;
+
+                h3 {
+                  font-family: var(--judul, "Inter", sans-serif);
+                  font-size: 1rem;
+                  font-weight: 700;
+                  color: #1e293b;
+                  margin: 0;
+                }
+              }
+
+              p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                color: #64748b;
+                margin: 0;
+              }
+            }
+
+            /* Grid Konten */
+            .feature-grid {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 16px;
+              align-items: stretch;
+            }
+
+            /* Kartu Tutorial dan Foto */
+            .tutorial-panel,
+            .photo-panel {
+              min-width: 0;
+              padding: 18px;
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+            }
+
+            /* Judul Bagian */
+            .section-title {
+              border-bottom: 1px solid #e2e8f0;
+              padding-bottom: 12px;
+
+              b {
+                font-family: var(--judul, "Inter", sans-serif);
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: #1e293b;
+              }
+            }
+
+            /* =================================
+     TUTORIAL
+  ================================= */
+
+            .tutorial-panel {
+              video {
+                display: block;
+                width: 100%;
+                max-height: 320px;
+                aspect-ratio: 16 / 9;
+                object-fit: contain;
+                background-color: #0f172a;
+                border-radius: 8px;
+
+                &[hidden] {
+                  display: none;
+                }
+              }
+
+              .video-fallback {
+                padding: 16px;
+                background-color: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+
+                font-size: 0.88rem;
+                line-height: 1.6;
+                color: #64748b;
+                margin: 0;
+              }
+
+              /* Konfirmasi Tutorial */
+              .check-option {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+
+                padding: 14px;
+                background-color: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                input[type="checkbox"] {
+                  width: 18px;
+                  height: 18px;
+                  flex-shrink: 0;
+                  accent-color: #2563eb;
+                  cursor: pointer;
+                  margin: 2px 0 0;
+                }
+
+                span {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+
+                  b {
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: #1e293b;
+                  }
+
+                  small {
+                    font-size: 0.8rem;
+                    line-height: 1.5;
+                    color: #64748b;
+                  }
+                }
+
+                &:hover {
+                  background-color: #eff6ff;
+                  border-color: #93c5fd;
+                }
+
+                &:has(input:checked) {
+                  background-color: #eff6ff;
+                  border-color: #2563eb;
+
+                  b {
+                    color: #1d4ed8;
+                  }
+                }
+              }
+            }
+
+            /* =================================
+     FOTO OBSERVASI
+  ================================= */
+
+            .photo-panel {
+              /* Pilih Foto */
+              .file-group {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                span {
+                  font-size: 0.85rem;
+                  font-weight: 600;
+                  color: #374151;
+                }
+
+                input[type="file"] {
+                  width: 100%;
+                  box-sizing: border-box;
+                  padding: 10px;
+                  border: 1px solid #d1d5db;
+                  border-radius: 8px;
+
+                  background-color: #ffffff;
+                  color: #475569;
+
+                  font-family: inherit;
+                  font-size: 0.8rem;
+                  cursor: pointer;
+
+                  &::file-selector-button {
+                    margin-right: 10px;
+                    padding: 7px 12px;
+                    border: none;
+                    border-radius: 6px;
+                    background-color: #eff6ff;
+                    color: #2563eb;
+                    font-weight: 600;
+                    cursor: pointer;
+                  }
+                }
+              }
+
+              /* Tombol Foto */
+              .photo-actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+
+                button {
+                  min-width: 0;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 7px;
+
+                  padding: 10px;
+                  border: 1px solid #bfdbfe;
+                  border-radius: 8px;
+
+                  background-color: #eff6ff;
+                  color: #2563eb;
+
+                  font-family: var(--judul, inherit);
+                  font-size: 0.78rem;
+                  font-weight: 600;
+
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+
+                  &:hover {
+                    background-color: #dbeafe;
+                    border-color: #2563eb;
+                  }
+
+                  &:active {
+                    transform: translateY(1px);
+                  }
+                }
+
+                #removePhoto {
+                  background-color: #fef2f2;
+                  border-color: #fecaca;
+                  color: #dc2626;
+
+                  &:hover {
+                    background-color: #fee2e2;
+                    border-color: #dc2626;
+                  }
+                }
+              }
+
+              /* Preview Foto */
+              .photo-preview {
+                width: 100%;
+                min-height: 180px;
+                box-sizing: border-box;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 12px;
+                overflow: hidden;
+
+                background-color: #ffffff;
+                border: 1px dashed #cbd5e1;
+                border-radius: 8px;
+
+                color: #94a3b8;
+
+                img {
+                  display: block;
+                  max-width: 100%;
+                  max-height: 320px;
+                  width: auto;
+                  height: auto;
+                  object-fit: contain;
+                  border-radius: 6px;
+                }
+
+                .preview-placeholder {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 10px;
+
+                  text-align: center;
+
+                  div {
+                    width: 36px;
+                    height: 36px;
+
+                    svg {
+                      width: 100%;
+                      height: 100%;
+                      stroke: currentColor;
+                    }
+                  }
+
+                  span {
+                    font-size: 0.82rem;
+                    line-height: 1.5;
+                  }
+                }
+              }
+
+              /* Privasi */
+              .privacy-note {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+
+                font-size: 0.78rem;
+                line-height: 1.5;
+                color: #64748b;
+                margin: 0;
+
+                i {
+                  color: #059669;
+                }
+              }
+            }
+
+            /* =================================
+     TOMBOL LANJUT
+  ================================= */
+
+            .action-footer {
+              margin-top: 8px;
+
+              .feature-action.primary {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                padding: 12px 20px;
+                border: none;
+                border-radius: 8px;
+
+                background-color: #2563eb;
+                color: #ffffff;
+
+                font-family: var(--judul, inherit);
+                font-size: 0.9rem;
+                font-weight: 600;
+
+                box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                div {
+                  width: 18px;
+                  height: 18px;
+
+                  svg {
+                    width: 100%;
+                    height: 100%;
+                    stroke: currentColor;
+                    stroke-width: 2.5;
+                  }
+                }
+
+                &:hover {
+                  background-color: #1d4ed8;
+                  box-shadow: 0 6px 12px -2px rgba(37, 99, 235, 0.3);
+                }
+
+                &:active {
+                  transform: translateY(1px);
+                }
+              }
+            }
+
+            /* =================================
+     TABLET
+  ================================= */
+
+            @media (max-width: 768px) {
+              .feature-grid {
+                grid-template-columns: 1fr;
+              }
+
+              .tutorial-panel,
+              .photo-panel {
+                padding: 16px;
+              }
+            }
+
+            /* =================================
+     MOBILE
+  ================================= */
+
+            @media (max-width: 640px) {
+              .observasi-container {
+                max-width: 100%;
+              }
+
+              .feature-form.fill-card {
+                padding: 16px;
+              }
+
+              .photo-actions {
+                grid-template-columns: 1fr;
+              }
+
+              .photo-panel .photo-preview {
+                min-height: 150px;
+              }
+            }
+          }
+          &.kerangka {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+
+            .kerangka-container {
+              max-width: 800px;
+              width: 100%;
+              margin: 0 auto;
+            }
+
+            /* Kartu Utama */
+            .feature-form.fill-card {
+              background-color: #ffffff;
+              border-radius: 12px;
+              padding: 24px;
+              border: 1px solid #e2e8f0;
+              box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.03),
+                0 2px 4px -1px rgba(0, 0, 0, 0.02);
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            /* Header */
+            .card-heading {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              .card-title {
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 12px;
+
+                h3 {
+                  font-family: var(--judul, "Inter", sans-serif);
+                  font-size: 1rem;
+                  font-weight: 700;
+                  color: #1e293b;
+                  margin: 0;
+                }
+              }
+
+              > p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                color: #64748b;
+                margin: 0;
+              }
+            }
+
+            /* =================================
+     PROMPT CONTOH
+  ================================= */
+
+            .prompt-section {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+
+              padding: 16px;
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+
+              .section-title {
+                b {
+                  font-family: var(--judul, "Inter", sans-serif);
+                  font-size: 0.9rem;
+                  font-weight: 700;
+                  color: #1e293b;
+                }
+              }
+
+              .feature-prompt {
+                padding: 14px 16px;
+                background-color: #eff6ff;
+                border: 1px solid #bfdbfe;
+                border-radius: 8px;
+
+                font-size: 0.88rem;
+                line-height: 1.7;
+                color: #1e40af;
+              }
+
+              /* Tombol Salin */
+              .btn-secondary {
+                width: fit-content;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                padding: 10px 14px;
+                border: 1px solid #bfdbfe;
+                border-radius: 8px;
+
+                background-color: #ffffff;
+                color: #2563eb;
+
+                font-family: var(--judul, inherit);
+                font-size: 0.85rem;
+                font-weight: 600;
+
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                  background-color: #dbeafe;
+                  border-color: #2563eb;
+                }
+
+                &:active {
+                  transform: translateY(1px);
+                }
+              }
+            }
+
+            /* =================================
+     FORM INPUT
+  ================================= */
+
+            .form-grid {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+            }
+
+            .input-group {
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+
+              label {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #374151;
+              }
+
+              input,
+              textarea {
+                width: 100%;
+                box-sizing: border-box;
+
+                padding: 10px 14px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+
+                font-family: inherit;
+                font-size: 0.9rem;
+                line-height: 1.6;
+
+                background-color: #f8fafc;
+                color: #0f172a;
+
+                transition: all 0.2s ease;
+
+                &::placeholder {
+                  color: #94a3b8;
+                }
+
+                &:focus {
+                  background-color: #ffffff;
+                  border-color: #2563eb;
+                  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+                  outline: none;
+                }
+              }
+
+              textarea {
+                min-height: 130px;
+                resize: vertical;
+              }
+            }
+
+            /* =================================
+     TOMBOL LANJUT
+  ================================= */
+
+            .action-footer {
+              margin-top: 8px;
+
+              .feature-action.primary {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                padding: 12px 20px;
+                border: none;
+                border-radius: 8px;
+
+                background-color: #2563eb;
+                color: #ffffff;
+
+                font-family: var(--judul, inherit);
+                font-size: 0.9rem;
+                font-weight: 600;
+
+                box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                div {
+                  width: 18px;
+                  height: 18px;
+
+                  svg {
+                    width: 100%;
+                    height: 100%;
+                    stroke: currentColor;
+                    stroke-width: 2.5;
+                  }
+                }
+
+                &:hover {
+                  background-color: #1d4ed8;
+                  box-shadow: 0 6px 12px -2px rgba(37, 99, 235, 0.3);
+                }
+
+                &:active {
+                  transform: translateY(1px);
+                }
+              }
+            }
+
+            /* =================================
+     MOBILE
+  ================================= */
+
+            @media (max-width: 640px) {
+              .kerangka-container {
+                max-width: 100%;
+              }
+
+              .feature-form.fill-card {
+                padding: 16px;
+              }
+
+              .prompt-section {
+                padding: 14px;
+              }
+
+              .input-group textarea {
+                min-height: 110px;
+              }
+
+              .btn-secondary {
+                width: 100%;
+              }
+            }
+          }
+          /* =========================================
+   BASE DESIGN - FEATURE WORKFLOW
+========================================= */
+
+          &.observasi,
+          &.wawancara,
+          &.anatomi,
+          &.cek,
+          &.ekspor.feature-export {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+
+            .feature-container {
+              max-width: 900px;
+              width: 100%;
+              margin: 0 auto;
+            }
+
+            /* Kartu Utama */
+            .feature-form.fill-card {
+              background-color: #ffffff;
+              border-radius: 12px;
+              padding: 24px;
+              border: 1px solid #e2e8f0;
+              box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.03),
+                0 2px 4px -1px rgba(0, 0, 0, 0.02);
+
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            /* Header */
+            .card-heading {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              .card-title {
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 12px;
+
+                h3 {
+                  font-family: var(--judul, "Inter", sans-serif);
+                  font-size: 1rem;
+                  font-weight: 700;
+                  color: #1e293b;
+                  margin: 0;
+                }
+              }
+
+              > p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                color: #64748b;
+                margin: 0;
+              }
+            }
+
+            /* Judul Bagian */
+            .section-title {
+              border-bottom: 1px solid #e2e8f0;
+              padding-bottom: 12px;
+
+              b {
+                font-family: var(--judul, "Inter", sans-serif);
+                font-size: 0.9rem;
+                font-weight: 700;
+                color: #1e293b;
+              }
+            }
+
+            /* =====================================
+     INPUT GROUP
+  ===================================== */
+
+            .input-group {
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+
+              label {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #374151;
+              }
+
+              input,
+              textarea {
+                width: 100%;
+                box-sizing: border-box;
+
+                padding: 10px 14px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+
+                font-family: inherit;
+                font-size: 0.9rem;
+                line-height: 1.6;
+
+                background-color: #f8fafc;
+                color: #0f172a;
+
+                transition: all 0.2s ease;
+
+                &::placeholder {
+                  color: #94a3b8;
+                }
+
+                &:focus {
+                  background-color: #ffffff;
+                  border-color: #2563eb;
+                  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+                  outline: none;
+                }
+              }
+
+              textarea {
+                min-height: 140px;
+                resize: vertical;
+              }
+            }
+
+            /* Penghitung Kata */
+            .word-count {
+              align-self: flex-end;
+              font-size: 0.78rem;
+              font-weight: 500;
+              color: #64748b;
+            }
+
+            /* =====================================
+     TOMBOL SEKUNDER
+  ===================================== */
+
+            .btn-secondary {
+              width: fit-content;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
+
+              padding: 10px 14px;
+              border: 1px solid #bfdbfe;
+              border-radius: 8px;
+
+              background-color: #eff6ff;
+              color: #2563eb;
+
+              font-family: var(--judul, inherit);
+              font-size: 0.85rem;
+              font-weight: 600;
+
+              cursor: pointer;
+              transition: all 0.2s ease;
+
+              div {
+                width: 18px;
+                height: 18px;
+
+                svg {
+                  width: 100%;
+                  height: 100%;
+                  stroke: currentColor;
+                  stroke-width: 2;
+                }
+              }
+
+              &:hover {
+                background-color: #dbeafe;
+                border-color: #2563eb;
+              }
+
+              &:active {
+                transform: translateY(1px);
+              }
+            }
+
+            /* =====================================
+     TOMBOL UTAMA
+  ===================================== */
+
+            .action-footer {
+              margin-top: 8px;
+
+              .feature-action.primary {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                padding: 12px 20px;
+                border: none;
+                border-radius: 8px;
+
+                background-color: #2563eb;
+                color: #ffffff;
+
+                font-family: var(--judul, inherit);
+                font-size: 0.9rem;
+                font-weight: 600;
+
+                box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                div {
+                  width: 18px;
+                  height: 18px;
+
+                  svg {
+                    width: 100%;
+                    height: 100%;
+                    stroke: currentColor;
+                    stroke-width: 2.5;
+                  }
+                }
+
+                &:hover {
+                  background-color: #1d4ed8;
+                  box-shadow: 0 6px 12px -2px rgba(37, 99, 235, 0.3);
+                }
+
+                &:active {
+                  transform: translateY(1px);
+                }
+              }
+            }
+          }
+
+          /* =========================================
+   TAHAP 3 - OBSERVASI
+========================================= */
+
+          &.observasi {
+            max-width: 900px;
+
+            .feature-container {
+              max-width: 800px;
+            }
+
+            .input-group {
+              textarea {
+                min-height: 150px;
+              }
+
+              #observation {
+                min-height: 180px;
+              }
+            }
+          }
+
+          /* =========================================
+   TAHAP 4 - WAWANCARA
+========================================= */
+
+          &.wawancara {
+            max-width: 900px;
+
+            .feature-container {
+              max-width: 800px;
+            }
+
+            /* Panduan Pertanyaan */
+            .guide-panel {
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+
+              padding: 18px;
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+
+              ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                margin: 0;
+                padding-left: 22px;
+
+                li {
+                  font-size: 0.88rem;
+                  line-height: 1.6;
+                  color: #475569;
+                  padding-left: 4px;
+
+                  &::marker {
+                    color: #2563eb;
+                    font-weight: 700;
+                  }
+                }
+              }
+            }
+
+            /* Form Wawancara */
+            .form-grid {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+            }
+
+            .input-group {
+              textarea {
+                min-height: 130px;
+              }
+
+              #quote {
+                min-height: 160px;
+              }
+            }
+          }
+
+          /* =========================================
+   TAHAP 5 - ANATOMI FEATURE
+========================================= */
+
+          &.anatomi {
+            max-width: 950px;
+
+            .feature-container {
+              max-width: 850px;
+            }
+
+            /* Navigasi Anatomi */
+            .anatomy-panel {
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+
+              padding: 18px;
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+            }
+
+            .feature-anatomy {
+              display: grid;
+              grid-template-columns: repeat(5, minmax(0, 1fr));
+              gap: 8px;
+
+              button {
+                min-width: 0;
+                min-height: 44px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 10px 8px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+
+                background-color: #ffffff;
+                color: #475569;
+
+                font-family: var(--judul, inherit);
+                font-size: 0.78rem;
+                font-weight: 600;
+
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                  background-color: #eff6ff;
+                  border-color: #93c5fd;
+                  color: #2563eb;
+                }
+
+                &.active {
+                  background-color: #2563eb;
+                  border-color: #2563eb;
+                  color: #ffffff;
+                  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+                }
+              }
+            }
+
+            /* Panduan Bagian Aktif */
+            .part-guide {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+
+              padding: 16px;
+              background-color: #eff6ff;
+              border: 1px solid #bfdbfe;
+              border-radius: 8px;
+
+              h4 {
+                font-family: var(--judul, "Inter", sans-serif);
+                font-size: 1rem;
+                font-weight: 700;
+                color: #1e40af;
+                margin: 0;
+              }
+
+              p {
+                font-size: 0.88rem;
+                line-height: 1.6;
+                color: #475569;
+                margin: 0;
+              }
+            }
+
+            /* Editor */
+            > .feature-container .input-group {
+              textarea {
+                min-height: 220px;
+              }
+            }
+
+            /* Kontrol Bagian */
+            .part-actions {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 12px;
+
+              button {
+                width: 100%;
+              }
+            }
+
+            /* Tablet */
+            @media (max-width: 768px) {
+              .feature-anatomy {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+              }
+            }
+          }
+
+          /* =========================================
+   TAHAP 6 - CEK FORMAT
+========================================= */
+
+          &.cek {
+            max-width: 850px;
+
+            .feature-container {
+              max-width: 750px;
+            }
+
+            /* Area Pemeriksaan */
+            .check-panel {
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+
+              padding: 18px;
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+
+              > p {
+                font-size: 0.88rem;
+                line-height: 1.6;
+                color: #64748b;
+                margin: 0;
+              }
+
+              #runCheck {
+                width: fit-content;
+              }
+            }
+
+            /* Hasil Pemeriksaan */
+            .feature-result {
+              padding: 18px;
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 8px;
+
+              font-size: 0.88rem;
+              line-height: 1.7;
+              color: #475569;
+
+              overflow-wrap: anywhere;
+
+              p {
+                margin: 0 0 10px;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+
+              ul,
+              ol {
+                padding-left: 22px;
+                margin: 10px 0;
+              }
+
+              li {
+                margin-bottom: 6px;
+              }
+
+              b,
+              strong {
+                color: #1e293b;
+              }
+            }
+          }
+
+          /* =========================================
+   TAHAP 7 - EKSPOR FEATURE
+========================================= */
+
+          &.ekspor.feature-export {
+            max-width: 1100px;
+
+            .feature-container {
+              max-width: 1000px;
+            }
+
+            /* Identitas Siswa */
+            .student-section {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+
+              padding: 18px;
+              background-color: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+            }
+
+            .student-grid {
+              display: grid;
+              grid-template-columns: repeat(3, minmax(0, 1fr));
+              gap: 14px;
+            }
+
+            /* Pratinjau */
+            .preview-section {
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+
+              #finalPreview {
+                min-height: 200px;
+                padding: 20px;
+
+                background-color: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+
+                font-size: 0.9rem;
+                line-height: 1.7;
+                color: #475569;
+
+                overflow-wrap: anywhere;
+
+                h1,
+                h2,
+                h3,
+                h4 {
+                  font-family: var(--judul, "Inter", sans-serif);
+                  color: #1e293b;
+                  margin-top: 16px;
+                }
+
+                h1:first-child,
+                h2:first-child,
+                h3:first-child,
+                h4:first-child {
+                  margin-top: 0;
+                }
+
+                p {
+                  margin: 0 0 12px;
+                }
+
+                p:last-child {
+                  margin-bottom: 0;
+                }
+              }
+
+              #refreshPreview {
+                width: fit-content;
+              }
+            }
+
+            /* Keterangan PDF */
+            .pdf-note {
+              font-size: 0.8rem;
+              line-height: 1.5;
+              color: #64748b;
+              text-align: center;
+              margin: -8px 0 0;
+            }
+
+            /* Tablet */
+            @media (max-width: 768px) {
+              .student-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+              }
+            }
+          }
+
+          /* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+          &.observasi,
+          &.wawancara,
+          &.anatomi,
+          &.cek,
+          &.ekspor.feature-export {
+            @media (max-width: 640px) {
+              .feature-container {
+                max-width: 100%;
+              }
+
+              .feature-form.fill-card {
+                padding: 16px;
+              }
+
+              .input-group textarea {
+                min-height: 120px;
+              }
+            }
+          }
+
+          /* Khusus Anatomi */
+          &.anatomi {
+            @media (max-width: 640px) {
+              .feature-anatomy {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+              }
+
+              .part-actions {
+                grid-template-columns: 1fr;
+              }
+            }
+          }
+
+          /* Khusus Ekspor */
+          &.ekspor.feature-export {
+            @media (max-width: 640px) {
+              .student-grid {
+                grid-template-columns: 1fr;
+              }
+
+              .preview-section #refreshPreview {
+                width: 100%;
+              }
+            }
           }
           &.drop {
             & > span {
