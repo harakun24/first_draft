@@ -56,26 +56,34 @@ async function saveProgress() {
 
   document.querySelector(".table .refleksi").textContent = `Salah satu film pendek atau tayangan inspiratif yang diingat berjudul ${textField.title}. Pesan moral atau nilai kehidupannya adalah: ${textField.message} dan mengapa itu penting, karena ${textField.reason}`;
 
-  const { jsPDF } = window.jspdf;
-  const el = document.querySelector(".table");
-  try {
+  // const { jsPDF } = window.jspdf;
+  // const el = document.querySelector(".table");
+  // try {
 
-    const canvas = await html2canvas(el, {
-      scale: 2,
-      useCORS: true
-    });
-    const imgData = canvas.toDataURL('image/png');
+  //   const canvas = await html2canvas(el, {
+  //     scale: 2,
+  //     useCORS: true
+  //   });
+  //   const imgData = canvas.toDataURL('image/png');
 
-    let pdfWidth = 210;
-    let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    const pdf = new jsPDF({ orientation: 'l', unit: 'mm', format: [pdfWidth, pdfHeight] });
+  //   let pdfWidth = 210;
+  //   let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  //   const pdf = new jsPDF({ orientation: 'l', unit: 'mm', format: [pdfWidth, pdfHeight] });
 
 
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  //   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
-    pdf.save('laporan bab 2 media 1.pdf');
+  //   pdf.save('laporan bab 2 media 1.pdf');
 
-  } catch (error) {
-    console.error('Terjadi kesalahan saat mengunduh:', error);
-  }
+  // } catch (error) {
+  //   console.error('Terjadi kesalahan saat mengunduh:', error);
+  // }
+  const nama = document.querySelector("#reflectionName").value || "-";
+  const kelas = document.querySelector("#reflectionClass").value || "-";
+
+  document.querySelector(".value.nama").textContent = nama;
+  document.querySelector(".value.kelas").textContent = kelas;
+  document.querySelector(".date-txt").textContent = getDate();
+
+  printPage();
 }

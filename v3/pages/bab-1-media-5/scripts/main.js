@@ -1,7 +1,7 @@
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
-    videoId: "q5ymFDgT6Lk",
+    videoId: "bZdM7-Zoi6w",
     width: "100%",
     height: "100%",
   });
@@ -20,7 +20,6 @@ function jumpSegmen(e) {
 
 
 document.querySelector("[data-jump='video']").click();
-
 
 let mediaRecorder;
 let recordedChunks = [];
@@ -41,10 +40,15 @@ const previewVideo = document.getElementById("previewVideo");
 const downloadBtn = document.getElementById("downloadBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 
-// modal.showPopover()
+// 1. Ambil elemen tombol buka video (sesuaikan selector dengan HTML Anda, misal: id="openModalBtn")
+const openModalBtn = document.getElementById("openModalBtn");
+
+// Sembunyikan tombol buka video di awal (saat belum ada rekaman)
+if (openModalBtn) {
+  openModalBtn.style.display = "none";
+}
 
 let currentVideoUrl = null;
-
 
 if (toggleRecBtn) {
   toggleRecBtn.addEventListener("click", async () => {
@@ -60,7 +64,6 @@ if (toggleRecBtn) {
           }
         };
 
-        // Modifikasi bagian ini
         mediaRecorder.onstop = () => {
           const blob = new Blob(recordedChunks, { type: "video/webm" });
           currentVideoUrl = URL.createObjectURL(blob);
@@ -70,6 +73,11 @@ if (toggleRecBtn) {
 
           // Tampilkan modal popover
           modal.showPopover();
+
+          // 2. Tampilkan tombol buka video karena rekaman sudah ada
+          if (openModalBtn) {
+            openModalBtn.style.display = "inline-block"; // atau "block" / "flex" tergantung layout Anda
+          }
 
           // Matikan akses webcam/mikrofon
           stream.getTracks().forEach(track => track.stop());
@@ -108,7 +116,7 @@ downloadBtn.addEventListener("click", () => {
     a.download = "rekaman-presentasi.webm";
     document.body.appendChild(a);
     a.click();
-    document.body.removeChild(a); // Bersihkan elemen a dari DOM
+    document.body.removeChild(a);
   }
 });
 
@@ -127,4 +135,18 @@ deleteBtn.addEventListener("click", () => {
 
   // Tutup popover
   modal.hidePopover();
+
+  // 3. Sembunyikan kembali tombol buka video karena video telah dihapus
+  if (openModalBtn) {
+    openModalBtn.style.display = "none";
+  }
 });
+
+// Tambahkan event listener jika tombol buka video diklik untuk membuka modal kembali
+if (openModalBtn) {
+  openModalBtn.addEventListener("click", () => {
+    if (currentVideoUrl) {
+      modal.showPopover();
+    }
+  });
+}

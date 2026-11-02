@@ -218,26 +218,34 @@ if (store.get("video-quiz")) {
 
 async function saveResult() {
   check();
-  const { jsPDF } = window.jspdf;
-  const el = document.querySelector(".table");
-  try {
+  // const { jsPDF } = window.jspdf;
+  // const el = document.querySelector(".table");
+  // try {
 
-    const canvas = await html2canvas(el, {
-      scale: 2,
-      useCORS: true
-    });
-    const imgData = canvas.toDataURL('image/png');
+  //   const canvas = await html2canvas(el, {
+  //     scale: 2,
+  //     useCORS: true
+  //   });
+  //   const imgData = canvas.toDataURL('image/png');
 
-    let pdfWidth = 210;
-    let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: [pdfWidth, pdfHeight] });
+  //   let pdfWidth = 210;
+  //   let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  //   const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: [pdfWidth, pdfHeight] });
 
 
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  //   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
-    pdf.save('laporan bab 1 media 1.pdf');
+  //   pdf.save('laporan bab 1 media 1.pdf');
 
-  } catch (error) {
-    console.error('Terjadi kesalahan saat mengunduh:', error);
-  }
+  // } catch (error) {
+  //   console.error('Terjadi kesalahan saat mengunduh:', error);
+  // }
+
+  const nama = document.querySelector("#input-nama").value || "Belum Diisi";
+  const kelas = document.querySelector("#input-kelas").value || "Belum Diisi";
+  document.querySelector(".value.nama").textContent = nama
+  document.querySelector(".value.kelas").textContent = kelas
+  document.querySelector(".date-txt").textContent = getDate();
+
+  printPage();
 }

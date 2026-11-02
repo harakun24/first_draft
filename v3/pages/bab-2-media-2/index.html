@@ -23,35 +23,52 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
 
           <div
             class="segmen pointer"
             data-jump="video"
             onclick="jumpSegmen(event)">
-            <b>Video Pengantar</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Video Pengantar</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="klasifikasi"
             onclick="jumpSegmen(event)">
-            <b>Klasifikasi </b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Klasifikasi</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="ulasan"
             onclick="jumpSegmen(event)">
-            <b>Ulasan FIlm</b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Ulasan FIlm</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="diagram"
             onclick="jumpSegmen(event)">
-            <b>Diagram Alur</b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Elemen Cerita</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="identitas"
+            onclick="jumpSegmen(event)">
+            <span>Ekspor</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
         </div>
         <div class="play-area">
@@ -59,101 +76,230 @@
             <div id="player"></div>
           </div>
           <div class="area klasifikasi">
-            <b>Klasifikasikan Hasil Menyimak</b>
-            <h3>
-              Dari video pengantar yang anda simak, tulis apa saja yang menurut
-              anda sesuai dengan klasifikasi berikut
-            </h3>
-            <div class="card-group">
-              <div class="card" data-card="visual">
-                <div data-icon="../../public/feather/video.svg"></div>
-                <h1>Visual</h1>
-                <textarea
-                  placeholder="Tulis apa saja tampilan yang menarik bagi anda dari video yang telah anda simak"></textarea>
+            <div class="klasifikasi-container">
+              <div class="fill-card">
+                <!-- Header -->
+                <div class="card-heading">
+                  <div class="card-title">
+                    <b>Klasifikasikan Hasil Menyimak</b>
+                  </div>
+
+                  <h3>
+                    Dari video pengantar yang anda simak, tulis apa saja yang
+                    menurut anda sesuai dengan klasifikasi berikut
+                  </h3>
+                </div>
+
+                <!-- Kartu Klasifikasi -->
+                <div class="card-group">
+                  <div class="classification-card" data-card="visual">
+                    <div class="card-title">
+                      <div data-icon="../../public/feather/video.svg"></div>
+                      <h4>Visual</h4>
+                    </div>
+
+                    <textarea
+                      placeholder="Tulis apa saja tampilan yang menarik bagi anda dari video yang telah anda simak"></textarea>
+                  </div>
+
+                  <div class="classification-card" data-card="cerita">
+                    <div class="card-title">
+                      <div
+                        data-icon="../../public/feather/align-justify.svg"></div>
+                      <h4>Cerita</h4>
+                    </div>
+
+                    <textarea
+                      placeholder="Tulis ulang cerita dalam video berdasarkan apa yang anda ingat"></textarea>
+                  </div>
+
+                  <div class="classification-card" data-card="pesan">
+                    <div class="card-title">
+                      <div data-icon="../../public/feather/heart.svg"></div>
+                      <h4>Nilai dan Pesan</h4>
+                    </div>
+
+                    <textarea
+                      placeholder="Apa pesan atau nilai yang dapat anda ambil dari video yang telah anda simak."></textarea>
+                  </div>
+                </div>
+
+                <!-- Tombol Simpan -->
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    onclick="saveKlasifikasi()">
+                    Simpan
+                    <div data-icon="../../public/feather/save.svg"></div>
+                  </button>
+                </div>
               </div>
-              <div class="card" data-card="cerita">
-                <div data-icon="../../public/feather/align-justify.svg"></div>
-                <h1>Cerita</h1>
-                <textarea
-                  placeholder="Tulis ulang cerita dalam video berdasarkan apa yang anda ingat"></textarea>
-              </div>
-              <div class="card" data-card="pesan">
-                <div data-icon="../../public/feather/heart.svg"></div>
-                <h1>Nilai dan Pesan</h1>
-                <textarea
-                  placeholder="Apa pesan atau nilai yang dapat anda ambil dari video yang telah anda simak."></textarea>
-              </div>
-            </div>
-            <div class="save">
-              <button class="pointer" onclick="saveKlasifikasi()">
-                Simpan
-                <div data-icon="../../public/feather/save.svg"></div>
-              </button>
             </div>
           </div>
           <div class="area ulasan">
-            <h2>
-              Isi formulir berikut dengan salah satu film yang pernah anda
-              tonton
-            </h2>
-            <div class="form">
-              <div class="input-group" data-film="judul">
-                <label for="">Judul Film</label>
-                <input type="text" placeholder="Contoh: Madagaskar" />
+            <div class="ulasan-container">
+              <div class="fill-card">
+                <!-- Header -->
+                <div class="card-heading">
+                  <div class="card-title">
+                    <h2>Formulir Ulasan Film</h2>
+                  </div>
+
+                  <p>
+                    Isi formulir berikut dengan salah satu film yang pernah anda
+                    tonton.
+                  </p>
+                </div>
+
+                <!-- Form -->
+                <div class="form">
+                  <div class="input-group" data-film="judul">
+                    <label for="filmTitle">Judul Film</label>
+                    <input
+                      type="text"
+                      id="filmTitle"
+                      placeholder="Contoh: Madagaskar" />
+                  </div>
+
+                  <div class="input-group" data-film="tokoh">
+                    <label for="filmCharacter">Tokoh Utama</label>
+                    <input
+                      type="text"
+                      id="filmCharacter"
+                      placeholder="Tulis nama tokoh utama di sini" />
+                  </div>
+
+                  <div class="input-group" data-film="pesan">
+                    <label for="filmMessage">Pesan Moral</label>
+                    <textarea
+                      id="filmMessage"
+                      placeholder="Tulis apa saja pesan yang dapat anda ambil dari menonton film ini."></textarea>
+                  </div>
+                </div>
+
+                <!-- Tombol Simpan -->
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    onclick="saveUlasan()">
+                    Simpan
+                    <div data-icon="../../public/feather/save.svg"></div>
+                  </button>
+                </div>
               </div>
-              <div class="input-group" data-film="tokoh">
-                <label for="">Tokoh Utama</label>
-                <input
-                  type="text"
-                  placeholder="Tulis nama tokoh utama di sini" />
-              </div>
-              <div class="input-group" data-film="pesan">
-                <label for="">Pesan Moral</label>
-                <textarea
-                  placeholder="Tulis apa saja pesan yang dapat anda ambil dari menonton film ini."></textarea>
-              </div>
-            </div>
-            <div class="save">
-              <button class="pointer" onclick="saveUlasan()">
-                Simpan
-                <div data-icon="../../public/feather/save.svg"></div>
-              </button>
             </div>
           </div>
           <div class="area diagram">
-            <h2>
-              Lengkapi elemen cerita berikut berdasarkan film yang telah anda
-              pilih
-            </h2>
-            <div class="input-card" data-diagram="eksposisi">
-              <h1>Eksposisi</h1>
-              <p>Pengenalan Latar belakang dan tokoh utama</p>
-              <textarea
-                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+            <div class="diagram-container">
+              <div class="fill-card">
+                <!-- Header -->
+                <div class="card-heading">
+                  <div class="card-title">
+                    <h2>Struktur dan Elemen Cerita</h2>
+                  </div>
+
+                  <p>
+                    Lengkapi elemen cerita berikut berdasarkan film yang telah
+                    anda pilih.
+                  </p>
+                </div>
+
+                <!-- Grid Tahapan Cerita -->
+                <div class="diagram-grid">
+                  <div class="input-card" data-diagram="eksposisi">
+                    <div class="card-title">
+                      <h4>Eksposisi</h4>
+                    </div>
+                    <p>Pengenalan latar belakang dan tokoh utama</p>
+                    <textarea
+                      placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+                  </div>
+
+                  <div class="input-card" data-diagram="konflik">
+                    <div class="card-title">
+                      <h4>Konflik</h4>
+                    </div>
+                    <p>
+                      Pertentangan atau hambatan yang dialami tokoh dalam cerita
+                    </p>
+                    <textarea
+                      placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+                  </div>
+
+                  <div class="input-card" data-diagram="klimaks">
+                    <div class="card-title">
+                      <h4>Klimaks</h4>
+                    </div>
+                    <p>
+                      Puncak ketegangan atau titik balik krusial dalam cerita
+                    </p>
+                    <textarea
+                      placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+                  </div>
+
+                  <div class="input-card" data-diagram="resolusi">
+                    <div class="card-title">
+                      <h4>Resolusi</h4>
+                    </div>
+                    <p>Penyelesaian masalah dalam tahapan akhir cerita</p>
+                    <textarea
+                      placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
+                  </div>
+                </div>
+
+                <!-- Tombol Simpan -->
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    onclick="saveDiagram()">
+                    Simpan
+                    <div data-icon="../../public/feather/save.svg"></div>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="input-card" data-diagram="konflik">
-              <h1>Konflik</h1>
-              <p>Pertentangan atau hambatan yang dialami tokoh dalam cerita</p>
-              <textarea
-                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
-            </div>
-            <div class="input-card" data-diagram="klimaks">
-              <h1>Klimaks</h1>
-              <p>Puncak ketegangan atau titik balik krusial dalam cerita</p>
-              <textarea
-                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
-            </div>
-            <div class="input-card" data-diagram="resolusi">
-              <h1>Resolusi</h1>
-              <p>Penyelesaian masalah dalam tahapan akhir cerita</p>
-              <textarea
-                placeholder="tulis eksposisi dalam film yang anda pilih"></textarea>
-            </div>
-            <div class="save">
-              <button class="pointer" onclick="saveDiagram()">
-                Simpan
-                <div data-icon="../../public/feather/save.svg"></div>
-              </button>
+          </div>
+          <div class="area identitas">
+            <div class="identitas-container">
+              <div class="fill-card">
+                <div class="card-title">
+                  <h4>Identitas Peserta</h4>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-group">
+                    <label for="studentName">Nama Lengkap</label>
+                    <input
+                      type="text"
+                      id="studentName"
+                      name="nama"
+                      placeholder="Masukkan nama lengkap" />
+                  </div>
+
+                  <div class="input-group">
+                    <label for="studentClass">Kelas</label>
+                    <input
+                      type="text"
+                      id="studentClass"
+                      name="kelas"
+                      placeholder="Contoh: X IPA 1" />
+                  </div>
+                </div>
+
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    id="savePdfBtn"
+                    onclick="savePdf()">
+                    <i class="fas fa-file-pdf"></i>
+                    Simpan sebagai PDF
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -162,55 +308,90 @@
     <div class="footer">
       <p>&copy; BEI 2026</p>
     </div>
-    <div class="table">
-      <h1>BEI 2026 | Bahasa Indonesia</h1>
-      <p>
-        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
-        55281 <br />
-        Telp: (0274) 884201 | Email: bei@2026.ac.id
-      </p>
-      <hr />
-      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
-      <p class="datespan">
-        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
-      </p>
-      <h3>Klasifikasi Video</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Klasifikasi</th>
-            <th>Jawaban</th>
-          </tr>
-        </thead>
-        <tbody data-table="klasifikasi"></tbody>
-      </table>
-      <h3>Ulasan film pilihan Siswa</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Ulasan</th>
-            <th>Jawaban</th>
-          </tr>
-        </thead>
-        <tbody data-table="ulasan"></tbody>
-      </table>
-      <h3>Elemen Cerita</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Elemen</th>
-            <th>Jawaban</th>
-          </tr>
-        </thead>
-        <tbody data-table="diagram"></tbody>
-      </table>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
 
-      <div class="last">
-        <span> [Kota, dd/mm/yyyy] </span>
-        <b><u>BEI 2026</u></b>
-        <span>Fasilitator</span>
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3 class="rui"><u>LAPORAN EVALUASI ULASAN FILM</u></h3>
+      </div>
+
+      <!-- METADATA IDENTITAS KELOMPOK -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Siswa</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Cetak</span>
+          <span class="colon">:</span>
+          <strong class="value date-txt">-</strong>
+        </div>
+      </div>
+
+      <!-- TABEL 1: KLASIFIKASI VIDEO -->
+      <div class="table-wrapper">
+        <h3 class="section-title">Klasifikasi Video</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Klasifikasi</th>
+              <th>Jawaban</th>
+            </tr>
+          </thead>
+          <tbody data-table="klasifikasi"></tbody>
+        </table>
+      </div>
+
+      <!-- TABEL 2: ULASAN FILM -->
+      <div class="table-wrapper">
+        <h3 class="section-title">Ulasan film pilihan Siswa</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Ulasan</th>
+              <th>Jawaban</th>
+            </tr>
+          </thead>
+          <tbody data-table="ulasan"></tbody>
+        </table>
+      </div>
+
+      <!-- TABEL 3: ELEMEN CERITA -->
+      <div class="table-wrapper">
+        <h3 class="section-title">Elemen Cerita</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Elemen</th>
+              <th>Jawaban</th>
+            </tr>
+          </thead>
+          <tbody data-table="diagram"></tbody>
+        </table>
+      </div>
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
       </div>
     </div>
+
     <div class="modal" popover>
       <div class="modal-head">
         <b>detail daftar</b>

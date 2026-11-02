@@ -29,7 +29,7 @@
           <h3 class="nav-title">Daftar Segmen</h3>
 
           <div class="segmen pointer" data-time="0" onclick="jumpSegmen(event)">
-            <span>Pembukaan</span>
+            <span>Kesan pertama</span>
             <div
               class="icon-indicator"
               data-icon="../../public/feather/chevron-right.svg"></div>
@@ -37,9 +37,9 @@
 
           <div
             class="segmen pointer"
-            data-time="20"
+            data-time="43"
             onclick="jumpSegmen(event)">
-            <span>Dokumen Lamaran</span>
+            <span> Format & Struktur</span>
             <div
               class="icon-indicator"
               data-icon="../../public/feather/chevron-right.svg"></div>
@@ -59,7 +59,7 @@
             class="segmen pointer"
             data-time="112"
             onclick="jumpSegmen(event)">
-            <span>Kelengkapan Dokumen</span>
+            <span>Dokumen & ATS</span>
             <div
               class="icon-indicator"
               data-icon="../../public/feather/chevron-right.svg"></div>
@@ -67,9 +67,9 @@
 
           <div
             class="segmen pointer"
-            data-time="133"
+            data-time="163"
             onclick="jumpSegmen(event)">
-            <span>Desain CV</span>
+            <span>Koreksi mandiri</span>
             <div
               class="icon-indicator"
               data-icon="../../public/feather/chevron-right.svg"></div>
@@ -200,6 +200,7 @@
           </div>
         </div>
         <div class="side">
+          <!-- Kotak Informasi Petunjuk -->
           <div class="info">
             <b>Petunjuk</b>
             <ul>
@@ -207,93 +208,175 @@
               <li>Pilih bentuk perbaikannya.</li>
             </ul>
           </div>
+
+          <!-- Input Data Diri (Nama & Kelas) -->
+          <div class="identity-form">
+            <b>Data Diri</b>
+            <div class="input-field">
+              <label for="input-nama">Nama Lengkap</label>
+              <input
+                type="text"
+                id="input-nama"
+                placeholder="Masukkan nama siswa..." />
+            </div>
+            <div class="input-field">
+              <label for="input-kelas">Kelas / Rombel</label>
+              <input
+                type="text"
+                id="input-kelas"
+                placeholder="Contoh: XII Bahasa 1" />
+            </div>
+          </div>
+
+          <!-- Keterangan Jenis Kesalahan -->
           <div class="detail">
             <b>Jenis Kesalahan</b>
             <div class="group-pill">
               <div class="pill">
                 <div class="ball"></div>
-                Kata tidak baku
+                <span>Kata tidak baku</span>
               </div>
               <div class="pill">
                 <div class="ball"></div>
-                Tanda baca
+                <span>Tanda baca</span>
               </div>
               <div class="pill">
                 <div class="ball"></div>
-                Bahasa formal
+                <span>Bahasa formal</span>
               </div>
               <div class="pill">
                 <div class="ball"></div>
-                Sistematika
+                <span>Sistematika</span>
               </div>
             </div>
           </div>
-          <button class="back" onclick="prevView()">
-            <div data-icon="../../public/feather/youtube.svg"></div>
-            Tonton Ulang Video
-          </button>
-          <button class="cek" onclick="check()">
-            <div data-icon="../../public/feather/search.svg"></div>
-            Periksa Jawaban
-          </button>
-          <button class="down" onclick="saveResult()">
-            <div data-icon="../../public/feather/arrow-down.svg"></div>
-            Unduh Hasil
-          </button>
+
+          <!-- Tombol Navigasi & Aksi -->
+          <div class="action-buttons">
+            <button class="back" onclick="prevView()">
+              <div data-icon="../../public/feather/youtube.svg"></div>
+              <span>Tonton Ulang Video</span>
+            </button>
+            <button class="cek" onclick="check()">
+              <div data-icon="../../public/feather/search.svg"></div>
+              <span>Periksa Jawaban</span>
+            </button>
+            <button class="down" onclick="saveResult()">
+              <div data-icon="../../public/feather/arrow-down.svg"></div>
+              <span>Unduh Hasil</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer">
       <p>&copy; BEI 2026</p>
     </div>
-    <div class="modal" popover="">
-      <div
-        class="close pointer"
-        data-icon="../../public/feather/x.svg"
-        onclick="toggleModal()"></div>
-      <h3 class="question">
-        Bagian surat lamaran pekerjaan yang berisi nama, alamat, nomor telepon,
-        dan email pelamar disebut ...
-      </h3>
+    <div class="modal quiz-modal" popover id="quiz-modal">
+      <!-- Tombol Tutup -->
+      <button
+        class="close-btn pointer"
+        onclick="toggleModal()"
+        aria-label="Tutup modal">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Header / Pertanyaan -->
+      <div class="modal-header">
+        <span class="quiz-badge">Pertanyaan Kuis</span>
+        <h3 class="modal-title question">
+          Bagian surat lamaran pekerjaan yang berisi nama, alamat, nomor
+          telepon, dan email pelamar disebut ...
+        </h3>
+      </div>
+
+      <!-- Opsi Jawaban -->
       <div class="opsi">
         <button
-          class="pointer"
+          class="pointer btn-opsi"
           data-value="a"
           data-key="0"
           data-answer="true"
           onclick="answer(this)">
-          A. Identitas pelamar</button
-        ><button
-          class="pointer"
+          <span class="opt-letter">A</span>
+          <span class="opt-text">Identitas pelamar</span>
+        </button>
+        <button
+          class="pointer btn-opsi"
           data-value="b"
           data-key="0"
           data-answer="false"
           onclick="answer(this)">
-          B. Isi surat</button
-        ><button
-          class="pointer"
+          <span class="opt-letter">B</span>
+          <span class="opt-text">Isi surat</span>
+        </button>
+        <button
+          class="pointer btn-opsi"
           data-value="c"
           data-key="0"
           data-answer="false"
           onclick="answer(this)">
-          C. Salam penutup
+          <span class="opt-letter">C</span>
+          <span class="opt-text">Salam penutup</span>
         </button>
       </div>
     </div>
-    <div class="table">
-      <h1>BEI 2026 | Bahasa Indonesia</h1>
-      <p>
-        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
-        55281 <br />
-        Telp: (0274) 884201 | Email: bei@2026.ac.id
-      </p>
-      <hr />
-      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
-      <p class="datespan">
-        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
-      </p>
-      <h3>REKAP ADEGAN VIDEO (5 SOAL)</h3>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN (Mengikuti Format Baru) -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
 
+      <!-- JUDUL DOKUMEN (Mengikuti Format Baru) -->
+      <div class="document-title">
+        <h3>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</h3>
+        <span class="doc-code">Dokumen Hasil Praktikum Mandiri</span>
+      </div>
+
+      <!-- METADATA IDENTITAS SISWA (Mengikuti Format Baru) -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Siswa</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Evaluasi</span>
+          <span class="colon">:</span>
+          <span class="value date-txt">DD/MM/YYYY</span>
+        </div>
+      </div>
+
+      <!-- ISI KONTEN TABEL PERTAMA: REKAP ADEGAN VIDEO (Dari Data Lama) -->
+      <h3
+        class="table-section-title"
+        style="
+          margin-bottom: 12px;
+          font-size: 0.95rem;
+          color: #1e3a8a;
+          font-weight: 700;
+        ">
+        REKAP ADEGAN VIDEO (5 SOAL)
+      </h3>
       <table class="top">
         <thead>
           <tr>
@@ -305,10 +388,24 @@
             <th>Hasil</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <!-- Data baris diisi dinamis via JS -->
+        </tbody>
       </table>
-      <h3>REKAP HASIL LATIHAN KOREKSI SURAT LAMARAN (10 SOAL)</h3>
 
+      <!-- ISI KONTEN TABEL KEDUA: REKAP HASIL LATIHAN KOREKSI SURAT LAMARAN (Dari Data Lama) -->
+
+      <h3
+        class="table-section-title"
+        style="
+          margin-bottom: 12px;
+          margin-top: 24px;
+          font-size: 0.95rem;
+          color: #1e3a8a;
+          font-weight: 700;
+        ">
+        REKAP HASIL LATIHAN KOREKSI SURAT LAMARAN (10 SOAL)
+      </h3>
       <table class="bottom">
         <thead>
           <tr>
@@ -319,12 +416,18 @@
             <th>Penjelasan</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <!-- Data baris diisi dinamis via JS -->
+        </tbody>
       </table>
-      <div class="last">
-        <span> [Kota, dd/mm/yyyy] </span>
-        <b><u>BEI 2026</u></b>
-        <span>Fasilitator</span>
+
+      <!-- FOOTER / AREA TANDA TANGAN (Mengikuti Format Baru) -->
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
       </div>
     </div>
     <script src="../../public/scripts/iframe_api.js"></script>

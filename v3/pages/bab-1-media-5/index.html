@@ -23,34 +23,44 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
 
           <div
             class="segmen pointer"
             data-jump="video"
             onclick="jumpSegmen(event)">
-            <b>Tonton Video</b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Tonton Video</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-jump="prinsip"
             onclick="jumpSegmen(event)">
-            <b>Prinsip Wawancara</b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Prinsip Wawancara</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-jump="mandiri"
             onclick="jumpSegmen(event)">
-            <b>Praktek Mandiri</b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Praktek Mandiri</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <button
+            id="openModalBtn"
             class="next pointer"
             onclick="document.querySelector('.modal').showPopover()">
             <div data-icon="../../public/feather/external-link.svg"></div>
-            <b>Buka video</b>
+            <span>Buka video</span>
           </button>
         </div>
         <div class="play-area">
@@ -58,77 +68,113 @@
             <div id="player"></div>
           </div>
           <div class="area prinsip">
-            <h1>Tiga Kunci Komunikasi Profesional</h1>
-            <div class="wrapper">
-              <b>1</b>
-              <div class="text">
-                <h3>Kontak mata dan postur</h3>
-                <p>
-                  Masuk dengan sopan, badan tegap dan perhatikan lawan bicara
-                  ketika sedang berbicara.
-                </p>
+            <div class="prinsip-container">
+              <div class="fill-card">
+                <div class="card-title">
+                  <h1>Tiga Kunci Komunikasi Profesional</h1>
+                </div>
+
+                <div class="principle-list">
+                  <div class="principle-item">
+                    <b>1</b>
+                    <div class="text">
+                      <h3>Kontak mata dan postur</h3>
+                      <p>
+                        Masuk dengan sopan, badan tegap dan perhatikan lawan
+                        bicara ketika sedang berbicara.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="principle-item">
+                    <b>2</b>
+                    <div class="text">
+                      <h3>Kalimat jelas dan solutif</h3>
+                      <p>
+                        Gunakan bahasa yang formal, jangan berhenti pada
+                        kekurangan diri sendiri. Berikan solusi jika diperlukan.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="principle-item">
+                    <b>3</b>
+                    <div class="text">
+                      <h3>Selaraskan dan perkuat surat dan CV</h3>
+                      <p>
+                        Jangan hanya menyampaikan apa yang sudah ada di dokumen
+                        anda. Sajikan juga data yang dapat mendukung kualifikasi
+                        anda.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="action-footer">
+                  <button
+                    class="btn-primary full-btn pointer"
+                    data-jump="mandiri"
+                    onclick="
+                      document.querySelector(`[data-jump='mandiri']`).click()
+                    ">
+                    Lanjut ke tantangan praktek
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="wrapper">
-              <b>2</b>
-              <div class="text">
-                <h3>Kalimat jelas dan solutif</h3>
-                <p>
-                  Gunakan bahasa yang formal, jangan berhenti pada kekurangan
-                  diri sendiri. Berikan solusi jika diperlukan.
-                </p>
-              </div>
-            </div>
-            <div class="wrapper">
-              <b>3</b>
-              <div class="text">
-                <h3>Selaraskan dan perkuat surat dan CV</h3>
-                <p>
-                  Jangan hanya menyampaikan apa yang sudah ada di dokumen anda.
-                  Sajikan juga data yang dapat mendukung kualifikasi anda.
-                </p>
-              </div>
-            </div>
-            <button
-              class="pointer"
-              data-jump="mandiri"
-              onclick="document.querySelector(`[data-jump='mandiri']`).click()">
-              Lanjut ke tantangan praktek
-            </button>
           </div>
           <div class="area mandiri">
-            <div class="record">
-              <b>Rekam Presentasi Dirimu</b>
-              <div class="timestamp">
-                <h1 class="timerText">00:00</h1>
-                <span>durasi latihan</span>
+            <div class="mandiri-container">
+              <!-- Kartu Rekaman -->
+              <div class="record">
+                <div class="card-title">
+                  <h4>Rekam Presentasi Dirimu</h4>
+                </div>
+
+                <div class="timestamp">
+                  <h1 class="timerText">00:00</h1>
+                  <span>durasi latihan</span>
+                </div>
+
+                <button id="toggleRec" class="btn-primary full-btn">
+                  mulai rekam <i class="fas fa-camera"></i>
+                </button>
+
+                <p></p>
               </div>
-              <button id="toggleRec">
-                mulai rekam <i class="fas fa-camera"></i>
-              </button>
-              <p></p>
-            </div>
-            <div class="checklist">
-              <h4>Evaluasi Mandiri</h4>
-              <div class="check-group">
-                <input type="checkbox" name="" id="satu" />
-                <label for="satu">Kontak mata dan postur</label>
-              </div>
-              <div class="check-group">
-                <input type="checkbox" name="" id="dua" />
-                <label for="dua">Pembukaan yang sopan</label>
-              </div>
-              <div class="check-group">
-                <input type="checkbox" name="" id="tiga" />
-                <label for="tiga">Kualifikasi relevan</label>
-              </div>
-              <div class="check-group">
-                <input type="checkbox" name="" id="empat" />
-                <label for="empat">Contoh solusi nyata</label>
-              </div>
-              <div class="check-group">
-                <input type="checkbox" name="" id="lima" />
-                <label for="lima">Suara jelas dan percaya diri</label>
+
+              <!-- Kartu Evaluasi -->
+              <div class="checklist">
+                <div class="card-title">
+                  <h4>Evaluasi Mandiri</h4>
+                </div>
+
+                <div class="checklist-list">
+                  <div class="check-group">
+                    <input type="checkbox" name="" id="satu" />
+                    <label for="satu">Kontak mata dan postur</label>
+                  </div>
+
+                  <div class="check-group">
+                    <input type="checkbox" name="" id="dua" />
+                    <label for="dua">Pembukaan yang sopan</label>
+                  </div>
+
+                  <div class="check-group">
+                    <input type="checkbox" name="" id="tiga" />
+                    <label for="tiga">Kualifikasi relevan</label>
+                  </div>
+
+                  <div class="check-group">
+                    <input type="checkbox" name="" id="empat" />
+                    <label for="empat">Contoh solusi nyata</label>
+                  </div>
+
+                  <div class="check-group">
+                    <input type="checkbox" name="" id="lima" />
+                    <label for="lima">Suara jelas dan percaya diri</label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -140,16 +186,27 @@
     </div>
 
     <div id="videoModal" class="modal" popover>
-      <div
+      <button
+        type="button"
         class="close"
-        onclick="document.querySelector('.modal').hidePopover()">
+        aria-label="Tutup"
+        onclick="document.getElementById('videoModal').hidePopover()">
         <i class="fas fa-close"></i>
-      </div>
-      <video id="previewVideo" controls width="100%"></video>
-      <button id="downloadBtn">
-        <i class="fas fa-arrow-down"></i> Unduh Video
       </button>
-      <button id="deleteBtn"><i class="fas fa-trash"></i> Hapus Video</button>
+
+      <video id="previewVideo" controls width="100%"></video>
+
+      <div class="modal-actions">
+        <button type="button" id="downloadBtn" class="btn-primary">
+          <i class="fas fa-arrow-down"></i>
+          Unduh Video
+        </button>
+
+        <button type="button" id="deleteBtn" class="btn-danger">
+          <i class="fas fa-trash"></i>
+          Hapus Video
+        </button>
+      </div>
     </div>
     <script src="../../public/scripts/iframe_api.js"></script>
     <script src="../../public/scripts/global-script.js"></script>

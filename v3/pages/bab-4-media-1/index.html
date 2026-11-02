@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Bab IV media 1 | Apersepsi & Pemetaan Informasi Kebudayaan Nusantara
+    </title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <h3 class="nav-title">Daftar Segmen</h3>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <span>Video Pengantar</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="peta-budaya"
+            onclick="jumpSegmen(event)">
+            <span>Peta Budaya</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="rencana"
+            onclick="jumpSegmen(event)">
+            <span>Penutup</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area video">
+            <div id="player"></div>
+          </div>
+
+          <div class="area peta-budaya active">
+            <div class="peta-container">
+              <!-- SISI KIRI: PETA INTERAKTIF -->
+              <div class="card map-section">
+                <div class="map-header">
+                  <h2>Pilih kawasan atau klik pin budaya</h2>
+                  <p>
+                    Peta 2D menggantikan VR 360° agar ringan di browser dan
+                    ponsel.
+                  </p>
+                </div>
+
+                <!-- Canvas Peta SVG Lebih Ramping & Longgar -->
+                <div class="map-canvas">
+                  <svg
+                    viewBox="0 0 920 380"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="indo-map"
+                    preserveAspectRatio="xMidYMid meet">
+                    <!-- 1. Sumatra (Kerucut ramping, digeser ke kiri atas) -->
+                    <path
+                      class="island sumatra"
+                      d="M 50,50 Q 120,70 210,190 Q 220,230 190,240 Q 100,160 30,80 Z" />
+                    <path
+                      class="island sumatra"
+                      d="M 215,210 L 230,230 L 215,240 Z" />
+                    <!-- Bangka Belitung -->
+
+                    <!-- 2. Jawa (Ramping, digeser ke bawah) -->
+                    <path
+                      class="island jawa"
+                      d="M 200,295 C 250,285 330,290 390,295 C 430,295 440,290 450,305 C 440,315 360,315 300,310 C 250,305 210,310 200,295 Z" />
+                    <path
+                      class="island jawa"
+                      d="M 460,290 L 480,290 L 470,300 Z" />
+                    <!-- Madura -->
+
+                    <!-- 3. Kalimantan (Bulan Sabit disusutkan, digeser ke atas) -->
+                    <path
+                      class="island kalimantan"
+                      d="M 340,70 C 420,50 460,110 440,190 C 420,230 350,230 310,190 C 295,160 295,140 330,120 C 345,110 330,85 340,70 Z" />
+
+                    <!-- 4. Sulawesi (Huruf K dirampingkan, digeser ke kanan) -->
+                    <path
+                      class="island sulawesi"
+                      d="M 510,100 C 550,80 580,100 580,120 C 560,140 550,150 560,170 C 580,190 570,200 550,200 C 540,200 530,190 520,190 L 560,230 C 570,250 550,260 530,240 L 510,210 L 490,260 C 470,270 455,250 470,225 L 490,170 C 470,160 460,140 510,100 Z" />
+
+                    <!-- 5. Bali & Nusa Tenggara (Digeser ke kanan bawah) -->
+                    <g class="island bali-nt">
+                      <path d="M 490,310 L 510,310 L 505,320 L 485,315 Z" />
+                      <!-- Bali -->
+                      <path d="M 520,315 L 545,310 L 550,320 L 525,325 Z" />
+                      <!-- Lombok & Sumbawa -->
+                      <path
+                        d="M 560,310 L 600,305 L 615,295 L 635,310 L 590,325 Z" />
+                      <!-- Flores & Timor -->
+                      <path d="M 580,335 L 605,330 L 610,340 L 585,345 Z" />
+                      <!-- Sumba -->
+                    </g>
+
+                    <!-- 6. Papua & Maluku (Kepala Gajah disusutkan, digeser ke kanan) -->
+                    <g class="island papua">
+                      <path
+                        d="M 620,140 C 640,110 660,120 650,160 C 640,180 610,170 620,140 Z" />
+                      <!-- Halmahera -->
+                      <path
+                        d="M 610,210 C 640,190 670,210 680,220 C 640,230 610,220 610,210 Z" />
+                      <!-- Seram/Buru -->
+                      <path
+                        d="M 690,160 C 630,160 590,180 590,210 C 590,240 630,230 650,220 C 660,210 670,230 650,250 C 630,270 670,280 700,270 L 750,290 L 890,290 L 890,140 C 820,130 750,150 690,160 Z" />
+                      <!-- Papua Utama -->
+                      <path d="M 680,250 C 700,260 710,280 690,290 Z" />
+                      <!-- Kep. Aru -->
+                    </g>
+                  </svg>
+
+                  <!-- KOORDINAT PIN TERKALIBRASI (Mengikuti posisi pulau yang baru) -->
+                  <!-- Sumatra -->
+                  <button
+                    class="pin-hotspot pos-top"
+                    style="top: 25%; left: 13%"
+                    onclick="openBudaya('sumatra')">
+                    <span class="pin-label">Meugang</span>
+                    <div class="pin-core red"></div>
+                  </button>
+                  <!-- Jawa -->
+                  <button
+                    class="pin-hotspot pos-top"
+                    style="top: 78%; left: 35%"
+                    onclick="openBudaya('jawa')">
+                    <span class="pin-label">Grebeg Sudiro</span>
+                    <div class="pin-core red"></div>
+                  </button>
+                  <!-- Kalimantan -->
+                  <button
+                    class="pin-hotspot pos-bottom"
+                    style="top: 40%; left: 43%"
+                    onclick="openBudaya('kalimantan')">
+                    <div class="pin-core blue"></div>
+                    <span class="pin-label">Tari Hornbill</span>
+                  </button>
+                  <!-- Sulawesi -->
+                  <button
+                    class="pin-hotspot pos-top"
+                    style="top: 48%; left: 59%"
+                    onclick="openBudaya('sulawesi')">
+                    <span class="pin-label">Rambu Solo'</span>
+                    <div class="pin-core blue"></div>
+                  </button>
+                  <!-- Bali -->
+                  <button
+                    class="pin-hotspot pos-bottom"
+                    style="top: 83%; left: 61%"
+                    onclick="openBudaya('bali')">
+                    <div class="pin-core blue"></div>
+                    <span class="pin-label">Perang Topat</span>
+                  </button>
+                  <!-- Papua -->
+                  <button
+                    class="pin-hotspot pos-top"
+                    style="top: 55%; left: 84%"
+                    onclick="openBudaya('papua')">
+                    <span class="pin-label">Bakar Batu</span>
+                    <div class="pin-core blue"></div>
+                  </button>
+                </div>
+
+                <div class="region-filters">
+                  <span class="filter-badge">Sumatra</span
+                  ><span class="filter-badge">Jawa</span>
+                  <span class="filter-badge">Kalimantan</span
+                  ><span class="filter-badge">Sulawesi</span>
+                  <span class="filter-badge">Bali-NT</span
+                  ><span class="filter-badge">Maluku-Papua</span>
+                </div>
+              </div>
+
+              <!-- SISI KANAN: SIDEBAR PROGRES -->
+              <div class="sidebar-section">
+                <div class="card mission-card">
+                  <div class="mission-header">
+                    <span class="mission-tag">MISI JELAJAH</span>
+                    <h3>Buka minimal 3 hotspot untuk melanjutkan.</h3>
+                  </div>
+
+                  <div class="progress-container">
+                    <p>
+                      Progres jelajah: <strong id="progress-count">0/3</strong>
+                    </p>
+                    <div class="progress-bars">
+                      <div class="bar" id="bar-1"></div>
+                      <div class="bar" id="bar-2"></div>
+                      <div class="bar" id="bar-3"></div>
+                    </div>
+                  </div>
+
+                  <div class="instructions">
+                    <strong>Petunjuk Misi:</strong>
+                    <ol>
+                      <li>Pilih kawasan / klik pin.</li>
+                      <li>Baca fakta dan pemantik.</li>
+                      <li>Tandai sudah dipelajari.</li>
+                    </ol>
+                  </div>
+
+                  <button
+                    id="btn-lanjut-peta"
+                    class="btn-primary disabled"
+                    onclick="goto('rencana')"
+                    disabled>
+                    Lanjutkan Misi
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MODAL POPUP BUDAYA -->
+          <div id="modal-budaya" class="modal budaya-modal" popover>
+            <div class="modal-header">
+              <div class="header-text">
+                <span class="region-title" id="modal-region"
+                  >JAWA · SURAKARTA</span
+                >
+                <h3 id="modal-title">Grebeg Sudiro</h3>
+              </div>
+              <button class="btn-close" onclick="closeBudaya()" title="Tutup">
+                <div data-icon="../../public/feather/x.svg"></div>
+              </button>
+            </div>
+
+            <div class="modal-content-grid">
+              <!-- Kolom Fakta -->
+              <div class="content-box box-fakta">
+                <span class="box-tag">FAKTA ETNOGRAFIS</span>
+                <p id="modal-fakta">
+                  Perpaduan harmonis antara tradisi Imlek dan budaya Jawa di
+                  Kota Surakarta...
+                </p>
+                <div class="source-tag">Sumber fakta: konten terkurasi</div>
+              </div>
+
+              <!-- Kolom Pemantik -->
+              <div class="content-box box-pemantik">
+                <span class="box-tag">PEMANTIK IDE FEATURE</span>
+                <strong id="modal-pemantik-bold"
+                  >Fakta unik ini dapat menjadi modal untuk menentukan sudut
+                  cerita feature.</strong
+                >
+                <p id="modal-pemantik-desc">
+                  Bagian mana yang paling menarik untuk digali?
+                </p>
+                <small
+                  >Renungkan sebentar. Jawaban tidak diketik di aplikasi;
+                  diskusi dilanjutkan di kelas atau buku.</small
+                >
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn-secondary" onclick="closeBudaya()">
+                Kembali ke peta
+              </button>
+              <button class="btn-success" onclick="markAsLearned()">
+                Tandai sudah dipelajari
+              </button>
+            </div>
+          </div>
+          <!-- AREA RENCANA PUBLIKASI -->
+          <div class="area rencana">
+            <div class="status-show">
+              <!-- big icon checklist for afffirmation -->
+              <h3>Jelajah telah selesai!</h3>
+              <p>Saatnya mengerjakan aktifivas lanjutan.</p>
+            </div>
+            <div class="side-card">
+              <!-- ikon buku -->
+              <b>Buka Buku Teks Halaman 174</b>
+              <p>
+                Jawablah 5 soal pada bagian "Ayo, mengingat kembali" bersama
+                teman.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
+
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3>LAPORAN PERENCANAAN SALURAN PUBLIKASI</h3>
+        <span class="doc-code">Dokumen Hasil Praktikum Mandiri</span>
+      </div>
+
+      <!-- METADATA IDENTITAS KELOMPOK -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Kelompok</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Judul Drama</span>
+          <span class="colon">:</span>
+          <strong class="value judul">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Cetak</span>
+          <span class="colon">:</span>
+          <span class="value date-txt">DD/MM/YYYY</span>
+        </div>
+      </div>
+
+      <!-- TABEL HASIL PERENCANAAN PUBLIKASI -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th class="col-main">Rincian Saluran Publikasi yang Dipilih</th>
+            </tr>
+          </thead>
+          <tbody data-table="naskah">
+            <!-- Diisi dinamis via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FOOTER CATATAN SISTEM (TANPA SIGNATURE BOX) -->
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

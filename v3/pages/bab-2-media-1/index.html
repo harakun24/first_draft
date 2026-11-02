@@ -23,21 +23,25 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
 
           <div
             class="segmen pointer"
             data-jump="video"
             onclick="jumpSegmen(event)">
-            <b>Tonton Video</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Tonton Video</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="refleksi"
             onclick="jumpSegmen(event)">
-            <b>Refleksi</b>
-            <div data-icon="../../public/feather/circle.svg"></div>
+            <span>Refleksi</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
         </div>
         <div class="play-area">
@@ -45,33 +49,82 @@
             <div id="player"></div>
           </div>
           <div class="area refleksi">
-            <b>Lembar Pencatatan Refleksi</b>
-            <h2>Ingat Kembali Satu Film Pendek atau Tayangan Inspiratif</h2>
-            <p>
-              Tulis jawabanmu secara ringkas dan berdasarkan pengalaman menonton
-            </p>
-            <div class="input-form">
-              <div class="input-group">
-                <label for="">Judul Film/Tayangan</label>
-                <input type="text" name="title" placeholder="Contoh: Titanic" />
+            <div class="refleksi-container">
+              <div class="fill-card">
+                <div class="card-heading">
+                  <div class="card-title">
+                    <b>Lembar Pencatatan Refleksi</b>
+                  </div>
+
+                  <h2>
+                    Ingat Kembali Satu Film Pendek atau Tayangan Inspiratif
+                  </h2>
+
+                  <!-- <p>
+                    Tulis jawabanmu secara ringkas dan berdasarkan pengalaman
+                    menonton
+                  </p> -->
+                </div>
+
+                <div class="input-form">
+                  <div class="input-group">
+                    <label for="reflectionName">Nama Siswa</label>
+                    <input
+                      type="text"
+                      id="reflectionName"
+                      name="title"
+                      placeholder="Isi Nama Lengkap Siswa" />
+                  </div>
+                  <div class="input-group">
+                    <label for="reflectionClass">Kelas</label>
+                    <input
+                      type="text"
+                      id="reflectionClass"
+                      name="title"
+                      placeholder="Isi Kelas" />
+                  </div>
+                  <div class="input-group">
+                    <label for="reflectionTitle">Judul Film/Tayangan</label>
+                    <input
+                      type="text"
+                      id="reflectionTitle"
+                      name="title"
+                      placeholder="Contoh: Titanic" />
+                  </div>
+
+                  <div class="input-group">
+                    <label for="reflectionMessage"
+                      >Pesan Moral atau Nilai Kehidupan</label
+                    >
+                    <input
+                      type="text"
+                      id="reflectionMessage"
+                      name="message"
+                      placeholder="Tulis pesan moral yang anda tangkap di sini." />
+                  </div>
+
+                  <div class="input-group">
+                    <label for="reflectionReason"
+                      >Mengapa Pesan Itu Penting</label
+                    >
+                    <input
+                      type="text"
+                      id="reflectionReason"
+                      name="reason"
+                      placeholder="Tuliskan alasan du sini." />
+                  </div>
+                </div>
+
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn"
+                    onclick="saveProgress()">
+                    <i class="fas fa-save"></i>
+                    Simpan Refleksi
+                  </button>
+                </div>
               </div>
-              <div class="input-group">
-                <label for="">Pesan Moral atau Nilai Kehidupan</label>
-                <input
-                  type="text"
-                  name="message"
-                  placeholder="Tulis pesan moral yang anda tangkap di sini." />
-              </div>
-              <div class="input-group">
-                <label for="">Mengapa Pesan Itu Penting</label>
-                <input
-                  type="text"
-                  name="reason"
-                  placeholder="Tuliskan alasan du sini." />
-              </div>
-              <button onclick="saveProgress()">
-                <i class="fas fa-save"></i> Simpan Refleksi
-              </button>
             </div>
           </div>
         </div>
@@ -80,51 +133,105 @@
     <div class="footer">
       <p>&copy; BEI 2026</p>
     </div>
-    <div class="table">
-      <h1>BEI 2026 | Bahasa Indonesia</h1>
-      <p>
-        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
-        55281 <br />
-        Telp: (0274) 884201 | Email: bei@2026.ac.id
-      </p>
-      <hr />
-      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
-      <p class="datespan">
-        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
-      </p>
-      <h3>PILIHAN PREFERENSI</h3>
-      <h4 class="preferensi">
-        Yang paling menarik perhatian saat pertama menonton film pendek, adalah
-      </h4>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
 
-      <h3>REKAP HASIL REFLEKSI</h3>
-      <h4 class="refleksi">
-        Salah satu film pendek atau tayangan inspiratif yang diingat berjudul
-        "". Pesan moral atau nilai kehidupannya adalah: dan mengapa itu penting,
-        karena
-      </h4>
-      <div class="last">
-        <span> [Kota, dd/mm/yyyy] </span>
-        <b><u>BEI 2026</u></b>
-        <span>Fasilitator</span>
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3>LAPORAN REFLEKSI FILM PENDEK</h3>
+      </div>
+
+      <!-- METADATA IDENTITAS KELOMPOK -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Siswa</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Cetak</span>
+          <span class="colon">:</span>
+          <span class="value date-txt">DD/MM/YYYY</span>
+        </div>
+      </div>
+
+      <!-- TABEL HASIL PERENCANAAN PUBLIKASI -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <td>
+                <div class="id-row">
+                  <span class="label">PILIHAN PREFERENSI</span>
+                </div>
+                <div class="id-row">
+                  <h4 class="preferensi">
+                    Yang paling menarik perhatian saat pertama menonton film
+                    pendek, adalah
+                  </h4>
+                </div>
+                <div class="id-row" style="margin-top: 1rem">
+                  <span class="label">REKAP HASIL REFLEKSI</span>
+                </div>
+                <div class="id-row">
+                  <h4 class="refleksi">
+                    Salah satu film pendek atau tayangan inspiratif yang diingat
+                    berjudul "". Pesan moral atau nilai kehidupannya adalah: dan
+                    mengapa itu penting, karena
+                  </h4>
+                </div>
+              </td>
+            </tr>
+          </thead>
+          <tbody data-table="naskah">
+            <!-- Diisi dinamis via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FOOTER CATATAN SISTEM (TANPA SIGNATURE BOX) -->
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
       </div>
     </div>
     <div class="modal2" popover>
-      <h2>
-        Apa yang paling menarik perhatianmu saat pertama menonton film pendek?
-      </h2>
-      <div class="choice" onclick="choose(1)">
-        <div data-icon="../../public/feather/image.svg"></div>
-        <h1>Visual</h1>
+      <div class="modal2-header">
+        <h2>
+          Apa yang paling menarik perhatianmu saat pertama menonton film pendek?
+        </h2>
       </div>
-      <div class="choice" onclick="choose(2)">
-        <div data-icon="../../public/feather/align-justify.svg"></div>
 
-        <h1>Cerita</h1>
-      </div>
-      <div class="choice" onclick="choose(3)">
-        <div data-icon="../../public/feather/music.svg"></div>
-        <h1>Musik</h1>
+      <div class="choice-list">
+        <button type="button" class="choice" onclick="choose(1)">
+          <div data-icon="../../public/feather/image.svg"></div>
+          <span>Visual</span>
+        </button>
+
+        <button type="button" class="choice" onclick="choose(2)">
+          <div data-icon="../../public/feather/align-justify.svg"></div>
+          <span>Cerita</span>
+        </button>
+
+        <button type="button" class="choice" onclick="choose(3)">
+          <div data-icon="../../public/feather/music.svg"></div>
+          <span>Musik</span>
+        </button>
       </div>
     </div>
     <script src="../../public/scripts/iframe_api.js"></script>

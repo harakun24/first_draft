@@ -30,10 +30,9 @@ function jumpSegmen(e) {
   e.currentTarget.classList.add("active");
 }
 
-
 const sections = [
   {
-    time: 20, title: "Pembukaan",
+    time: 43, title: "Kesan pertama",
     Questions: [
       {
         question: "Bagian surat lamaran pekerjaan yang berisi nama, alamat, nomor telepon, dan email pelamar disebut ...", answers: {
@@ -74,7 +73,7 @@ const sections = [
     ]
   },
   {
-    time: 76, title: "Dokumen Lamaran",
+    time: 76, title: "Format & Struktur",
     Questions: [
       {
         question: "Bagian alinea pembuka dalam surat lamaran pekerjaan berisi informasi awal yang sangat penting. Manakah di bawah ini yang merupakan isi dari bagian alinea pembuka?", answers: {
@@ -117,7 +116,7 @@ Berdasarkan isinya, kutipan kalimat di atas termasuk ke dalam unsur konten surat
     ]
   },
   {
-    time: 112, title: "Detail Bahasa",
+    time: 112, title: "Detail bahasa",
     Questions: [
       {
         question: `Cermati penulisan rincian identitas pelamar berikut!
@@ -169,7 +168,7 @@ Penggunaan bahasa pada kalimat penutup di atas kurang tepat karena ...`, answers
     ]
   },
   {
-    time: 133, title: "Kelengkapan Dokumen",
+    time: 152, title: "Dokumen & ATS",
     Questions: [
       {
         question: `Apa fungsi utama dari pencantuman lampiran atau dokumen pendukung dalam surat lamaran pekerjaan?`, answers: {
@@ -212,7 +211,7 @@ Manakah penyusunan rincian dokumen pendukung yang tepat dan sesuai dengan kaidah
     ]
   },
   {
-    time: 162, title: "Design CV",
+    time: 163, title: "Koreksi mandiri",
     Questions: [
       {
         question: `Apa prinsip utama yang harus diperhatikan dalam memilih jenis huruf (font) dan ukuran teks pada desain CV agar tetap profesional dan mudah dibaca?`, answers: {
