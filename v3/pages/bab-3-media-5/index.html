@@ -81,8 +81,12 @@
               <div
                 class="poster-card pointer"
                 data-poster="1"
-                onclick="choose(event)">
-                <div class="poster-preview poster-1">
+                onclick="chooseIMG(event)">
+                <div
+                  class="poster-preview poster-1"
+                  style="
+                    background-image: url(../../public/images/poster-1.png);
+                  ">
                   <!-- Area gambar/sampul poster -->
                   <span class="poster-label">Konsep Minimalis</span>
                 </div>
@@ -96,8 +100,12 @@
               <div
                 class="poster-card pointer"
                 data-poster="2"
-                onclick="choose(event)">
-                <div class="poster-preview poster-2">
+                onclick="chooseIMG(event)">
+                <div
+                  class="poster-preview poster-2"
+                  style="
+                    background-image: url(../../public/images/poster-2.png);
+                  ">
                   <!-- Area gambar/sampul poster -->
                   <span class="poster-label">Konsep Ekspresif</span>
                 </div>
@@ -320,6 +328,17 @@
 
       <!-- METADATA IDENTITAS KELOMPOK -->
       <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Poster Sampul</span>
+          <span class="colon">:</span>
+          <div class="value">
+            <img
+              id="poster-preview-img"
+              src=""
+              alt="Sampul Poster"
+              style="max-width: 150px; border-radius: 4px; display: none" />
+          </div>
+        </div>
         <div class="id-row">
           <span class="label">Nama Kelompok</span>
           <span class="colon">:</span>

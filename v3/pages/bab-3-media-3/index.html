@@ -23,132 +23,194 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
 
           <div
             class="segmen pointer"
             data-jump="pilih"
             onclick="jumpSegmen(event)">
-            <b>Pilih Naskah</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Pilih Naskah</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="eksplor"
             onclick="jumpSegmen(event)">
-            <b>Eksplorasi</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Eksplorasi</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
         </div>
         <div class="play-area">
-          <div class="area pilih">
-            <div class="box">
-              <b class="label">Naskah 1</b>
-              <div class="img"></div>
-              <h3>Meunasah</h3>
-              <p>Oleh Ramajani Sinaga</p>
-              <button class="pointer" onclick="setNaskah(1)">
-                Pilih Naskah
-                <div data-icon="../../public/feather/arrow-right.svg"></div>
-              </button>
-            </div>
-            <div class="box">
-              <b class="label">Naskah 2</b>
-              <div class="img"></div>
-              <h3>Mati Sunyi</h3>
-              <p>Karya Cok Sawitri</p>
-              <button class="pointer" onclick="setNaskah(2)">
-                Pilih Naskah
-                <div data-icon="../../public/feather/arrow-right.svg"></div>
-              </button>
+          <div class="area pilih naskah">
+            <div class="pilih-container">
+              <div class="fill-card">
+                <div class="card-title">
+                  <h4>Pilih Naskah Drama</h4>
+                </div>
+
+                <div class="naskah-grid">
+                  <!-- Naskah 1 -->
+                  <div class="box">
+                    <b class="label">Naskah 1</b>
+
+                    <div class="img"></div>
+
+                    <div class="naskah-info">
+                      <h3>Meunasah</h3>
+                      <p>Oleh Ramajani Sinaga</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      class="pointer"
+                      onclick="setNaskah(1)">
+                      Pilih Naskah
+                      <div
+                        data-icon="../../public/feather/arrow-right.svg"></div>
+                    </button>
+                  </div>
+
+                  <!-- Naskah 2 -->
+                  <div class="box">
+                    <b class="label">Naskah 2</b>
+
+                    <div class="img"></div>
+
+                    <div class="naskah-info">
+                      <h3>Mati Sunyi</h3>
+                      <p>Karya Cok Sawitri</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      class="pointer"
+                      onclick="setNaskah(2)">
+                      Pilih Naskah
+                      <div
+                        data-icon="../../public/feather/arrow-right.svg"></div>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="area eksplor">
-            <div class="potongan box">
-              <b>Potongan naskah </b>
-              <div class="txt-group">
-                <p>
-                  <b>
-                    Sebuah meunasah tua dengan dindingnya yang menguning serta
-                    dedaunan kering di atap.
-                  </b>
-                  <span
-                    class="pointer opener latar"
-                    onclick="openModal('latar')">
-                    buka</span
-                  >
-                </p>
-                <p><b>Adegan 1</b></p>
-                <div class="dialog">
-                  <p>
-                    <b>POLEM IBRAHIM </b>
-                    <span
-                      class="pointer opener tokoh"
-                      onclick="openModal('tokoh')">
-                      buka</span
-                    >
-                  </p>
-                  <p>
-                    Meunasahku, warisan leluhurku. <span>(Tersenyum)</span>. Tak
-                    akan kubiarkan engkau hilang ditelan zaman.
-                    <span
-                      class="pointer opener kramagung"
-                      onclick="openModal('kramagung')">
-                      buka</span
-                    >
-                  </p>
+            <div class="eksplor-container">
+              <!-- Potongan Naskah -->
+              <div class="potongan box">
+                <div class="card-title">
+                  <b>Potongan Naskah</b>
                 </div>
-                <p>
-                  <b>
-                    Suara mobil mewah terdengar berhenti. Tiga lelaki berpakaian
-                    rapi muncul. Ketiganya menatap meunasah.
-                  </b>
-                </p>
-                <div class="dialog">
-                  <p><b>LELAKI BERDASI 1</b></p>
+
+                <div class="txt-group">
                   <p>
-                    Ini bangunan tua yang tahan digempur Belanda itu ya?
+                    <b>
+                      Sebuah meunasah tua dengan dindingnya yang menguning serta
+                      dedaunan kering di atap.
+                    </b>
                     <span
-                      class="pointer opener dialog"
-                      onclick="openModal('dialog')">
-                      buka</span
-                    >
+                      class="pointer opener latar"
+                      onclick="openModal('latar')">
+                      Buka
+                    </span>
                   </p>
+
+                  <p><b>Adegan 1</b></p>
+
+                  <div class="dialog">
+                    <p>
+                      <b>POLEM IBRAHIM</b>
+                      <span
+                        class="pointer opener tokoh"
+                        onclick="openModal('tokoh')">
+                        Buka
+                      </span>
+                    </p>
+
+                    <p>
+                      Meunasahku, warisan leluhurku.
+                      <span>(Tersenyum)</span>. Tak akan kubiarkan engkau hilang
+                      ditelan zaman.
+                      <span
+                        class="pointer opener kramagung"
+                        onclick="openModal('kramagung')">
+                        Buka
+                      </span>
+                    </p>
+                  </div>
+
+                  <p>
+                    <b>
+                      Suara mobil mewah terdengar berhenti. Tiga lelaki
+                      berpakaian rapi muncul. Ketiganya menatap meunasah.
+                    </b>
+                  </p>
+
+                  <div class="dialog">
+                    <p><b>LELAKI BERDASI 1</b></p>
+
+                    <p>
+                      Ini bangunan tua yang tahan digempur Belanda itu ya?
+                      <span
+                        class="pointer opener dialog"
+                        onclick="openModal('dialog')">
+                        Buka
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="panel box">
-              <b>keterangan</b>
-              <div class="group-info">
-                <div class="dot"></div>
-                <b>Latar</b>
-                <p>keterangan latar</p>
-              </div>
-              <div class="group-info">
-                <div class="dot"></div>
-                <b>Kramagung</b>
-                <p>keterangan kramagung</p>
-              </div>
-              <div class="group-info">
-                <div class="dot"></div>
-                <b>Tokoh</b>
-                <p>keterangan tokoh</p>
-              </div>
-              <div class="group-info">
-                <div class="dot"></div>
-                <b>Dialog</b>
-                <p>keterangan dialog</p>
-              </div>
-              <div class="progres">
-                <b>Progres Eksplorasi</b>
-                <div class="state">
-                  <div class="child"></div>
+
+              <!-- Panel Keterangan -->
+              <div class="panel box">
+                <div class="card-title">
+                  <b>Keterangan</b>
                 </div>
-                <span
-                  ><b
-                    ><span class="num">0</span> dari 4 panel sudah dibuka</b
-                  ></span
-                >
+
+                <div class="info-list">
+                  <div class="group-info latar">
+                    <div class="dot"></div>
+                    <b>Latar</b>
+                    <p>Keterangan latar</p>
+                  </div>
+
+                  <div class="group-info kramagung">
+                    <div class="dot"></div>
+                    <b>Kramagung</b>
+                    <p>Keterangan kramagung</p>
+                  </div>
+
+                  <div class="group-info tokoh">
+                    <div class="dot"></div>
+                    <b>Tokoh</b>
+                    <p>Keterangan tokoh</p>
+                  </div>
+
+                  <div class="group-info dialog-info">
+                    <div class="dot"></div>
+                    <b>Dialog</b>
+                    <p>Keterangan dialog</p>
+                  </div>
+                </div>
+
+                <!-- Progres Eksplorasi -->
+                <div class="progres">
+                  <b>Progres Eksplorasi</b>
+
+                  <div class="state">
+                    <div class="child"></div>
+                  </div>
+
+                  <span>
+                    <b>
+                      <span class="num">0</span> dari 4 panel sudah dibuka
+                    </b>
+                  </span>
+                </div>
               </div>
             </div>
           </div>

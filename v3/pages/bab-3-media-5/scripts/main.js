@@ -22,8 +22,7 @@ function jumpSegmen(e) {
   e.currentTarget.classList.add("active");
   document.querySelector(".area.active")?.classList.remove("active");
 
-  if (view == "video" && !store.get("bab3-pilihan"))
-    return goto("pilih")
+
 
   document.querySelector(".area." + view)?.classList.add("active");
   store.add("film-state", view);
@@ -39,6 +38,7 @@ function goto(tag) {
   catch {
 
   }
+  console.log({ tag })
   document.querySelector(`[data-jump='${tag}']`).click();
 }
 // here
@@ -172,6 +172,27 @@ if (!store.get("bab3-poster")) {
   if (cetakEl) cetakEl.innerText = saved.cetak?.count || 0;
 }
 
+function chooseIMG(event) {
+  // Cari elemen .poster-card terdekat dari target yang diklik (bisa card, div inner, atau button)
+  const card = event.target.closest(".poster-card");
+  if (!card) return;
+
+  // Ambil nilai attribute data-poster
+  const posterValue = card.getAttribute("data-poster");
+
+  if (posterValue) {
+    // Simpan ke store
+    store.set("bab3-cover", posterValue);
+    console.log({ posterValue })
+
+    // Opsional: Kelola kelas active untuk highlight poster yang dipilih
+    document.querySelectorAll(".poster-card").forEach((el) => {
+      el.classList.remove("active");
+    });
+    card.classList.add("active");
+  }
+}
+
 function choose(event) {
   // 1. Dapatkan elemen input (checkbox) yang memicu event
   const inputEl = event.currentTarget;
@@ -284,6 +305,20 @@ function savePdf() {
       </td>
     </tr>
   `;
+  const posterImg = document.getElementById("poster-preview-img");
+  if (!posterImg) return;
+
+  const savedCover = store.get("bab3-cover");
+
+  if (savedCover) {
+    // Menangani format angka ("1", "2") maupun format nama file ("poster-1.png")
+    const fileName = savedCover.includes(".png") ? savedCover : `poster-${savedCover}.png`;
+
+    posterImg.src = `../../public/images/${fileName}`;
+    posterImg.style.display = "block";
+  } else {
+    posterImg.style.display = "none";
+  }
   printPage()
 }
 
