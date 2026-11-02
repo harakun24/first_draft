@@ -8,153 +8,283 @@
     &[data-view="1"] {
       grid-template-columns: auto 1fr;
       gap: var(--m);
-      .segmen-tab {
-        font-size: 0.8rem;
-        padding: var(--m);
-        display: grid;
-        background-color: var(--kertas);
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-content: start;
-        gap: var(--m);
-        border-radius: var(--m);
-        box-shadow: var(--box);
-        height: fit-content;
-        > b {
-          text-align: center;
-        }
-        > * {
-          grid-column: span 2;
-        }
-        .segmen {
-          display: grid;
-          grid-template-columns: subgrid;
-          padding: var(--m);
-          border: 2px solid var(--navy-garis);
-          border-radius: var(--m-2);
-          background-color: var(--biru-kartu);
-          [data-icon] {
-            /* color: var(--navy-garis); */
-            opacity: 0;
-          }
-          &.active {
-            border: 2px solid var(--magenta-bab);
-            background-color: var(--merah-muda-peta);
-            [data-icon] {
-              opacity: 1;
-              color: var(--magenta-bab);
-            }
-          }
-        }
-        .next {
-          border: 2px solid var(--hijau-penanda-2);
-          color: var(--hijau-penanda-2);
-          border-radius: var(--m-2);
-          padding: var(--m);
-          background-color: var(--hijau-penanda);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          filter: brightness(1.2);
-          [data-icon] {
-            font-size: 1.2rem;
-          }
-        }
-      }
+
       .play-area {
         display: grid;
         height: 100%;
+        /* --- WADAH UTAMA AREA (.area) --- */
         .area {
-          display: none;
-          transition: ease-in 0.3s;
-          align-content: start;
+          display: none; /* Sembunyikan secara default */
+          opacity: 0;
+          transform: translateY(12px);
+          transition:
+            opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          width: 100%;
+
+          /* Status Aktif: Hanya 1 yang tampil seolah berpindah halaman */
           &.active {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 1;
+            transform: translateY(0);
+            animation: pageSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+
+          /* Header Seksi / Judul Langkah */
+          .section-header {
+            h3 {
+              font-family: var(--judul, "Inter", sans-serif);
+              font-size: 1.2rem;
+              font-weight: 700;
+              color: #0f172a;
+              margin: 0;
+            }
+            p {
+              font-size: 0.85rem;
+              color: #64748b;
+              margin: 4px 0 0 0;
+            }
+          }
+
+          /* Layout Kontainer Dua Kolom (Pratinjau vs Form) */
+          .form-container {
             display: grid;
+            grid-template-columns: 340px 1fr; /* Desktop: Pratinjau di kiri, Form di kanan */
+            gap: 20px;
+            align-items: start;
           }
+
+          /* --- KARTU UTAMA (CARD SYSTEM) --- */
+          .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow:
+              0 4px 6px -1px rgba(0, 0, 0, 0.03),
+              0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            /* Kartu Pratinjau (Kiri) */
+            &.prev-card {
+              background-color: #f8fafc;
+              border-color: #cbd5e1;
+
+              .card-title {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #2563eb;
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 10px;
+
+                h4 {
+                  font-size: 0.9rem;
+                  font-weight: 700;
+                  color: #1e293b;
+                  margin: 0;
+                }
+                div {
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+
+              .preview-content {
+                font-size: 0.85rem;
+                color: #334155;
+                line-height: 1.5;
+                word-break: break-word;
+              }
+            }
+
+            /* Kartu Form Isian (Kanan) */
+            &.fill-card {
+              .save-action {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 8px;
+              }
+            }
+          }
+
+          /* --- STYLING INPUT & TEXTAREA --- */
+          .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            label {
+              font-size: 0.8rem;
+              font-weight: 600;
+              color: #374151;
+            }
+
+            input,
+            textarea {
+              padding: 10px 14px;
+              border: 1px solid #d1d5db;
+              border-radius: 8px;
+              font-family: inherit;
+              font-size: 0.9rem;
+              background-color: #f9fafb;
+              color: #0f172a;
+              transition: all 0.2s ease;
+
+              &:focus {
+                background-color: #ffffff;
+                border-color: #2563eb;
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+                outline: none;
+              }
+
+              &:is(textarea) {
+                min-height: 90px;
+                resize: vertical;
+              }
+            }
+          }
+
+          /* --- STYLING KHUSUS AREA 1 (PILIH / HERO) --- */
           &.pilih {
-            gap: var(--m);
-            align-content: start;
-            padding: var(--m);
-            border-radius: var(--m-2);
-            background-color: var(--kertas);
+            .hero-card {
+              align-items: center;
+              text-align: center;
+              padding: 48px 24px;
+              max-width: 540px;
+              margin: 20px auto;
+
+              .hero-icon {
+                width: 56px;
+                height: 56px;
+                color: #2563eb;
+                margin-bottom: 8px;
+                svg {
+                  width: 100%;
+                  height: 100%;
+                  stroke-width: 1.5;
+                }
+              }
+
+              h1 {
+                font-family: var(--judul, "Inter", sans-serif);
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0;
+              }
+
+              p {
+                font-size: 0.9rem;
+                color: #64748b;
+                margin: 0;
+                max-width: 40ch;
+              }
+            }
+          }
+
+          /* --- STYLING KHUSUS AREA EKSPOR (LEMBAR PRATINJAU) --- */
+          &.ekspor {
+            .document-preview {
+              .doc-body {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                background-color: #ffffff;
+                border: 1px solid #e2e8f0;
+                padding: 16px;
+                border-radius: 8px;
+
+                .babak {
+                  font-size: 0.95rem;
+                  color: #1e293b;
+                  text-transform: uppercase;
+                }
+                .tokoh {
+                  font-size: 0.9rem;
+                  color: #2563eb;
+                }
+                .sub {
+                  font-size: 0.8rem;
+                  color: #64748b;
+                  font-style: italic;
+                  margin: 2px 0;
+                }
+                .dialog {
+                  font-size: 0.9rem;
+                  color: #0f172a;
+                  margin-top: 4px;
+                }
+              }
+            }
+          }
+
+          /* --- TOMBOL UTAMA (.btn-primary) --- */
+          .btn-primary {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            align-content: center;
-            .pointer {
-              display: flex;
-              gap: var(--m);
-              border: none;
-              border-radius: var(--m-2);
-              padding: var(--m);
-              background-color: var(--navy-garis);
-              justify-content: center;
-              align-self: end;
-              margin-top: var(--m);
-            }
-          }
-          &.latar,
-          &.aksi {
-            padding: var(--m);
-            border-radius: var(--m-2);
-            background-color: var(--kertas);
-            grid-template-rows: auto 1fr;
-            gap: var(--m);
-            .form {
-              display: grid;
-              grid-template-columns: 0.4fr 1fr;
-              .prev {
-                border-radius: var(--m-2);
-                display: grid;
-                padding: var(--m);
-                background-color: var(--kuning-pucat);
-                font-size: 0.7rem;
-                align-content: start;
-                gap: var(--m);
-                > b {
-                  text-align: center;
-                }
-                span {
-                  opacity: 0.7;
-                }
-              }
-              .fill {
-                display: grid;
-                gap: var(--m);
-                padding: var(--m);
-                .input-group {
-                  display: grid;
-                  align-content: start;
-                  gap: var(--m-2);
-                  input,
-                  textarea {
-                    border: none;
-                    box-shadow: var(--box);
-                    border-radius: var(--m-2);
-                    padding: var(--m);
-                    &:is(textarea) {
-                      resize: none;
-                      height: 4lh;
-                    }
-                  }
-                }
-                .save {
-                  display: flex;
-                  justify-content: end;
-                  align-items: center;
-                  .pointer {
-                    border: none;
-                    border-radius: var(--m-2);
-                    padding: var(--m);
-                    background-color: var(--hijau-penanda);
-                    display: flex;
-                    gap: var(--m);
-                  }
-                }
+            gap: 8px;
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: var(--judul, inherit);
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            transition: all 0.2s ease;
+
+            div {
+              width: 18px;
+              height: 18px;
+              svg {
+                stroke-width: 2.5;
+                stroke: currentColor;
               }
             }
+
+            &:hover {
+              background-color: #1d4ed8;
+              box-shadow: 0 6px 12px -2px rgba(37, 99, 235, 0.3);
+            }
+
+            &.full-btn {
+              width: 100%;
+              margin-top: 8px;
+            }
           }
-          @starting-style {
-            translate: 300px;
+
+          /* --- RESPONSIVITAS MOBILE (< 768px) --- */
+          @media (max-width: 768px) {
+            .form-container {
+              grid-template-columns: 1fr; /* Tumpuk 1 kolom vertikal di HP */
+            }
+
+            .card {
+              padding: 16px;
+            }
+
+            &.pilih .hero-card {
+              padding: 24px 16px;
+            }
+          }
+        }
+
+        /* Animasi Halus Saat Berpindah Halaman/Area */
+        @keyframes pageSlideIn {
+          from {
             opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
       }
@@ -169,87 +299,231 @@
   }
 }
 
-.table {
-  font-size: 0.8rem;
-  background-color: white;
-  display: grid;
-  gap: calc(var(--m) / 4);
-  position: fixed;
-  left: 9999px;
-  margin: 0;
-  width: 60vw;
-  table {
-    border-top: var(--border);
-    border-left: var(--border);
-    border-collapse: separate;
-    border-spacing: 0;
-    /* padding: var(--m); */
+/* --- LEMBAR DOKUMEN LAPORAN (.report-document) --- */
+.table.report-document {
+  display: none; /* Atau 'none' jika digunakan khusus untuk konversi PDF via JS */
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: 40px; /* Padding standar tepi kertas A4 */
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  /* --- KOP HEADER --- */
+  .report-header {
     text-align: center;
-    margin-bottom: var(--m);
-    th {
-      text-wrap: nowrap;
+    margin-bottom: 24px;
+
+    .header-titles {
+      h2 {
+        font-family: var(--judul, "Inter", sans-serif);
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #1e3a8a; /* Deep Royal Blue */
+        margin: 0;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin: 4px 0 0 0;
+        font-weight: 500;
+      }
     }
-    th,
-    td {
-      padding: calc(var(--m) / 2);
-      border-right: var(--border);
-      border-bottom: var(--border);
-      .img {
-        aspect-ratio: 16/9;
-        background-color: var(--arang);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        height: 4lh;
+
+    /* Garis Khas Kop Surat (Dua garis tebal-tipis) */
+    .header-divider {
+      height: 3px;
+      background-color: #1e3a8a;
+      margin-top: 16px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #94a3b8;
       }
     }
   }
-  h1,
-  h3 {
-    color: rgb(5, 5, 71);
-  }
-  h1,
-  .rui,
-  p {
+
+  /* --- JUDUL DOKUMEN LAPORAN --- */
+  .document-title {
     text-align: center;
-    border: none;
-    &:is(p) {
-      opacity: 0.8;
+    margin: 24px 0;
+
+    h3 {
+      font-family: var(--judul, "Inter", sans-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none; /* Menghapus border-left lama */
+      padding: 0;
+    }
+
+    .doc-code {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-top: 4px;
     }
   }
-  padding: calc(var(--m) * 4);
-  h4 {
-    padding: var(--m);
-    background-color: var(--biru-kartu);
-    margin-bottom: var(--2m);
-  }
-  th:not(:nth-child(1)) {
-    min-width: 140px;
-    text-align: center;
-  }
-  th {
-    background-color: rgba(189, 222, 249, 0.95);
-    width: fit-content;
-  }
-  h3 {
-    padding: calc(var(--m) / 4) var(--m);
-    border-left: 5px solid rgb(7, 7, 131);
-  }
-  .last,
-  .datespan {
-    text-align: center;
-    display: grid;
-    width: 30%;
-    justify-self: end;
-    padding: calc(var(--m) / 4);
-    span:nth-child(1) {
-      padding-bottom: calc(var(--m) * 4);
-    }
-    span {
-      opacity: 0.8;
-    }
-    &:is(.datespan) {
+
+  /* --- IDENTITAS SISWA (GRID KARTU) --- */
+  .identity-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .id-row {
       display: flex;
+      align-items: center;
+      font-size: 0.85rem;
+
+      .label {
+        width: 130px;
+        color: #475569;
+        font-weight: 500;
+      }
+
+      .colon {
+        width: 20px;
+        color: #94a3b8;
+      }
+
+      .value {
+        color: #0f172a;
+        &.nama,
+        &.kelas {
+          color: #1e3a8a;
+        }
+      }
+    }
+  }
+
+  /* --- TABEL HASIL NASKAH --- */
+  .table-wrapper {
+    margin-bottom: 32px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      overflow: hidden;
+
+      th {
+        background-color: #f1f5f9;
+        color: #1e293b;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 2px solid #cbd5e1;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      td {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        background-color: #ffffff;
+        font-size: 0.85rem;
+        color: #334155;
+        line-height: 1.6;
+
+        .script-output {
+          .section-tag {
+            display: inline-block;
+            /* background-color: #eff6ff; */
+            color: #2563eb;
+            /* padding: 2px 8px; */
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+          }
+          .script-text {
+            margin: 0;
+            white-space: pre-wrap;
+          }
+        }
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  /* --- FOOTER / TANDA TANGAN --- */
+  .report-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 16px;
+
+    .footer-note {
+      font-size: 0.7rem;
+      color: #94a3b8;
+      max-width: 240px;
+      p {
+        margin: 0;
+        text-align: left;
+      }
+    }
+
+    .signature-box {
+      text-align: center;
+      width: 220px;
+
+      .sign-location,
+      .sign-title {
+        font-size: 0.8rem;
+        color: #334155;
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      /* Ruang kosong untuk tanda tangan basah / stempel */
+      .sign-space {
+        height: 64px;
+      }
+
+      .sign-name {
+        font-size: 0.85rem;
+        color: #0f172a;
+        margin: 0;
+        border-bottom: 1px solid #0f172a;
+        padding-bottom: 2px;
+        display: inline-block;
+      }
+
+      .sign-nip {
+        display: block;
+        font-size: 0.75rem;
+        color: #64748b;
+        margin-top: 2px;
+      }
     }
   }
 }

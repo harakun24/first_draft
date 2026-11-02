@@ -14,18 +14,18 @@
       type="image/x-icon" />
   </head>
   <body data-refer="0">
-    <div class="header">
-      <div class="icon pointer" onclick="toggleMenu()">
+    <header class="header">
+      <div class="icon pointer" onclick="toggleMenu()" title="Buka Menu">
         <div data-icon="../../public/feather/menu.svg"></div>
       </div>
       <div class="title-page">
-        <h4></h4>
-        <p></p>
+        <h4 id="page-main-title">Surat Lamaran & CV Digital</h4>
+        <p id="page-sub-title">Modul Pembelajaran Bahasa Indonesia Kelas XII</p>
       </div>
-    </div>
+    </header>
     <div class="main">
       <div class="view active" data-view="1">
-        <div class="segmen-tab">
+        <!-- <div class="segmen-tab">
           <b>Daftar Segmen</b>
 
           <div
@@ -49,18 +49,51 @@
             <b>Buat CV</b>
             <div data-icon="../../public/feather/circle.svg"></div>
           </div>
-          <button class="next pointer" onclick="unduh()">
+          <!-- <button class="next pointer" onclick="unduh()">
             <div data-icon="../../public/feather/external-link.svg"></div>
             <b>Unduh CV anda</b>
-          </button>
+          </button> 
+        </div> -->
+        <div class="segmen-tab">
+          <h3 class="nav-title">Navigasi Segmen</h3>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <span>Video Tutorial</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+
+          <div
+            class="segmen pointer"
+            data-jump="drop"
+            onclick="jumpSegmen(event)">
+            <span>Susun Surat</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+
+          <div
+            class="segmen pointer"
+            data-jump="cv"
+            onclick="jumpSegmen(event)">
+            <span>Buat CV</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
         </div>
         <div class="play-area">
           <div class="area video">
             <div id="player"></div>
           </div>
-          <div class="area drop">
+          <div class="area drop pro-drop-concept">
             <div class="pool">
-              <span>Bagian Surat</span>
+              <span class="pool-title">Bagian Surat (Pilih/Geser)</span>
               <div
                 class="group-list"
                 data-pool
@@ -131,87 +164,66 @@
                 </div>
               </div>
             </div>
+
             <div class="slots" data-slots>
               <div class="header-slot">
-                <span>Urutan Surat</span>
+                <span>Urutan Lembar Surat</span>
                 <span><b id="counter">0/9</b></span>
               </div>
+
+              <!-- 9 Slot Target -->
               <div
                 class="slot"
                 data-target="1"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>1</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="2"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>2</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="3"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>3</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="4"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>4</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="5"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>5</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="6"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>6</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="7"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>7</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="8"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>8</b>
-            <i>letakkan di sini</i> -->
-              </div>
+                ondrop="dropToSlot(event)"></div>
               <div
                 class="slot"
                 data-target="9"
                 ondragover="event.preventDefault()"
-                ondrop="dropToSlot(event)">
-                <!-- <b>9</b>
-            <i>letakkan di sini</i> -->
-              </div>
-              <button onclick="validate()">Cek Jawaban</button>
+                ondrop="dropToSlot(event)"></div>
+
+              <button class="btn-check pointer" onclick="validate()">
+                Cek Jawaban
+              </button>
             </div>
           </div>
-          <div class="area cv">
+          <!-- <div class="area cv">
             <div class="form">
               <b>Isi formulir data diri berikut:</b>
               <div class="input-group">
@@ -300,58 +312,178 @@
                 </table>
               </div>
             </div>
+          </div> -->
+          <div class="area cv pro-concept">
+            <div class="card form-section">
+              <div class="card-header">
+                <h3>Informasi Dasar</h3>
+                <p>Lengkapi data diri untuk profil CV Anda.</p>
+              </div>
+              <div class="form-grid">
+                <div class="input-group">
+                  <label for="nama">Nama Lengkap</label>
+                  <input
+                    type="text"
+                    id="nama"
+                    placeholder="Contoh: Rendra Siregar" />
+                  <small class="error-msg"></small>
+                </div>
+                <div class="input-group">
+                  <label for="posisi">Target Posisi</label>
+                  <input
+                    type="text"
+                    id="posisi"
+                    placeholder="Contoh: Frontend Developer" />
+                  <small class="error-msg"></small>
+                </div>
+                <div class="input-group">
+                  <label for="nomor">Nomor Telepon</label>
+                  <input
+                    type="tel"
+                    id="nomor"
+                    placeholder="Contoh: 08123456789" />
+                  <small class="error-msg"></small>
+                </div>
+                <div class="input-group">
+                  <label for="email">E-mail Profesional</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Contoh: rendra@email.com" />
+                  <small class="error-msg"></small>
+                </div>
+                <div class="input-group full-width">
+                  <label for="alamat">Alamat Lengkap</label>
+                  <input
+                    type="text"
+                    id="alamat"
+                    placeholder="Masukkan alamat domisili" />
+                  <small class="error-msg"></small>
+                </div>
+                <div class="input-group full-width">
+                  <label for="bio">Ringkasan Profil</label>
+                  <textarea
+                    id="bio"
+                    placeholder="Tuliskan 2-4 kalimat yang menjual nilai profesional Anda."></textarea>
+                  <small class="error-msg"></small>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-section">
+              <div class="card keahlian-section">
+                <div class="card-header flex-between">
+                  <h3>Keahlian</h3>
+                  <button class="btn-icon pointer" onclick="openModal2()">
+                    <div data-icon="../../public/feather/plus.svg"></div>
+                  </button>
+                </div>
+                <div class="group-list tags-container"></div>
+              </div>
+
+              <div class="card riwayat-section">
+                <div class="card-header flex-between">
+                  <h3>Pengalaman Kerja</h3>
+                  <button class="btn-icon pointer" onclick="openModal()">
+                    <div data-icon="../../public/feather/plus.svg"></div>
+                  </button>
+                </div>
+                <div class="timeline-container tabel-pengalaman">
+                  <!-- Item JS akan masuk ke sini -->
+                </div>
+              </div>
+
+              <div class="card riwayat-section">
+                <div class="card-header flex-between">
+                  <h3>Pendidikan</h3>
+                  <button class="btn-icon pointer" onclick="openModal3()">
+                    <div data-icon="../../public/feather/plus.svg"></div>
+                  </button>
+                </div>
+                <div class="timeline-container tabel-pendidikan">
+                  <!-- Item JS akan masuk ke sini -->
+                </div>
+              </div>
+
+              <button class="btn-primary pointer" onclick="unduh()">
+                <div data-icon="../../public/feather/download.svg"></div>
+                Unduh CV Sekarang
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer">
-      <p>&copy; BEI 2026</p>
-    </div>
+    <footer class="footer">
+      <p>
+        © 2026 Bahasa Indonesia Edukasi Indonesia (BEI). Hak Cipta Dilindungi.
+      </p>
+    </footer>
+    <!-- MODAL PENGALAMAN -->
     <div class="modal" popover="">
-      <b>Isi Pengalaman</b>
+      <div class="modal-header">
+        <h3 class="modal-title">Isi Pengalaman Kerja</h3>
+        <p class="modal-desc">Tambahkan pengalaman profesional Anda.</p>
+      </div>
       <div class="input-group">
-        <label for="pengalaman">Pengalaman</label>
+        <label for="pengalaman">Nama Perusahaan / Posisi</label>
         <input
           type="text"
           id="pengalaman"
-          placeholder="isi pengalaman kerja yang anda miliki" />
+          placeholder="Contoh: Frontend Developer di PT Maju" />
       </div>
       <div class="input-group">
-        <label for="start">Tanggal mulai</label>
+        <label for="start">Tanggal Mulai</label>
         <input type="date" id="start" />
       </div>
       <div class="input-group">
-        <label for="end">Tanggal selesai</label>
+        <label for="end">Tanggal Selesai</label>
         <input type="date" id="end" />
+        <small class="hint-text">Kosongkan jika masih bekerja di sini.</small>
       </div>
-      <button class="pointer" onclick="savePengalaman()">save</button>
+      <button class="btn-save pointer" onclick="savePengalaman()">
+        Simpan Pengalaman
+      </button>
     </div>
+
+    <!-- MODAL PENDIDIKAN -->
     <div class="modal modal3" popover="">
-      <b>Isi riwayat pendidikan</b>
+      <div class="modal-header">
+        <h3 class="modal-title">Isi Riwayat Pendidikan</h3>
+        <p class="modal-desc">Tambahkan jenjang pendidikan terakhir.</p>
+      </div>
       <div class="input-group">
-        <label for="pendidikan">Pendidikan</label>
+        <label for="pendidikan">Institusi & Jurusan</label>
         <input
           type="text"
           id="pendidikan"
-          placeholder="isi riwayar pendidikan anda" />
+          placeholder="Contoh: S1 Teknik Informatika - Universitas Indonesia" />
       </div>
-
       <div class="input-group">
-        <label for="end2">Tanggal selesai</label>
+        <label for="end2">Tahun Selesai / Lulus</label>
         <input type="date" id="end2" />
       </div>
-      <button class="pointer" onclick="savePendidikan()">save</button>
+      <button class="btn-save pointer" onclick="savePendidikan()">
+        Simpan Pendidikan
+      </button>
     </div>
+
+    <!-- MODAL KEAHLIAN -->
     <div class="modal modal2" popover="">
-      <b>Isi Keahlian</b>
+      <div class="modal-header">
+        <h3 class="modal-title">Isi Keahlian / Kompetensi</h3>
+        <p class="modal-desc">Sebutkan keahlian khusus yang Anda kuasai.</p>
+      </div>
       <div class="input-group">
         <label for="keahlian">Keahlian</label>
         <input
           type="text"
           id="keahlian"
-          placeholder="isi keahlian yang anda miliki" />
+          placeholder="Contoh: JavaScript, UI/UX Design, Public Speaking" />
       </div>
-      <button class="pointer" onclick="saveKeahlian()">save</button>
+      <button class="btn-save pointer" onclick="saveKeahlian()">
+        Simpan Keahlian
+      </button>
     </div>
     <div class="cv-doc">
       <h2>Nama Pelamar</h2>

@@ -23,6 +23,13 @@ function jumpSegmen(e) {
 
 // document.querySelector("[data-jump='vid']").click();
 function goto(tag) {
+  try {
+    fillLatar()
+    fillAksi()
+  }
+  catch {
+
+  }
   document.querySelector(`[data-jump='${tag}']`).click();
 }
 // here
@@ -36,7 +43,7 @@ function goto(tag) {
 // here
 // here
 // here
-goto("aksi");
+goto("pilih");
 // here
 // here
 // here
@@ -53,32 +60,68 @@ const modal = document.querySelector(".modal");
 
 async function savePdf() {
 
-  const { jsPDF } = window.jspdf;
-  const el = document.querySelector(".table");
-  try {
+  // const { jsPDF } = window.jspdf;
+  // const el = document.querySelector(".table");
+  // try {
 
-    const canvas = await html2canvas(el, {
-      scale: 2,
-      useCORS: true
-    });
-    const imgData = canvas.toDataURL('image/png');
+  //   const canvas = await html2canvas(el, {
+  //     scale: 2,
+  //     useCORS: true
+  //   });
+  //   const imgData = canvas.toDataURL('image/png');
 
-    let pdfWidth = 210;
-    let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: [pdfWidth, pdfHeight] });
+  //   let pdfWidth = 210;
+  //   let pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  //   const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: [pdfWidth, pdfHeight] });
 
 
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    const kelompok = store.get("bab3-persiapan").nama;
-    const kelas = store.get("bab3-persiapan").kelas;
-    pdf.save(`laporan kelompok ${kelompok} kelas ${kelas}.pdf`);
+  //   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  //   const kelompok = store.get("bab3-persiapan").nama;
+  //   const kelas = store.get("bab3-persiapan").kelas;
+  //   pdf.save(`laporan kelompok ${kelompok} kelas ${kelas}.pdf`);
 
-  } catch (error) {
-    console.error('Terjadi kesalahan saat mengunduh:', error);
-  }
+  // } catch (error) {
+  //   console.error('Terjadi kesalahan saat mengunduh:', error);
+  // }
+
+  const nama = document.querySelector("[data-label='nama']").querySelector("input").value || "Belum Diisi";
+  const kelas = document.querySelector("[data-label='kelas']").querySelector("input").value || "Belum Diisi";
+  const tanggal = getDate();
+
+  document.querySelector(".table .nama").textContent = nama;
+  document.querySelector(".table .kelas").textContent = kelas;
+  document.querySelector(".table .date-txt").textContent = tanggal;
+
+  const dataLatar = store.get("bab3-latar");
+  const dataAksi = store.get("bab3-aksi");
+
+  document.querySelector(".table [data-table='naskah']").innerHTML = `
+  <tr>
+  <td>
+
+   <div class="script-output">
+                  <strong class="">${dataLatar.nama.toUpperCase()}</strong>
+                  <p class="">
+                    (${dataLatar.kramagung})
+                  </p>
+                </div>
+<br/>
+ <div class="script-output">
+                  <strong class="section-tag">${dataAksi.nama.toUpperCase()}</strong>
+                  <p class="">
+                    (${dataAksi.aksi})
+                  </p>
+                  <strong>"${dataAksi.dialog}"</strong>
+                </div>
+  </td>
+  </tr>
+  `
+
+  printPage()
+
 }
 
-store.clean()
+// store.clean()
 
 if (!store.get("bab3-latar"))
   store.set("bab3-latar", { nama: "", kramagung: "" });

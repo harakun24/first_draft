@@ -67,239 +67,140 @@ const store = {
 
 document.querySelector(".header").insertAdjacentHTML("beforebegin", `
  <div class="daftar-menu" popover>
-      <h4>
-        <span>DAFTAR MENU</span>
-        <div
-          class="pointer"
-          data-icon="../../public/feather/x.svg"
-          onclick="toggleMenu()"></div>
-      </h4>
-      <div class="link-group">
-        <div class="links">
-          <div class="title pointer" data-link="0">
-            <p>Beranda</p>
-            <div data-icon="../../public/feather/home.svg"></div>
-          </div>
-          <div
-            class="link pointer"
-            data-target="bab1"
-            data-state="close"
-            onclick="toggleLink(event)">
-            <p>
-              Bab I <br />
-              <span>
-                Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang
-                Mengesankan
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-down.svg"></div>
-            <div
-              class="hide"
-              data-icon="../../public/feather/chevron-up.svg"></div>
-          </div>
-          <!-- media group start -->
-          <div class="link pointer" data-label="bab1" data-link="1">
-            <p>
-              Media 1 <br />
-              <span>
-                Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang
-                Mengesankan
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab1" data-link="2">
-            <p>
-              Media 4 <br />
-              <span>
-                Menulis Surat Lamaran Kerja Efektif dan Mendesain CV Digital
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab1" data-link="3">
-            <p>
-              Media 5 <br />
-              <span> Simulasi Wawancara Kerja </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <!-- media group end -->
-          <div
-            class="link pointer"
-            data-target="bab2"
-            data-state="close"
-            onclick="toggleLink(event)">
-            <p>
-              Bab II <br />
-              <span>
-                Layar Kecil, Pikiran Besar: Literasi dari Film Pendek
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-down.svg"></div>
-            <div
-              class="hide"
-              data-icon="../../public/feather/chevron-up.svg"></div>
-          </div>
-          <!-- media group start -->
-          <div class="link pointer" data-label="bab2" data-link="4">
-            <p>
-              Media 1 <br />
-              <span> Apersepsi Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2" data-link="5">
-            <p>
-              Media 2 <br />
-              <span> Menyimak Kritis Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2" data-link="6">
-            <p>
-              Media 3 <br />
-              <span> Ekranisasi & Simulator Storyboard Sederhana </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2" data-link="7">
-            <p>
-              Media 4 <br />
-              <span> Manajemen dan Alur Produksi Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab2" data-link="8">
-            <p>
-              Media 5 <br />
-              <span> Publikasi Karya Film Pendek </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <!-- media group end -->
-          <div
-            class="link pointer"
-            data-target="bab3"
-            data-state="close"
-            onclick="toggleLink(event)">
-            <p>
-              Bab III <br />
-              <span>
-               Menelusuri Realitas Sosial melalui
-Drama Indonesia dan Dunia
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-down.svg"></div>
-            <div
-              class="hide"
-              data-icon="../../public/feather/chevron-up.svg"></div>
-          </div>
-          <!-- media group start -->
-          <div class="link pointer" data-label="bab3" data-link="9">
-            <p>
-              Media 1 <br />
-              <span>
-                Siap-Siap Belajar & Ayo Mengingat Kembali
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab3" data-link="10">
-            <p>
-              Media 2 <br />
-              <span>
-                H5P Menyimak Kritis Video Drama
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab3" data-link="11">
-            <p>
-              Media 3 <br />
-              <span>
-                Anatomi Bagian-Bagian Naskah Drama
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab3" data-link="12">
-            <p>
-              Media 4 <br />
-              <span>
-                Anatomi Bagian-Bagian Naskah Drama
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-         
-          <!-- media group end -->
-            <div
-            class="link pointer"
-            data-target="bab4"
-            data-state="close"
-            onclick="toggleLink(event)">
-            <p>
-              Bab IV <br />
-              <span>
-Mengeksplorasi Khazanah Budaya Nusantara
-melalui Feature Berbasis Digital
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-down.svg"></div>
-            <div
-              class="hide"
-              data-icon="../../public/feather/chevron-up.svg"></div>
-          </div>
-          <!-- media group start -->
-          <div class="link pointer" data-label="bab4" data-links="14">
-            <p>
-              Media 1 <br />
-              <span>
-                [empty]
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab4" data-link="15">
-            <p>
-              Media 2 <br />
-              <span>
-                Menyusun Draf Teks Feature
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab4" data-link="16">
-            <p>
-              Media 3 <br />
-              <span>
-                 Menyusun Draf Teks Feature
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab4" data-link="17">
-            <p>
-              Media 4 <br />
-              <span>
-                 Menyiapkan Presentasi
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-          <div class="link pointer" data-label="bab4" data-link="18">
-            <p>
-              Media 5 <br />
-              <span>
-                  Game Refleksi Penutup
-              </span>
-            </p>
-            <div data-icon="../../public/feather/chevron-right.svg"></div>
-          </div>
-        </div>
-      </div>
+  <div class="menu-header">
+    <h3>DAFTAR MENU</h3>
+    <div class="close-btn pointer" onclick="toggleMenu()" title="Tutup Menu">
+      <div data-icon="../../public/feather/x.svg"></div>
     </div>
+  </div>
+
+  <div class="link-group">
+    <div class="links">
+      <!-- Beranda -->
+      <div class="title pointer" data-link="0" onclick="toggleLink(event)">
+        <p>Beranda</p>
+        <div data-icon="../../public/feather/home.svg"></div>
+      </div>
+
+      <!-- BAB I -->
+      <div class="link-parent pointer" data-target="bab1" data-state="close" onclick="toggleLink(event)">
+        <p>
+          <strong>Bab I</strong><br />
+          <span>Menulis Surat Lamaran Kerja dan Daftar Riwayat Hidup yang Mengesankan</span>
+        </p>
+        <div class="icon-arrow" data-icon="../../public/feather/chevron-down.svg"></div>
+        <div class="icon-arrow hide" data-icon="../../public/feather/chevron-up.svg"></div>
+      </div>
+      <!-- Media Group Bab I -->
+      <div class="link-child pointer" data-label="bab1" data-link="1">
+        <p><strong>Media 1</strong><br /><span>Menulis Surat Lamaran Kerja & Daftar Riwayat Hidup</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab1" data-link="2">
+        <p><strong>Media 4</strong><br /><span>Menulis Surat Lamaran Kerja Efektif & Mendesain CV Digital</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab1" data-link="3">
+        <p><strong>Media 5</strong><br /><span>Simulasi Wawancara Kerja</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+
+      <!-- BAB II -->
+      <div class="link-parent pointer" data-target="bab2" data-state="close" onclick="toggleLink(event)">
+        <p>
+          <strong>Bab II</strong><br />
+          <span>Layar Kecil, Pikiran Besar: Literasi dari Film Pendek</span>
+        </p>
+        <div class="icon-arrow" data-icon="../../public/feather/chevron-down.svg"></div>
+        <div class="icon-arrow hide" data-icon="../../public/feather/chevron-up.svg"></div>
+      </div>
+      <!-- Media Group Bab II -->
+      <div class="link-child pointer" data-label="bab2" data-link="4">
+        <p><strong>Media 1</strong><br /><span>Apersepsi Film Pendek</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab2" data-link="5">
+        <p><strong>Media 2</strong><br /><span>Menyimak Kritis Film Pendek</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab2" data-link="6">
+        <p><strong>Media 3</strong><br /><span>Ekranisasi & Simulator Storyboard Sederhana</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab2" data-link="7">
+        <p><strong>Media 4</strong><br /><span>Manajemen dan Alur Produksi Film Pendek</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab2" data-link="8">
+        <p><strong>Media 5</strong><br /><span>Publikasi Karya Film Pendek</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+
+      <!-- BAB III -->
+      <div class="link-parent pointer" data-target="bab3" data-state="close" onclick="toggleLink(event)">
+        <p>
+          <strong>Bab III</strong><br />
+          <span>Menelusuri Realitas Sosial melalui Drama Indonesia dan Dunia</span>
+        </p>
+        <div class="icon-arrow" data-icon="../../public/feather/chevron-down.svg"></div>
+        <div class="icon-arrow hide" data-icon="../../public/feather/chevron-up.svg"></div>
+      </div>
+      <!-- Media Group Bab III -->
+      <div class="link-child pointer" data-label="bab3" data-link="9">
+        <p><strong>Media 1</strong><br /><span>Siap-Siap Belajar & Ayo Mengingat Kembali</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab3" data-link="10">
+        <p><strong>Media 2</strong><br /><span>H5P Menyimak Kritis Video Drama</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab3" data-link="11">
+        <p><strong>Media 3</strong><br /><span>Anatomi Bagian-Bagian Naskah Drama</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab3" data-link="12">
+        <p><strong>Media 4</strong><br /><span>Eksplorasi Unsur Pementasan Drama</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab3" data-link="13">
+        <p><strong>Media 5</strong><br /><span>Desain Poster dan Promosi Drama</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+
+      <!-- BAB IV -->
+      <div class="link-parent pointer" data-target="bab4" data-state="close" onclick="toggleLink(event)">
+        <p>
+          <strong>Bab IV</strong><br />
+          <span>Mengeksplorasi Khazanah Budaya Nusantara melalui Feature Berbasis Digital</span>
+        </p>
+        <div class="icon-arrow" data-icon="../../public/feather/chevron-down.svg"></div>
+        <div class="icon-arrow hide" data-icon="../../public/feather/chevron-up.svg"></div>
+      </div>
+      <!-- Media Group Bab IV -->
+      <div class="link-child pointer" data-label="bab4" data-link="14">
+        <p><strong>Media 1</strong><br /><span>Apersepsi & Pemetaan Informasi Budaya</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab4" data-link="15">
+        <p><strong>Media 2</strong><br /><span>Menyusun Draf Teks Feature</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab4" data-link="16">
+        <p><strong>Media 3</strong><br /><span>Sunting Teks & Integrasi Media Digital</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab4" data-link="17">
+        <p><strong>Media 4</strong><br /><span>Menyiapkan Presentasi & Publikasi</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+      <div class="link-child pointer" data-label="bab4" data-link="18">
+        <p><strong>Media 5</strong><br /><span>Game Refleksi Penutup</span></p>
+        <div data-icon="../../public/feather/chevron-right.svg"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 `)
 
 document.querySelectorAll("[data-icon]").forEach(el => {
@@ -382,3 +283,29 @@ function navigate(el) {
   el.addEventListener("click", () => window.location = ("../" + route[el.dataset.link]))
 }
 document.querySelectorAll("[data-link]").forEach(el => navigate(el));
+
+function getDate() {
+  const date = new Date();
+
+  const hari = date.toLocaleDateString("id-ID", { weekday: "long" });
+
+  const tanggal = date.toLocaleDateString("id-ID", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })
+
+  return `${hari}, ${tanggal}`
+}
+
+function printPage() {
+  document.body.classList.add("print");
+
+  // Timeout bersarang untuk memberikan DOM reflow rendering template display: grid
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => {
+      document.body.classList.remove("print");
+    }, 500);
+  }, 150);
+}

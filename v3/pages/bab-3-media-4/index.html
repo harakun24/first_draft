@@ -23,103 +23,218 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
 
           <div
             class="segmen pointer"
             data-jump="pilih"
             onclick="jumpSegmen(event)">
-            <b>Mulai</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Mulai</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-jump="latar"
             onclick="jumpSegmen(event)">
-            <b>Latar</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Isi Latar</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-jump="aksi"
             onclick="jumpSegmen(event)">
-            <b>Aksi</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Isi Dialog</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+
+          <div
+            class="segmen pointer"
+            data-jump="ekspor"
+            onclick="jumpSegmen(event)">
+            <span>Pratinjau</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
         </div>
         <div class="play-area">
-          <div class="area pilih">
-            <h1>Siap untuk melakukan simulasi?</h1>
-            <p>klik untuk memulai</p>
-            <button class="pointer" onclick="goto('latar')">
-              Mulai Simulasi
-              <div data-icon="../../public/feather/arrow-right.svg"></div>
-            </button>
+          <!-- AREA 1: PILIH (Mulai Simulasi) -->
+          <div class="area pilih active">
+            <div class="card hero-card">
+              <div
+                class="hero-icon"
+                data-icon="../../public/feather/play-circle.svg"></div>
+              <h1>Siap untuk Melakukan Simulasi?</h1>
+              <p>
+                Susun naskah drama Anda secara bertahap melalui langkah
+                interaktif berikut.
+              </p>
+              <button class="btn-primary pointer" onclick="goto('latar')">
+                Mulai Simulasi
+                <div data-icon="../../public/feather/arrow-right.svg"></div>
+              </button>
+            </div>
           </div>
+
+          <!-- AREA 2: LATAR -->
           <div class="area latar">
-            <b>Isi detail berikut untuk menyusun naskah latar</b>
-            <div class="form">
-              <div class="prev">
-                <b>Pratinjau Hasil</b>
-                <p class="txtPrev latar"></p>
+            <div class="section-header">
+              <h3>Pengaturan Latar & Kramagung</h3>
+              <p>Isi detail berikut untuk menyusun naskah latar babak.</p>
+            </div>
+
+            <div class="form-container">
+              <div class="card prev-card">
+                <div class="card-title">
+                  <div data-icon="../../public/feather/eye.svg"></div>
+                  <h4>Pratinjau Hasil</h4>
+                </div>
+                <div class="preview-content">
+                  <p class="txtPrev latar">
+                    <em>Belum ada data yang diisi...</em>
+                  </p>
+                </div>
               </div>
-              <div class="fill">
+
+              <div class="card fill-card">
                 <div class="input-group" data-latar="nama">
-                  <b>Nama Babak</b>
+                  <label for="latar-nama">Nama Babak</label>
                   <input
                     type="text"
+                    id="latar-nama"
                     placeholder="Contoh: Prolog / Babak I"
                     oninput="fillLatar(event)" />
                 </div>
                 <div class="input-group" data-latar="kramagung">
-                  <b>Kramagung Pembuka</b>
+                  <label for="latar-kramagung">Kramagung Pembuka</label>
                   <textarea
-                    placeholder="Contoh: Sebuah meunasah tua dengan dindingnya yang menguning serta dedaunan
-kering di atap."
+                    id="latar-kramagung"
+                    placeholder="Contoh: Sebuah meunasah tua dengan dindingnya yang menguning serta dedaunan kering di atap."
                     oninput="fillLatar(event)"></textarea>
                 </div>
-                <div class="save">
-                  <button class="pointer" onclick="goto('aksi')">
-                    Lanjut
+                <div class="save-action">
+                  <button class="btn-primary pointer" onclick="goto('aksi')">
+                    Lanjut ke Dialog
                     <div data-icon="../../public/feather/arrow-right.svg"></div>
                   </button>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- AREA 3: AKSI / DIALOG -->
           <div class="area aksi">
-            <b>Isi detail berikut untuk menyusun aksi</b>
-            <div class="form">
-              <div class="prev">
-                <b>Pratinjau Hasil</b>
-                <p class="txtPrev aksi"></p>
+            <div class="section-header">
+              <h3>Penyusunan Dialog Tokoh</h3>
+              <p>
+                Isi detail berikut untuk menyusun dialog dan petunjuk aksi
+                tokoh.
+              </p>
+            </div>
+
+            <div class="form-container">
+              <div class="card prev-card">
+                <div class="card-title">
+                  <div data-icon="../../public/feather/eye.svg"></div>
+                  <h4>Pratinjau Hasil</h4>
+                </div>
+                <div class="preview-content">
+                  <p class="txtPrev aksi">
+                    <em>Belum ada data yang diisi...</em>
+                  </p>
+                </div>
               </div>
-              <div class="fill">
+
+              <div class="card fill-card">
                 <div class="input-group" data-aksi="nama">
-                  <b>Nama Tokoh</b>
+                  <label for="aksi-nama">Nama Tokoh</label>
                   <input
                     type="text"
+                    id="aksi-nama"
                     placeholder="Contoh: NYOMAN"
                     oninput="fillAksi(event)" />
                 </div>
                 <div class="input-group" data-aksi="aksi">
-                  <b>Tindakan yang dilakukan</b>
+                  <label for="aksi-tindakan">Tindakan / Kramagung Tokoh</label>
                   <textarea
-                    placeholder="Contoh: Menggenggam boneka lalu memeluknya."
+                    id="aksi-tindakan"
+                    placeholder="Contoh: Menggenggam boneka lalu memeluknya erat."
                     oninput="fillAksi(event)"></textarea>
                 </div>
                 <div class="input-group" data-aksi="dialog">
-                  <b>Dialog</b>
+                  <label for="aksi-dialog">Dialog Tokoh</label>
                   <textarea
-                    placeholder="Isi dengan apa yang diucapkan oleh tokoh tersebut"
+                    id="aksi-dialog"
+                    placeholder="Tuliskan kalimat dialog yang diucapkan oleh tokoh."
                     oninput="fillAksi(event)"></textarea>
                 </div>
-                <div class="save">
-                  <button class="pointer" onclick="goto('dialog')">
-                    Lanjut
+                <div class="save-action">
+                  <button class="btn-primary pointer" onclick="goto('ekspor')">
+                    Lanjut ke Pratinjau
                     <div data-icon="../../public/feather/arrow-right.svg"></div>
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AREA 4: EKSPOR / PRATINJAU -->
+          <div class="area ekspor">
+            <div class="section-header">
+              <h3>Pratinjau & Ekspor Naskah</h3>
+              <p>Periksa kembali kelengkapan naskah sebelum mengunduh hasil.</p>
+            </div>
+
+            <div class="form-container">
+              <div class="card prev-card document-preview">
+                <div class="card-title">
+                  <div data-icon="../../public/feather/file-text.svg"></div>
+                  <h4>Kerangka Naskah</h4>
+                </div>
+                <div class="doc-body">
+                  <div class="group-txt latar">
+                    <h4 class="babak">BABAK I</h4>
+                    <p class="sub">
+                      (Petunjuk kramagung babak akan tampil di sini)
+                    </p>
+                  </div>
+                  <div class="group-txt dial">
+                    <strong class="tokoh">NAMA TOKOH</strong>
+                    <p class="sub">(Petunjuk aksi tokoh)</p>
+                    <p class="dialog">"Teks dialog akan tampil di sini."</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card fill-card">
+                <div class="input-group" data-label="nama">
+                  <label for="exp-nama">Nama Penulis</label>
+                  <input
+                    type="text"
+                    id="exp-nama"
+                    placeholder="Isi nama lengkap Anda" />
+                </div>
+                <div class="input-group" data-label="kelas">
+                  <label for="exp-kelas">Kelas / Rombel</label>
+                  <input
+                    type="text"
+                    id="exp-kelas"
+                    placeholder="Contoh: XII Bahasa 1" />
+                </div>
+                <button
+                  class="btn-primary pointer full-btn"
+                  onclick="savePdf()">
+                  <div data-icon="../../public/feather/download.svg"></div>
+                  Simpan Hasil Naskah (PDF)
+                </button>
               </div>
             </div>
           </div>
@@ -129,123 +244,82 @@ kering di atap."
     <div class="footer">
       <p>&copy; BEI 2026</p>
     </div>
-    <div class="table">
-      <h1>BEI 2026 | Bahasa Indonesia</h1>
-      <p>
-        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
-        55281 <br />
-        Telp: (0274) 884201 | Email: bei@2026.ac.id
-      </p>
-      <hr />
-      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
-      <p class="datespan">
-        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
-      </p>
-      <h3>
-        Nama Kelompok : <span class="kelompok"></span> <br />
-        Kelas : <span class="kelas"></span>
-      </h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Nomor</th>
-            <th>Nama Anggota</th>
-          </tr>
-        </thead>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
 
-        <tbody data-table="persiapan"></tbody>
-      </table>
-      <h3>Hasil Analisis <span class="pililan-title"></span></h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Pertanyaan</th>
-            <th>Jawaban</th>
-          </tr>
-        </thead>
-        <tbody data-table="analisis"></tbody>
-      </table>
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3>LAPORAN BELAJAR MENULIS NASKAH</h3>
+        <span class="doc-code">Dokumen Hasil Praktikum Mandiri</span>
+      </div>
 
-      <div class="last">
-        <span> [Kota, dd/mm/yyyy] </span>
-        <b><u>BEI 2026</u></b>
-        <span>Fasilitator</span>
+      <!-- METADATA IDENTITAS SISWA -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Siswa</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Cetak</span>
+          <span class="colon">:</span>
+          <span class="value date-txt">DD/MM/YYYY</span>
+        </div>
       </div>
-    </div>
-    <div class="modal latar" popover>
-      <div class="title">Latar</div>
-      <div class="group-text">
-        <b>Fungsi dalam pementasan</b>
-        <div class="field">
+
+      <!-- TABEL HASIL NASKAH -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th class="col-main">Hasil</th>
+            </tr>
+          </thead>
+          <tbody data-table="naskah">
+            <!-- Contoh Baris Data (Akan Diisi Dinamis via JS) -->
+            <tr>
+              <td>
+                <div class="script-output">
+                  <strong class="section-tag">BABAK I: PROLOG</strong>
+                  <p class="">
+                    ( Sebuah meunasah tua dengan dindingnya yang menguning serta
+                    dedaunan kering di atap.)
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FOOTER / AREA TANDA TANGAN & PENGESAHAN -->
+      <div class="report-footer">
+        <div class="footer-note">
           <p>
-            Latar berfungsi memberikan gambaran mengenai konteks tempat, waktu,
-            dan suasana terjadinya peristiwa dalam drama.
+            <em>*Dokumen ini diterbitkan oleh sistem BEI.</em>
           </p>
         </div>
-      </div>
-      <div class="group-text">
-        <b>Kutipan</b>
-        <div class="field">
-          <p>
-            Sebuah meunasah tua dengan dindingnya yang menguning serta dedaunan
-            kering di atap.
+        <!-- <div class="signature-box">
+          <p class="sign-location">
+            Yogyakarta, <span class="current-date">DD/MM/YYYY</span>
           </p>
-        </div>
-      </div>
-    </div>
-    <div class="modal kramagung" popover>
-      <div class="title">Kramagung</div>
-      <div class="group-text">
-        <b>Fungsi dalam pementasan</b>
-        <div class="field">
-          <p>
-            Kramagung berfungsi memberikan petunjuk teknis terkait gerakan,
-            ekspresi, serta tindakan fisik yang harus dilakukan pemeran di
-            panggung.
-          </p>
-        </div>
-      </div>
-      <div class="group-text">
-        <b>Kutipan</b>
-        <div class="field">
-          <p>(Tersenyum)</p>
-        </div>
-      </div>
-    </div>
-    <div class="modal tokoh" popover>
-      <div class="title">Tokoh</div>
-      <div class="group-text">
-        <b>Fungsi dalam pementasan</b>
-        <div class="field">
-          <p>
-            Tokoh berfungsi sebagai penggerak jalan cerita yang membawakan
-            konflik, aksi, dan karakter dalam pertunjukan.
-          </p>
-        </div>
-      </div>
-      <div class="group-text">
-        <b>Kutipan</b>
-        <div class="field">
-          <p>POLEM IBRAHIM</p>
-        </div>
-      </div>
-    </div>
-    <div class="modal dialog" popover>
-      <div class="title">Tokoh</div>
-      <div class="group-text">
-        <b>Fungsi dalam pementasan</b>
-        <div class="field">
-          <p>
-            Dialog berfungsi mengomunikasikan alur cerita, emosi, serta
-            interaksi antarperan melalui percakapan lisan.
-          </p>
-        </div>
-      </div>
-      <div class="group-text">
-        <b>Kutipan</b>
-        <div class="field">
-          <p>Ini bangunan tua yang tahan digempur Belanda itu ya?</p>
-        </div>
+          <p class="sign-title">Fasilitator / Guru Pendamping,</p>
+          <div class="sign-space"></div>
+          <p class="sign-name"><strong>BEI 2026</strong></p>
+          <span class="sign-nip">NIP. —</span>
+        </div> -->
       </div>
     </div>
     <script src="../../public/scripts/iframe_api.js"></script>

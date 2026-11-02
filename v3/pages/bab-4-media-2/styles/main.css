@@ -24,11 +24,11 @@
         box-shadow: var(--box);
         height: fit-content;
 
-        >b {
+        > b {
           text-align: center;
         }
 
-        >* {
+        > * {
           grid-column: span 2;
         }
 
@@ -85,7 +85,7 @@
           }
 
           &.drop {
-            &>span {
+            & > span {
               grid-column: span 2;
               /* height: fit-content; */
               opacity: 0.7;
@@ -110,7 +110,7 @@
               overflow-y: scroll;
               scrollbar-width: none;
 
-              &>span {
+              & > span {
                 /* position: sticky; */
                 top: 0;
                 text-align: center;
@@ -413,12 +413,11 @@
   }
 }
 
-
 /* =========================================
    FIX LAYOUT BAB IV MEDIA 2
 ========================================= */
 
-.main>.view.m2-layout[data-view="1"] {
+.main > .view.m2-layout[data-view="1"] {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
   align-items: start;
@@ -428,7 +427,7 @@
   box-sizing: border-box;
 }
 
-.main>.view.m2-layout[data-view="1"]>.segmen-tab {
+.main > .view.m2-layout[data-view="1"] > .segmen-tab {
   grid-column: 1;
   grid-row: 1;
   width: 100%;
@@ -436,7 +435,7 @@
   box-sizing: border-box;
 }
 
-.main>.view.m2-layout[data-view="1"]>.content-column {
+.main > .view.m2-layout[data-view="1"] > .content-column {
   grid-column: 2;
   grid-row: 1;
   display: block;
@@ -445,34 +444,39 @@
   box-sizing: border-box;
 }
 
-.main>.view.m2-layout[data-view="1"]>.content-column>.content-panel {
+.main > .view.m2-layout[data-view="1"] > .content-column > .content-panel {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
 }
 
-.main>.view.m2-layout[data-view="1"]>.content-column>.content-panel:not(.active) {
+.main
+  > .view.m2-layout[data-view="1"]
+  > .content-column
+  > .content-panel:not(.active) {
   display: none;
 }
 
-.main>.view.m2-layout[data-view="1"]>.content-column>.content-panel.active {
+.main
+  > .view.m2-layout[data-view="1"]
+  > .content-column
+  > .content-panel.active {
   display: grid;
   align-content: start;
   gap: var(--m);
 }
 
 @media (max-width: 768px) {
-  .main>.view.m2-layout[data-view="1"] {
+  .main > .view.m2-layout[data-view="1"] {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .main>.view.m2-layout[data-view="1"]>.segmen-tab,
-  .main>.view.m2-layout[data-view="1"]>.content-column {
+  .main > .view.m2-layout[data-view="1"] > .segmen-tab,
+  .main > .view.m2-layout[data-view="1"] > .content-column {
     grid-column: 1;
     grid-row: auto;
   }
 }
-
 
 .m2-progress {
   display: grid;
@@ -556,7 +560,7 @@
   gap: 8px;
 }
 
-.m2-marker-info>div {
+.m2-marker-info > div {
   display: grid;
   gap: 3px;
   padding: 10px;
@@ -732,7 +736,9 @@
   color: inherit;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .m2-adik-card:hover {
@@ -759,7 +765,7 @@
   overflow-wrap: anywhere;
 }
 
-.m2-adik-card>span:last-child {
+.m2-adik-card > span:last-child {
   font-size: 0.8rem;
   line-height: 1.5;
   opacity: 0.8;
@@ -796,7 +802,7 @@
   gap: 10px;
 }
 
-.m2-review-card>p {
+.m2-review-card > p {
   white-space: pre-wrap;
   flex: 1;
 }
@@ -890,7 +896,7 @@
     print-color-adjust: exact;
   }
 
-  body.printing-portfolio>* {
+  body.printing-portfolio > * {
     visibility: hidden !important;
   }
 
@@ -962,7 +968,7 @@
     gap: 9px;
   }
 
-  .m2-print-identity>div {
+  .m2-print-identity > div {
     padding: 10px;
     border: 1px solid #d7e0eb;
     background: #f8fafc;
@@ -1026,7 +1032,7 @@
     gap: 8px;
   }
 
-  .m2-print-status>div {
+  .m2-print-status > div {
     padding: 9px;
     border: 1px solid #d7e0eb;
     background: #f0f5fb;
@@ -1086,13 +1092,12 @@
   }
 }
 
-
 /* ==========================================
    PUSBUK — PERAPIAN AREA KONTEN MEDIA 2
 ========================================== */
 
 /* Area utama di sebelah kanan sidebar */
-.main>.view.m2-layout[data-view="1"]>.content-column {
+.main > .view.m2-layout[data-view="1"] > .content-column {
   min-width: 0;
   padding: 22px;
   border: 1px solid #d6e2ef;
@@ -1103,7 +1108,10 @@
 }
 
 /* Jarak dan tipografi setiap panel */
-.main>.view.m2-layout[data-view="1"]>.content-column>.content-panel.active {
+.main
+  > .view.m2-layout[data-view="1"]
+  > .content-column
+  > .content-panel.active {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-content: start;
@@ -1211,7 +1219,7 @@
   margin-top: 3px;
 }
 
-.m2-layout .m2-marker-info>div {
+.m2-layout .m2-marker-info > div {
   padding: 11px 12px;
   border: 1px solid #e1eaf5;
   border-radius: 9px;
@@ -1259,7 +1267,9 @@
   font-size: 0.83rem;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .m2-layout .timestamp-chip:hover {
@@ -1331,7 +1341,7 @@
 ========================================== */
 
 @media (max-width: 1050px) {
-  .main>.view.m2-layout[data-view="1"]>.content-column {
+  .main > .view.m2-layout[data-view="1"] > .content-column {
     padding: 17px;
   }
 
@@ -1349,12 +1359,15 @@
 }
 
 @media (max-width: 768px) {
-  .main>.view.m2-layout[data-view="1"]>.content-column {
+  .main > .view.m2-layout[data-view="1"] > .content-column {
     padding: 14px;
     border-radius: 12px;
   }
 
-  .main>.view.m2-layout[data-view="1"]>.content-column>.content-panel.active {
+  .main
+    > .view.m2-layout[data-view="1"]
+    > .content-column
+    > .content-panel.active {
     gap: 15px;
   }
 
@@ -1369,7 +1382,6 @@
 }
 
 @media (max-width: 480px) {
-
   .m2-layout .m2-adik-grid,
   .m2-layout .m2-review-list {
     grid-template-columns: minmax(0, 1fr);
@@ -1379,7 +1391,6 @@
     width: 100%;
   }
 }
-
 
 /* Tombol Pelajari ADIKSIMBA */
 .m2-layout .action-row button[data-go="adik"],
@@ -1446,7 +1457,6 @@
     min-height: 46px;
   }
 }
-
 
 /* ========================================
    TOMBOL TINJAU CUPLIKAN & EDIT

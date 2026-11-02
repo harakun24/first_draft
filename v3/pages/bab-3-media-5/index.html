@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab III media 5 | Desain Poster dan Promosi Drama</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../public/images/favicon.png"
+      type="image/x-icon" />
+  </head>
+  <body data-refer="0">
+    <div class="header">
+      <div class="icon pointer" onclick="toggleMenu()">
+        <div data-icon="../../public/feather/menu.svg"></div>
+      </div>
+      <div class="title-page">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="view active" data-view="1">
+        <div class="segmen-tab">
+          <h3 class="nav-title">Daftar Segmen</h3>
+
+          <div
+            class="segmen pointer"
+            data-jump="video"
+            onclick="jumpSegmen(event)">
+            <span>Video Pengantar</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="poster"
+            onclick="jumpSegmen(event)">
+            <span>Pilih Poster</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="rencana"
+            onclick="jumpSegmen(event)">
+            <span>Rencana</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+          <div
+            class="segmen pointer"
+            data-jump="ekspor"
+            onclick="jumpSegmen(event)">
+            <span>Ekspor</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
+          </div>
+        </div>
+        <div class="play-area">
+          <div class="area video">
+            <div id="player"></div>
+          </div>
+          <!-- AREA POSTER -->
+          <div class="area poster">
+            <div class="section-header">
+              <h3>Pilih Poster Drama</h3>
+              <p>
+                Pilih konsep visual poster yang paling cocok untuk menggambarkan
+                naskah drama Anda.
+              </p>
+            </div>
+
+            <div class="options-grid">
+              <!-- POSTER 1 -->
+              <div
+                class="poster-card pointer"
+                data-poster="1"
+                onclick="choose(event)">
+                <div class="poster-preview poster-1">
+                  <!-- Area gambar/sampul poster -->
+                  <span class="poster-label">Konsep Minimalis</span>
+                </div>
+                <button class="btn-select">
+                  <div data-icon="../../public/feather/check-circle.svg"></div>
+                  <span>Pilih Poster Ini</span>
+                </button>
+              </div>
+
+              <!-- POSTER 2 -->
+              <div
+                class="poster-card pointer"
+                data-poster="2"
+                onclick="choose(event)">
+                <div class="poster-preview poster-2">
+                  <!-- Area gambar/sampul poster -->
+                  <span class="poster-label">Konsep Ekspresif</span>
+                </div>
+                <button class="btn-select">
+                  <div data-icon="../../public/feather/check-circle.svg"></div>
+                  <span>Pilih Poster Ini</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-footer">
+              <button class="btn-primary pointer" onclick="goto('rencana')">
+                Lanjut ke Perencanaan
+                <div data-icon="../../public/feather/arrow-right.svg"></div>
+              </button>
+            </div>
+          </div>
+          <!-- AREA RENCANA PUBLIKASI -->
+          <div class="area rencana">
+            <div class="section-header">
+              <h3>Perencanaan Saluran Publikasi</h3>
+              <p>
+                Pilih media publikasi yang akan digunakan untuk mempromosikan
+                naskah drama Anda.
+              </p>
+            </div>
+
+            <div class="rencana-container">
+              <!-- AREA FORM PILIHAN MEDIA -->
+              <div class="form-field">
+                <!-- Grup Saluran Digital -->
+                <div class="card form-group" data-media="digital">
+                  <h4 class="group-title">
+                    <div data-icon="../../public/feather/share-2.svg"></div>
+                    <span>Saluran Digital</span>
+                  </h4>
+                  <div class="checkbox-grid">
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="digital_media"
+                        value="instagram"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">Instagram</span>
+                    </label>
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="digital_media"
+                        value="tiktok"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">TikTok</span>
+                    </label>
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="digital_media"
+                        value="facebook"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">Facebook</span>
+                    </label>
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="digital_media"
+                        value="youtube"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">YouTube</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Grup Saluran Cetak Fisik -->
+                <div class="card form-group" data-media="cetak">
+                  <h4 class="group-title">
+                    <div data-icon="../../public/feather/printer.svg"></div>
+                    <span>Saluran Cetak Fisik</span>
+                  </h4>
+                  <div class="checkbox-grid">
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="cetak_media"
+                        value="poster"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">Poster</span>
+                    </label>
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="cetak_media"
+                        value="mading"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">Mading Sekolah</span>
+                    </label>
+                    <label class="media-option pointer">
+                      <input
+                        type="checkbox"
+                        name="cetak_media"
+                        value="brosur"
+                        onchange="choose(event)" />
+                      <span class="custom-checkbox"></span>
+                      <span class="option-label">Brosur / Selebaran</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SIDEBAR RINGKASAN PILIHAN -->
+              <div class="card detail summary-card">
+                <div class="card-title">
+                  <div data-icon="../../public/feather/pie-chart.svg"></div>
+                  <h4>Ringkasan Pilihan</h4>
+                </div>
+                <table class="summary-table">
+                  <tr>
+                    <td>Saluran Digital</td>
+                    <td class="text-right">
+                      <strong class="digital">0</strong> <small>kanal</small>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Cetak / Fisik</td>
+                    <td class="text-right">
+                      <strong class="cetak">0</strong> <small>kanal</small>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="action-footer">
+              <button class="btn-primary pointer" onclick="goto('ekspor')">
+                Lanjut Ekspor
+                <div data-icon="../../public/feather/arrow-right.svg"></div>
+              </button>
+            </div>
+          </div>
+          <!-- AREA EKSPOR DATA KELOMPOK -->
+          <div class="area ekspor">
+            <div class="section-header">
+              <h3>Isi Data Kelompok & Unduh Laporan</h3>
+              <p>
+                Lengkapi data identitas kelompok Anda sebelum mengunduh hasil
+                perencanaan naskah.
+              </p>
+            </div>
+
+            <div class="ekspor-container">
+              <div class="card fill-card">
+                <div class="card-title">
+                  <div data-icon="../../public/feather/users.svg"></div>
+                  <h4>Formulir Identitas Kelompok</h4>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-group" data-input="nama">
+                    <label for="nama-kelompok">Nama Kelompok</label>
+                    <input
+                      type="text"
+                      id="nama-kelompok"
+                      placeholder="Contoh: Kelompok 1 - Sanggar Drama" />
+                  </div>
+
+                  <div class="input-group" data-input="kelas">
+                    <label for="kelas-kelompok">Kelas / Rombel</label>
+                    <input
+                      type="text"
+                      id="kelas-kelompok"
+                      placeholder="Contoh: XII Bahasa 1" />
+                  </div>
+
+                  <div class="input-group" data-input="judul">
+                    <label for="judul-drama">Judul Drama</label>
+                    <input
+                      type="text"
+                      id="judul-drama"
+                      placeholder="Contoh: Menanti Senja di Meunasah" />
+                  </div>
+                </div>
+
+                <div class="action-footer">
+                  <button
+                    class="btn-primary pointer full-btn"
+                    onclick="savePdf()">
+                    <div data-icon="../../public/feather/download.svg"></div>
+                    <span>Unduh Laporan (PDF)</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; BEI 2026</p>
+    </div>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
+
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3>LAPORAN PERENCANAAN SALURAN PUBLIKASI</h3>
+        <span class="doc-code">Dokumen Hasil Praktikum Mandiri</span>
+      </div>
+
+      <!-- METADATA IDENTITAS KELOMPOK -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Kelompok</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Judul Drama</span>
+          <span class="colon">:</span>
+          <strong class="value judul">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Cetak</span>
+          <span class="colon">:</span>
+          <span class="value date-txt">DD/MM/YYYY</span>
+        </div>
+      </div>
+
+      <!-- TABEL HASIL PERENCANAAN PUBLIKASI -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th class="col-main">Rincian Saluran Publikasi yang Dipilih</th>
+            </tr>
+          </thead>
+          <tbody data-table="naskah">
+            <!-- Diisi dinamis via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FOOTER CATATAN SISTEM (TANPA SIGNATURE BOX) -->
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="../../public/scripts/iframe_api.js"></script>
+    <script src="../../public/scripts/html2canvas.min_2.js"></script>
+    <script src="../../public/scripts/jspdf.umd.min_2.js"></script>
+    <script src="../../public/scripts/global-script.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

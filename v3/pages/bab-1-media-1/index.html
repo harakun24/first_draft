@@ -26,42 +26,58 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
+
           <div class="segmen pointer" data-time="0" onclick="jumpSegmen(event)">
-            <b>Pembukaan</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Pembukaan</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-time="20"
             onclick="jumpSegmen(event)">
-            <b>Dokumen Lamaran</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Dokumen Lamaran</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-time="76"
             onclick="jumpSegmen(event)">
-            <b>Detail Bahasa</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Detail Bahasa</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-time="112"
             onclick="jumpSegmen(event)">
-            <b>Kelengkapan Dokumen</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Kelengkapan Dokumen</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <div
             class="segmen pointer"
             data-time="133"
             onclick="jumpSegmen(event)">
-            <b>Desain CV</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Desain CV</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
+
           <button class="next pointer" onclick="nextView()">
             <div data-icon="../../public/feather/external-link.svg"></div>
-            <b>Mulai Koreksi</b>
+            <span>Mulai Koreksi</span>
           </button>
         </div>
         <div id="player"></div>
