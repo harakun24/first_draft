@@ -239,5 +239,7 @@ function saveAnalisis() {
     </tr>
     `);
   });
-  savePdf();
+  // savePdf();
+  document.querySelector(".date-txt").textContent = getDate();
+  printPage()
 }

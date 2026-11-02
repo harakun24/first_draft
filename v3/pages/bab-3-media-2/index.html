@@ -23,145 +23,258 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
 
           <div
             class="segmen pointer"
             data-jump="pilih"
             onclick="jumpSegmen(event)">
-            <b>Pilih Drama</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Pilih Drama</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="persiapan"
             onclick="jumpSegmen(event)">
-            <b>Persiapan</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Persiapan</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="video"
             onclick="jumpSegmen(event)">
-            <b>Simak Video</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Simak Video</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-jump="analisis"
             onclick="jumpSegmen(event)">
-            <b>Analisis</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Analisis</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
         </div>
         <div class="play-area">
           <div class="area pilih">
-            <div class="box">
-              <b class="label">Drama Indonesia</b>
-              <div class="img"></div>
-              <h3>Mager</h3>
-              <p>Sinopsis Drama</p>
-              <button class="pointer" onclick="pilihVideo('Drama Mager')">
-                Pilih Video
-                <div data-icon="../../public/feather/arrow-right.svg"></div>
-              </button>
-            </div>
-            <div class="box">
-              <b class="label">Drama Dunia</b>
-              <div class="img"></div>
-              <h3>Antigone</h3>
-              <p>Sinopsis Drama</p>
-              <button class="pointer" onclick="pilihVideo('Drama Antigone')">
-                Pilih Video
-                <div data-icon="../../public/feather/arrow-right.svg"></div>
-              </button>
+            <div class="pilih-container">
+              <div class="fill-card">
+                <div class="card-title">
+                  <h4>Pilih Drama</h4>
+                </div>
+
+                <div class="drama-grid">
+                  <!-- Drama Indonesia -->
+                  <div class="box">
+                    <b class="label">Drama Indonesia</b>
+
+                    <div class="img"></div>
+
+                    <div class="drama-info">
+                      <h3>Mager</h3>
+                      <p>Sinopsis Drama</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      class="pointer"
+                      onclick="pilihVideo('Drama Mager')">
+                      Pilih Video
+                      <div
+                        data-icon="../../public/feather/arrow-right.svg"></div>
+                    </button>
+                  </div>
+
+                  <!-- Drama Dunia -->
+                  <div class="box">
+                    <b class="label">Drama Dunia</b>
+
+                    <div class="img"></div>
+
+                    <div class="drama-info">
+                      <h3>Antigone</h3>
+                      <p>Sinopsis Drama</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      class="pointer"
+                      onclick="pilihVideo('Drama Antigone')">
+                      Pilih Video
+                      <div
+                        data-icon="../../public/feather/arrow-right.svg"></div>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="area persiapan">
-            <b>Nama anggota kelompok</b>
+            <div class="persiapan-container">
+              <div class="fill-card">
+                <!-- Header -->
+                <div class="card-title">
+                  <h4>Identitas Kelompok</h4>
+                </div>
 
-            <div class="input-group" data-fill="anggota" data-key="1">
-              <label for="">1</label>
-              <input type="text" placeholder="Tulis nama anggota kelompok" />
-            </div>
-            <div class="input-group" data-fill="anggota" data-key="2">
-              <label for="">2</label>
-              <input type="text" placeholder="Tulis nama anggota kelompok" />
-            </div>
-            <div class="input-group" data-fill="anggota" data-key="3">
-              <label for="">3</label>
-              <input type="text" placeholder="Tulis nama anggota kelompok" />
-            </div>
-            <div class="input-group" data-fill="anggota" data-key="4">
-              <label for="">4</label>
-              <input type="text" placeholder="Tulis nama anggota kelompok" />
-            </div>
-            <div class="input-group" data-fill="anggota" data-key="5">
-              <label for="">5</label>
-              <input type="text" placeholder="Tulis nama anggota kelompok" />
-            </div>
-            <div class="input-last">
-              <div class="input-group" data-fill="kelas">
-                <label for="">Kelas</label>
-                <input type="text" />
+                <!-- Daftar Anggota -->
+                <div class="member-section">
+                  <b>Nama Anggota Kelompok</b>
+
+                  <div class="member-list">
+                    <div class="input-group" data-fill="anggota" data-key="1">
+                      <label for="anggota-1">1</label>
+                      <input
+                        type="text"
+                        id="anggota-1"
+                        placeholder="Tulis nama anggota kelompok" />
+                    </div>
+
+                    <div class="input-group" data-fill="anggota" data-key="2">
+                      <label for="anggota-2">2</label>
+                      <input
+                        type="text"
+                        id="anggota-2"
+                        placeholder="Tulis nama anggota kelompok" />
+                    </div>
+
+                    <div class="input-group" data-fill="anggota" data-key="3">
+                      <label for="anggota-3">3</label>
+                      <input
+                        type="text"
+                        id="anggota-3"
+                        placeholder="Tulis nama anggota kelompok" />
+                    </div>
+
+                    <div class="input-group" data-fill="anggota" data-key="4">
+                      <label for="anggota-4">4</label>
+                      <input
+                        type="text"
+                        id="anggota-4"
+                        placeholder="Tulis nama anggota kelompok" />
+                    </div>
+
+                    <div class="input-group" data-fill="anggota" data-key="5">
+                      <label for="anggota-5">5</label>
+                      <input
+                        type="text"
+                        id="anggota-5"
+                        placeholder="Tulis nama anggota kelompok" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Identitas Kelompok -->
+                <div class="input-last">
+                  <div class="input-group" data-fill="kelas">
+                    <label for="kelasKelompok">Kelas</label>
+                    <input
+                      type="text"
+                      id="kelasKelompok"
+                      placeholder="Masukkan kelas" />
+                  </div>
+
+                  <div class="input-group" data-fill="nama">
+                    <label for="namaKelompok">Nama Kelompok</label>
+                    <input
+                      type="text"
+                      id="namaKelompok"
+                      placeholder="Buat nama kelompok anda" />
+                  </div>
+                </div>
+
+                <!-- Tombol Simpan -->
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    onclick="savePersiapan()">
+                    Simpan
+                    <div data-icon="../../public/feather/save.svg"></div>
+                  </button>
+                </div>
               </div>
-              <div class="input-group" data-fill="nama">
-                <label for="">Nama Kelompok</label>
-                <input type="text" placeholder="buat nama kelompok anda" />
-              </div>
-            </div>
-            <div class="save">
-              <button class="pointer" onclick="savePersiapan()">
-                Simpan
-                <div data-icon="../../public/feather/save.svg"></div>
-              </button>
             </div>
           </div>
           <div class="area video">
-            <div id="player"></div>
-            <button class="pointer" onclick="goto('analisis')">
-              Lanjut Analisis
-              <div data-icon="../../public/feather/arrow-right.svg"></div>
-            </button>
+            <div class="video-container">
+              <div class="fill-card">
+                <!-- Pemutar Video -->
+                <div class="video-frame">
+                  <div id="player"></div>
+                </div>
+
+                <!-- Tombol Lanjut -->
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    onclick="goto('analisis')">
+                    Lanjut Analisis
+                    <div data-icon="../../public/feather/arrow-right.svg"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="area analisis">
-            <b>Mari Analisis</b>
-            <div class="input-group" data-q="q1">
-              <b
-                >Siapakah tokoh paling menonjol? Jelaskan karakteristik tokoh
-                tersebut</b
-              >
-              <textarea
-                name=""
-                id=""
-                placeholder="Tokoh paling menonjol adalah..."></textarea>
-            </div>
-            <div class="input-group" data-q="q2">
-              <b
-                >Identifikasi konflik utama cerita! Jelaskan bagaimana konflik
-                disampaikan</b
-              >
-              <textarea
-                name=""
-                id=""
-                placeholder="Konflik utama adalah..."></textarea>
-            </div>
-            <div class="input-group" data-q="q3">
-              <b
-                >Sebutkan adegan-adegan penting yang membawa pesan moral dalam
-                cerita. Jelaskan pesan dan cara penyampaiannya!</b
-              >
+            <div class="analisis-container">
+              <div class="fill-card">
+                <!-- Header -->
+                <div class="card-title">
+                  <h4>Mari Analisis</h4>
+                </div>
 
-              <textarea
-                name=""
-                id=""
-                placeholder="Adegan yang kami pilih adalah..."></textarea>
-            </div>
-            <div class="save">
-              <button class="pointer" onclick="saveAnalisis()">
-                Ekspor
-                <div data-icon="../../public/feather/save.svg"></div>
-              </button>
+                <!-- Daftar Pertanyaan -->
+                <div class="analysis-form">
+                  <div class="input-group" data-q="q1">
+                    <b>
+                      Siapakah tokoh paling menonjol? Jelaskan karakteristik
+                      tokoh tersebut
+                    </b>
+
+                    <textarea
+                      placeholder="Tokoh paling menonjol adalah..."></textarea>
+                  </div>
+
+                  <div class="input-group" data-q="q2">
+                    <b>
+                      Identifikasi konflik utama cerita! Jelaskan bagaimana
+                      konflik disampaikan
+                    </b>
+
+                    <textarea placeholder="Konflik utama adalah..."></textarea>
+                  </div>
+
+                  <div class="input-group" data-q="q3">
+                    <b>
+                      Sebutkan adegan-adegan penting yang membawa pesan moral
+                      dalam cerita. Jelaskan pesan dan cara penyampaiannya!
+                    </b>
+
+                    <textarea
+                      placeholder="Adegan yang kami pilih adalah..."></textarea>
+                  </div>
+                </div>
+
+                <!-- Tombol Ekspor -->
+                <div class="action-footer">
+                  <button
+                    type="button"
+                    class="btn-primary full-btn pointer"
+                    onclick="saveAnalisis()">
+                    Ekspor
+                    <div data-icon="../../public/feather/save.svg"></div>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -170,47 +283,74 @@
     <div class="footer">
       <p>&copy; BEI 2026</p>
     </div>
-    <div class="table">
-      <h1>BEI 2026 | Bahasa Indonesia</h1>
-      <p>
-        Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Sleman, DIY
-        55281 <br />
-        Telp: (0274) 884201 | Email: bei@2026.ac.id
-      </p>
-      <hr />
-      <h3 class="rui"><u>LAPORAN REKAPITULASI EVALUASI & LATIHAN SOAL</u></h3>
-      <p class="datespan">
-        Tanggal evaluasi : &nbsp;&nbsp;&nbsp;&nbsp; <b>DD/MM/YYYY</b>
-      </p>
-      <h3>
-        Nama Kelompok : <span class="kelompok"></span> <br />
-        Kelas : <span class="kelas"></span>
-      </h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Nomor</th>
-            <th>Nama Anggota</th>
-          </tr>
-        </thead>
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
 
-        <tbody data-table="persiapan"></tbody>
-      </table>
-      <h3>Hasil Analisis <span class="pililan-title"></span></h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Pertanyaan</th>
-            <th>Jawaban</th>
-          </tr>
-        </thead>
-        <tbody data-table="analisis"></tbody>
-      </table>
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3 class="rui"><u>LAPORAN EVALUASI LATIHAN ANALISIS</u></h3>
+        <span class="doc-code datespan">
+          Tanggal evaluasi :      <b class="date-txt">DD/MM/YYYY</b>
+        </span>
+      </div>
 
-      <div class="last">
-        <span> [Kota, dd/mm/yyyy] </span>
-        <b><u>BEI 2026</u></b>
-        <span>Fasilitator</span>
+      <!-- METADATA IDENTITAS KELOMPOK -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Kelompok</span>
+          <span class="colon">:</span>
+          <strong class="value kelompok nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+      </div>
+
+      <!-- TABEL 1: ANGGOTA KELOMPOK -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nomor</th>
+              <th>Nama Anggota</th>
+            </tr>
+          </thead>
+          <tbody data-table="persiapan"></tbody>
+        </table>
+      </div>
+
+      <!-- TABEL 2: HASIL ANALISIS -->
+      <div class="table-wrapper">
+        <h3 class="section-title">
+          Hasil Analisis <span class="pililan-title"></span>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pertanyaan</th>
+              <th>Jawaban</th>
+            </tr>
+          </thead>
+          <tbody data-table="analisis"></tbody>
+        </table>
+      </div>
+
+      <!-- FOOTER TTD -->
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
       </div>
     </div>
     <div class="modal" popover>

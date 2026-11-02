@@ -1,7 +1,7 @@
 
 let videoTimer = null;
 
-const VIDEO_ID = "h-eoJCIGpiQ";
+const VIDEO_ID = "emZbxgH9U8M";
 const STORAGE_KEY = "bei-bab4-media2";
 
 const steps = [
