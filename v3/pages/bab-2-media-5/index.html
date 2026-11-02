@@ -23,37 +23,46 @@
     <div class="main">
       <div class="view active" data-view="1">
         <div class="segmen-tab">
-          <b>Daftar Segmen</b>
+          <h3 class="nav-title">Daftar Segmen</h3>
+
           <div class="segmen pointer" data-time="0" onclick="jumpSegmen(event)">
-            <b>Pengantar Publikasi</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Pengantar Publikasi</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-time="32"
             onclick="jumpSegmen(event)">
-            <b>Metadata dan Platform</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Metadata dan Platform</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-time="74"
             onclick="jumpSegmen(event)">
-            <b>Membaca Analitik</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Membaca Analitik</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
           <div
             class="segmen pointer"
             data-time="89"
             onclick="jumpSegmen(event)">
-            <b>Ulasan Sejawat</b>
-            <div data-icon="../../public/feather/play.svg"></div>
+            <span>Ulasan Sejawat</span>
+            <div
+              class="icon-indicator"
+              data-icon="../../public/feather/chevron-right.svg"></div>
           </div>
 
           <!-- <button class="next pointer" onclick="nextView()">
-            <div data-icon="../../public/feather/external-link.svg"></div>
-            <b>Mulai Koreksi</b>
-          </button> -->
+    <div data-icon="../../public/feather/external-link.svg"></div>
+    <b>Mulai Koreksi</b>
+  </button> -->
         </div>
         <div id="player"></div>
       </div>
