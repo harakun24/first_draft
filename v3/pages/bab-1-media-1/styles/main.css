@@ -488,7 +488,6 @@
 }
 
 .table.report-document {
-  display: grid; /* Atau 'none' jika digunakan khusus untuk konversi PDF via JS */
   background-color: #ffffff;
   color: #0f172a;
   font-family:
