@@ -815,6 +815,7 @@
       }
 
       label {
+        pointer-events: none;
         flex: 1;
         font-size: 0.88rem;
         font-weight: 500;
