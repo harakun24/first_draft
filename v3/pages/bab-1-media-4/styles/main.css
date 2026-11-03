@@ -504,42 +504,8 @@
       @media (max-width: 900px) {
         /* Ubah layout menjadi 1 kolom vertikal */
         grid-template-columns: 1fr;
-        gap: var(--m, 16px);
-
-        .segmen-tab {
-          position: static; /* Lepas fitur sticky */
-          flex-direction: row; /* Jejerkan ke samping */
-          padding: 12px;
-          overflow-x: auto; /* Bisa digeser kanan-kiri (scroll) */
-          white-space: nowrap;
-          scrollbar-width: none; /* Hilangkan scrollbar fisik (Firefox) */
-
-          &::-webkit-scrollbar {
-            display: none; /* Hilangkan scrollbar fisik (Chrome/Safari) */
-          }
-
-          .nav-title {
-            display: none; /* Sembunyikan judul navigasi di HP untuk menghemat ruang */
-          }
-
-          .segmen {
-            flex: 0 0 auto;
-            padding: 10px 20px;
-            border: 1px solid #e5e7eb;
-            border-radius: 999px; /* Bentuk pill/kapsul */
-
-            .icon-indicator {
-              display: none; /* Matikan ikon panah di HP agar teks tetap fokus */
-            }
-
-            /* STATE AKTIF (MOBILE) */
-            &.active {
-              background-color: #2563eb; /* Tombol biru solid */
-              color: #ffffff;
-              border-color: #2563eb;
-            }
-          }
-        }
+        align-content: start;
+        /* gap: var(--m, 16px); */
       }
     }
   }
@@ -686,78 +652,359 @@
     transform: scale(1) translateY(0);
   }
 }
-
 .cv-doc {
-  /* background-color: var(--kertas); */
-  /* padding: var(--2m); */
-  display: grid;
-  gap: var(--m-2);
-  /* border: var(--ol); */
-  /* aspect-ratio: 1/1.414; */
-  /* width: 50vw; */
-  align-content: start;
-  color: var(--arang);
-  /* position: fixed;
-  left: -9999px; */
+  width: min(210mm, 100%);
+  min-height: 297mm;
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  padding: 16mm;
+
+  display: flex;
   display: none;
-  h2 {
-    color: var(--biru-penanda);
-  }
-  .jabatan {
-    padding: 0;
-    margin: 0;
-  }
-  .about-title {
-    /* margin-top: var(--m); */
-    color: var(--biru-penanda);
-    border-top: 1px solid var(--biru-penanda);
-    border-bottom: 1px solid var(--biru-penanda);
-  }
-  .email {
-    color: var(--biru-penanda);
-  }
-  .p.for-keahlian {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-top: var(--m);
-    h4 {
-      color: var(--biru-penanda);
-      border-top: 1px solid var(--biru-penanda);
-      border-bottom: 1px solid var(--biru-penanda);
-      width: 100%;
+  flex-direction: column;
+  align-content: start;
+  gap: 20px;
+
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.03),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+
+  color: #334155;
+  font-family: var(--isi, "Inter", sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+
+  /* =================================
+     IDENTITAS PELAMAR
+  ================================= */
+
+  .cv-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding-bottom: 20px;
+    border-bottom: 2px solid #2563eb;
+
+    /* Foto */
+    .img {
+      width: 112px;
+      flex-shrink: 0;
+      aspect-ratio: 4 / 5;
+      height: auto;
+
+      border: 1px solid #000000;
+      box-sizing: border-box;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
     }
+
+    /* Informasi Identitas */
+    .cv-identity {
+      flex: 1;
+      min-width: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      h2 {
+        font-family: var(--judul, "Inter", sans-serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: 1.25;
+        color: #1e293b;
+        margin: 0;
+      }
+
+      .jabatan {
+        font-family: var(--judul, "Inter", sans-serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2563eb;
+        margin: 0;
+      }
+
+      .cv-contact {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px 10px;
+
+        font-size: 0.8rem;
+        line-height: 1.6;
+        color: #64748b;
+
+        margin: 8px 0 0;
+
+        .email {
+          color: #2563eb;
+          font-weight: 500;
+        }
+
+        span + span::before {
+          content: "|";
+          color: #cbd5e1;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  /* =================================
+     TENTANG SAYA
+  ================================= */
+
+  .cv-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .about-title {
+      font-family: var(--judul, "Inter", sans-serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+
+      color: #2563eb;
+
+      margin: 0;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #bfdbfe;
+    }
+
+    .about {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #475569;
+      margin: 0;
+      text-align: justify;
+    }
+  }
+
+  /* =================================
+     BAGIAN KEAHLIAN
+  ================================= */
+
+  .p.for-keahlian {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 4px;
+
+    h4 {
+      font-family: var(--judul, "Inter", sans-serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+
+      color: #2563eb;
+
+      margin: 0;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #bfdbfe;
+    }
+
     ul {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      padding-left: var(--m);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 24px;
+
+      margin: 0;
+      padding-left: 20px;
+
+      li {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: #475569;
+        padding-left: 3px;
+
+        &::marker {
+          color: #2563eb;
+        }
+      }
     }
   }
+
+  /* =================================
+     PENGALAMAN KERJA
+  ================================= */
+
   .p.for-pengalaman {
-    margin-top: var(--m);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 4px;
+
     h4 {
-      color: var(--biru-penanda);
-      border-top: 1px solid var(--biru-penanda);
-      border-bottom: 1px solid var(--biru-penanda);
+      font-family: var(--judul, "Inter", sans-serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+
+      color: #2563eb;
+
+      margin: 0;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #bfdbfe;
     }
+
+    .group-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .desc {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--m-2);
-      padding-top: var(--m-2);
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 5px 16px;
+
+      padding-left: 12px;
+      border-left: 3px solid #bfdbfe;
+
+      b {
+        font-family: var(--judul, "Inter", sans-serif);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      p {
+        grid-column: 1 / -1;
+        font-size: 0.83rem;
+        line-height: 1.7;
+        color: #64748b;
+        margin: 0;
+      }
     }
   }
+
+  /* =================================
+     PENDIDIKAN
+  ================================= */
+
   .p.for-pendidikan {
-    margin-top: var(--m);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 4px;
+
     h4 {
-      color: var(--biru-penanda);
-      border-top: 1px solid var(--biru-penanda);
-      border-bottom: 1px solid var(--biru-penanda);
+      font-family: var(--judul, "Inter", sans-serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+
+      color: #2563eb;
+
+      margin: 0;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #bfdbfe;
     }
+
+    .group-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .desc {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--m-2);
-      padding-top: var(--m-2);
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 5px 16px;
+
+      padding-left: 12px;
+      border-left: 3px solid #bfdbfe;
+
+      b {
+        font-family: var(--judul, "Inter", sans-serif);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      p {
+        grid-column: 1 / -1;
+        font-size: 0.83rem;
+        line-height: 1.7;
+        color: #64748b;
+        margin: 0;
+      }
     }
+  }
+
+  /* =================================
+     RESPONSIVE
+  ================================= */
+
+  @media (max-width: 640px) {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+    gap: 16px;
+
+    .cv-header {
+      gap: 14px;
+
+      .img {
+        width: 88px;
+      }
+
+      .cv-identity {
+        h2 {
+          font-size: 1.25rem;
+        }
+
+        .jabatan {
+          font-size: 0.9rem;
+        }
+
+        .cv-contact {
+          font-size: 0.72rem;
+        }
+      }
+    }
+
+    .p.for-keahlian ul {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* =================================
+   CETAK / PDF
+================================= */
+
+@media print {
+  .cv-doc {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 16mm;
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    background-color: #ffffff;
+    color: #334155;
+
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }

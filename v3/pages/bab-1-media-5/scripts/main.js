@@ -76,7 +76,7 @@ if (toggleRecBtn) {
 
           // 2. Tampilkan tombol buka video karena rekaman sudah ada
           if (openModalBtn) {
-            openModalBtn.style.display = "inline-block"; // atau "block" / "flex" tergantung layout Anda
+            openModalBtn.style.display = "flex"; // atau "block" / "flex" tergantung layout Anda
           }
 
           // Matikan akses webcam/mikrofon

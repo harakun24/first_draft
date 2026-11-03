@@ -896,3 +896,15 @@ body:has(:popover-open) {
     visibility: hidden !important;
   }
 }
+
+.main {
+  .view {
+    &[data-view="1"] {
+      @media (max-width: 900px) {
+        /* Ubah layout menjadi 1 kolom vertikal */
+        grid-template-columns: 1fr !important;
+        align-content: start;
+      }
+    }
+  }
+}

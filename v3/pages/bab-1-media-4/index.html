@@ -93,7 +93,7 @@
           </div>
           <div class="area drop pro-drop-concept">
             <div class="pool">
-              <span class="pool-title">Bagian Surat (Pilih/Geser)</span>
+              <span class="pool-title">Bagian Surat (Tempel Jawaban)</span>
               <div
                 class="group-list"
                 data-pool
@@ -320,6 +320,11 @@
                 <p>Lengkapi data diri untuk profil CV Anda.</p>
               </div>
               <div class="form-grid">
+                <div class="input-group full-width">
+                  <label for="foto">Unggah Pas Foto </label>
+                  <input type="file" id="foto" accept="image/*" />
+                  <small class="error-msg"></small>
+                </div>
                 <div class="input-group">
                   <label for="nama">Nama Lengkap</label>
                   <input
@@ -486,27 +491,45 @@
       </button>
     </div>
     <div class="cv-doc">
-      <h2>Nama Pelamar</h2>
-      <h3 class="jabatan">Jabatan</h3>
-      <p>
-        <span class="alamat">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eos illum
-          odio commodi. Ut ad sequi totam itaque aspernatur fugit officia
-          perspiciatis, hic quis!</span
-        >
-        | <span class="email"> text@id.com</span> |
-        <span class="no">08xxx</span>
-      </p>
-      <h4 class="about-title">TENTANG SAYA</h4>
-      <p class="about">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus iure
-        ullam quas hic cupiditate minima a aliquam consectetur accusamus
-        pariatur? Voluptates, possimus impedit ipsam ad incidunt quae nulla quis
-        reiciendis placeat deserunt, obcaecati aliquid exercitationem facilis
-        cum magnam repellendus corporis?
-      </p>
+      <!-- Identitas Pelamar -->
+      <div class="cv-header">
+        <div class="img"></div>
+
+        <div class="cv-identity">
+          <h2>Nama Pelamar</h2>
+          <h3 class="jabatan">Jabatan</h3>
+
+          <p class="cv-contact">
+            <span class="alamat">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eos
+              illum odio commodi. Ut ad sequi totam itaque aspernatur fugit
+              officia perspiciatis, hic quis!
+            </span>
+
+            <span class="email">text@id.com</span>
+
+            <span class="no">08xxx</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Tentang Saya -->
+      <div class="cv-section">
+        <h4 class="about-title">TENTANG SAYA</h4>
+
+        <p class="about">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
+          iure ullam quas hic cupiditate minima a aliquam consectetur accusamus
+          pariatur? Voluptates, possimus impedit ipsam ad incidunt quae nulla
+          quis reiciendis placeat deserunt, obcaecati aliquid exercitationem
+          facilis cum magnam repellendus corporis?
+        </p>
+      </div>
+
+      <!-- Keahlian -->
       <div class="p for-keahlian">
         <h4>BAKAT DAN KEAHLIAN</h4>
+
         <ul>
           <li>nag</li>
           <li>nag</li>
@@ -515,12 +538,18 @@
           <li>nag</li>
         </ul>
       </div>
+
+      <!-- Pengalaman Kerja -->
       <div class="p for-pengalaman">
         <h4>PENGALAMAN KERJA</h4>
+
         <div class="group-list"></div>
       </div>
+
+      <!-- Pendidikan -->
       <div class="p for-pendidikan">
         <h4>PENDIDIKAN</h4>
+
         <div class="group-list">
           <div class="desc">
             <b>Januari 2019 - Januari 2019</b>
