@@ -305,4 +305,109 @@ async function savePdf() {
   // }
   document.querySelector(".date-txt").textContent = getDate();
   printPage();
+  resetAllInputs();
+  goto("tim")
+}
+
+function resetAllInputs() {
+  // 1. Cari elemen pembungkus berdasarkan selector atau objek DOM
+
+
+  const checklistProduksi = {
+    jadwal: {
+      perencanaan: [null, null],
+      praproduksi: [null, null],
+      produksi: [null, null],
+      pascaproduksi: [null, null],
+
+    },
+    perencanaan:
+      [
+        { tugas: "Penyusunan estimasi awal anggaran biaya", selesai: false },
+        { tugas: "Perencanaan timeline eksekusi proyek secara umum", selesai: false },
+        { tugas: "Brainstorming ide dan pengkonsepan cerita", selesai: false },
+        { tugas: "Penulisan dan finalisasi naskah/skenario", selesai: false },
+        { tugas: "Penyusunan director's vision dan konsep visual", selesai: false },
+        { tugas: "Diskusi awal konsep visual, *moodboard*, dan referensi gambar", selesai: false },
+        { tugas: "Diskusi kebutuhan dasar soundscape, properti utama, dan *set*", selesai: false },
+      ]
+    ,
+    praproduksi:
+      [
+        { tugas: "Finalisasi anggaran biaya (budgeting) dan alokasi dana", selesai: false },
+        { tugas: "Pengurusan izin lokasi dan surat-menyurat resmi", selesai: false },
+        { tugas: "Penyusunan jadwal/timeline syuting (*call sheet* & *master schedule*)", selesai: false },
+
+        { tugas: "Pelaksanaan *casting* dan pemilihian pemain", selesai: false },
+        { tugas: "Latihan dan pemantapan akting pemain (*rehearsal*)", selesai: false },
+        { tugas: "Pembuatan dan persetujuan *storyboard* serta *shot list*", selesai: false },
+        { tugas: "Survei lokasi syuting (*recce*) untuk skema pencahayaan dan posisi kamera", selesai: false },
+        { tugas: "Pengecekan dan penyiapan ketersediaan kamera, lensa, serta *lighting*", selesai: false },
+        { tugas: "Pengujian teknis visual dan *test shoot* sebelum syuting", selesai: false },
+        { tugas: "Penyiapan dan pengujian peralatan perekam audio (mikrofon, *boom*, *recorder*)", selesai: false },
+        { tugas: "Pengadaan, pembuatan, dan inventarisasi properti adegan", selesai: false },
+        { tugas: "Perancangan tata letak dan desain *set* lokasi", selesai: false },
+        { tugas: "Pengelolaan arus kas operasional harian di lapangan", selesai: false },
+        { tugas: "Pemantauan kesesuaian eksekusi dengan jadwal syuting", selesai: false },
+        { tugas: "Pengarahan akting pemain di set lokasi", selesai: false },
+        { tugas: "Pengambilan keputusan teknis dan artistik adegan di lapangan", selesai: false },
+      ],
+
+    produksi: [
+      { tugas: "Eksekusi *framing*, komposisi, dan pergerakan kamera sesuai *shot list*", selesai: false },
+      { tugas: "Penataan pencahayaan (*lighting setup*) di setiap adegan", selesai: false },
+      { tugas: "Pengelolaan data mentah rekaman (*data wrangling* / *backup footage*)", selesai: false },
+      { tugas: "Perekaman audio bersih di lapangan dan pemantauan kualitas suara (*sound check*)", selesai: false },
+      { tugas: "Penataan properti (*property tracking*) dan pemastian kesiapan *set dressing*", selesai: false }
+
+    ],
+
+    pascaproduksi: [
+      { tugas: "Penyelesaian laporan keuangan dan pembukuan akhir", selesai: false },
+      { tugas: "Pengurusan distribusi, promosi, atau publikasi hasil karya", selesai: false },
+      { tugas: "Dampingan proses penyuntingan gambar (*offline & online editing*)", selesai: false },
+      { tugas: "Persetujuan akhir versi potong film (*director's cut* / *final cut*)", selesai: false },
+      { tugas: "Pengawasan dan penyesuaian pewarnaan gambar (*color grading*)", selesai: false },
+      { tugas: "Proses penyuntingan audio, pembersihan *noise*, dan *sound design*", selesai: false },
+      { tugas: "Proses penyeimbangan level audio (*audio mixing & mastering*)", selesai: false },
+      { tugas: "Pengembalian serta penataan ulang ketersediaan alat dan properti", selesai: false }
+
+    ]
+  };
+  // store.clean()
+  store.set("checklist", checklistProduksi)
+
+  const container = document;
+  if (!container) return;
+
+  // 2. Ambil seluruh elemen input, textarea, dan select di dalam container
+  const elements = container.querySelectorAll('input, textarea, select');
+
+  // 3. Iterasi dan kosongkan nilai berdasarkan jenis elemennya
+  elements.forEach(element => {
+    const type = element.type ? element.type.toLowerCase() : '';
+
+    switch (type) {
+      case 'checkbox':
+      case 'radio':
+        element.checked = false;
+        break;
+
+      case 'select-one':
+      case 'select-multiple':
+        element.selectedIndex = 0;
+        break;
+
+      case 'button':
+      case 'submit':
+      case 'reset':
+        // Lewati elemen tombol
+        break;
+
+      default:
+        // Berlaku untuk text, date, email, number, password, textarea, dll.
+        element.value = '';
+        break;
+    }
+  });
 }

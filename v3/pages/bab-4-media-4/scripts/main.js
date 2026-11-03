@@ -1,3 +1,10 @@
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    videoId: "qns6i_pGdxI",
+    width: "100%",
+    height: "100%",
+  });
+}
 
 (() => {
   const $ = id => document.getElementById(id);
@@ -265,14 +272,14 @@
   ========================================= */
 
   const chapterNotes = [
-    "Pembuka: ubah mindset dari presentasi biasa menjadi pemandu budaya digital.",
-    "Tradisi: gunakan visual untuk mengajak audiens menjelajahi konteks budaya.",
-    "Layout: utamakan struktur jelas, kontras warna, dan ruang kosong.",
-    "Rubrik lisan: perhatikan tempo, intonasi, kontak mata, dan penggunaan media."
+    "Setelah memahami prinsip layout, lanjutkan ke kuis untuk           membandingkan dua contoh tampilan.",
+    "Setelah memahami prinsip layout, lanjutkan ke kuis untuk           membandingkan dua contoh tampilan.",
+    "Setelah memahami prinsip layout, lanjutkan ke kuis untuk           membandingkan dua contoh tampilan.",
+    "Setelah memahami prinsip layout, lanjutkan ke kuis untuk           membandingkan dua contoh tampilan."
   ];
 
   document.querySelectorAll("[data-chapter]").forEach(button => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
       document.querySelectorAll("[data-chapter]").forEach(item => {
         item.classList.toggle("active", item === button);
       });
@@ -285,6 +292,13 @@
       ).indexOf(button);
 
       if (info) info.textContent = chapterNotes[index];
+      const chapter = event.currentTarget.dataset.chapter || 0;
+      const targetTime = parseFloat(chapter);
+      player.seekTo(targetTime, true);
+
+
+      if (player.getPlayerState() !== YT.PlayerState.PLAYING)
+        player.playVideo();
     });
   });
 
