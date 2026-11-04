@@ -168,7 +168,7 @@ Penggunaan bahasa pada kalimat penutup di atas kurang tepat karena ...`, answers
     ]
   },
   {
-    time: 152, title: "Dokumen & ATS",
+    time: 163, title: "Dokumen & ATS",
     Questions: [
       {
         question: `Apa fungsi utama dari pencantuman lampiran atau dokumen pendukung dalam surat lamaran pekerjaan?`, answers: {
@@ -210,47 +210,47 @@ Manakah penyusunan rincian dokumen pendukung yang tepat dan sesuai dengan kaidah
       },
     ]
   },
-  {
-    time: 163, title: "Koreksi mandiri",
-    Questions: [
-      {
-        question: `Apa prinsip utama yang harus diperhatikan dalam memilih jenis huruf (font) dan ukuran teks pada desain CV agar tetap profesional dan mudah dibaca?`, answers: {
-          a: "Menggunakan maksimal 1–2 jenis huruf yang standar/jelas (seperti Arial, Calibri, atau Helvetica) dengan ukuran yang proporsional dan konsisten.",
-          b: "Menggunakan berbagai jenis huruf dekoratif dan artistik dengan warna-warni cerah agar menarik perhatian HRD sejak pandangan pertama.",
-          c: "Menggunakan ukuran huruf yang sangat kecil (di bawah 8 pt) agar seluruh riwayat hidup dan pengalaman dapat dimuat dalam satu halaman tanpa dipotong.",
-          d: "Jawaban B dan C benar",
-          key: "a"
-        }
-      },
-      {
-        question: `Bagaimana penggunaan warna yang bijak dan efektif dalam desain CV profesional?`, answers: {
-          a: `Menggunakan warna neon di seluruh latar belakang agar dokumen tampak paling mencolok dibanding berkas pelamar lain.`,
-          b: `Menggunakan palet warna yang terbatas dan netral (1–3 warna profesional) sebagai aksen pada judul atau pemisah bagian agar rapi.`,
-          c: `Menghindari penggunaan warna sama sekali dan menyusun seluruh teks secara rata kiri tanpa ada pemisah visual, garis, atau ruang kosong.`,
-          d: `Jawaban A dan B benar`,
-          key: "b"
-        }
-      },
-      {
-        question: `Fungsi utama dari penerapan visual hierarchy (hierarki visual) pada tata letak (layout) CV adalah ...`, answers: {
-          a: `Menjadikan tampilan CV terlihat sangat ramai sehingga dapat menutupi kekurangan pada riwayat pengalaman kerja.`,
-          b: `Membimbing mata perekrut (recruiter) untuk menemukan informasi penting (seperti nama, posisi, dan pengalaman utama) dengan cepat dan sistematis.`,
-          c: `Mengubah seluruh isi dokumen menjadi bentuk grafik lingkaran (pie chart) agar menghemat ruang halaman CV.`,
-          d: "Bentuk penerapan kreativitas dan seni.",
-          key: "b"
-        }
-      },
-      {
-        question: "Mengapa penggunaan diagram batang (progress bar) atau skala persentase angka untuk mengukur tingkat keahlian (skill) kurang disarankan dalam desain CV?", answers: {
-          a: "Karena penilaian persentase keahlian tersebut bersifat subjektif, ambigu, dan tidak memberikan tolok ukur kompetensi yang jelas bagi perusahaan.",
-          b: "Karena penggunaan grafik atau gambar pada CV dapat menambah ukuran file hingga melampaui batas maksimum surel.",
-          c: "Karena sistem perekrutan selalu mewajibkan seluruh daftar keahlian ditulis dalam bentuk poin-poin cerita naratif panjang.",
-          d: "Semua jawaban salah.",
-          key: "a"
-        }
-      },
-    ]
-  }
+  // {
+  //   time: 163, title: "Koreksi mandiri",
+  //   Questions: [
+  //     {
+  //       question: `Apa prinsip utama yang harus diperhatikan dalam memilih jenis huruf (font) dan ukuran teks pada desain CV agar tetap profesional dan mudah dibaca?`, answers: {
+  //         a: "Menggunakan maksimal 1–2 jenis huruf yang standar/jelas (seperti Arial, Calibri, atau Helvetica) dengan ukuran yang proporsional dan konsisten.",
+  //         b: "Menggunakan berbagai jenis huruf dekoratif dan artistik dengan warna-warni cerah agar menarik perhatian HRD sejak pandangan pertama.",
+  //         c: "Menggunakan ukuran huruf yang sangat kecil (di bawah 8 pt) agar seluruh riwayat hidup dan pengalaman dapat dimuat dalam satu halaman tanpa dipotong.",
+  //         d: "Jawaban B dan C benar",
+  //         key: "a"
+  //       }
+  //     },
+  //     {
+  //       question: `Bagaimana penggunaan warna yang bijak dan efektif dalam desain CV profesional?`, answers: {
+  //         a: `Menggunakan warna neon di seluruh latar belakang agar dokumen tampak paling mencolok dibanding berkas pelamar lain.`,
+  //         b: `Menggunakan palet warna yang terbatas dan netral (1–3 warna profesional) sebagai aksen pada judul atau pemisah bagian agar rapi.`,
+  //         c: `Menghindari penggunaan warna sama sekali dan menyusun seluruh teks secara rata kiri tanpa ada pemisah visual, garis, atau ruang kosong.`,
+  //         d: `Jawaban A dan B benar`,
+  //         key: "b"
+  //       }
+  //     },
+  //     {
+  //       question: `Fungsi utama dari penerapan visual hierarchy (hierarki visual) pada tata letak (layout) CV adalah ...`, answers: {
+  //         a: `Menjadikan tampilan CV terlihat sangat ramai sehingga dapat menutupi kekurangan pada riwayat pengalaman kerja.`,
+  //         b: `Membimbing mata perekrut (recruiter) untuk menemukan informasi penting (seperti nama, posisi, dan pengalaman utama) dengan cepat dan sistematis.`,
+  //         c: `Mengubah seluruh isi dokumen menjadi bentuk grafik lingkaran (pie chart) agar menghemat ruang halaman CV.`,
+  //         d: "Bentuk penerapan kreativitas dan seni.",
+  //         key: "b"
+  //       }
+  //     },
+  //     {
+  //       question: "Mengapa penggunaan diagram batang (progress bar) atau skala persentase angka untuk mengukur tingkat keahlian (skill) kurang disarankan dalam desain CV?", answers: {
+  //         a: "Karena penilaian persentase keahlian tersebut bersifat subjektif, ambigu, dan tidak memberikan tolok ukur kompetensi yang jelas bagi perusahaan.",
+  //         b: "Karena penggunaan grafik atau gambar pada CV dapat menambah ukuran file hingga melampaui batas maksimum surel.",
+  //         c: "Karena sistem perekrutan selalu mewajibkan seluruh daftar keahlian ditulis dalam bentuk poin-poin cerita naratif panjang.",
+  //         d: "Semua jawaban salah.",
+  //         key: "a"
+  //       }
+  //     },
+  //   ]
+  // }
 ];
 
 sections.forEach((e, k) => {
@@ -371,7 +371,7 @@ function answer(data) {
   modal.hidePopover();
 }
 
-// store.clean();
+store.clean();
 
 if (!store.get("video-quiz"))
   store.set("video-quiz", answeredList);
