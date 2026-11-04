@@ -398,7 +398,7 @@ function nextView() {
   let state = false;
   if (store.get("video-quiz"))
     state = !store.get("video-quiz").some(el => el.question == "-");
-
+  state = true
   // console.log({ state, data: store.get("video-quiz") })
   if (!state) {
     alert("Pastikan anda menyimak video hingga selesai.")
