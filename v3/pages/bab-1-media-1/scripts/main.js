@@ -344,7 +344,7 @@ function toggleModal(data = null, key = null) {
 }
 
 function answer(data) {
-  console.log(data)
+  console.log(store.get("video-quiz"))
 
 
   for (const a of answeredList) {
@@ -384,7 +384,7 @@ function answer(data) {
   // modal.hidePopover();
 }
 
-// store.clean();
+store.clean();
 
 if (!store.get("video-quiz"))
   store.set("video-quiz", answeredList);
