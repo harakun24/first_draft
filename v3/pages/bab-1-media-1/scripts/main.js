@@ -384,7 +384,7 @@ function answer(data) {
   // modal.hidePopover();
 }
 
-store.clean();
+// store.clean();
 
 if (!store.get("video-quiz"))
   store.set("video-quiz", answeredList);

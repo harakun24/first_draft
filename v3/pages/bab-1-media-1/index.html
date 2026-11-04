@@ -83,7 +83,39 @@
         <div id="player"></div>
       </div>
       <div class="view" data-view="2">
-        <div class="letter">
+        <!-- Petunjuk dan identitas -->
+        <aside class="side side-top">
+          <!-- <div class="info">
+            <b>Petunjuk</b>
+            <ul>
+              <li>Klik kata atau kalimat yang salah.</li>
+              <li>Pilih bentuk perbaikannya.</li>
+            </ul>
+          </div> -->
+
+          <div class="identity-form">
+            <b>Data Diri</b>
+
+            <div class="input-field">
+              <label for="input-nama">Nama Lengkap</label>
+              <input
+                type="text"
+                id="input-nama"
+                placeholder="Masukkan nama siswa..." />
+            </div>
+
+            <div class="input-field">
+              <label for="input-kelas">Kelas / Rombel</label>
+              <input
+                type="text"
+                id="input-kelas"
+                placeholder="Contoh: XII Bahasa 1" />
+            </div>
+          </div>
+        </aside>
+
+        <!-- Dokumen surat -->
+        <article class="letter">
           <div class="top-wrapper">
             <table class="hal">
               <tr>
@@ -97,9 +129,11 @@
                 <td>5 (lima) lembar</td>
               </tr>
             </table>
-            <p>Jakarta, 7 September 2026</p>
+
+            <p class="letter-date">Jakarta, 7 September 2026</p>
           </div>
-          <div>
+
+          <div class="recipient">
             <div class="spoiler" data-q="1">
               <span class="target-pop">Kepada Yth. Manajer HRD</span>
             </div>
@@ -109,24 +143,28 @@
               <span class="target-pop">Di Jakarta Selatan</span>
             </div>
           </div>
+
           <div class="spoiler" data-q="3">
             <span class="target-pop">Dengan hormat;</span>
           </div>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; Sehubungan dengan
+
+          <p class="indent">
+            Sehubungan dengan
             <span class="spoiler" data-q="4">
-              <span class="target-pop">info </span>
+              <span class="target-pop">info</span>
             </span>
             lowongan pekerjaan yang dipublikasikan melalui portal resmi PT
             Inovasi Digital Nusantara pada tanggal 2 September 2026, saya yang
             bertanda tangan di bawah ini bermaksud untuk mengajukan diri
             menempati posisi IT & Data Analyst di perusahaan
-            <span class="spoiler" data-q="5"
-              ><span class="target-pop">yang mana Bapak/Ibu pimpin.</span></span
-            >
+            <span class="spoiler" data-q="5">
+              <span class="target-pop">yang mana Bapak/Ibu pimpin.</span>
+            </span>
           </p>
+
           <p>Adapun data diri saya adalah sebagai berikut:</p>
-          <table>
+
+          <table class="identity-table">
             <tr>
               <td>Nama Lengkap</td>
               <td>:</td>
@@ -154,119 +192,100 @@
             </tr>
           </table>
 
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; Saya memiliki pengalaman kerja selama dua
-            tahun pada bidang
-            <span class="spoiler" data-q="6"
-              ><span class="target-pop"> analisa </span></span
-            >data operasional dan pemeliharaan sistem informasi. Selama bekerja,
+          <p class="indent">
+            Saya memiliki pengalaman kerja selama dua tahun pada bidang
+            <span class="spoiler" data-q="6">
+              <span class="target-pop">analisa</span>
+            </span>
+            data operasional dan pemeliharaan sistem informasi. Selama bekerja,
             saya terbiasa memanfaatkan instrumen pengolahan data terpadu guna
-            <span class="spoiler" data-q="7"
-              ><span class="target-pop">merubah</span></span
-            >
+            <span class="spoiler" data-q="7">
+              <span class="target-pop">merubah</span>
+            </span>
             data kompleks menjadi wawasan strategis yang mampu mengoptimalkan
-            <span class="spoiler" data-q="8"
-              ><span class="target-pop">efektifitas</span></span
-            >
+            <span class="spoiler" data-q="8">
+              <span class="target-pop">efektifitas</span>
+            </span>
             prosedur kerja harian.
           </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; Sebagai bahan pertimbangan Bapak/Ibu,
-            berikut turut saya lampirkan kelengkapan berkas pendukung:
+
+          <p class="indent">
+            Sebagai bahan pertimbangan Bapak/Ibu, berikut turut saya lampirkan
+            kelengkapan berkas pendukung:
           </p>
+
           <ol>
             <li>Daftar Riwayat Hidup (Curriculum Vitae) terbaru</li>
             <li>Salinan Ijazah Sarjana Terlegalisir dan Transkrip Nilai</li>
             <li>Salinan Sertifikat Keahlian dan foto ukuran 4x6</li>
           </ol>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; Besar harapan saya untuk diberikan
-            kesempatan menghadiri sesi wawancara agar dapat menguraikan lebih
-            mendalam perihal kompetensi dan dedikasi saya.
-            <span class="spoiler" data-q="9"
-              ><span class="target-pop"
-                >Atas perhatiannya, saya sampaikan terima kasih.</span
-              ></span
-            >
+
+          <p class="indent">
+            Besar harapan saya untuk diberikan kesempatan menghadiri sesi
+            wawancara agar dapat menguraikan lebih mendalam perihal kompetensi
+            dan dedikasi saya.
+            <span class="spoiler" data-q="9">
+              <span class="target-pop">
+                Atas perhatiannya, saya sampaikan terima kasih.
+              </span>
+            </span>
           </p>
+
           <div class="right-text">
             <p>Hormat saya</p>
-
             <p>
-              <span class="spoiler" data-q="10"
-                ><span class="target-pop">(Ahmad Fauzi, S.Kom.)</span></span
-              >
+              <span class="spoiler" data-q="10">
+                <span class="target-pop">(Ahmad Fauzi, S.Kom.)</span>
+              </span>
             </p>
           </div>
-        </div>
-        <div class="side">
-          <!-- Kotak Informasi Petunjuk -->
-          <div class="info">
-            <b>Petunjuk</b>
-            <ul>
-              <li>Klik kata atau kalimat yang salah.</li>
-              <li>Pilih bentuk perbaikannya.</li>
-            </ul>
-          </div>
+        </article>
 
-          <!-- Input Data Diri (Nama & Kelas) -->
-          <div class="identity-form">
-            <b>Data Diri</b>
-            <div class="input-field">
-              <label for="input-nama">Nama Lengkap</label>
-              <input
-                type="text"
-                id="input-nama"
-                placeholder="Masukkan nama siswa..." />
-            </div>
-            <div class="input-field">
-              <label for="input-kelas">Kelas / Rombel</label>
-              <input
-                type="text"
-                id="input-kelas"
-                placeholder="Contoh: XII Bahasa 1" />
-            </div>
-          </div>
-
-          <!-- Keterangan Jenis Kesalahan -->
-          <div class="detail">
+        <!-- Keterangan dan tombol aksi -->
+        <aside class="side side-bottom">
+          <!-- <div class="detail">
             <b>Jenis Kesalahan</b>
+
             <div class="group-pill">
               <div class="pill">
                 <div class="ball"></div>
                 <span>Kata tidak baku</span>
               </div>
+
               <div class="pill">
                 <div class="ball"></div>
                 <span>Tanda baca</span>
               </div>
+
               <div class="pill">
                 <div class="ball"></div>
                 <span>Bahasa formal</span>
               </div>
+
               <div class="pill">
                 <div class="ball"></div>
                 <span>Sistematika</span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <!-- Tombol Navigasi & Aksi -->
           <div class="action-buttons">
             <button class="back" onclick="prevView()">
               <div data-icon="../../public/feather/youtube.svg"></div>
               <span>Tonton Ulang Video</span>
             </button>
+
             <button class="cek" onclick="check()">
               <div data-icon="../../public/feather/search.svg"></div>
               <span>Periksa Jawaban</span>
             </button>
+
             <button class="down" onclick="saveResult()">
               <div data-icon="../../public/feather/arrow-down.svg"></div>
               <span>Unduh Hasil</span>
             </button>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
     <div class="footer">

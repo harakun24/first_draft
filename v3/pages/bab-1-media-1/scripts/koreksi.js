@@ -112,31 +112,44 @@ const dataList = [
 ]
 const dataAnswer = {
 };
-document.querySelectorAll(".spoiler").forEach(e => {
+document.querySelectorAll(".spoiler").forEach((e, i) => {
   const data = dataList[e.dataset.q - 1];
 
-  e.innerHTML += `
-   <div class="pop" popover="auto">
-  
-            <div class="input-group">
-              <input type="radio" name="choice" value="1" /><label
-                >${data.options[0]}</label
-              >
-            </div>
-            <div class="input-group">
-              <input type="radio" name="choice" value="2" /><label
-                >${data.options[1]}</label
-              >
-            </div>
-            <div class="input-group">
-              <input type="radio" name="choice" value="3" /><label
-                >${data.options[2]}</label
-              >
-            </div>
-            <button class="btn-save">simpan</button>
-          </div>
-  `;
+  e.insertAdjacentHTML("beforeend", `
+  <div class="pop" popover>
 
+  <!-- Header -->
+  <div class="pop-header">
+    <b>Pilih Jawaban</b>
+    <p>Pilih salah satu jawaban yang menurutmu paling tepat.</p>
+  </div>
+
+  <!-- Pilihan (Bagian ini dirapatkan dan diberi trim() untuk membunuh spasi gaib) -->
+  <div class="pop-options">
+  <label class="input-group" for="choice-1-${i}">
+  <input type="radio" name="choice" id="choice-1-${i}" value="1" />
+  <span class="option-text">${data.options[0].trim()}</span>
+  </label>
+  <label class="input-group" for="choice-2-${i}">
+  <input type="radio" name="choice" id="choice-2-${i}" value="2" />
+  <span class="option-text">${data.options[1].trim()}</span>
+  </label>
+  <label class="input-group" for="choice-3-${i}">
+  <input type="radio" name="choice" id="choice-3-${i}" value="3" />
+  <span class="option-text">${data.options[2].trim()}</span>
+  </label>
+  </div>
+
+  <!-- Tombol Simpan -->
+  <div class="pop-footer">
+    <button type="button" class="btn-save">
+      Simpan
+      <div data-icon="../../public/feather/save.svg"></div>
+    </button>
+  </div>
+
+</div>
+  `)
 
   const pop = e.querySelector(".pop");
 
@@ -152,12 +165,6 @@ document.querySelectorAll(".spoiler").forEach(e => {
     e.querySelector("span").classList.remove("wrong")
     e.querySelector("span").classList.add("active")
     pop.showPopover()
-  })
-  e.querySelectorAll(".input-group").forEach(ee => {
-    ee.addEventListener("click", (event) => {
-      event.stopPropagation()
-      ee.querySelector("input").click()
-    })
   })
   e.querySelector(".btn-save").addEventListener("click", (event) => {
     event.stopPropagation()
@@ -198,13 +205,13 @@ function check() {
     <td>${e.options[e.key - 1]} ${status ? " <br> (jawaban benar)" : "<br> (Jawaban salah)"}</td>
     <td>${e.detail}</td>
     </tr>
-    `
+      `
   })
 }
 
 if (store.get("video-quiz")) {
   const strTable = store.get("video-quiz").map((a, index) => `
-  <tr>
+      <tr>
   <td>${index + 1}</td>
   <td>${a.title}</td>
   <td>${a.question}</td>
@@ -212,7 +219,7 @@ if (store.get("video-quiz")) {
   <td>${a.correct}</td>
   <td>${a.status == "true" ? "Benar" : "Salah"}</td>
   </tr>
-  `).join("");
+      `).join("");
   document.querySelector(".top tbody").innerHTML = strTable;
 }
 
