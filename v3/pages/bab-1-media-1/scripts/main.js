@@ -329,7 +329,7 @@ function toggleModal(data = null, key = null) {
     optionsKey.forEach(opt => {
       if (currentActiveQuestion.answers[opt]) {
         const btn = document.createElement("button");
-        btn.className = "pointer";
+        btn.className = "pointer btn-opsi";
         btn.dataset.value = opt;
         btn.dataset.key = answeredList[key].key;
         btn.dataset.answer = (opt === currentActiveQuestion.answers.key).toString();
@@ -344,6 +344,7 @@ function toggleModal(data = null, key = null) {
 }
 
 function answer(data) {
+  console.log(data)
 
 
   for (const a of answeredList) {
@@ -354,6 +355,18 @@ function answer(data) {
       a.correct = currentActiveQuestion.answers[currentActiveQuestion.answers.key];
     }
   }
+  document.querySelectorAll(".btn-opsi").forEach(el => {
+    datas = el.dataset.answer;
+    el.classList.remove("correct")
+    el.classList.remove("wrong")
+    if (datas == "true")
+      el.classList.add("correct")
+
+
+  })
+  if (data.dataset.answer == "false")
+    data.classList.add("wrong")
+
   store.set("video-quiz", answeredList);
 
   const strTable = answeredList.map((a, index) => `
@@ -368,7 +381,7 @@ function answer(data) {
   `).join("");
   document.querySelector(".top tbody").innerHTML = strTable;
 
-  modal.hidePopover();
+  // modal.hidePopover();
 }
 
 store.clean();

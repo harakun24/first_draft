@@ -273,8 +273,8 @@
       <p>&copy; BEI 2026</p>
     </div>
     <div class="modal quiz-modal" popover id="quiz-modal">
-      <!-- Tombol Tutup -->
       <button
+        type="button"
         class="close-btn pointer"
         onclick="toggleModal()"
         aria-label="Tutup modal">
@@ -291,18 +291,18 @@
         </svg>
       </button>
 
-      <!-- Header / Pertanyaan -->
       <div class="modal-header">
         <span class="quiz-badge">Pertanyaan Kuis</span>
+
         <h3 class="modal-title question">
           Bagian surat lamaran pekerjaan yang berisi nama, alamat, nomor
           telepon, dan email pelamar disebut ...
         </h3>
       </div>
 
-      <!-- Opsi Jawaban -->
       <div class="opsi">
         <button
+          type="button"
           class="pointer btn-opsi"
           data-value="a"
           data-key="0"
@@ -311,7 +311,9 @@
           <span class="opt-letter">A</span>
           <span class="opt-text">Identitas pelamar</span>
         </button>
+
         <button
+          type="button"
           class="pointer btn-opsi"
           data-value="b"
           data-key="0"
@@ -320,7 +322,9 @@
           <span class="opt-letter">B</span>
           <span class="opt-text">Isi surat</span>
         </button>
+
         <button
+          type="button"
           class="pointer btn-opsi"
           data-value="c"
           data-key="0"

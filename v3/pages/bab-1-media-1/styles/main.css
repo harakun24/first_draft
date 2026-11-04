@@ -57,135 +57,295 @@
   }
 }
 .modal.quiz-modal {
-  border: none;
-  background-color: #ffffff;
-  color: #1f2937;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: calc(100% - 32px);
+  max-width: 480px;
+  max-height: calc(100% - 32px);
+  box-sizing: border-box;
   padding: 28px;
-  border-radius: 20px;
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
-  width: 90%;
-  max-width: 500px;
-  position: absolute;
-  place-self: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1e293b;
+
+  box-shadow:
+    0 20px 25px -5px rgba(15, 23, 42, 0.08),
+    0 8px 10px -6px rgba(15, 23, 42, 0.06);
+
   opacity: 0;
-  transform: scale(0.95) translateY(10px);
+  transform: translateY(8px) scale(0.98);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    display 0.2s allow-discrete;
+}
 
-  /* State saat popover terbuka */
-  &:popover-open {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Modal terbuka */
+.modal.quiz-modal:popover-open {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: quizModalIn 0.2s ease;
+}
+
+/* Backdrop */
+.modal.quiz-modal::backdrop {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+/* Tombol tutup */
+.modal.quiz-modal .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+  padding: 0;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #64748b;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.modal.quiz-modal .close-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.modal.quiz-modal .close-btn:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+/* Header pertanyaan */
+.modal.quiz-modal .modal-header {
+  padding-right: 26px;
+}
+
+.modal.quiz-modal .quiz-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 10px;
+  margin-bottom: 14px;
+
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  background: #eff6ff;
+
+  color: #2563eb;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.modal.quiz-modal .modal-title.question {
+  margin: 0;
+
+  color: #1e293b;
+  font-family: var(--judul, "Inter", sans-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* Daftar opsi */
+.modal.quiz-modal .opsi {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.modal.quiz-modal .opsi .btn-opsi {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+
+  color: #334155;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+  &.correct {
+    background-color: #40d514c9;
+    color: #075907;
+  }
+  &.wrong {
+    background-color: #ff00338c;
+    color: #530a0a;
+  }
+}
+
+/* Indikator huruf */
+.modal.quiz-modal .opsi .opt-letter {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  background: #f1f5f9;
+
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  transition: inherit;
+}
+
+/* Teks jawaban */
+.modal.quiz-modal .opsi .opt-text {
+  flex: 1;
+  min-width: 0;
+
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Tanda panah */
+/* .modal.quiz-modal .opsi .btn-opsi::after {
+  content: "›";
+  flex: 0 0 auto;
+
+  color: #94a3b8;
+  font-size: 1.5rem;
+  line-height: 1;
+
+  transition: inherit;
+} */
+
+/* Hover */
+.modal.quiz-modal .opsi .btn-opsi:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+  transform: translateY(-1px);
+}
+/* 
+.modal.quiz-modal .opsi .btn-opsi:hover .opt-letter {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
+} */
+
+.modal.quiz-modal .opsi .btn-opsi:hover::after {
+  color: #2563eb;
+  transform: translateX(3px);
+}
+
+/* Fokus keyboard */
+.modal.quiz-modal .opsi .btn-opsi:focus-visible {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Saat ditekan */
+.modal.quiz-modal .opsi .btn-opsi:active {
+  transform: scale(0.99);
+  box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .modal.quiz-modal .opsi {
+    gap: 8px;
+  }
+
+  .modal.quiz-modal .opsi .btn-opsi {
+    min-height: 60px;
+    padding: 10px 12px;
+    gap: 12px;
+  }
+
+  .modal.quiz-modal .opsi .opt-letter {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* Animasi masuk */
+@keyframes quizModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
     opacity: 1;
-    transform: scale(1) translateY(0);
-    animation: quizModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .modal.quiz-modal {
+    width: calc(100% - 24px);
+    max-height: calc(100% - 24px);
+    padding: 22px 18px;
+    gap: 20px;
   }
 
-  /* Tombol Tutup Silang */
-  .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #f1f5f9;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: grid;
-    place-content: center;
-    cursor: pointer;
-    color: #64748b;
-    transition: all 0.2s ease;
-
-    svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    &:hover {
-      background-color: #fee2e2;
-      color: #ef4444;
-      transform: scale(1.05);
-    }
+  .modal.quiz-modal .close-btn {
+    top: 12px;
+    right: 12px;
   }
 
-  /* Header Modal */
-  .modal-header {
-    padding-right: 24px; /* Ruang agar teks tidak menabrak tombol close */
-
-    .quiz-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #2563eb;
-      background-color: #eff6ff;
-      padding: 4px 10px;
-      border-radius: 99px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .modal-title.question {
-      font-family: var(--judul, "Inter", sans-serif);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0;
-      line-height: 1.5;
-    }
+  .modal.quiz-modal .modal-header {
+    padding-right: 24px;
   }
 
-  /* Pastikan kontainer opsi di-reset total */
-  .opsi {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
+  .modal.quiz-modal .modal-title.question {
+    font-size: 1rem;
   }
 
-  .opsi .btn-opsi {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-    width: 100% !important;
-    padding: 16px 20px !important; /* Mengatur ketebalan atas dan bawah tombol */
-    box-sizing: border-box !important;
-    background-color: #f8fafc !important;
-    border: 1px solid #cbd5e1 !important;
-    border-radius: 12px !important;
-    color: #1e293b !important;
-    font-size: 0.95rem !important;
-    font-family: inherit !important;
-    font-weight: 500 !important;
-    text-align: left !important;
-    cursor: pointer !important;
-  }
-
-  .opsi .btn-opsi .opt-letter {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    background-color: #e2e8f0 !important;
-    color: #475569 !important;
-    font-weight: 700 !important;
-    font-size: 0.85rem !important;
-    border-radius: 8px !important;
-  }
-
-  .opsi .btn-opsi .opt-text {
-    flex: 1 !important;
-    line-height: 1.5 !important;
-    color: #334155 !important;
-  }
-
-  /* Backdrop / Latar Belakang Gelap */
-  &::backdrop {
-    background-color: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(5px);
+  .modal.quiz-modal .opsi .btn-opsi {
+    min-height: 58px;
+    padding: 11px 12px;
+    font-size: 0.9rem;
   }
 }
 
