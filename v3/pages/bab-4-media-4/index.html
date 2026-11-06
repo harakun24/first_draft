@@ -46,18 +46,18 @@
             <span data-icon="../../public/feather/layers.svg"></span>
           </button>
 
-          <button class="segmen pointer" data-step="transitions" type="button">
+          <!-- <button class="segmen pointer" data-step="transitions" type="button">
             <span>04 · Pilih Transisi</span>
             <span data-icon="../../public/feather/move.svg"></span>
-          </button>
+          </button> -->
 
           <button class="segmen pointer" data-step="preview" type="button">
-            <span>05 · Pratinjau</span>
+            <span>04 · Pratinjau</span>
             <span data-icon="../../public/feather/monitor.svg"></span>
           </button>
 
           <button class="segmen pointer" data-step="practice" type="button">
-            <span>06 · Latihan Tampil</span>
+            <span>05 · Latihan Tampil</span>
             <span data-icon="../../public/feather/check-circle.svg"></span>
           </button>
 
@@ -70,10 +70,7 @@
 
           <div class="sidebar-note">
             <strong>Tujuan media</strong>
-            <p>
-              Susun tiga kartu, pilih transisi, lalu berlatih tampil dengan
-              percaya diri.
-            </p>
+            <p>Susun tiga kartu, lalu berlatih tampil dengan percaya diri.</p>
           </div>
         </aside>
 
@@ -340,19 +337,22 @@
               <button type="button" class="btn secondary" data-prev="layout">
                 ← Kembali
               </button>
-              <button
+              <!-- <button
                 type="button"
                 class="btn primary"
                 id="cards-next"
                 data-next="transitions"
                 disabled>
                 Pilih Transisi →
+              </button> -->
+              <button type="button" class="btn primary" data-next="preview">
+                Buka Pratinjau →
               </button>
             </div>
           </section>
 
           <!-- TAHAP 4: TRANSISI -->
-          <section
+          <!-- <section
             class="panel view content-panel"
             data-view="transitions"
             id="transitions">
@@ -418,7 +418,7 @@
                 Buka Pratinjau →
               </button>
             </div>
-          </section>
+          </section> -->
 
           <!-- TAHAP 5: PRATINJAU -->
           <section
@@ -427,7 +427,7 @@
             id="preview">
             <div class="section-heading">
               <div>
-                <span class="eyebrow">TAHAP 05 · PERIKSA</span>
+                <span class="eyebrow">TAHAP 04 · PERIKSA</span>
                 <h2>Pratinjau Presentasi</h2>
               </div>
               <span class="status-pill" id="preview-count">Kartu 1 dari 3</span>
@@ -480,12 +480,49 @@
                   id="fullscreen-btn">
                   ⛶ Layar Penuh
                 </button>
-                <button
+                <!-- <button
+                  type="button"
+                  class="btn primary full-width"
+                  data-download="">
+                  <div data-icon="../../public/feather/save.svg"></div>
+                  Unduh
+                </button> -->
+                <!-- <button
                   type="button"
                   class="btn primary full-width"
                   data-next="practice">
                   Mulai Latihan →
+                </button> -->
+              </aside>
+              <aside class="preview-sidebar">
+                <h3>Data Diri</h3>
+                <div class="input-group" data-input="nama">
+                  <label for="nama-kelompok">Nama Siswa</label>
+                  <input
+                    type="text"
+                    id="nama-kelompok"
+                    placeholder="Isi Nama Lengkap" />
+                </div>
+                <div class="input-group" data-input="kelas">
+                  <label for="nama-kelompok">Kelas</label>
+                  <input
+                    type="text"
+                    id="nama-kelompok"
+                    placeholder="Isi Kelas" />
+                </div>
+                <button
+                  type="button"
+                  class="btn primary full-width"
+                  data-download="">
+                  <div data-icon="../../public/feather/save.svg"></div>
+                  Unduh
                 </button>
+                <!-- <button
+                  type="button"
+                  class="btn primary full-width"
+                  data-next="practice">
+                  Mulai Latihan →
+                </button> -->
               </aside>
             </div>
 
@@ -509,7 +546,7 @@
             id="practice">
             <div class="section-heading">
               <div>
-                <span class="eyebrow">TAHAP 06 · BERLATIH</span>
+                <span class="eyebrow">TAHAP 05 · BERLATIH</span>
                 <h2>Latihan Tampil</h2>
               </div>
               <span class="status-pill" id="practice-status"
@@ -642,6 +679,78 @@
     <footer class="footer">
       BEI 2026 · Bahasa Indonesia Tingkat Lanjut · Bab IV Media 4
     </footer>
+
+    <div class="table report-document">
+      <!-- KOP HEADER DOKUMEN -->
+      <div class="report-header">
+        <div class="header-titles">
+          <h2>BAHASA INDONESIA TINGKAT LANJUT</h2>
+          <p class="subtitle">SMA/MA Kelas XII — Modul Edukasi Digital</p>
+        </div>
+        <div class="header-divider"></div>
+      </div>
+
+      <!-- JUDUL DOKUMEN -->
+      <div class="document-title">
+        <h3>LAPORAN MENYIAPKAN PRESENTASI</h3>
+        <span class="doc-code">Dokumen Hasil Praktikum Mandiri</span>
+      </div>
+
+      <!-- METADATA IDENTITAS KELOMPOK -->
+      <div class="identity-card">
+        <div class="id-row">
+          <span class="label">Nama Siswa</span>
+          <span class="colon">:</span>
+          <strong class="value nama">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Kelas / Rombel</span>
+          <span class="colon">:</span>
+          <strong class="value kelas">-</strong>
+        </div>
+        <div class="id-row">
+          <span class="label">Tanggal Cetak</span>
+          <span class="colon">:</span>
+          <span class="value date-txt">DD/MM/YYYY</span>
+        </div>
+      </div>
+
+      <!-- TABEL HASIL PERENCANAAN PUBLIKASI -->
+      <!-- <div class="table-wrapper"> -->
+      <!-- <table>
+        <thead>
+          <tr>
+            <th class="col-main">TABEL KARTU PRESENTASI</th>
+          </tr>
+        </thead>
+        <tbody data-table="naskah">
+        </tbody>
+      </table> -->
+
+      <div class="table-wrapper">
+        <table class="zoom-out">
+          <thead>
+            <tr>
+              <th>Kartu</th>
+              <th>Judul</th>
+              <th>Fakta Singkat</th>
+              <th>Gambar</th>
+            </tr>
+          </thead>
+          <tbody class="table-card"></tbody>
+        </table>
+      </div>
+      <!-- </div> -->
+
+      <!-- FOOTER CATATAN SISTEM (TANPA SIGNATURE BOX) -->
+      <div class="report-footer">
+        <div class="footer-note">
+          <p>
+            <em>*Dokumen ini diterbitkan secara otomatis oleh sistem BEI.</em>
+          </p>
+        </div>
+      </div>
+    </div>
     <script src="../../public/scripts/iframe_api.js"></script>
     <script src="../../public/scripts/global-script.js"></script>
     <script src="./scripts/main.js"></script>

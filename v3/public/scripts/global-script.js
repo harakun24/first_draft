@@ -18,7 +18,6 @@ function fillIcon(el) {
         // console.log({ status: "not cached", path });
         if (path == "../../public/feather/monitor.svg") {
 
-          console.log({ res })
         }
         // const cleaned = res.replace(/\s*(width|height)="[^"]*"/gi, '');
         sessionStorage.setItem(path, res);
@@ -245,7 +244,6 @@ function toggleMenu() {
 function toggleLink(e) {
   const target = e.currentTarget.dataset.target;
   const state = e.currentTarget.dataset.state;
-  console.log({ state })
   if (state == "close") {
     const prevLink = document.querySelector(".links .link.active");
     if (prevLink) {

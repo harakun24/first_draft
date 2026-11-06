@@ -1,3 +1,4 @@
+
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
     videoId: "qns6i_pGdxI",
@@ -14,7 +15,7 @@ function onYouTubeIframeAPIReady() {
     "tutorial",
     "layout",
     "cards",
-    "transitions",
+    // "transitions",
     "preview",
     "practice"
   ];
@@ -43,7 +44,7 @@ function onYouTubeIframeAPIReady() {
 
     saved: [false, false, false],
     activeCard: 0,
-    transitions: ["zoom", "fade"],
+    // transitions: ["zoom", "fade"],
     previewIndex: 0,
 
     checks: {
@@ -151,9 +152,9 @@ function onYouTubeIframeAPIReady() {
         ? Math.min(2, Math.max(0, saved.activeCard))
         : 0;
 
-      state.transitions = Array.isArray(saved.transitions)
-        ? saved.transitions
-        : ["zoom", "fade"];
+      // state.transitions = Array.isArray(saved.transitions)
+      //   ? saved.transitions
+      //   : ["zoom", "fade"];
 
       state.previewIndex = Number.isInteger(saved.previewIndex)
         ? Math.min(2, Math.max(0, saved.previewIndex))
@@ -181,13 +182,13 @@ function onYouTubeIframeAPIReady() {
   function go(stage) {
     if (!stages.includes(stage)) return;
 
-    if (
-      stage === "transitions" &&
-      !state.saved.every(Boolean)
-    ) {
-      alert("Lengkapi dan simpan ketiga kartu terlebih dahulu.");
-      return;
-    }
+    // if (
+    //   stage === "transitions" &&
+    //   !state.saved.every(Boolean)
+    // ) {
+    //   alert("Lengkapi dan simpan ketiga kartu terlebih dahulu.");
+    //   return;
+    // }
 
     if (
       stage === "preview" &&
@@ -371,7 +372,7 @@ function onYouTubeIframeAPIReady() {
     $("cards-status").textContent =
       `${state.saved.filter(Boolean).length} dari 3 kartu siap`;
 
-    $("cards-next").disabled = !state.saved.every(Boolean);
+    // $("cards-next").disabled = !state.saved.every(Boolean);
   }
 
   document.querySelectorAll("[data-card]").forEach(button => {
@@ -464,17 +465,17 @@ function onYouTubeIframeAPIReady() {
      PILIHAN TRANSISI
   ========================================= */
 
-  document.querySelectorAll('input[name="transition-1"]').forEach(input => {
-    input.addEventListener("change", () => {
-      state.transitions[0] = input.value;
-      saveState();
-    });
-  });
+  // document.querySelectorAll('input[name="transition-1"]').forEach(input => {
+  //   input.addEventListener("change", () => {
+  //     state.transitions[0] = input.value;
+  //     saveState();
+  //   });
+  // });
 
-  $("transition-second").addEventListener("change", () => {
-    state.transitions[1] = $("transition-second").value;
-    saveState();
-  });
+  // $("transition-second").addEventListener("change", () => {
+  //   state.transitions[1] = $("transition-second").value;
+  //   saveState();
+  // });
 
   /* =========================================
      PRATINJAU PRESENTASI
@@ -547,9 +548,9 @@ function onYouTubeIframeAPIReady() {
     const reduceMotion =
       matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const effect = reduceMotion
-      ? "fade"
-      : (state.transitions[Math.min(previous, 1)] || "fade");
+    // const effect = reduceMotion
+    //   ? "fade"
+    //   : (state.transitions[Math.min(previous, 1)] || "fade");
 
     const card = $("presentation-card");
 
@@ -564,7 +565,7 @@ function onYouTubeIframeAPIReady() {
     // Memulai ulang animasi pada setiap perpindahan kartu.
     void card.offsetWidth;
 
-    card.classList.add(`effect-${effect}`);
+    // card.classList.add(`effect-${effect}`);
 
     saveState();
   }
@@ -760,12 +761,12 @@ function onYouTubeIframeAPIReady() {
 
   loadState();
 
-  document.querySelectorAll('input[name="transition-1"]').forEach(input => {
-    input.checked = input.value === state.transitions[0];
-  });
+  // document.querySelectorAll('input[name="transition-1"]').forEach(input => {
+  //   input.checked = input.value === state.transitions[0];
+  // });
 
-  $("transition-second").value =
-    state.transitions[1] || "fade";
+  // $("transition-second").value =
+  //   state.transitions[1] || "fade";
 
   renderCardForm();
   renderPreview();
@@ -792,8 +793,8 @@ function onYouTubeIframeAPIReady() {
         : "<strong>Coba perhatikan lagi.</strong><p>Layout padat membuat elemen saling bersaing.</p>";
   }
 
-  $("cards-next").disabled =
-    !state.saved.every(Boolean);
+  // $("cards-next").disabled =
+  //   !state.saved.every(Boolean);
 
   if (state.finished) {
     $("finish-message").hidden = false;
@@ -805,4 +806,123 @@ function onYouTubeIframeAPIReady() {
       fillIcon(element);
     }
   });
+
+  function getAllUserData({ includeImages = true } = {}) {
+    const cards = state.cards.map((card, index) => {
+      let title = card.title;
+      let fact = card.fact;
+      let image = card.image;
+
+      // Ambil nilai terbaru dari formulir kartu yang sedang dibuka,
+      // termasuk perubahan yang belum disimpan.
+      if (index === state.activeCard) {
+        title = $("card-title")?.value ?? title;
+        fact = $("card-fact")?.value ?? fact;
+        image = currentPhoto;
+      }
+
+      const result = {
+        number: index + 1,
+        name: cardNames[index],
+        title,
+        fact,
+        saved: !!state.saved[index]
+      };
+
+      // Gambar berupa Data URL (base64).
+      // Bisa dikeluarkan dari hasil untuk menghindari data JSON terlalu besar.
+      if (includeImages) {
+        result.image = image || null;
+      }
+
+      return result;
+    });
+
+    const selectedChapter = document.querySelector(
+      "[data-chapter].active"
+    );
+
+    return {
+      layoutChoice: state.layoutChoice || null,
+
+      layoutCorrect: state.layoutChoice
+        ? state.layoutChoice === "clear"
+        : null,
+
+      cards,
+
+      // transitions: {
+      //   first: state.transitions[0] || null,
+      //   second: state.transitions[1] || null
+      // },
+
+      checklist: {
+        tempo: state.checks.tempo,
+        intonasi: state.checks.intonasi,
+        kontak: state.checks.kontak,
+        media: state.checks.media
+      },
+
+      practice: {
+        durationSeconds: 30,
+        remainingSeconds: state.remaining,
+        elapsedSeconds: 30 - state.remaining,
+        finished: state.finished
+      },
+
+      selectedChapter: selectedChapter?.dataset.chapter ?? null,
+
+      completion: {
+        savedCards: [...state.saved],
+        totalSaved: state.saved.filter(Boolean).length,
+        allCardsSaved: state.saved.every(Boolean)
+      }
+    };
+  }
+
+  document.querySelector("[data-download]").addEventListener("click", () => {
+    const saved = getAllUserData()
+
+    if (!saved) return;
+
+    console.log({ saved });
+
+
+    const nama = document.querySelector("[data-input='nama'] input").value.toUpperCase() || "-";
+    const kelas = document.querySelector("[data-input='kelas'] input").value || "-";
+
+    document.querySelector(".value.nama").textContent = nama;
+    document.querySelector(".value.kelas").textContent = kelas;
+    document.querySelector(".value.date-txt").textContent = getDate();
+
+    const arrLabel = [
+      "Pembuka",
+      "Detail",
+      "Kutipan",
+      "Gambar",
+    ]
+
+    const table = document.querySelector(".table-card");
+    table.innerHTML = "";
+    saved.cards.forEach((el, i) => {
+      table.insertAdjacentHTML("beforeend", `
+      <tr>
+      <td>${arrLabel[i]}</td>
+      <td>${el.title}</td>
+      <td>${el.fact}</td>
+      <td>
+      <div class="img" style="background-image:url(${el.image});"></div>
+      </td>
+      </tr>
+      `)
+    })
+
+    printPage()
+  })
+
 })();
+
+
+document.querySelectorAll("input").forEach(el => {
+  el.value = ""
+})
