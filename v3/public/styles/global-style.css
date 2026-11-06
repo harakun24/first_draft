@@ -892,8 +892,15 @@ body:has(:popover-open) {
     }
   }
 
-  body.print * {
-    visibility: hidden !important;
+  .main,
+  .header,
+  .footer {
+    /* visibility: hidden !important; */
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    left: -99999px;
+    display: none;
   }
 }
 
